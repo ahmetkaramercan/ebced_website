@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>EBCED HESAPLAMA</h2>
+    
+    <div class="tabs">
+        <a href="{{ url_for('bireysel_analiz') }}" class="tab">Bireysel Analiz</a>
+        <a href="{{ url_for('iliski_analizi') }}" class="tab active">İlişki Analizi</a>
+        <a href="{{ url_for('sure_hesaplama') }}" class="tab">Sure Hesaplama</a>
+    </div>
+
+    <div class="form-container">
+        <h3>Bilgiler</h3>
+        <p class="info">Aralarda boşluk olacak şekilde iki kişinin de doğum gününü giriniz.(09 03 2001)(03 07 1998)</p>
+        
+        <form method="POST" action="{{ url_for('iliski_analizi') }}">
+            <div class="form-group">
+                <label for="dogum_gunu1">Doğum Günü 1</label>
+                <input type="text" id="dogum_gunu1" name="dogum_gunu1" placeholder="GG AA YYYY" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="dogum_gunu2">Doğum Günü 2</label>
+                <input type="text" id="dogum_gunu2" name="dogum_gunu2" placeholder="GG AA YYYY" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Hesapla</button>
+        </form>
+    </div>
+
+    {% if results %}
+    <div class="results">
+        <h3>Sonuçlar:</h3>
+        
+        <div class="result-section">
+            <h4>İlişki pin kodu:</h4>
+            <pre>{{ results.iliski_pin_kodu }}</pre>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %} 

@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>EBCED HESAPLAMA</h2>
+    
+    <div class="tabs">
+        <a href="{{ url_for('bireysel_analiz') }}" class="tab">Bireysel Analiz</a>
+        <a href="{{ url_for('iliski_analizi') }}" class="tab">İlişki Analizi</a>
+        <a href="{{ url_for('sure_hesaplama') }}" class="tab active">Sure Hesaplama</a>
+    </div>
+
+    <div class="form-container">
+        <h3>Bilgiler</h3>
+        <p class="info">Doğum tarihinizi ve kişisel bilgilerinizi girerek sure ve esma hesaplaması yapabilirsiniz.</p>
+        
+        <form method="POST" action="{{ url_for('sure_hesaplama') }}">
+            <div class="form-group">
+                <label for="dogum_gunu">Doğum Tarihi</label>
+                <div class="date-input-container">
+                    <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY veya GG MM YYYY" required>
+                    <input type="date" id="date_picker" aria-label="Tarih seçici">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="isim">İsim</label>
+                <input type="text" id="isim" name="isim" placeholder="İsminiz" required>
+            </div>
+
+            <div class="form-group">
+                <label for="anne_ismi">Anne İsmi</label>
+                <input type="text" id="anne_ismi" name="anne_ismi" placeholder="Anne ismi" required>
+            </div>
+
+            <div class="form-group">
+                <label for="baba_ismi">Baba İsmi</label>
+                <input type="text" id="baba_ismi" name="baba_ismi" placeholder="Baba ismi" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Hesapla</button>
+        </form>
+    </div>
+
+    {% if results %}
+    <div class="results">
+        <h3>Sonuçlar:</h3>
+        
+        <div class="result-section">
+            <h4>1. Kişi Bilgileri:</h4>
+            <p>{{ results.kisi.isim }} : 
+                <span class="arabic-container">{{ results.kisi.arabic_text }}</span>
+                (Ebced değeri: {{ results.kisi.ebced_value }})
+            </p>
+        </div>
+
+        <div class="result-section">
+            <h4>2. Anne Bilgileri:</h4>
+            <p>{{ results.anne.isim }} : 
+                <span class="arabic-container">{{ results.anne.arabic_text }}</span>
+                (Ebced değeri: {{ results.anne.ebced_value }})
+            </p>
+        </div>
+
+        <div class="result-section">
+            <h4>3. Baba Bilgileri:</h4>
+            <p>{{ results.baba.isim }} : 
+                <span class="arabic-container">{{ results.baba.arabic_text }}</span>
+                (Ebced değeri: {{ results.baba.ebced_value }})
+            </p>
+        </div>
+
+        <div class="result-section">
+            <h4>4. Akıl Sayısı:</h4>
+            <p>{{ results.akil_sayisi }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>5. Fikir Sayısı:</h4>
+            <p>{{ results.fikir_sayisi }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>6. En Yakın Esma:</h4>
+            <p>{{ results.en_yakin_esma }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>7. En Yakın Sure:</h4>
+            <p>{{ results.en_yakin_sure }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<style>
+.arabic-container {
+    display: inline-block;
+    font-size: 2em;
+    font-family: "Amiri", "Noto Naskh Arabic", "Traditional Arabic", Arial;
+    margin: 0 10px;
+    direction: rtl;
+    text-align: right;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap');
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('dogum_gunu');
+    const datePicker = document.getElementById('date_picker');
+
+    // Date picker'dan text input'a
+    datePicker.addEventListener('change', function(e) {
+        if (e.target.value) {
+            const date = new Date(e.target.value);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            dateInput.value = `${day}.${month}.${year}`;
+        }
+    });
+
+    // Text input'tan date picker'a
+    dateInput.addEventListener('input', function(e) {
+        const value = e.target.value;
+        const normalized = value.replace(/[/\s-]/g, '.');
+        const parts = normalized.split('.');
+        
+        if (parts.length === 3) {
+            const day = parts[0].padStart(2, '0');
+            const month = parts[1].padStart(2, '0');
+            const year = parts[2];
+            
+            const date = new Date(year, month - 1, day);
+            if (!isNaN(date) && date.getFullYear() == year) {
+                datePicker.value = `${year}-${month}-${day}`;
+            }
+        }
+    });
+});
+</script>
+{% endblock %} 

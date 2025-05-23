@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>Profil Ayarları</h2>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if 'error' in message.lower() %}alert-error{% else %}alert-success{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div class="form-container">
+        <h3>Kullanıcı Adı Değiştir</h3>
+        <form method="POST" action="{{ url_for('profile', action='username') }}">
+            <input type="hidden" name="action" value="username">
+            <div class="form-group">
+                <label for="new_username">Yeni Kullanıcı Adı</label>
+                <input type="text" id="new_username" name="new_username" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_username">Yeni Kullanıcı Adı (Tekrar)</label>
+                <input type="text" id="confirm_username" name="confirm_username" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Kullanıcı Adını Değiştir</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <h3>Şifre Değiştir</h3>
+        <form method="POST" action="{{ url_for('profile', action='password') }}">
+            <input type="hidden" name="action" value="password">
+            <div class="form-group">
+                <label for="new_password">Yeni Şifre</label>
+                <input type="password" id="new_password" name="new_password" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm_password">Yeni Şifre (Tekrar)</label>
+                <input type="password" id="confirm_password" name="confirm_password" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Şifreyi Değiştir</button>
+        </form>
+    </div>
+    
+    <div class="logout-container">
+        <a href="{{ url_for('logout') }}" class="logout-btn">Çıkış Yap</a>
+    </div>
+</div>
+
+<style>
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    color: #ff8c00;
+    margin-bottom: 15px;
+}
+
+.alert {
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.alert-error {
+    background-color: #ffebee;
+    color: #c62828;
+    border: 1px solid #ef9a9a;
+}
+
+.alert-success {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border: 1px solid #a5d6a7;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #ff8c00;
+    box-shadow: 0 0 0 2px rgba(255,140,0,0.1);
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: #ff8c00;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #e67e00;
+}
+
+.logout-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.logout-btn {
+    display: inline-block;
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    background-color: #dc3545;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    text-align: center;
+}
+
+.logout-btn:hover {
+    background-color: #c82333;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .form-container {
+        padding: 15px;
+    }
+
+    .form-group label {
+        font-size: 14px;
+    }
+
+    .form-group input {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .logout-btn {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+</style>
+{% endblock %} 

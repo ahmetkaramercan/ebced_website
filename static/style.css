@@ -1,0 +1,255 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+header {
+    background-color: #1a1a1a;
+    color: #1a1a1a;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.logo span {
+    color: #ff8c00;  /* Changed to orange */
+}
+
+nav {
+    display: flex;
+    gap: 1.2rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    font-size: 0.9rem;
+}
+
+nav a:hover, nav a.active {
+    background-color: #ff8c00;  /* Changed to orange */
+}
+
+/* Main Content Styles */
+main {
+    flex: 1;
+    margin-top: 80px; /* Header height + some padding */
+    padding-bottom: 60px; /* Footer height */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #2c3e50;
+    font-size: 1.8rem;
+}
+
+/* Tabs Styles */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.tab {
+    padding: 1rem 2rem;
+    border: none;
+    background-color: #ecf0f1;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.tab.active {
+    background-color: #ff8c00;  /* Changed to orange */
+    color: white;
+}
+
+/* Form Styles */
+.form-container {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2.5rem;
+}
+
+.info {
+    margin-bottom: 1.5rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: #2c3e50;
+    font-size: 1rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    background-color: #ff8c00;  /* Changed to orange */
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1.1rem;
+    min-width: 200px;
+}
+
+.submit-btn:hover {
+    background-color: #ff7000;  /* Darker orange */
+}
+
+/* Results Styles */
+.results {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.result-section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #eee;
+}
+
+.result-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.result-section h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+pre {
+    font-family: monospace;
+    white-space: pre-wrap;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 0.8rem;
+    width: 100%;
+    margin-top: auto;
+    font-size: 0.9rem;
+}
+
+/* Date Input Styles */
+.date-input-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.date-input-container input[type="date"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+.date-input-container input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Auth Button Styles */
+.auth-btn {
+    background-color: #ff8c00;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    margin-left: 1rem;
+}
+
+.auth-btn:hover {
+    background-color: #ff7000;
+}
+
+/* Login Form Specific Styles */
+.error-message {
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+}
+
+/* Ensure form container is centered for login */
+.form-container.login {
+    max-width: 400px;
+    margin: 2rem auto;
+} 

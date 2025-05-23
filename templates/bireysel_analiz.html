@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>EBCED HESAPLAMA</h2>
+    
+    <div class="tabs">
+        <a href="{{ url_for('bireysel_analiz') }}" class="tab active">Bireysel Analiz</a>
+        <a href="{{ url_for('iliski_analizi') }}" class="tab">İlişki Analizi</a>
+        <a href="{{ url_for('sure_hesaplama') }}" class="tab">Sure Hesaplama</a>
+    </div>
+
+    <div class="form-container">
+        <h3>Bilgiler</h3>
+        <p class="info">Doğum tarihinizi seçebilir veya elle girebilirsiniz. (Örn: 09.02.2003 veya 09/02/2003 veya 09 02 2003)</p>
+        
+        <form method="POST" action="{{ url_for('bireysel_analiz') }}">
+            <div class="form-group">
+                <label for="dogum_gunu">Doğum Günü</label>
+                <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY" required>
+                <input type="date" id="date_picker" onchange="updateDateInput(this.value)">
+            </div>
+            
+            <div class="form-group">
+                <label for="isim_soyisim">İsim Soyisim</label>
+                <input type="text" id="isim_soyisim" name="isim_soyisim" placeholder="İsim soyisim" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Gönder</button>
+        </form>
+    </div>
+
+    {% if results %}
+    <div class="results">
+        <h3>Sonuçlar:</h3>
+        
+        <div class="result-section">
+            <h4>Yaşam Yolu:</h4>
+            <p>{{ results.yasam_yolu }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Bereket Sayısı:</h4>
+            <p>{{ results.bereket_sayisi }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Pin Kodu:</h4>
+            <pre>{{ results.pin_kodu }}</pre>
+        </div>
+
+        <div class="result-section">
+            <h4>Çakra Dağılımı:</h4>
+            <pre>{{ results.chakra }}</pre>
+        </div>
+
+        <div class="result-section">
+            <h4>Ana Kulvar:</h4>
+            <p>{{ results.ana_kulvar }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Yan Kulvar:</h4>
+            <p>{{ results.yan_kulvar }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Dönüşüm Yılları:</h4>
+            <pre>{{ results.donusum_yillari }}</pre>
+        </div>
+
+        <div class="result-section">
+            <h4>Pin Kodu Özellikleri:</h4>
+            <p>{{ results.pin_kodu_ozellikleri }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('dogum_gunu');
+    const datePicker = document.getElementById('date_picker');
+
+    // Date picker'dan text input'a
+    datePicker.addEventListener('change', function(e) {
+        if (e.target.value) {
+            const date = new Date(e.target.value);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            dateInput.value = `${day}.${month}.${year}`;
+        }
+    });
+
+    // Text input'tan date picker'a
+    dateInput.addEventListener('input', function(e) {
+        const value = e.target.value;
+        // Tüm ayraçları nokta ile değiştir
+        const normalized = value.replace(/[/\s-]/g, '.');
+        const parts = normalized.split('.');
+        
+        if (parts.length === 3) {
+            const day = parts[0].padStart(2, '0');
+            const month = parts[1].padStart(2, '0');
+            const year = parts[2];
+            
+            // Geçerli bir tarih mi kontrol et
+            const date = new Date(year, month - 1, day);
+            if (!isNaN(date) && date.getFullYear() == year) {
+                datePicker.value = `${year}-${month}-${day}`;
+            }
+        }
+    });
+});
+</script>
+{% endblock %} 
