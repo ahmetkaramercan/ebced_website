@@ -297,10 +297,10 @@ def pin_kodu_hesaplama(dogum_tarihi):
 
     # Değerleri ekrana yazdır
     result = ""
-    result += f"{k[0]}       {k[1]}       {k[2]}      {k[3]}      {k[4]}\n"
-    result += f"     {k[5]}       {k[6]}\n"
-    result += f"         {k[7]}\n"
-    result += f"         {k[8]}\n\n"
+    result += f"{k[0]}    {k[1]}    {k[2]}    {k[3]}   {k[4]}\n"
+    result += f"  {k[5]}     {k[6]}\n"
+    result += f"      {k[7]}\n"
+    result += f"      {k[8]}\n\n"
     
     # Pin kodu yorumlarını ekle
     result += "Pin Kodu Yorumları:\n"
@@ -366,13 +366,20 @@ def donusum_yillari_bulma(dogum_tarihi):
     yas = 0
 
     result = ""
+
+    from datetime import datetime
+    current_year = datetime.now().year
+
+    donusum_rakami = ebced_toplama_asamali(ebced_toplama(current_year), ebced_toplama(gun), ebced_toplama(ay))
+    result += f"Bu yıl {int(ay)}.ayın {int(gun)}.günü sonrası dönüşüm rakamı {donusum_rakami}.(Doğum gününe kadarki dönüşüm rakamı: {ebced_toplama(ebced_toplama(current_year-1), ebced_toplama(gun), ebced_toplama(ay))}) \n\n"
+
     while yas <= 70:
         yil_rakam_toplami = sum(map(int, str(yil)))
         yeni_yil = yil + yil_rakam_toplami
         yas = yeni_yil - dogum_yili
 
         donusum_rakami = ebced_toplama_asamali(ebced_toplama(yeni_yil), ebced_toplama(gun), ebced_toplama(ay))
-        result += f"{yeni_yil} / {yas} yaş / dönüşüm rakamı: {yeni_yil} + {gun} + {ay} = {donusum_rakami} \n"
+        result += f"{yeni_yil} / {yas} yaş / dönüşüm rakamı: {donusum_rakami} \n"
 
         yil = yeni_yil
 
