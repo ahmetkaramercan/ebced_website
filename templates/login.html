@@ -3,8 +3,7 @@
 {% block content %}
 <div class="login-container">
     <div class="form-container">
-        <h2>Giriş</h2>
-        
+        <h2> Giriş </h2>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
@@ -145,15 +144,30 @@ h2 {
 @media (max-width: 768px) {
     .login-container {
         margin-top: 40px;
+        padding: 0;
+        max-width: 100%;
     }
 
     .form-container {
         padding: 20px;
+        border-radius: 0;
+        box-shadow: none;
+        background-color: transparent;
     }
 
     h2 {
         font-size: 1.5rem;
         margin-bottom: 20px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="password"] {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .submit-btn {
+        padding: 15px;
     }
 }
 </style>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KaderinSırriEBCED</title>
+    <title>Ebced Hesaplama</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <style>
         /* Reset and base styles */
@@ -165,7 +165,13 @@
         /* Responsive styles */
         @media (max-width: 768px) {
             header {
-                padding: 20px;
+                padding: 15px;
+            }
+
+            main {
+                margin-top: 70px;
+                padding: 0;
+                max-width: 100%;
             }
 
             .menu-toggle {
@@ -180,8 +186,9 @@
                 right: 0;
                 background-color: #1a1a1a;
                 flex-direction: column;
-                padding: 10px;
+                padding: 0;
                 box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                width: 100%;
             }
 
             .nav-container.active {
@@ -191,39 +198,46 @@
             nav {
                 flex-direction: column;
                 width: 100%;
-                gap: 10px;
+                gap: 0;
             }
 
             nav a {
                 width: 100%;
                 text-align: center;
-                padding: 12px;
+                padding: 15px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav a:last-child {
+                border-bottom: none;
             }
 
             .user-nav {
                 flex-direction: column;
                 width: 100%;
                 margin-left: 0;
-                gap: 10px;
+                gap: 0;
                 border-left: none;
                 padding-left: 0;
                 border-top: 1px solid rgba(255, 255, 255, 0.1);
-                padding-top: 10px;
-                margin-top: 10px;
             }
 
             .profile-link, .auth-btn {
                 width: 100%;
                 text-align: center;
+                padding: 15px;
+                margin: 0;
+                border-radius: 0;
+                border: none;
             }
 
-            main {
-                margin-top: 80px;
-                padding: 10px;
+            .profile-link {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             }
 
             .logo h1 {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -232,7 +246,7 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <h1>KaderinSırri<span>EBCED</span></h1>
+                <h1>Ebced<span>Hesaplama</span></h1>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             <div class="nav-container">
@@ -258,7 +272,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 KaderinSırrıEBCED. All rights reserved.</p>
+        <p>&copy; 2025 Ebced Hesaplama. All rights reserved.</p>
     </footer>
 
     <script>

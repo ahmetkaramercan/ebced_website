@@ -12,6 +12,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* Header Styles */
@@ -58,14 +60,16 @@ nav a:hover, nav a.active {
 /* Main Content Styles */
 main {
     flex: 1;
-    margin-top: 80px; /* Header height + some padding */
-    padding-bottom: 60px; /* Footer height */
+    margin-top: 80px;
+    padding-bottom: 60px;
+    width: 100%;
 }
 
 .container {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1rem;
+    width: 100%;
 }
 
 h2 {
@@ -105,6 +109,7 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 2.5rem;
+    width: 100%;
 }
 
 .info {
@@ -154,6 +159,7 @@ input[type="text"] {
     padding: 2.5rem;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .result-section {
@@ -252,4 +258,57 @@ input[type="password"] {
 .form-container.login {
     max-width: 400px;
     margin: 2rem auto;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    main {
+        margin-top: 60px;
+        padding-bottom: 40px;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .form-container {
+        padding: 1.5rem;
+        border-radius: 0;
+        margin-bottom: 1rem;
+    }
+
+    .results {
+        padding: 1.5rem;
+        border-radius: 0;
+    }
+
+    .tabs {
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .tab {
+        flex: 1;
+        min-width: 150px;
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="date"] {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+
+    .submit-btn {
+        width: 100%;
+        min-width: unset;
+    }
 } 
