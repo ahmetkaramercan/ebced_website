@@ -1,115 +1,3 @@
-import requests
-from bs4 import BeautifulSoup
-import arabic_reshaper
-from bidi.algorithm import get_display
-
-
-sureler = {
-    11: "HACC",
-    14: "TAHA",
-    15: "HUD",
-    26: "HADID",
-    36: "BELED",
-    51: "MAIDE",
-    54: "NEBE",
-    57: "HUMEZE",
-    63: "SEBE",
-    64: "NUH",
-    65: "ENBIYA",
-    70: "YASIN, LEYL",
-    72: "SECDE",
-    75: "ZILZAL",
-    77: "BEYYINE",
-    83: "MUCADDELE",
-    88: "NAHL",
-    90: "MULK, SAD",
-    93: "NECM",
-    100: "KAF",
-    103: "CIN",
-    105: "KEHF",
-    111: "ALA, NAS",
-    112: "NISA",
-    118: "CUMA",
-    120: "NEML, FIL",
-    124: "MUZZEMMIL",
-    126: "YUNUS",
-    132: "MUHAMMED, ABESE",
-    137: "MU-MIN",
-    140: "TALAK",
-    155: "KIYAMET",
-    156: "YUSUF",
-    162: "ENFAL, INSAN, ENAM",
-    167: "MAUN",
-    170: "KALEM",
-    182: "VAKIA",
-    190: "AHKAF",
-    193: "MUMINUN",
-    200: "ALAK",
-    210: "FELAK",
-    211: "HICR, BURUC",
-    214: "HAKKA",
-    215: "TUR",
-    221: "LOKMAN",
-    246: "RUM",
-    247: "ZUMER",
-    250: "SAFF",
-    256: "NUR",
-    258: "IBRAHIM",
-    263: "ISRA",
-    274: "RAD",
-    280: "KASAS",
-    283: "FECR",
-    290: "MERYEM, FATIR",
-    298: "RAHMAN",
-    304: "KADIR",
-    307: "BAKARA",
-    310: "TARIK",
-    314: "MEARIC",
-    327: "MUNAFIKUN",
-    340: "KAMER, NASR",
-    341: "INFITAR",
-    349: "MUTAFFIFIN",
-    352: "A RAF",
-    357: "KAFIRUN",
-    360: "ASR",
-    376: "KARIA",
-    391: "ALI IMRAN",
-    400: "ŞEMS",
-    413: "TEVBE",
-    431: "FURKAN",
-    460: "TIN",
-    486: "ADIYAT",
-    488: "FETIH",
-    494: "FATIHA",
-    508: "HAŞR",
-    516: "ŞURA",
-    519: "CASIYE",
-    529: "NAZIAT",
-    543: "MUMTEHINE",
-    548: "ANKEBUT",
-    552: "INŞIKAK",
-    559: "INŞIRAH",
-    572: "ŞUARA",
-    610: "KUREYŞ",
-    612: "HUCURAT",
-    636: "TEKVIR",
-    652: "SAFFAT",
-    655: "DUHAN",
-    658: "TAHRIM",
-    690: "FUSSILET",
-    712: "AHZAB",
-    722: "IHLAS",
-    726: "KEVSER",
-    731: "MURSELAT",
-    804: "TEBBET",
-    818: "DUHA",
-    893: "ZUHRUF",
-    1121: "TEKASUR",
-    1248: "MUDDESSIR",
-    1312: "ZARIYAT",
-    1316: "GAŞIYE",
-    1453: "TEGABUN"
-}
 
 esmalar = {
     13: {
@@ -144,7 +32,7 @@ esmalar = {
     },
     20: {
         "esma": "Ya Vedud",
-        "anlam": "Seven, sevilen demektir. Kainat sevgi üzerine yaratılmıştır. Bu isim bir insanda tecelli ederse kainatta bir kuşun kanat çırpışında bile sevgiyi derinden hisseder. Allah'ın kendisini sevdiğine olan inanç diğer insanlardan beklediği sevgi sebebiyle yaptığı yanlışların da önüne geçer. Ya Vedud esması aşkın ilmine talip olmaktır.",
+        "anlam": "Seven, sevilen demektir. Kainat sevgi üzerine yaratılmıştır. Bu isim bir insanda tecelli ederse kainatta bir kuşun kanat çırpışında bile sevgiyi derinden hisseder. Allah’ın kendisini sevdiğine olan inanç diğer insanlardan beklediği sevgi sebebiyle yaptığı yanlışların da önüne geçer. Ya Vedud esması aşkın ilmine talip olmaktır.",
         "zikir_gunu": "Pazartesi",
         "zikir_saati": "Öğlen ezanına iki saat kala, ikindinin son vaktinde, gece teheccüd vaktinde."
     },
@@ -156,13 +44,13 @@ esmalar = {
     },
     37: {
         "esma": "Ya Evvel",
-        "anlam": "Tek önceliğin Allah olduğunu hatırlatan isimdir. Kendinizde önceliklerinizi fark etmenize vesile olur. Her şeyden önce Allah'a ihtiyacımız olduğunun bilincini verir. Boğulma noktasına gelen insanların en büyük ilaçlarındandır.",
+        "anlam": "Tek önceliğin Allah olduğunu hatırlatan isimdir. Kendinizde önceliklerinizi fark etmenize vesile olur. Her şeyden önce Allah’a ihtiyacımız olduğunun bilincini verir. Boğulma noktasına gelen insanların en büyük ilaçlarındandır.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah güneş doğarken ve ikindi namazı sonrası"
     },
     46: {
         "esma": "Ya Veliyy",
-        "anlam": "İnanan insanın dostu ve sahibi demektir. Yalnızlık dehlizine düşen insanın kurtuluş reçetesidir. Evhamları ve vesveseleri bitirme vesilesidir. Bu ismi çokça zikretmek Allah'ın dostluğunu kazanmaya vesile olur.",
+        "anlam": "İnanan insanın dostu ve sahibi demektir. Yalnızlık dehlizine düşen insanın kurtuluş reçetesidir. Evhamları ve vesveseleri bitirme vesilesidir. Bu ismi çokça zikretmek Allah’ın dostluğunu kazanmaya vesile olur.",
         "zikir_gunu": "Salı",
         "zikir_saati": "Sabah güneş doğarken ve ikindi sonrası. Gece okumalarında tam gece yarısı."
     },
@@ -174,19 +62,19 @@ esmalar = {
     },
     48: {
         "esma": "Ya Macid",
-        "anlam": "Allah'ın en zirvede olması demektir. Kulda bu isim tecelli ederse zirvede olanın Allah olduğunu anlar. Kibirlenmekten muhafaza eder.",
+        "anlam": "Allah’ın en zirvede olması demektir. Kulda bu isim tecelli ederse zirvede olanın Allah olduğunu anlar. Kibirlenmekten muhafaza eder.",
         "zikir_gunu": "Cuma",
         "zikir_saati": "Sabah erken güneş doğarken ve ikindi namazı sonrası. Gece okumalarında akşamdan sonraki ikinci saat ve gece yarısı."
     },
     55: {
         "esma": "Ya Mucib",
-        "anlam": "Dualara karşılık veren demektir. Allah'la sohbet edebileceğinin farkına varmayı sağlar. Dile dökebilmeyi ve fiiliyata dökmeyi kolaylaştırır.",
+        "anlam": "Dualara karşılık veren demektir. Allah’la sohbet edebileceğinin farkına varmayı sağlar. Dile dökebilmeyi ve fiiliyata dökmeyi kolaylaştırır.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah gün doğduğu vakitte, ikindi namazı sonrasında"
     },
     56: {
         "esma": "Ya Mubdi",
-        "anlam": "İlk olarak yapan demektir. Allah'ın yarattığı şeyi ilk ve benzersiz olarak yaratmasını anlatır. İcat yeteneği verir. Özellikle mühendisler için idealdir.",
+        "anlam": "İlk olarak yapan demektir. Allah’ın yarattığı şeyi ilk ve benzersiz olarak yaratmasını anlatır. İcat yeteneği verir. Özellikle mühendisler için idealdir.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah gün doğarken, ikindi namazı sonrası, gece yarısı"
     },
@@ -210,13 +98,13 @@ esmalar = {
     },
     66: {
         "esma": "Ya Vekil",
-        "anlam": "Tevekkül edenlerin işlerini en güzel şekilde sonuçlandıran demektir. Bu isme emek verenler Allah'ı vekil tayin etmenin tadını çıkarır. Sabır ve teslimiyet kazandırır.",
+        "anlam": "Tevekkül edenlerin işlerini en güzel şekilde sonuçlandıran demektir. Bu isme emek verenler Allah’ı vekil tayin etmenin tadını çıkarır. Sabır ve teslimiyet kazandırır.",
         "zikir_gunu": "Cuma",
         "zikir_saati": "Sabah gün doğduğu vakitte, ikindi sonrası, akşam namazından sonra, gece teheccüd vaktinde."
     },
     66.1: {
         "esma": "Ya Allah",
-        "anlam": "Lafza-i Celal'dir. Celalinden cemaline sığınılarak zikredilir.",
+        "anlam": "Lafza-i Celal’dir. Celalinden cemaline sığınılarak zikredilir.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah güneş doğarken ve ikindi namazı sonrası."
     },
@@ -228,7 +116,7 @@ esmalar = {
     },
     68.1: {
         "esma": "Ya Hakem",
-        "anlam": "Her şeyi en doğru şekilde takdir eden demektir. Allah'ın kararına teslimiyet kazandırır. Teslimiyeti ve kabulü kolaylaştırır.",
+        "anlam": "Her şeyi en doğru şekilde takdir eden demektir. Allah’ın kararına teslimiyet kazandırır. Teslimiyeti ve kabulü kolaylaştırır.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah gün doğduğu vakitte."
     },
@@ -240,7 +128,7 @@ esmalar = {
     },
     73: {
         "esma": "Ya Celil",
-        "anlam": "Allah'ın büyüklüğünü mekandan ve zamandan münezzeh olarak gösterir. Korkulardan emin olmaya ve boyun eğmenin anlamını kavramaya vesile olur.",
+        "anlam": "Allah’ın büyüklüğünü mekandan ve zamandan münezzeh olarak gösterir. Korkulardan emin olmaya ve boyun eğmenin anlamını kavramaya vesile olur.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah gün doğarken, ikindi sonrası."
     },
@@ -257,14 +145,14 @@ esmalar = {
         "zikir_saati": "Sabah gün doğarken, ikindi sonrası, akşam sonrası, gece yarısı."
     },
     86: {
-        "esma": "Ya Bedi'",
+        "esma": "Ya Bedi’",
         "anlam": "Yoktan var eden, tefekküre yönlendiren, eksiksiz yaratandır. Kaybolduğumuzda yolumuzu bulmaya ve işleri en güzel şekilde yapmaya yardım eder.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah gün doğarken, ikindi sonrası, gece yarısı."
-    },
+    }
     88: {
         "esma": "Ya Halim",
-        "anlam": "Allah'ın kudretli olduğu halde zaman tanımasıdır. Bu esma hoşgörü ve tevazu sahibi olmayı, anlayışlı olmayı kolaylaştırır.",
+        "anlam": "Allah’ın kudretli olduğu halde zaman tanımasıdır. Bu esma hoşgörü ve tevazu sahibi olmayı, anlayışlı olmayı kolaylaştırır.",
         "zikir_gunu": "Cumartesi",
         "zikir_saati": "Sabah güneş doğarken ve yaklaşık ikindi namazı sonrasıdır. Gece okumalarında tam gece yarısı."
     },
@@ -305,7 +193,7 @@ esmalar = {
         "zikir_saati": "Sabah gündoğarken, ikindi sonrası, gece yarısı."
     },
     114: {
-        "esma": "Ya Cami'",
+        "esma": "Ya Cami‘",
         "anlam": "Her şeyi bir araya toplayan demektir. Büyük nimetleri fark ettirir.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah güneş doğarken ve ikindi sonrası. Gece tam gece yarısı."
@@ -347,13 +235,13 @@ esmalar = {
         "zikir_saati": "Sabah gündoğarken, ikindi sonrası, gece yarısı."
     },
     136: {
-        "esma": "Ya Mü'min",
-        "anlam": "Koruyandır. Huzur verir. Korkulardan emin olmamıza ve Allah'a sığınmayı öğretir.",
+        "esma": "Ya Mü’min",
+        "anlam": "Koruyandır. Huzur verir. Korkulardan emin olmamıza ve Allah’a sığınmayı öğretir.",
         "zikir_gunu": "Pazartesi",
         "zikir_saati": "Sabah gündoğarken, ikindi sonrası, gece yarısı"
     },
     137: {
-        "esma": "Ya Vasi'",
+        "esma": "Ya Vasi’",
         "anlam": "İlmiyle her şeyi kuşatandır. Teslimiyetle yeniden düzlüğe çıkmaya vesile olur.",
         "zikir_gunu": "Pazartesi",
         "zikir_saati": "Sabah gündoğarken, ikindi sonrası, gece yarısından sonraki bir vakit"
@@ -378,7 +266,7 @@ esmalar = {
     },
     156: {
         "esma": "Ya Kayyum",
-        "anlam": "Her zaman diri olan ve her şeyi diri tutandır. Allah'ın bizimle olduğunu idrak ettirir, dirilik kazandırır.",
+        "anlam": "Her zaman diri olan ve her şeyi diri tutandır. Allah’ın bizimle olduğunu idrak ettirir, dirilik kazandırır.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah"
     },
@@ -389,7 +277,7 @@ esmalar = {
         "zikir_saati": "Güneş"
     },
     161: {
-        "esma": "Ya Mani'",
+        "esma": "Ya Mani’",
         "anlam": "Engelleyen, mümin kullarını koruyandır. Her şeyin kontrol altında olduğunu fark ettirir.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah gündoğarken, ikindi sonrası"
@@ -401,7 +289,7 @@ esmalar = {
         "zikir_saati": "Sabah güneş doğarken, ikindi sonrası, tam gece yarısı"
     },
     180: {
-        "esma": "Ya Semi'",
+        "esma": "Ya Semi’",
         "anlam": "Her şeyi işiten, duaları kabul edendir. Korkulardan emin eder, güven kazandırır.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah erken, ikindi sonrası, gece yarısı"
@@ -413,7 +301,7 @@ esmalar = {
         "zikir_saati": "Sabah güneş doğarken, ikindi sonrası, gece yarısı"
     },
     201: {
-        "esma": "Ya Nafi'",
+        "esma": "Ya Nafi’",
         "anlam": "Fayda veren şeyleri yaratandır. Ümit ve faydalı amellere yönlendirir.",
         "zikir_gunu": "Cuma veya Cumartesi",
         "zikir_saati": "Sabah"
@@ -443,7 +331,7 @@ esmalar = {
         "zikir_saati": "Sabah"
     },
     214: {
-        "esma": "Ya Bari'",
+        "esma": "Ya Bari’",
         "anlam": "Benzersiz yaratan demektir. Özgün üretim ve fayda bilinci verir.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah güneş doğarken, ikindi sonrası"
@@ -533,7 +421,7 @@ esmalar = {
         "zikir_saati": "Güneş doğarken, ikindi sonrası, tam gece yarısı"
     },
     351: {
-        "esma": "Ya Rafi'",
+        "esma": "Ya Rafi’",
         "anlam": "Şeref ve mevkileri yükselten. Hakkaniyetle saygı kazandırır.",
         "zikir_gunu": "Pazar",
         "zikir_saati": "Sabah erken, ikindi sonrası"
@@ -600,7 +488,7 @@ esmalar = {
     },
     662: {
         "esma": "Ya Mütekebbir",
-        "anlam": "Yüceliğin, büyüklüğün yalnızca Allah'a ait olduğunu öğretir. Mükemmeliyetçilikten kurtarır.",
+        "anlam": "Yüceliğin, büyüklüğün yalnızca Allah’a ait olduğunu öğretir. Mükemmeliyetçilikten kurtarır.",
         "zikir_gunu": "Perşembe",
         "zikir_saati": "Sabah, ikindi sonrası, gece yarısından sonra"
     },
@@ -630,7 +518,7 @@ esmalar = {
     },
     801: {
         "esma": "Ya Ahir",
-        "anlam": "Her şeyin sonunda O vardır. Kalıcı gücün Allah'ta olduğunu idrak ettirir.",
+        "anlam": "Her şeyin sonunda O vardır. Kalıcı gücün Allah’ta olduğunu idrak ettirir.",
         "zikir_gunu": "Salı veya Cuma",
         "zikir_saati": "Salı: Öğleden 2 saat önce ve akşamdan 1 saat önce, gece yarısı. Cuma: Güneş doğarken, ikindi sonrası, yatsıya doğru ve gece yarısı."
     },
@@ -707,187 +595,3 @@ esmalar = {
         "zikir_saati": "Sabah, ikindi sonrası"
     }
 }
-
-
-def get_ebced_and_arabic(url):
-    # Web sayfasına istek gönderme
-    response = requests.get(url)
-    
-    # İstek başarılı mı kontrol etme
-    if response.status_code == 200:
-        # HTML içeriğini alma
-        html_content = response.text
-        soup = BeautifulSoup(html_content, 'html.parser')
-        
-        # Tüm 'Sonebced' id'li div etiketlerini bulma
-        sonebced_divs = soup.find_all('div', {'id': 'Sonebced'})
-        
-        ebced_value = None
-        arabic_text = None
-        
-        for div in sonebced_divs:
-            h5_tag = div.find('h5')
-            if h5_tag:
-                h5_text = h5_tag.text.strip()
-                span_text = div.find('span').text.strip()
-                
-                if h5_text == 'Ebced Değeri':
-                    ebced_value = span_text
-                elif h5_text == 'Arapça Yazılışı':
-                    arabic_text = span_text # Arapça metni ters çevirme
-                    reshaped_text = arabic_reshaper.reshape(arabic_text)
-                    arabic_text = get_display(reshaped_text)
-        
-        return ebced_value, arabic_text
-    else:
-        return None, None
-
-# URL
-"""isim = input("İsminizi girin: ")
-anne_ismi = input("Annenizin ismini girin: ")
-baba_ismi = input("Babanızın ismini girin: ")
-
-url = "https://www.ozgulyildiz.com/araclar/ebced/"
-
-# Fonksiyonu çağırma ve ebced değeri ile Arapça yazılışı alma
-ebced_degeri, arabic_text = get_ebced_and_arabic(url + isim)
-print(f"Ebced Değeri: {ebced_degeri}")
-print(f"Arapça Yazılışı: {arabic_text}")
-"""
-
-
-def dogumGunuToplama(birthdate):
-    # Doğum tarihi 'gg aa yyyy' formatında olmalıdır.
-    total_sum = 0
-    for char in birthdate:
-        if char.isdigit():
-            total_sum += int(char)
-    
-    return total_sum
-
-def en_yakin_esma_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam):
-    # Gelen değerleri integer'a çeviriyoruz
-    try:
-        kisi_ebced = int(kisi_ebced)
-        anne_ebced = int(anne_ebced)
-        dogum_gunu_toplam = int(dogum_gunu_toplam)
-    except (ValueError, TypeError):
-        # Eğer çevrilemezse varsayılan değer olarak 0 kullanıyoruz
-        kisi_ebced = 0
-        anne_ebced = 0
-        dogum_gunu_toplam = 0
-    
-    toplam = kisi_ebced + anne_ebced + dogum_gunu_toplam
-    en_yakin = float('inf')
-    en_yakin_esma = None
-    en_yakin_deger = None
-    
-    for ebced_degeri, esma_detay in esmalar.items():
-        fark = abs(float(ebced_degeri) - toplam)
-        if fark < en_yakin:
-            en_yakin = fark
-            en_yakin_esma = esma_detay
-            en_yakin_deger = ebced_degeri
-    
-    return {
-        'esma': en_yakin_esma['esma'],
-        'ebced_degeri': en_yakin_deger,
-        'anlam': en_yakin_esma['anlam'],
-        'zikir_gunu': en_yakin_esma['zikir_gunu'],
-        'zikir_saati': en_yakin_esma['zikir_saati']
-    }
-
-def en_yakin_sure_bul(number1, number2, number3):
-    number = int(number1) + int(number2) + int(number3)
-
-    keys = list(sureler.keys())
-    closest_key = min(keys, key=lambda x: abs(x - number))
-
-    # Check if there is another close key
-    closest_keys = [closest_key]
-    keys.remove(closest_key)
-    if keys:
-        second_closest_key = min(keys, key=lambda x: abs(x - number))
-        if abs(second_closest_key - number) == abs(closest_key - number):
-            closest_keys.append(second_closest_key)
-
-    return {key: sureler[key] for key in closest_keys}
-
-
-def akil_fikir_sayisi_hesaplama(number1, number2):
-    try:
-        number1 = int(number1)
-        number2 = int(number2)
-    except ValueError:
-        return "Inputların ikisi de sayıya dönüştürülebilmelidir."
-
-    toplam = number1 + number2
-    kalan = toplam % 9
-    if kalan == 0:
-        kalan = 9
-        
-    return kalan
-
-def calculate_arabic_ebced(name):
-    """
-    İsmin Arapça yazılışını ve ebced değerini hesaplar
-    """
-    # Bu fonksiyon örnek olarak basit bir dönüşüm yapıyor
-    # Gerçek uygulamada daha kapsamlı bir Arapça dönüşüm sistemi kullanılmalı
-    arabic_values = {
-        'ahmet': ('احمد', 53),
-        'nazife': ('نظيفة', 1045),
-        'oğuz': ('زوغوا', 1020)
-    }
-    
-    name = name.lower()
-    if name in arabic_values:
-        return arabic_values[name]
-    return None, None
-
-def calculate_fikir_sayisi(dogum_gunu):
-    """
-    Doğum gününden fikir sayısını hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "2"
-
-def calculate_akil_zeka_sayisi(dogum_gunu):
-    """
-    Doğum gününden akıl/zeka sayısını hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "9"
-
-def get_esma(dogum_gunu, isim):
-    """
-    Kişinin Esmasını hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "{1106: 'Zâhir'}"
-
-def get_sure(dogum_gunu, isim):
-    """
-    Kişinin Suresini hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "{1121: 'TEKASUR'}"
-
-def calculate_sure_esma(dogum_gunu, isim, anne_ismi, baba_ismi):
-    """
-    Tüm Sure ve Esma hesaplamalarını yapar
-    """
-    # İsmin Arapça yazılışı ve ebced değeri
-    arabic_text, ebced_value = calculate_arabic_ebced(isim)
-    
-    results = {
-        'isim': isim,
-        'arabic_text': arabic_text,
-        'ebced_value': ebced_value,
-        'fikir_sayisi': akil_fikir_sayisi_hesaplama(dogum_gunu),
-        'akil_zeka_sayisi': akil_fikir_sayisi_hesaplama(dogum_gunu),
-        'esma': get_esma(dogum_gunu, isim),
-        'sure': get_sure(dogum_gunu, isim)
-    }
-    
-    return results
