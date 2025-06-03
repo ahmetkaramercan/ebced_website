@@ -46,7 +46,51 @@
 
         <div class="result-section">
             <h4>Pin Kodu:</h4>
-            <pre>{{ results.pin_kodu }}</pre>
+            <div class="pin-kodu-tablosu">
+                <table>
+                    <tr>
+                        <td>{{ results.dogum_gunu.split(' ')[0] }}</td>
+                        <td>{{ results.dogum_gunu.split(' ')[1] }}</td>
+                        <td>{{ results.dogum_gunu.split(' ')[2] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>{{ results.pin_kodu_dizilimi[0].split()[0] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[0].split()[1] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[0].split()[2] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[0].split()[3] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[0].split()[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td>{{ results.pin_kodu_dizilimi[1].split()[0] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[1].split()[1] }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>{{ results.pin_kodu_dizilimi[2].split()[0] }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>{{ results.pin_kodu_dizilimi[3].split()[0] }}</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <h4>Pin Kodu Yorumları:</h4>
+            {% for yorum in results.pin_kodu_yorumlari %}
+            <div class="pin-kodu-yorum">
+                {{ yorum | safe }}
+            </div>
+            {% endfor %}
         </div>
 
         <div class="result-section">
@@ -114,4 +158,49 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+
+<style>
+.pin-kodu-tablosu {
+    margin: 20px 0;
+}
+
+.pin-kodu-tablosu h3 {
+    color: #4CAF50;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.pin-kodu-tablosu table {
+    border-collapse: collapse;
+    width: auto;
+    margin: 0;
+}
+
+.pin-kodu-tablosu td {
+    border: 1px solid #ff8c00;  /* Turuncu renk */
+    padding: 15px 25px;
+    text-align: center;
+    font-size: 1.2em;
+    min-width: 60px;
+    background-color: #fff;  /* Beyaz arka plan */
+}
+
+.pin-kodu-tablosu tr:first-child td {
+    background-color: #fff3e6;  /* Açık turuncu arka plan */
+    font-weight: bold;
+}
+
+.pin-kodu-yorum {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border-left: 4px solid #ff8c00;
+    white-space: pre-line;
+}
+
+.pin-kodu-yorum:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+</style>
 {% endblock %} 

@@ -93,7 +93,10 @@
 
         <div class="result-section">
             <h4>7. En Yakın Sure:</h4>
-            <p>{{ results.en_yakin_sure }}</p>
+            <div class="esma-details">
+                <p><strong>Sure:</strong> {{ results.en_yakin_sure.sure }}</p>
+                <p><strong>Ebced Değeri:</strong> {{ results.en_yakin_sure.ebced_degeri }}</p>
+            </div>
         </div>
     </div>
     {% endif %}
@@ -137,6 +140,24 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap');
+
+.sure-detay {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border-left: 4px solid #6c757d;
+}
+
+.sure-detay p {
+    margin: 5px 0;
+    font-size: 1.1em;
+}
+
+.sure-detay strong {
+    color: #495057;
+    margin-right: 10px;
+}
 </style>
 
 <script>

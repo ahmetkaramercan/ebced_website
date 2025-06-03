@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import arabic_reshaper
 from bidi.algorithm import get_display
+import sqlite3
 
 
 sureler = {
@@ -797,21 +798,32 @@ def en_yakin_esma_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam):
         'zikir_saati': en_yakin_esma['zikir_saati']
     }
 
-def en_yakin_sure_bul(number1, number2, number3):
-    number = int(number1) + int(number2) + int(number3)
-
-    keys = list(sureler.keys())
-    closest_key = min(keys, key=lambda x: abs(x - number))
-
-    # Check if there is another close key
-    closest_keys = [closest_key]
-    keys.remove(closest_key)
-    if keys:
-        second_closest_key = min(keys, key=lambda x: abs(x - number))
-        if abs(second_closest_key - number) == abs(closest_key - number):
-            closest_keys.append(second_closest_key)
-
-    return {key: sureler[key] for key in closest_keys}
+def en_yakin_sure_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam):
+    try:
+        kisi_ebced = int(kisi_ebced)
+        anne_ebced = int(anne_ebced)
+        dogum_gunu_toplam = int(dogum_gunu_toplam)
+    except (ValueError, TypeError):
+        kisi_ebced = 0
+        anne_ebced = 0
+        dogum_gunu_toplam = 0
+    
+    toplam = kisi_ebced + anne_ebced + dogum_gunu_toplam
+    en_yakin = float('inf')
+    en_yakin_sure = None
+    en_yakin_deger = None
+    
+    for ebced_degeri, sure_ismi in sureler.items():
+        fark = abs(float(ebced_degeri) - toplam)
+        if fark < en_yakin:
+            en_yakin = fark
+            en_yakin_sure = sure_ismi
+            en_yakin_deger = ebced_degeri
+    
+    return {
+        'sure': en_yakin_sure,
+        'ebced_degeri': en_yakin_deger
+    }
 
 
 def akil_fikir_sayisi_hesaplama(number1, number2):
@@ -828,50 +840,38 @@ def akil_fikir_sayisi_hesaplama(number1, number2):
         
     return kalan
 
+def get_name_details_from_db(isim):
+    """Veritabanından isim detaylarını çeker"""
+    try:
+        conn = sqlite3.connect('isimler.db')
+        cursor = conn.cursor()
+        
+        cursor.execute('SELECT ebced_degeri, arapca_yazilis FROM isimler WHERE isim = ? COLLATE NOCASE', (isim,))
+        result = cursor.fetchone()
+        
+        if result:
+            return {
+                'ebced_degeri': result[0],
+                'arapca_yazilis': result[1]
+            }
+        return None
+        
+    except Exception as e:
+        print(f"Veritabanı hatası: {e}")
+        return None
+    finally:
+        if conn:
+            conn.close()
+
 def calculate_arabic_ebced(name):
     """
-    İsmin Arapça yazılışını ve ebced değerini hesaplar
+    İsmin Arapça yazılışını ve ebced değerini veritabanından çeker
     """
-    # Bu fonksiyon örnek olarak basit bir dönüşüm yapıyor
-    # Gerçek uygulamada daha kapsamlı bir Arapça dönüşüm sistemi kullanılmalı
-    arabic_values = {
-        'ahmet': ('احمد', 53),
-        'nazife': ('نظيفة', 1045),
-        'oğuz': ('زوغوا', 1020)
-    }
-    
-    name = name.lower()
-    if name in arabic_values:
-        return arabic_values[name]
+    details = get_name_details_from_db(name)
+    if details:
+        return details['arapca_yazilis'], details['ebced_degeri']
     return None, None
 
-def calculate_fikir_sayisi(dogum_gunu):
-    """
-    Doğum gününden fikir sayısını hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "2"
-
-def calculate_akil_zeka_sayisi(dogum_gunu):
-    """
-    Doğum gününden akıl/zeka sayısını hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "9"
-
-def get_esma(dogum_gunu, isim):
-    """
-    Kişinin Esmasını hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "{1106: 'Zâhir'}"
-
-def get_sure(dogum_gunu, isim):
-    """
-    Kişinin Suresini hesaplar
-    """
-    # Örnek hesaplama - gerçek hesaplama algoritması uygulanmalı
-    return "{1121: 'TEKASUR'}"
 
 def calculate_sure_esma(dogum_gunu, isim, anne_ismi, baba_ismi):
     """

@@ -9,9 +9,28 @@ import os
 import arabic_reshaper
 from bidi.algorithm import get_display
 from models import User
+from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
+
+# Oturum ayarları
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)  # 31 günlük oturum süresi
+
+# Production ortamında mı yoksa development ortamında mı olduğumuzu kontrol et
+is_production = os.environ.get('RENDER', False)  # Render.com'da RENDER environment variable'ı set edilir
+
+if is_production:
+    app.config['SESSION_COOKIE_SECURE'] = True  # Sadece HTTPS üzerinden çerez gönder
+    app.config['REMEMBER_COOKIE_SECURE'] = True
+else:
+    app.config['SESSION_COOKIE_SECURE'] = False  # Geliştirme ortamında HTTP'ye izin ver
+    app.config['REMEMBER_COOKIE_SECURE'] = False
+
+app.config['SESSION_COOKIE_HTTPONLY'] = True  # JavaScript ile çerez erişimini engelle
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # CSRF koruması
+app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=31)  # Remember Me süresi
+app.config['REMEMBER_COOKIE_HTTPONLY'] = True
 
 # Flask-Login setup
 login_manager = LoginManager()
@@ -39,13 +58,38 @@ def login():
         password = request.form.get('password')
         remember = request.form.get('remember', False)
         
+        # Debug için
+        print(f"Login attempt for user: {username}")
+        print(f"Remember me checked: {remember}")
+        
+        if not username or not password:
+            flash('Kullanıcı adı ve şifre gereklidir', 'error')
+            return render_template('login.html')
+        
         user = User.get(username)
-        if user and user.check_password(password):
-            login_user(user, remember=remember)
+        if user is None:
+            print(f"User not found: {username}")
+            flash('Geçersiz kullanıcı adı veya şifre', 'error')
+            return render_template('login.html')
+            
+        if not user.check_password(password):
+            print(f"Invalid password for user: {username}")
+            flash('Geçersiz kullanıcı adı veya şifre', 'error')
+            return render_template('login.html')
+        
+        try:
+            # Oturumu kalıcı yap
+            session.permanent = True
+            # Kullanıcıyı hatırla seçeneği ile giriş yap
+            login_user(user, remember=remember, duration=timedelta(days=31))
+            print(f"Login successful for user: {username}")
+            
             next_page = request.args.get('next')
             return redirect(next_page or url_for('bireysel_analiz'))
-        else:
-            flash('Geçersiz kullanıcı adı veya şifre', 'error')
+        except Exception as e:
+            print(f"Error during login: {str(e)}")
+            flash('Giriş yapılırken bir hata oluştu. Lütfen tekrar deneyin.', 'error')
+            return render_template('login.html')
             
     return render_template('login.html')
 
@@ -96,12 +140,12 @@ def index():
 def bireysel_analiz():
     results = None
     if request.method == 'POST':
-        dogum_gunu = request.form['dogum_gunu']
-        dogum_gunu = dogum_gunu.replace('.', ' ').replace('/', ' ')
+        input_dogum_gunu = request.form['dogum_gunu'] 
+        dogum_gunu = input_dogum_gunu.replace('.', ' ').replace('/', ' ')
         dogum_gunu = ' '.join(dogum_gunu.split())
         isim_soyisim = request.form['isim_soyisim']
         
-        pin_kodu_result, k_values = pin_kodu_hesaplama(dogum_gunu)
+        pin_kodu_dizilimi, k_values, pin_kodu_yorumlari = pin_kodu_hesaplama(dogum_gunu)
         chakra_result = chakra_hesapla(k_values, isim_soyisim)
         yasam_yolu = yasam_yolu_hesapla(dogum_gunu)
         bereket_sayisi = bereket_rakami_bulma(dogum_gunu)
@@ -111,7 +155,9 @@ def bireysel_analiz():
         pin_kodu_ozellikleri = ozellik_hesaplama(k_values)
         
         results = {
-            'pin_kodu': pin_kodu_result,
+            'dogum_gunu': dogum_gunu,  # Orijinal formatı template'e gönder
+            'pin_kodu_dizilimi': pin_kodu_dizilimi,
+            'pin_kodu_yorumlari': pin_kodu_yorumlari,
             'chakra': chakra_result,
             'yasam_yolu': yasam_yolu,
             'bereket_sayisi': bereket_sayisi,

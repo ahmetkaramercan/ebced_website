@@ -8,6 +8,8 @@ class User(UserMixin):
     @staticmethod
     def get(username):
         users = User.load_users()
+        print(f"Looking for user: {username}")
+        print(f"Available users: {list(users.keys())}")
         if username in users:
             return User(username)
         return None
@@ -21,22 +23,36 @@ class User(UserMixin):
                 for line in f:
                     line = line.strip()
                     if line and not line.startswith('#'):
-                        username, password = line.split(':')
-                        users[username] = password
+                        try:
+                            username, password = line.split(':')
+                            users[username] = password
+                        except ValueError:
+                            print(f"Invalid line in users.txt: {line}")
+                            continue
+            print(f"Loaded {len(users)} users from file")
         except FileNotFoundError:
-            pass
+            print("users.txt file not found")
+        except Exception as e:
+            print(f"Error loading users: {str(e)}")
         return users
 
     @staticmethod
     def save_users(users):
         """Save users to the users.txt file"""
-        with open('users.txt', 'w', encoding='utf-8') as f:
-            for username, password in users.items():
-                f.write(f"{username}:{password}\n")
+        try:
+            with open('users.txt', 'w', encoding='utf-8') as f:
+                for username, password in users.items():
+                    f.write(f"{username}:{password}\n")
+            print("Users saved successfully")
+        except Exception as e:
+            print(f"Error saving users: {str(e)}")
 
     def check_password(self, password):
         users = self.load_users()
-        return users.get(self.username) == password
+        stored_password = users.get(self.username)
+        print(f"Checking password for user: {self.username}")
+        print(f"Stored password exists: {stored_password is not None}")
+        return stored_password == password
 
     def change_password(self, new_password):
         users = self.load_users()

@@ -272,7 +272,7 @@ def pin_kodu_hesaplama(dogum_tarihi):
     try:
         dogum_tarihi = normalize_date(dogum_tarihi)
     except ValueError as e:
-        return str(e), None
+        return str(e), None, None
     
     # Doğum tarihi 'gg aa yyyy' formatında olmalıdır.
     # Doğum tarihini gün, ay ve yıl olarak ayır
@@ -295,27 +295,29 @@ def pin_kodu_hesaplama(dogum_tarihi):
         if int(k[i][0]) == (i + 1):
             k[i] += '!'
 
-    # Değerleri ekrana yazdır
-    result = ""
-    result += f"{k[0]}    {k[1]}    {k[2]}    {k[3]}   {k[4]}\n"
-    result += f"  {k[5]}     {k[6]}\n"
-    result += f"      {k[7]}\n"
-    result += f"      {k[8]}\n\n"
-    
-    # Pin kodu yorumlarını ekle
-    result += "Pin Kodu Yorumları:\n"
-    result += "-------------------\n"
+    # Pin kodu yorumlarını hazırla
+    pin_kodu_yorumlari = []
     for i in range(9):
         # k[i] değerinin ilk karakterini al ve int'e çevir (örn: "4!" -> 4)
         index = int(k[i][0]) - 1  # 0-based index için -1
-        result += f"{i+1}. Hane: {pin_kodu_yorumu[i][index]}\n"
+        yorum = f"{i+1}. Hane: {pin_kodu_yorumu[i][index]}"
         
         # Eğer k[i] değerinde ünlem işareti varsa, özel yorumu ekle
         if k[i].endswith('!'):
             sayi = int(k[i][0]) - 1  # 0-based index için -1
-            result += f"\nDikkat etmesi lazım: {unlemli_yorumlar[sayi]}\n\n"
+            yorum += f"\n\nDikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
+        
+        pin_kodu_yorumlari.append(yorum)
     
-    return result, k
+    # Pin kodu görsel dizilimini hazırla
+    pin_kodu_dizilimi = [
+        f"{k[0]}    {k[1]}    {k[2]}    {k[3]}   {k[4]}",
+        f"  {k[5]}     {k[6]}",
+        f"      {k[7]}",
+        f"      {k[8]}"
+    ]
+    
+    return pin_kodu_dizilimi, k, pin_kodu_yorumlari
 
 
 
