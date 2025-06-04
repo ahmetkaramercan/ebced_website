@@ -44,8 +44,13 @@ def load_user(username):
 def reshape_arabic(text):
     """Helper function to reshape Arabic text"""
     if text:
-        reshaped_text = arabic_reshaper.reshape(text)
-        return get_display(reshaped_text)
+        try:
+            reshaped_text = arabic_reshaper.reshape(text)
+            bidi_text = get_display(reshaped_text)
+            return bidi_text
+        except Exception as e:
+            print(f"Error reshaping Arabic text: {e}")
+            return text
     return ""
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -197,50 +202,53 @@ def sure_hesaplama():
         mother_name = request.form['anne_ismi'].strip()
         father_name = request.form['baba_ismi'].strip()
         
-        results = {
-            'kisi': {'isim': name, 'arabic_text': '', 'ebced_value': ''},
-            'anne': {'isim': mother_name, 'arabic_text': '', 'ebced_value': ''},
-            'baba': {'isim': father_name, 'arabic_text': '', 'ebced_value': ''},
-            'akil_sayisi': '',
-            'fikir_sayisi': '',
-            'en_yakin_esma': '',
-            'en_yakin_sure': ''
-        }
+        # Kişi bilgileri
+        kisi_ebced, kisi_arabic = get_ebced_and_arabic(name)
+        kisi_arabic = reshape_arabic(kisi_arabic)
         
-        if name:
-            results['kisi']['ebced_value'], arabic_text = get_ebced_and_arabic(name)
-            results['kisi']['arabic_text'] = reshape_arabic(arabic_text)
-
-        if name and mother_name:
-            results['anne']['ebced_value'], arabic_text = get_ebced_and_arabic(mother_name)
-            results['anne']['arabic_text'] = reshape_arabic(arabic_text)
-            results['akil_sayisi'] = akil_fikir_sayisi_hesaplama(
-                results['kisi']['ebced_value'], 
-                results['anne']['ebced_value']
-            )
-
-        if name and father_name:
-            results['baba']['ebced_value'], arabic_text = get_ebced_and_arabic(father_name)
-            results['baba']['arabic_text'] = reshape_arabic(arabic_text)
-            results['fikir_sayisi'] = akil_fikir_sayisi_hesaplama(
-                results['kisi']['ebced_value'], 
-                results['baba']['ebced_value']
-            )
-
-        if dogum_gunu and name and mother_name:
-            dgToplam = dogumGunuToplama(dogum_gunu)
-            results['en_yakin_esma'] = en_yakin_esma_bul(
-                results['kisi']['ebced_value'], 
-                results['anne']['ebced_value'], 
-                dgToplam
-            )
-            results['en_yakin_sure'] = en_yakin_sure_bul(
-                results['kisi']['ebced_value'], 
-                results['anne']['ebced_value'], 
-                dgToplam
-            )
+        # Anne bilgileri
+        anne_ebced, anne_arabic = get_ebced_and_arabic(mother_name)
+        anne_arabic = reshape_arabic(anne_arabic)
+        
+        # Baba bilgileri
+        baba_ebced, baba_arabic = get_ebced_and_arabic(father_name)
+        baba_arabic = reshape_arabic(baba_arabic)
+        
+        # Doğum günü toplamı
+        dogum_gunu_toplam = dogumGunuToplama(dogum_gunu)
+        
+        # Akıl ve fikir sayıları
+        akil_sayisi = akil_fikir_sayisi_hesaplama(kisi_ebced, dogum_gunu_toplam)
+        fikir_sayisi = akil_fikir_sayisi_hesaplama(anne_ebced, dogum_gunu_toplam)
+        
+        # En yakın esma ve sure hesaplama
+        en_yakin_esma = en_yakin_esma_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam)
+        en_yakin_sure = en_yakin_sure_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam)
+        
+        results = {
+            'kisi': {
+                'isim': name,
+                'ebced_value': kisi_ebced,
+                'arabic_text': kisi_arabic
+            },
+            'anne': {
+                'isim': mother_name,
+                'ebced_value': anne_ebced,
+                'arabic_text': anne_arabic
+            },
+            'baba': {
+                'isim': father_name,
+                'ebced_value': baba_ebced,
+                'arabic_text': baba_arabic
+            },
+            'akil_sayisi': akil_sayisi,
+            'fikir_sayisi': fikir_sayisi,
+            'en_yakin_esma': en_yakin_esma,
+            'en_yakin_sure': en_yakin_sure
+        }
     
     return render_template('sure_hesaplama.html', results=results)
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001) 
+    # Development server
+    app.run(debug=False, host='0.0.0.0', port=8080) 

@@ -90,8 +90,14 @@
         <div class="result-section" style="background-color: #ffffff;">
             <h4>Pin Kodu Yorumları:</h4>
             {% for yorum in results.pin_kodu_yorumlari %}
-            <div class="pin-kodu-yorum">
-                {{ yorum | safe }}
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    {{ loop.index }}. Hane Yorumu
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    {{ yorum | safe }}
+                </div>
             </div>
             {% endfor %}
         </div>
@@ -171,6 +177,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    // Tüm açık accordion'ları kapat
+    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+        accordionItem.classList.remove('active');
+    });
+    
+    // Eğer tıklanan kapalıysa, onu aç
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
 </script>
 
 <style>
@@ -261,6 +282,53 @@ document.addEventListener('DOMContentLoaded', function() {
     min-width: 60px;
     color: #080808;
     font-weight: bold;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
+
+.accordion-content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 15px;
+    max-height: 1000px; /* Yeterince büyük bir değer */
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
 }
 </style>
 {% endblock %} 

@@ -81,21 +81,30 @@
         </div>
 
         <div class="result-section" style="background-color: #ffffff;">
-            <h4>6. En Yakın Esma:</h4>
+            <h4>6. En Yakın Esma(lar):</h4>
             <div class="esma-details">
-                <p><strong>Esma:</strong> {{ results.en_yakin_esma.esma }}</p>
                 <p><strong>Ebced Değeri:</strong> {{ results.en_yakin_esma.ebced_degeri }}</p>
-                <p><strong>Anlamı:</strong> {{ results.en_yakin_esma.anlam }}</p>
-                <p><strong>Zikir Günü:</strong> {{ results.en_yakin_esma.zikir_gunu }}</p>
-                <p><strong>Zikir Saati:</strong> {{ results.en_yakin_esma.zikir_saati }}</p>
+                {% for esma in results.en_yakin_esma.esmalar %}
+                <div>
+                    <p><strong>Esma:</strong> {{ esma.esma }}</p>
+                    <p><strong>Anlamı:</strong> {{ esma.anlam }}</p>
+                    <p><strong>Zikir Günü:</strong> {{ esma.zikir_gunu }}</p>
+                    <p><strong>Zikir Saati:</strong> {{ esma.zikir_saati }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
 
         <div class="result-section" style="background-color: #ffffff;">
-            <h4>7. En Yakın Sure:</h4>
+            <h4>7. En Yakın Sure(ler):</h4>
             <div class="esma-details">
-                <p><strong>Sure:</strong> {{ results.en_yakin_sure.sure }}</p>
                 <p><strong>Ebced Değeri:</strong> {{ results.en_yakin_sure.ebced_degeri }}</p>
+                {% for sure in results.en_yakin_sure.sureler %}
+                <div>
+                    <p><strong>Sure:</strong> {{ sure.sure }}</p>
+                    <p><strong>Anlamı:</strong> {{ sure.anlam }}</p>
+                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -116,7 +125,7 @@
     font-family: "Amiri", "Noto Naskh Arabic", "Traditional Arabic", Arial;
     margin: 0 10px;
     direction: rtl;
-    text-align: right;
+    unicode-bidi: bidi-override;
 }
 
 .esma-details {
@@ -164,6 +173,18 @@
 .sure-detay strong {
     color: #495057;
     margin-right: 10px;
+}
+
+@font-face {
+    font-family: 'Amiri';
+    src: url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Naskh Arabic';
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&display=swap');
+    font-display: swap;
 }
 </style>
 
