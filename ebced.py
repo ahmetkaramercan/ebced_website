@@ -133,6 +133,7 @@ def ebced_toplama(*args):
     """
     total_sum = 0
     for arg in args:
+        print(arg)
         if isinstance(arg, str):
             number_str = ''.join(filter(str.isdigit, arg))
             if number_str:
@@ -142,9 +143,12 @@ def ebced_toplama(*args):
         elif isinstance(arg, float):
             total_sum += int(arg)
     
+    print(total_sum)
+    print("--------------------------------")
     # Sayının rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar
     while total_sum >= 10:
         if total_sum == 11:
+            print("11 den 2 ye girdim.")
             return "2*"
         total_sum = sum(int(digit) for digit in str(total_sum))
     
@@ -288,6 +292,7 @@ def pin_kodu_hesaplama(dogum_tarihi):
     k[2] = ebced_toplama(yil)
     k[3] = ebced_toplama(k[0] + k[1] + k[2])
     k[4] = ebced_toplama(k[0] + k[3])
+    print("dikkat hata!!!!!")
     k[5] = ebced_toplama(k[0] + k[1])
     k[6] = ebced_toplama(k[1] + k[2])
     k[7] = ebced_toplama(k[5] + k[6])
@@ -345,9 +350,13 @@ def yasam_yolu_hesapla(birthdate):
 def bereket_rakami_bulma(birthdate):
  # Doğum tarihi 'gg aa yyyy' formatında olmalıdır.
     gun, ay, _ = birthdate.split(' ')
+    birthdate_without_year = gun + ay
+    total_sum = 0
+    for char in birthdate_without_year:
+        if char.isdigit():
+            total_sum += int(char)
 
-    toplam = int(gun) + int(ay)
-    return ebced_toplama_asamali(toplam)
+    return ebced_toplama_asamali(total_sum)
 
 def donusum_yillari_bulma(dogum_tarihi):
     gun, ay, yil = dogum_tarihi.split(' ')
