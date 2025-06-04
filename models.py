@@ -1,9 +1,10 @@
 from flask_login import UserMixin
+import os
 
 class User(UserMixin):
     def __init__(self, username):
         self.username = username
-        self.id = username  # Use username as the ID
+        self.id = username
 
     @staticmethod
     def get(username):
@@ -16,8 +17,17 @@ class User(UserMixin):
 
     @staticmethod
     def load_users():
-        """Load users from the users.txt file"""
+        """Load users from the users.txt file or environment variables"""
         users = {}
+        
+        # First try to load from environment variables
+        admin_username = os.environ.get('ADMIN_USERNAME')
+        admin_password = os.environ.get('ADMIN_PASSWORD')
+        if admin_username and admin_password:
+            users[admin_username] = admin_password
+            print("Loaded admin user from environment variables")
+        
+        # Then try to load from file
         try:
             with open('users.txt', 'r', encoding='utf-8') as f:
                 for line in f:
@@ -34,6 +44,7 @@ class User(UserMixin):
             print("users.txt file not found")
         except Exception as e:
             print(f"Error loading users: {str(e)}")
+        
         return users
 
     @staticmethod

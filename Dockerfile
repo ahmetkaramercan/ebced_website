@@ -5,6 +5,11 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Explicitly copy the database file first
+COPY isimler.db .
+RUN chmod 644 isimler.db
+
+# Copy the rest of the application
 COPY . .
 
 EXPOSE 8080

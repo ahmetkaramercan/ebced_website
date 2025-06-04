@@ -12,25 +12,19 @@ from models import User
 from datetime import timedelta
 
 app = Flask(__name__)
-app.secret_key = os.urandom(24)
+app.secret_key = os.environ.get('SECRET_KEY', os.urandom(24))
 
 # Oturum ayarları
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)  # 31 günlük oturum süresi
-
-# Production ortamında mı yoksa development ortamında mı olduğumuzu kontrol et
-is_production = os.environ.get('RENDER', False)  # Render.com'da RENDER environment variable'ı set edilir
-
-if is_production:
-    app.config['SESSION_COOKIE_SECURE'] = True  # Sadece HTTPS üzerinden çerez gönder
-    app.config['REMEMBER_COOKIE_SECURE'] = True
-else:
-    app.config['SESSION_COOKIE_SECURE'] = False  # Geliştirme ortamında HTTP'ye izin ver
-    app.config['REMEMBER_COOKIE_SECURE'] = False
-
-app.config['SESSION_COOKIE_HTTPONLY'] = True  # JavaScript ile çerez erişimini engelle
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'  # CSRF koruması
 app.config['REMEMBER_COOKIE_DURATION'] = timedelta(days=31)  # Remember Me süresi
 app.config['REMEMBER_COOKIE_HTTPONLY'] = True
+app.config['REMEMBER_COOKIE_SECURE'] = True
+
+# Production ortamında mı yoksa development ortamında mı olduğumuzu kontrol et
+is_production = os.environ.get('RENDER', False)  # Render.com'da RENDER environment variable'ı set edilir
 
 # Flask-Login setup
 login_manager = LoginManager()
@@ -201,7 +195,6 @@ def sure_hesaplama():
         name = request.form['isim'].strip()
         mother_name = request.form['anne_ismi'].strip()
         father_name = request.form['baba_ismi'].strip()
-        
         # Kişi bilgileri
         kisi_ebced, kisi_arabic = get_ebced_and_arabic(name)
         kisi_arabic = reshape_arabic(kisi_arabic)
@@ -218,8 +211,8 @@ def sure_hesaplama():
         dogum_gunu_toplam = dogumGunuToplama(dogum_gunu)
         
         # Akıl ve fikir sayıları
-        akil_sayisi = akil_fikir_sayisi_hesaplama(kisi_ebced, dogum_gunu_toplam)
-        fikir_sayisi = akil_fikir_sayisi_hesaplama(anne_ebced, dogum_gunu_toplam)
+        akil_sayisi = akil_fikir_sayisi_hesaplama(kisi_ebced, anne_ebced)
+        fikir_sayisi = akil_fikir_sayisi_hesaplama(kisi_ebced, baba_ebced)
         
         # En yakın esma ve sure hesaplama
         en_yakin_esma = en_yakin_esma_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam)
