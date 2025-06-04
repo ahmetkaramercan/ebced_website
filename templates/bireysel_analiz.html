@@ -16,7 +16,7 @@
         
         <form method="POST" action="{{ url_for('bireysel_analiz') }}">
             <div class="form-group">
-                <label for="dogum_gunu">Doğum Günü</label>
+                <label for="dogum_gunu">Doğum Tarihi</label>
                 <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY" required>
                 <input type="date" id="date_picker" onchange="updateDateInput(this.value)">
             </div>
@@ -56,35 +56,38 @@
                         <td></td>
                     </tr>
                     <tr>
-                        <td>{{ results.pin_kodu_dizilimi[0].split()[0] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[0].split()[1] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[0].split()[2] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[0].split()[3] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[0].split()[4] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[0]}}</td>
+                        <td>{{ results.pin_kodu_dizilimi[1] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[2] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[3] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[4] }}</td>
                     </tr>
                     <tr>
-                        <td>{{ results.pin_kodu_dizilimi[1].split()[0] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[1].split()[1] }}</td>
                         <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>{{ results.pin_kodu_dizilimi[2].split()[0] }}</td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ results.pin_kodu_dizilimi[5] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[6] }}</td>
                         <td></td>
                         <td></td>
                     </tr>
                     <tr>
-                        <td>{{ results.pin_kodu_dizilimi[3].split()[0] }}</td>
                         <td></td>
                         <td></td>
+                        <td>{{ results.pin_kodu_dizilimi[7]}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.pin_kodu_dizilimi[8] }}</td>
                         <td></td>
                         <td></td>
                     </tr>
                 </table>
             </div>
+        </div>
+        
+        <div class="result-section" style="background-color: #ffffff;">
             <h4>Pin Kodu Yorumları:</h4>
             {% for yorum in results.pin_kodu_yorumlari %}
             <div class="pin-kodu-yorum">
@@ -95,7 +98,18 @@
 
         <div class="result-section">
             <h4>Çakra Dağılımı:</h4>
-            <pre>{{ results.chakra }}</pre>
+            <div class="chakra-table">
+                <table>
+                    {% for chakra in results.chakra %}
+                    <tr>
+                        <td class="plus-cell">{{ chakra.left_plus }}</td>
+                        <td class="number-cell">{{ chakra.number }}</td>
+                        <td class="plus-cell">{{ chakra.right_plus }}</td>
+                        <td class="pin-code-cell">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
 
         <div class="result-section">
@@ -161,33 +175,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <style>
 .pin-kodu-tablosu {
-    margin: 20px 0;
-}
-
-.pin-kodu-tablosu h3 {
-    color: #4CAF50;
-    margin-bottom: 15px;
-    font-size: 1.5em;
+    margin: 10px 0;
 }
 
 .pin-kodu-tablosu table {
-    border-collapse: collapse;
-    width: auto;
+    border-collapse: separate;
+    border-spacing: 10px;
     margin: 0;
 }
 
 .pin-kodu-tablosu td {
-    border: 1px solid #ff8c00;  /* Turuncu renk */
-    padding: 15px 25px;
+    padding: 5px 10px;
     text-align: center;
     font-size: 1.2em;
-    min-width: 60px;
-    background-color: #fff;  /* Beyaz arka plan */
+    min-width: 40px;
+    border: none;
+    background-color: transparent;
 }
 
 .pin-kodu-tablosu tr:first-child td {
-    background-color: #fff3e6;  /* Açık turuncu arka plan */
-    font-weight: bold;
+    background-color: transparent;
+    font-weight: normal;
 }
 
 .pin-kodu-yorum {
@@ -201,6 +209,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
 .pin-kodu-yorum:hover {
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.chakra-table {
+    margin: 10px 0;
+}
+
+.chakra-table table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin: 0;
+}
+
+.chakra-table td {
+    padding: 5px 10px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.chakra-table .plus-cell {
+    color: #080808;
+    min-width: 100px;
+}
+
+.chakra-table .plus-cell:first-child {
+    text-align: right;
+}
+
+.chakra-table .plus-cell:nth-child(3) {
+    text-align: left;
+    padding-left: 0;
+}
+
+.chakra-table .number-cell {
+    font-weight: bold;
+    color: #1e1e1e;
+    min-width: 40px;
+}
+
+.chakra-table .pin-code-cell {
+    text-align: left;
+    padding-left: 30px;
+    min-width: 60px;
+    color: #080808;
+    font-weight: bold;
 }
 </style>
 {% endblock %} 

@@ -1,6 +1,39 @@
 {% extends "base.html" %}
 
 {% block content %}
+<style>
+    .result-section {
+        background-color: #f8f9fa;
+        padding: 15px;
+        margin: 15px 0;
+        border-radius: 5px;
+    }
+
+    .pin-kodu-tablosu {
+        margin: 10px 0;
+    }
+
+    .pin-kodu-tablosu table {
+        border-collapse: separate;
+        border-spacing: 10px;
+        margin: 0;
+    }
+
+    .pin-kodu-tablosu td {
+        padding: 5px 10px;
+        text-align: center;
+        font-size: 1.2em;
+        min-width: 40px;
+        border: none;
+        background-color: transparent;
+    }
+
+    .pin-kodu-tablosu tr:first-child td {
+        background-color: transparent;
+        font-weight: normal;
+    }
+</style>
+
 <div class="container">
     <h2>EBCED HESAPLAMA</h2>
     
@@ -35,7 +68,38 @@
         
         <div class="result-section">
             <h4>İlişki pin kodu:</h4>
-            <pre>{{ results.iliski_pin_kodu }}</pre>
+            <div class="pin-kodu-tablosu">
+                <table>
+                    <tr>
+                        <td>{{ results.k[0] }}</td>
+                        <td>{{ results.k[1] }}</td>
+                        <td>{{ results.k[2] }}</td>
+                        <td>{{ results.k[3] }}</td>
+                        <td>{{ results.k[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{ results.k[5] }}</td>
+                        <td>{{ results.k[6] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.k[7] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.k[8] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
     {% endif %}

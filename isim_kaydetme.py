@@ -139,7 +139,88 @@ def save_to_database(conn, name, data):
     except Exception as e:
         print(f"Veritabanına kayıt sırasında hata: {e}")
 
+def manuel_isim_ekle():
+    """Kullanıcıdan manuel olarak isim bilgilerini alıp veritabanına kaydeder"""
+    conn = create_database()
+    print("\nManuel İsim Ekleme (Çıkmak için 'q' yazın)")
+    print("Format: isim, arapça_yazılış, ebced_değeri")
+    print("Örnek: Ahmed, احمد, 53")
+    
+    while True:
+        try:
+            user_input = input("\nLütfen isim bilgilerini girin: ").strip()
+            
+            if user_input.lower() == 'q':
+                break
+                
+            # Virgülle ayrılmış değerleri al
+            parts = [part.strip() for part in user_input.split(',')]
+            
+            if len(parts) != 3:
+                print("Hata: Lütfen tüm bilgileri virgülle ayırarak girin!")
+                continue
+                
+            isim, arapca, ebced = parts
+            
+            try:
+                ebced = int(ebced)
+            except ValueError:
+                print("Hata: Ebced değeri sayı olmalıdır!")
+                continue
+                
+            # Veritabanına kaydet
+            cursor = conn.cursor()
+            cursor.execute('''
+            INSERT OR REPLACE INTO isimler (isim, ebced_degeri, arapca_yazilis)
+            VALUES (?, ?, ?)
+            ''', (isim, ebced, arapca))
+            
+            conn.commit()
+            print(f"✓ {isim} başarıyla veritabanına eklendi!")
+            
+        except Exception as e:
+            print(f"Hata oluştu: {e}")
+            
+    conn.close()
+    print("\nManuel isim ekleme işlemi tamamlandı.")
+
 def main():
+    while True:
+        print("\n1. Web'den isim verilerini çek")
+        print("2. Manuel isim ekle")
+        print("3. Çıkış")
+        
+        secim = input("\nLütfen bir işlem seçin (1-3): ")
+        
+        if secim == "1":
+            # Veritabanını oluştur
+            conn = create_database()
+            print("Veritabanı oluşturuldu/bağlantı kuruldu.")
+            
+            current_page = BASLANGIC_SAYFA
+            while True:
+                success = get_and_process_page(current_page, conn)
+                if not success:
+                    print("\nTüm sayfalar tamamlandı veya bir hata oluştu.")
+                    break
+                current_page += 1
+                time.sleep(1)  # Sayfalar arası bekleme
+            
+            conn.close()
+            print(f"\nİşlem tamamlandı. Son işlenen sayfa: {current_page-1}")
+            
+        elif secim == "2":
+            manuel_isim_ekle()
+            
+        elif secim == "3":
+            print("\nProgram sonlandırılıyor...")
+            break
+            
+        else:
+            print("\nGeçersiz seçim! Lütfen tekrar deneyin.")
+
+"""
+    # tekrar veri tabanını oluşturmak için main kodunu buna oluştur.
     # Veritabanını oluştur
     conn = create_database()
     print("Veritabanı oluşturuldu/bağlantı kuruldu.")
@@ -155,6 +236,7 @@ def main():
     
     conn.close()
     print(f"\nİşlem tamamlandı. Son işlenen sayfa: {current_page-1}")
+"""
 
 if __name__ == "__main__":
     main()

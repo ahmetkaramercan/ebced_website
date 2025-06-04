@@ -47,15 +47,7 @@ def iliski_pin_kodu_hesaplama(dogum_tarihi1, dogum_tarihi2):
         if int(k[i][0]) == (i + 1):
             k[i] += '!'
 
-    # Değerleri ekrana yazdır
-
-    result = ""
-    result += f"{k[0]}    {k[1]}    {k[2]}    {k[3]}   {k[4]}\n"
-    result += f"  {k[5]}     {k[6]}\n"
-    result += f"      {k[7]}\n"
-    result += f"      {k[8]}\n\n"
-
-    return result
+    return {'k': k}
 
 
 

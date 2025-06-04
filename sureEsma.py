@@ -1,8 +1,6 @@
-import requests
-from bs4 import BeautifulSoup
+import sqlite3
 import arabic_reshaper
 from bidi.algorithm import get_display
-import sqlite3
 
 
 sureler = {
@@ -710,51 +708,47 @@ esmalar = {
 }
 
 
-def get_ebced_and_arabic(url):
-    # Web sayfasına istek gönderme
-    response = requests.get(url)
-    
-    # İstek başarılı mı kontrol etme
-    if response.status_code == 200:
-        # HTML içeriğini alma
-        html_content = response.text
-        soup = BeautifulSoup(html_content, 'html.parser')
+def get_ebced_and_arabic(isim):
+    """Veritabanından ismin ebced değerini ve Arapça yazılışını çeker"""
+    if not isim:
+        print("İsim parametresi boş!")
+        return None, None
         
-        # Tüm 'Sonebced' id'li div etiketlerini bulma
-        sonebced_divs = soup.find_all('div', {'id': 'Sonebced'})
+    try:
+        conn = sqlite3.connect('isimler.db')
+        cursor = conn.cursor()
         
-        ebced_value = None
-        arabic_text = None
+        # Debug için sorguyu yazdır
+        query = 'SELECT ebced_degeri, arapca_yazilis FROM isimler WHERE isim = ? COLLATE NOCASE'
+        print(f"Aranan isim: {isim}")
         
-        for div in sonebced_divs:
-            h5_tag = div.find('h5')
-            if h5_tag:
-                h5_text = h5_tag.text.strip()
-                span_text = div.find('span').text.strip()
-                
-                if h5_text == 'Ebced Değeri':
-                    ebced_value = span_text
-                elif h5_text == 'Arapça Yazılışı':
-                    arabic_text = span_text # Arapça metni ters çevirme
+        cursor.execute(query, (isim,))
+        result = cursor.fetchone()
+        
+        if result:
+            print(f"Bulunan sonuç: {result}")
+            ebced_value = str(result[0]) if result[0] is not None else None
+            arabic_text = result[1]
+            if arabic_text:
+                try:
                     reshaped_text = arabic_reshaper.reshape(arabic_text)
                     arabic_text = get_display(reshaped_text)
+                except Exception as e:
+                    print(f"Arapça metin dönüştürme hatası: {e}")
+            return ebced_value, arabic_text
+        else:
+            print(f"'{isim}' için sonuç bulunamadı!")
+            return None, None
         
-        return ebced_value, arabic_text
-    else:
+    except sqlite3.Error as e:
+        print(f"SQLite hatası: {e}")
         return None, None
-
-# URL
-"""isim = input("İsminizi girin: ")
-anne_ismi = input("Annenizin ismini girin: ")
-baba_ismi = input("Babanızın ismini girin: ")
-
-url = "https://www.ozgulyildiz.com/araclar/ebced/"
-
-# Fonksiyonu çağırma ve ebced değeri ile Arapça yazılışı alma
-ebced_degeri, arabic_text = get_ebced_and_arabic(url + isim)
-print(f"Ebced Değeri: {ebced_degeri}")
-print(f"Arapça Yazılışı: {arabic_text}")
-"""
+    except Exception as e:
+        print(f"Beklenmeyen hata: {e}")
+        return None, None
+    finally:
+        if conn:
+            conn.close()
 
 
 def dogumGunuToplama(birthdate):
@@ -827,18 +821,34 @@ def en_yakin_sure_bul(kisi_ebced, anne_ebced, dogum_gunu_toplam):
 
 
 def akil_fikir_sayisi_hesaplama(number1, number2):
-    try:
-        number1 = int(number1)
-        number2 = int(number2)
-    except ValueError:
-        return "Inputların ikisi de sayıya dönüştürülebilmelidir."
-
-    toplam = number1 + number2
-    kalan = toplam % 9
-    if kalan == 0:
-        kalan = 9
+    """
+    İki sayının toplamının 9'a bölümünden kalanı hesaplar.
+    Eğer kalan 0 ise 9 döner.
+    """
+    # None veya geçersiz değer kontrolü
+    if number1 is None or number2 is None:
+        return 0
         
-    return kalan
+    try:
+        # Sayıya dönüştürülebilir string mi kontrol et
+        if isinstance(number1, str):
+            number1 = int(number1)
+        if isinstance(number2, str):
+            number2 = int(number2)
+            
+        # Sayı değilse veya dönüştürülemezse
+        if not isinstance(number1, (int, float)) or not isinstance(number2, (int, float)):
+            return 0
+            
+        toplam = number1 + number2
+        kalan = toplam % 9
+        if kalan == 0:
+            kalan = 9
+            
+        return kalan
+        
+    except (ValueError, TypeError):
+        return 0
 
 def get_name_details_from_db(isim):
     """Veritabanından isim detaylarını çeker"""
@@ -891,3 +901,44 @@ def calculate_sure_esma(dogum_gunu, isim, anne_ismi, baba_ismi):
     }
     
     return results
+
+def test_db_connection():
+    """Veritabanı bağlantısını ve tablo yapısını kontrol eder"""
+    try:
+        conn = sqlite3.connect('isimler.db')
+        cursor = conn.cursor()
+        
+        # Tablo yapısını kontrol et
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='isimler'")
+        if not cursor.fetchone():
+            print("'isimler' tablosu bulunamadı!")
+            return False
+            
+        # Tablo sütunlarını kontrol et
+        cursor.execute("PRAGMA table_info(isimler)")
+        columns = cursor.fetchall()
+        print("Tablo sütunları:", columns)
+        
+        # Örnek bir kayıt sayısı al
+        cursor.execute("SELECT COUNT(*) FROM isimler")
+        count = cursor.fetchone()[0]
+        print(f"Toplam kayıt sayısı: {count}")
+        
+        return True
+        
+    except sqlite3.Error as e:
+        print(f"Veritabanı hatası: {e}")
+        return False
+    finally:
+        if conn:
+            conn.close()
+
+# Test fonksiyonunu çağır
+if __name__ == "__main__":
+    print("Veritabanı bağlantısı test ediliyor...")
+    test_db_connection()
+    
+    # Örnek bir isim ile test et
+    print("\nÖrnek isim sorgusu test ediliyor...")
+    ebced, arabic = get_ebced_and_arabic("Ahmet")
+    print(f"Test sonucu - Ebced: {ebced}, Arapça: {arabic}")

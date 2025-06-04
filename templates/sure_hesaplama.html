@@ -16,10 +16,10 @@
         
         <form method="POST" action="{{ url_for('sure_hesaplama') }}">
             <div class="form-group">
-                <label for="dogum_gunu">Doğum Tarihi</label>
-                <div class="date-input-container">
-                    <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY veya GG MM YYYY" required>
-                    <input type="date" id="date_picker" aria-label="Tarih seçici">
+                <div class="form-group">
+                    <label for="dogum_gunu">Doğum Tarihi</label>
+                    <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY" required>
+                    <input type="date" id="date_picker" onchange="updateDateInput(this.value)">
                 </div>
             </div>
             
@@ -80,7 +80,7 @@
             <p>{{ results.fikir_sayisi }}</p>
         </div>
 
-        <div class="result-section">
+        <div class="result-section" style="background-color: #ffffff;">
             <h4>6. En Yakın Esma:</h4>
             <div class="esma-details">
                 <p><strong>Esma:</strong> {{ results.en_yakin_esma.esma }}</p>
@@ -91,7 +91,7 @@
             </div>
         </div>
 
-        <div class="result-section">
+        <div class="result-section" style="background-color: #ffffff;">
             <h4>7. En Yakın Sure:</h4>
             <div class="esma-details">
                 <p><strong>Sure:</strong> {{ results.en_yakin_sure.sure }}</p>
@@ -103,6 +103,13 @@
 </div>
 
 <style>
+.result-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+}
+
 .arabic-container {
     display: inline-block;
     font-size: 2em;

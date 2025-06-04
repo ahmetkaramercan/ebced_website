@@ -145,7 +145,7 @@ def bireysel_analiz():
         dogum_gunu = ' '.join(dogum_gunu.split())
         isim_soyisim = request.form['isim_soyisim']
         
-        pin_kodu_dizilimi, k_values, pin_kodu_yorumlari = pin_kodu_hesaplama(dogum_gunu)
+        k_values, pin_kodu_yorumlari = pin_kodu_hesaplama(dogum_gunu)
         chakra_result = chakra_hesapla(k_values, isim_soyisim)
         yasam_yolu = yasam_yolu_hesapla(dogum_gunu)
         bereket_sayisi = bereket_rakami_bulma(dogum_gunu)
@@ -156,7 +156,7 @@ def bireysel_analiz():
         
         results = {
             'dogum_gunu': dogum_gunu,  # Orijinal formatı template'e gönder
-            'pin_kodu_dizilimi': pin_kodu_dizilimi,
+            'pin_kodu_dizilimi': k_values,
             'pin_kodu_yorumlari': pin_kodu_yorumlari,
             'chakra': chakra_result,
             'yasam_yolu': yasam_yolu,
@@ -181,25 +181,21 @@ def iliski_analizi():
         dogum_gunu2 = dogum_gunu2.replace('.', ' ').replace('/', ' ')
         dogum_gunu2 = ' '.join(dogum_gunu2.split())
         
-        iliski_pin_kodu = iliski_pin_kodu_hesaplama(dogum_gunu1, dogum_gunu2)
+        results = iliski_pin_kodu_hesaplama(dogum_gunu1, dogum_gunu2)
         
-        results = {
-            'iliski_pin_kodu': iliski_pin_kodu
-        }
     return render_template('iliski_analizi.html', results=results)
 
 @app.route('/sure_hesaplama', methods=['GET', 'POST'])
 @login_required
 def sure_hesaplama():
-    url = "https://www.ozgulyildiz.com/araclar/ebced/"
     results = None
     
     if request.method == 'POST':
         dogum_gunu = request.form['dogum_gunu'].replace('.', ' ').replace('/', ' ')
         dogum_gunu = ' '.join(dogum_gunu.split())
-        name = request.form['isim']
-        mother_name = request.form['anne_ismi']
-        father_name = request.form['baba_ismi']
+        name = request.form['isim'].strip()
+        mother_name = request.form['anne_ismi'].strip()
+        father_name = request.form['baba_ismi'].strip()
         
         results = {
             'kisi': {'isim': name, 'arabic_text': '', 'ebced_value': ''},
@@ -212,11 +208,11 @@ def sure_hesaplama():
         }
         
         if name:
-            results['kisi']['ebced_value'], arabic_text = get_ebced_and_arabic(url + name)
+            results['kisi']['ebced_value'], arabic_text = get_ebced_and_arabic(name)
             results['kisi']['arabic_text'] = reshape_arabic(arabic_text)
 
         if name and mother_name:
-            results['anne']['ebced_value'], arabic_text = get_ebced_and_arabic(url + mother_name)
+            results['anne']['ebced_value'], arabic_text = get_ebced_and_arabic(mother_name)
             results['anne']['arabic_text'] = reshape_arabic(arabic_text)
             results['akil_sayisi'] = akil_fikir_sayisi_hesaplama(
                 results['kisi']['ebced_value'], 
@@ -224,7 +220,7 @@ def sure_hesaplama():
             )
 
         if name and father_name:
-            results['baba']['ebced_value'], arabic_text = get_ebced_and_arabic(url + father_name)
+            results['baba']['ebced_value'], arabic_text = get_ebced_and_arabic(father_name)
             results['baba']['arabic_text'] = reshape_arabic(arabic_text)
             results['fikir_sayisi'] = akil_fikir_sayisi_hesaplama(
                 results['kisi']['ebced_value'], 
