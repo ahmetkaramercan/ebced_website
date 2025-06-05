@@ -112,7 +112,6 @@ pin_kodu_yorumu_giris_cumlesi = [
 "HAYAT AMACI. Bu hane, kişinin bu hayata ne için geldiğini, hangi tema üzerinden tamamlanacağını ve yaşam boyu yönelmesi gereken asıl amacı temsil eder. Ruhsal olarak buradaki sayı, kişinin olgunluk sınavlarını, kendisini gerçekleştirme biçimini ve kalıcı etkisini yansıtır."
 ]
 
-1 ile açılmış:
 
 
 
