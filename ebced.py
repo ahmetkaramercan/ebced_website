@@ -104,8 +104,8 @@ pin_kodu_yorumu = [
     [  # 9. hane - HAYAT AMACI
         "Bu kişi öne çıkmak, liderlik etmek, bir şeyin öncüsü olmak için gelmiştir. Ancak bu yükselişin temeli kökten gelirse (kök çakrayı düzgün kullanıyorsa) kalıcı olur. Kökenindeki sorunlar iyileştirilmeden toplumsal alanda görünürlük aramak, kibir ve dengesizlik üretir. Kendini dönüştürüp sağlam temeller kurduğunda ilham verici bir lider olabilir.",
         "Hayat amacı sevgidir ama bu sevgi, bağımlılıktan arınmış bir sevgidir diğer türlü kendini tüketir. Duygusal sınırlarını bilmeli, fedakârlık adı altında kendini tüketmemelidir. Sakral çakra blokajı varsa kendini aşırı feda etme eğilimindedir. Yunusça sevgiyi yaşadığında, bulunduğu ortamı yumuşatır ve huzur taşır.",
-        "Üretmek, anlatmak, aktarmak bu kişinin yaşam amacıdır. Ancak bu üretim “onay almak için” değil, kendini gerçekleştirmek içindir.  İletişimde sınırlara dikkat edemezse dağılır, yönsüzleşir.  Meslekte prensiplere dikkat.Ne yapmak istediğini netleştirdiğinde hem kendine hem topluma değer üretir.",
-        "Esneklik, olgunluk ve sabır onun hayat boyu öğrenmesi gereken kavramlardır. Kuralları kendine karşı bile katı olabilir. Bu da hayatta ilerlemesini zorlaştırır. Kendine karşı yumuşamayı öğrenmelidir. Olgunlukla buluştuğunda, ve sabrı öğrendiğinde hem kendine hem başkalarına yol gösterebilir."
+        "Üretmek, anlatmak, aktarmak bu kişinin yaşam amacıdır. Ancak bu üretim 'onay almak için' değil, kendini gerçekleştirmek içindir.  İletişimde sınırlara dikkat edemezse dağılır, yönsüzleşir.  Meslekte prensiplere dikkat.Ne yapmak istediğini netleştirdiğinde hem kendine hem topluma değer üretir.",
+        "Esneklik, olgunluk ve sabır onun hayat boyu öğrenmesi gereken kavramlardır. Kuralları kendine karşı bile katı olabilir. Bu da hayatta ilerlemesini zorlaştırır. Kendine karşı yumuşamayı öğrenmelidir. Olgunlukla buluştuğunda, ve sabrı öğrendiğinde hem kendine hem başkalarına yol gösterebilir.",
         "Özgürlüğün sınırlarını bilecek",
         "Bu kişinin yaşam amacı sorumluluk üstlenmeyi öğrenmektir. Bunu öğrenemezse Kurban psikolojisine girebilir. Hem kendine hem başkalarına karşı taşıdığı görev duygusu yoğun olabilir. Ancak başkalarının yükünü sürekli sırtlanmak onu tüketir. Sorumluluktaki sınırlarını belirlediğinde toplumsal ya da ruhsal hizmet alanında büyük katkı sunar.",        
         "Hayatın anlamını sorgulamak, inançlarını test etmek ve teslimiyet geliştirmek onun ana yolculuğudur. Sürekli tatmin arar ama bunu dışarıda bulamaz. Doyumu içeride aramayı öğrenmelidir. Gerçek imanı ve içsel huzuru bulduğunda, derin bir ruhsal olgunluk taşır. Halk içinde Hakk ile olmayı başarmalı.",
@@ -316,12 +316,18 @@ def pin_kodu_hesaplama(dogum_tarihi):
         yorum = f"{i+1}. Hane: {pin_kodu_yorumu_giris_cumlesi[i]}<br><br>"
         # k[i] değerinin ilk karakterini al ve int'e çevir (örn: "4!" -> 4)
         index = int(k[i][0]) - 1  # 0-based index için -1
-        yorum += f"{index+1}. ile açılmış: {pin_kodu_yorumu[i][index]}"
+        
+        # İndeks kontrolü ekle
+        if 0 <= index < len(pin_kodu_yorumu[i]):
+            yorum += f"{index+1}. ile açılmış: {pin_kodu_yorumu[i][index]}"
+        else:
+            yorum += f"Geçersiz sayı: {index+1} (Bu hane için 1-9 arası bir sayı olmalıdır)"
         
         # Eğer k[i] değerinde ünlem işareti varsa, özel yorumu ekle
         if k[i].endswith('!'):
             sayi = int(k[i][0]) - 1  # 0-based index için -1
-            yorum += f"<br>Dikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
+            if 0 <= sayi < len(unlemli_yorumlar):
+                yorum += f"<br>Dikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
         
         pin_kodu_yorumlari.append(yorum)
     
