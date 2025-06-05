@@ -14,10 +14,10 @@ sesli_harfler = {'A', 'E', 'I', 'İ', 'O', 'Ö', 'U', 'Ü'}
 
 pin_kodu_yorumu = [
     [  # 1. hane - DÜŞÜNCELER
-        "Köken problemi güçlüdür. Kişi, ilk açılımını “1” ile yaparak liderlik, bireysellik ve özgüven meselelerine doğrudan temas eder. Bu durum, kök çakradaki blokajların ve içsel çatışmaların bir yansıması olabilir. Tartışmacı liderlik enerjisi vardır. Kendini beğenmeme özgüven eksiliği yetersizlik veya tam tersi Aşırı ego ile mecadele edebilir. Tartışmacı lider.",
+        "Köken problemi güçlüdür. Kişi, ilk açılımını '1' ile yaparak liderlik, bireysellik ve özgüven meselelerine doğrudan temas eder. Bu durum, kök çakradaki blokajların ve içsel çatışmaların bir yansıması olabilir. Tartışmacı liderlik enerjisi vardır. Kendini beğenmeme özgüven eksiliği yetersizlik veya tam tersi Aşırı ego ile mecadele edebilir. Tartışmacı lider.",
         "Düşünceler duygu temellidir. Bu da karar vermeyi zorlaştırır.  Bu kişilerin dişil enerjisi yüksektir. Erkeklerin, çoğunluğunda beta erkek olma eğilimi gözlemlenir. Hem duygusal hem fiziksel bağımlıklıklara yatkınlıkları fazla olabilir. diplomasi ve arabuluculuk vardır. Küsme huyu olabilir.",
         "Kendini doğru ifade etme/edememe.. Kendini tam anlatamıyor olabilir.. Kendisi hakkında iç alemini bir şekilde dile getirmeli. Gelişirse iyi bir hatip olabilir. Feminist",
-        "Zihin yapısı kurallarla çalışır. “Ya hep ya hiç” düşüncesi baskındır. Kendisini de başkalarını da yargılayabilir. Esneklik azdır; dogmatik fikir yapısına kayma riski yüksektir. Sabır ve sebatla desteklenirse, sağlam, prensipli ve adil bir düşünsel yapı kurabilir.",
+        "Zihin yapısı kurallarla çalışır. 'Ya hep ya hiç' düşüncesi baskındır. Kendisini de başkalarını da yargılayabilir. Esneklik azdır; dogmatik fikir yapısına kayma riski yüksektir. Sabır ve sebatla desteklenirse, sağlam, prensipli ve adil bir düşünsel yapı kurabilir.",
         "Zihni korkularla, kendine güvensizlikle sınanır. Cesareti zihinsel olarak üretemediği sürece kararsızlık ve ertelemeler görülür. Risk almaz, bu da gelişimi engeller. Cesaret geliştirdiğinde, yaratıcı, özgür düşünen ve yaşamla daha barışık bir zihinsel düzey yakalayabilir. Eğlencelidir",
         "Düşünceleri sezgisel ama aynı zamanda duygusal yüklerle doludur. Aileden gelen etkiler zihinsel kalıplarını oluşturur. Kararlarında duygusal geçmiş baskındır. İç sesiyle temas kurduğunda, başkalarının iyiliğine odaklanan vicdanlı ve derinlikli bir akıl yapısı geliştirir. Aile odaklıdır",
         "Sürekli gezdirir hayat ve ilmin birinde arayışı durur. Hayat boyu kararsız olmakla uğraşabilir. Tahkiki iman şart. Zihin sürekli sorgular, Çok zeki.",
@@ -30,14 +30,14 @@ pin_kodu_yorumu = [
         "Kendini ifade etme tanıma.. Tıkalıysa içe kapanış..",
         "Duygusal gelişim ağır ilerler. Zorluklar karşısında güçlü görünür ama içte sabırla büyüyen bir yük taşır. Duygularını kolay kolay açmaz. Soğuk, mesafeli ya da aşırı kuralcı davranabilir. Kalpten şifa bulduğunda, duygusal dayanıklılığı ve derinliğiyle güvenilir bir bağ kurar.",
         "Cesaretli, Duygular kosunda pozitif. Üretim gücü kuvvetli.",
-        "Sezgisel bir sevgi anlayışı vardır. Yardım etmeye eğilimlidir ama bu çoğu zaman kendi ihtiyaçlarını bastırarak olur. “Güzin Abla” rolüne sıkışabilir. Sevgiyi babadan bekliyor olabilir. dengelediğinde, şefkatli ama kendini tüketmeyen bir denge oluşturur.",
+        "Sezgisel bir sevgi anlayışı vardır. Yardım etmeye eğilimlidir ama bu çoğu zaman kendi ihtiyaçlarını bastırarak olur. 'Güzin Abla' rolüne sıkışabilir. Sevgiyi babadan bekliyor olabilir. dengelediğinde, şefkatli ama kendini tüketmeyen bir denge oluşturur.",
         "Duygusal olarak kolay tatmin olmayan bir yapıya sahiptir. Anne-baba sevgisine doyamamış olabilir. Bu eksiklik, ilişkilerde sürekli daha fazlasını istemesine yol açar. Değersizlik duygusu derinlere işlemiş olabilir. arayış içinde.",
         "Aurayı korursa zengin olur.. Otoriter olabilir; kontrol ve güç ihtiyacıyla duygular bastırılabilir. Edebiyat ve şiir, edebi yeteneklere meyilli olabilir.",
         "Ya duygularını çok frenliyor, ya da aşırı sınırları açık.. Anlaşılmayacak kadar saf ve iyi niyetli olabilir..Şifacı bir kalptir. Duygusal olarak çok saf, çok açık olabilir."
     ],
     [  # 3. hane - HİTABET VE TİCARET
         "Bu kişi dünyaya bir iş kurmak, temeller atmak ve kendi ayakları üzerinde durmak için gelmiştir. Emir almayı sevmez; kendi yolunu kendi çizer. Ancak önce kendi kökenindeki sorunları temizlemesi gerekir. Liderlik ruhu vardır, ama bu liderliği sağlam zemine oturtmak için içsel dönüşüm yaşamalıdır.",
-        "Hitabet ve ticaret hanesi, sevgiyi bulmakla açılmış. “Yunusça” sevmeyi öğrenmek zorundadır. Ortaklık enerjisi güçlüdür; işlerini ortaklıkla büyütebilir. Ancak ilişkilerde fazla yumuşak olabilir. Duygusal dengeyi sağlarsa iş yaşamında da dengeli ilişkiler kurabilir.",
+        "Hitabet ve ticaret hanesi, sevgiyi bulmakla açılmış. 'Yunusça' sevmeyi öğrenmek zorundadır. Ortaklık enerjisi güçlüdür; işlerini ortaklıkla büyütebilir. Ancak ilişkilerde fazla yumuşak olabilir. Duygusal dengeyi sağlarsa iş yaşamında da dengeli ilişkiler kurabilir.",
         "Dil sivriliği, baskı altında kalan ifade enerjisi ve güçlü liderlik potansiyeli bu kişinin içindedir. Eğer yaşadığı baskıları çözerse çok etkili bir konuşmacı veya yazar olabilir. Ancak önce dili terbiye etmeli, öfke ya da sabırsızlıkla konuşmaktan kaçınmalıdır. Bu kişi için kelimeler hem şifa hem yıkım olabilir.",
         "Bu kişi erken yaşta büyük kayıplar yaşamış olabilir. Anne-baba eksikliği ya da duygusal boşluklar, onun hitabetini ve karar verme yetisini şekillendirmiştir. Sabırla, yavaş yavaş kendi yolunu çizer. Hayatta aceleye yer yoktur onun için. Ağır, sağlam ve kalpten konuşur; ama konuşmadan önce çok düşünür.",
         "Ruhunda neşe ve canlılık vardır. Ancak bu hane negatif frekansa geçtiğinde içe kapanma, nazar ve enerji düşüklüğü yaşanabilir. Cesaret ve özgüven, bu kişinin potansiyelini ortaya çıkarır. Sevdiği işi yapmalı, rutinler onu yorar. Ruhsal olarak özgür hissettiğinde parlayacaktır..",
@@ -54,17 +54,17 @@ pin_kodu_yorumu = [
         "İmtihanlarını şükrederek aşacak. Polyannacılık oynayacak. Hayata açık ve öğrenmeye istekli bir ruha sahiptir.",
         "İmtihan sebebi aile ve otoritedir. Aile, özellikle baba figürüyle ilgili yükler kalp merkezinde taşınır. Bu kişi sevgiyi sezgisel yollarla anlamaya çalışır ama korkularının ve geçmişten gelen kontrolcülüğün etkisiyle sevgiye teslim olmakta zorlanır. Aileden öğrendiği modelleri kırması şarttır. Yoksa aynı döngüleri tekrarlar.",
         "Sevginin kaynağının Yaratıcı olduğunu bilmeli. Sahte sevgi arayışları riskine girmemeli. Zihinsel sorgulama, maneviyat arayışı ve sürekli anlam peşinde koşmak bu kişinin sevgi alanına da yansır. Kalbiyle bağlantıya geçmek yerine analiz etmeyi tercih eder. Sevgiye teslim olmakta zorluk çeker çünkü kontrolsüzlük hissi onu rahatsız eder. Olgunluğu, teslimiyetten geçer.",
-        "Güç ve otoriteyi kullanarak sorunları aşar. “Beni olduğum gibi kabul et, yoksa çekil” tavrı baskındır. Bu yaklaşım, gerçek bağ kurmayı zorlaştırır. Sevgiyi paylaşmak yerine, hakimiyet alanı kurmaya çalışır. Zenginlik ve bereket enerjisini kalp alanına taşıyabilmesi için yumuşaması gerekir. Zorluklar karşısında yönetici ve toparlayıcı bir karakter sergiler",
+        "Güç ve otoriteyi kullanarak sorunları aşar. 'Beni olduğum gibi kabul et, yoksa çekil' tavrı baskındır. Bu yaklaşım, gerçek bağ kurmayı zorlaştırır. Sevgiyi paylaşmak yerine, hakimiyet alanı kurmaya çalışır. Zenginlik ve bereket enerjisini kalp alanına taşıyabilmesi için yumuşaması gerekir. Zorluklar karşısında yönetici ve toparlayıcı bir karakter sergiler",
         "Kalbine duygusal hatalara düşmemek için söz geçirmeli. Ya sınır koyamayan aşırı saf bir yapı ya da aşırı sınır koyan, mesafeli biri olabilir. Bu kişide ya hayır diyememe problemi ya da aşırı hayır deme eğilimi görülür. "
     ],
     [  # 5. hane - ŞÜKÜR VE DOYUM
-        "Bu kişi doyumu hep daha büyük hedeflerde arayabilir. Kendine dair yüksek beklentiler taşır. “Oldu ama daha iyisi olmalıydı” diyerek düşüncesinde olabilir. Ego, mükemmeliyetçilik ve kendine yönelttiği sert eleştiriler, içsel huzurunu sabote eder.  Şükrü yaşam tarzına çevirdiğinde sade bir huzur mümkün olur.Mütevazi olmayı öğrenmeli.",
-        "Bağ kurma yeteneği çok yüksektir. Sevgi ve ilgi açlığı baskındır. Duygusal ilişkilerde bağımlılık geliştirme eğilimi vardır. Sevgi alma konusunda doyum yaşamadığı için, geçmişte özellikle anneyle olan ilişkiden kaynaklı bir eksiklik taşır. Romantik ilişkilerde fazlasıyla verici ya da yapışkan olabilir. Sürekli bir “doyurulma” beklentisi taşıyabilir.",
+        "Bu kişi doyumu hep daha büyük hedeflerde arayabilir. Kendine dair yüksek beklentiler taşır. 'Oldu ama daha iyisi olmalıydı' diyerek düşüncesinde olabilir. Ego, mükemmeliyetçilik ve kendine yönelttiği sert eleştiriler, içsel huzurunu sabote eder.  Şükrü yaşam tarzına çevirdiğinde sade bir huzur mümkün olur.Mütevazi olmayı öğrenmeli.",
+        "Bağ kurma yeteneği çok yüksektir. Sevgi ve ilgi açlığı baskındır. Duygusal ilişkilerde bağımlılık geliştirme eğilimi vardır. Sevgi alma konusunda doyum yaşamadığı için, geçmişte özellikle anneyle olan ilişkiden kaynaklı bir eksiklik taşır. Romantik ilişkilerde fazlasıyla verici ya da yapışkan olabilir. Sürekli bir 'doyurulma' beklentisi taşıyabilir.",
         "İletişimden keyif alır. Konuşmak, paylaşmak ve anlatmak bu kişinin en büyük keyif kaynaklarıdır. Konuşurken çevresine ilham ve neşe vericidir (3. cakrası iyiyse). Ancak anlatmanın arkasında görünme, onay alma ihtiyacı olabilir. Şükür alanı, dışsal etkileşimlere bağlıysa içsel huzur zor sağlanır. Her zaman çevreden bir etkileşim bekler; yalnız kalınca doyumu kaybedebilir.",
         "Aşırı merhametli olabilir ama bu onu tüketebilir. Başkalarının acılarına aşırı odaklanmak, kendi sınırlarını yok saymasına neden olur. Hayattan memnuniyet duymak için önce kendine dönmesi gerekir. Aksi halde hep başkalarının yükünü taşır ve tükenmişlik hissi taşıyabilir.",
         "Hayatta sevilmediğini düşünebilir, özgürlük arayışı ve iç huzursuzluk arasında gidip gelir. Sürekli bir şeylerin eksik olduğu hissi taşıyabilir. Şükürsüzlüğe doğru kayabilir. Bu durumu kendi çabalarıyla çözmesi lazımdır(5!). Bunu çözerse başkalarının kalbine kolayca ulaşır. Doyum, ancak bu eski kayıtlar temizlenirse mümkündür. Aksi halde, şükür hali yüzeysel kalır.",
-        "Güven veren, sadık sahibi bir yapıdadır. Aileye yönelik aşırı sorumluluk duygusu, bu kişiyi sürekli veren pozisyonda tutar. Doyum yaşamaktan çok, başkalarının ihtiyaçlarını karşılamaya odaklıdır. Özellikle baba figürüyle ilişkisi belirleyici olabilir. Şükretmek yerine “vermek zorundayım” hissiyle hareket etme ihtimali vardır.",
-        "Sevgi arayışı vardır. Bu sevgi arayışı ruhsaldır ama bu, kişinin gerçek doyumu yaşadığı anlamına gelmez. Sık sık “neden bana yetmiyor?” sorusuyla baş başa kalır , ama tatminsizlik hissi içini kemirebilir. Derin düşünebilme ve sezgisel analiz becerisi gelişmiştir.",
+        "Güven veren, sadık sahibi bir yapıdadır. Aileye yönelik aşırı sorumluluk duygusu, bu kişiyi sürekli veren pozisyonda tutar. Doyum yaşamaktan çok, başkalarının ihtiyaçlarını karşılamaya odaklıdır. Özellikle baba figürüyle ilişkisi belirleyici olabilir. Şükretmek yerine 'vermek zorundayım' hissiyle hareket etme ihtimali vardır.",
+        "Sevgi arayışı vardır. Bu sevgi arayışı ruhsaldır ama bu, kişinin gerçek doyumu yaşadığı anlamına gelmez. Sık sık 'neden bana yetmiyor?' sorusuyla baş başa kalır , ama tatminsizlik hissi içini kemirebilir. Derin düşünebilme ve sezgisel analiz becerisi gelişmiştir.",
         "Ara ara doyumu maddi mutlulukla özdeşleştirme hatasına düşebilir.  Sahip olmak, kazanç elde etmek ve konfor alanları yaratmak önceliklidir. Girişimci bir ruha sahiptir",
         "Sevgide sınırlara dikkat.. Şefkatlidir ama sınır koymakta zorlanır. Ruhsal rehberlik, danışmanlık hizmeti ve yalnız zamanlar, içsel doyumu artırır."
     ],
@@ -117,10 +117,10 @@ pin_kodu_yorumu = [
 pin_kodu_yorumu_giris_cumlesi = [
     "KENDİNİ NASIL GÖRÜYOR. Bu hane, kişinin düşünce sistemini, karar alma mekanizmasını ve kendilik algısını temsil eder. Kişinin dış dünyayı nasıl algıladığı ve içsel diyaloğu burada belirginleşir. Ego, özgüven, zihinsel liderlik ve bireysel farkındalık bu alanın temel temalarıdır. Aynı zamanda hangi frekansta düşündüğü, zihinsel filtrelerinin nasıl çalıştığı da bu hanede görünür.",
     "DUYGULAR ve YAKIN İLİSKİLER. Bu hane, kişinin duygusal dünyasını, yakın ilişkilerinde sevgiyi nasıl algıladığını ve duygusal bağ kurma kapasitesini temsil eder. Sevme/sevilme ihtiyacı, duygusal bağımlılıklar, kırgınlıklar, özdeğer duygusu ve duygulara dair içgörü bu alanda belirginleşir. Aynı zamanda sakral çakrayla ilişkilidir; kişinin yaratım gücünü ve duygusal hareketliliğini gösterir.",
-    "DÜNYAYA AÇILMA, HİTABET ve TİCARET. Bu hane kişinin: Kendini sözlü ya da yazılı olarak nasıl ifade ettiğini, İletişim becerilerini, Meslek seçimindeki eğilimlerini, Ve hayatla kurduğu “ticari” ya da “duygusal alışveriş” dengesini temsil eder.",
-    "SEVGİ ,OLGUNLUK ve SINAV. Dördüncü hane “sevgi, olgunluk ve kalbin sınavları” ile doğrudan ilişkilidir. Bu hanede kişinin sevgi alma-verme biçimi, duygusal olgunluğu ve kalp merkezinden gelen tavırları ortaya çıkar.",
+    "DÜNYAYA AÇILMA, HİTABET ve TİCARET. Bu hane kişinin: Kendini sözlü ya da yazılı olarak nasıl ifade ettiğini, İletişim becerilerini, Meslek seçimindeki eğilimlerini, Ve hayatla kurduğu ticari ya da duygusal alışveriş dengesini temsil eder.",
+    "SEVGİ ,OLGUNLUK ve SINAV. Dördüncü hane sevgi, olgunluk ve kalbin sınavları ile doğrudan ilişkilidir. Bu hanede kişinin sevgi alma-verme biçimi, duygusal olgunluğu ve kalp merkezinden gelen tavırları ortaya çıkar.",
     "ŞÜKÜR ve DOYUM. Bu hane kişinin hayattan ne kadar tatmin olduğu, sahip olduklarıyla ne yaptığı ve içsel şükrü ne ölçüde deneyimlediğiyle ilgilidir. Aynı zamanda kişinin değer görme, sevme/sevilme biçimi ve doyum düzeyini doğrudan yansıtır.",
-    "AİLE, BABA. Bu hane, kişinin aile yapısı, özellikle baba figürü ve “eril” otoriteyle kurduğu ilişkiyi temsil eder. Aynı zamanda sorumluluk alma becerisi, kontrol eğilimi ve aile içi rollerin nasıl deneyimlendiğini yansıtır. Sorunlar sadece babayla değil; aile içindeki dengeyle de ilgilidir.",
+    "AİLE, BABA. Bu hane, kişinin aile yapısı, özellikle baba figürü ve eril otoriteyle kurduğu ilişkiyi temsil eder. Aynı zamanda sorumluluk alma becerisi, kontrol eğilimi ve aile içi rollerin nasıl deneyimlendiğini yansıtır. Sorunlar sadece babayla değil; aile içindeki dengeyle de ilgilidir.",
     "ANNE, İNANÇ. Bu hane, kişinin anneyle ilişkisini, iman boyutunu, içsel rehberlik kapasitesini ve sezgisel yönlerini yansıtır. Aynı zamanda duygusal kökler, teslimiyet, ruhsal olgunluk ve içsel bağlılık burada saklıdır. Geçmişten gelen dişil enerji aktarımı (özellikle anne ve kadın atalar) bu hanede iz bırakır.",
     "KAZANÇ ve BEREKET. Bu hane, kişinin maddi dünyayla ilişkisini, parayla kurduğu bağı, emanet ve değer üretme anlayışını, aynı zamanda aurasının ne kadar güçlü ya da sızdıran olduğunu gösterir.",
     "HAYAT AMACI. Bu hane, kişinin bu hayata ne için geldiğini, hangi tema üzerinden tamamlanacağını ve yaşam boyu yönelmesi gereken asıl amacı temsil eder. Ruhsal olarak buradaki sayı, kişinin olgunluk sınavlarını, kendisini gerçekleştirme biçimini ve kalıcı etkisini yansıtır."
@@ -313,15 +313,15 @@ def pin_kodu_hesaplama(dogum_tarihi):
     # Pin kodu yorumlarını hazırla
     pin_kodu_yorumlari = []
     for i in range(9):
-        yorum = f"{i+1}. Hane: {pin_kodu_yorumu_giris_cumlesi[i]}\n\n"
+        yorum = f"{i+1}. Hane: {pin_kodu_yorumu_giris_cumlesi[i]}<br><br>"
         # k[i] değerinin ilk karakterini al ve int'e çevir (örn: "4!" -> 4)
         index = int(k[i][0]) - 1  # 0-based index için -1
-        yorum += f"{i+1}. Hane: {pin_kodu_yorumu[i][index]}"
+        yorum += f"{index+1}. ile açılmış: {pin_kodu_yorumu[i][index]}"
         
         # Eğer k[i] değerinde ünlem işareti varsa, özel yorumu ekle
         if k[i].endswith('!'):
             sayi = int(k[i][0]) - 1  # 0-based index için -1
-            yorum += f"\n\nDikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
+            yorum += f"<br>Dikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
         
         pin_kodu_yorumlari.append(yorum)
     
