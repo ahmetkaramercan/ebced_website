@@ -50,9 +50,10 @@ def main():
                 print("\nVeritabanı İşlemleri")
                 print("1. Mevcut Veritabanını Yedekle")
                 print("2. Yedekten Geri Yükle")
+                print("3. Fly.io'dan Veritabanını İndir")
                 print("0. Ana Menüye Dön")
                 
-                db_secim = input("\nLütfen bir işlem seçin (0-2): ")
+                db_secim = input("\nLütfen bir işlem seçin (0-3): ")
                 
                 if db_secim == "1":
                     if vt.veritabani_yedekle():
@@ -63,11 +64,17 @@ def main():
                     if onay.lower() == 'e':
                         vt.veritabani_geri_yukle()
                 
+                elif db_secim == "3":
+                    app_name = input("Fly.io uygulama adınızı girin: ")
+                    onay = input("Bu işlem mevcut veritabanının üzerine yazacak. Emin misiniz? (e/h): ")
+                    if onay.lower() == 'e':
+                        vt.flyio_veritabani_indir(app_name)
+                
                 elif db_secim == "0":
                     break
                 
                 else:
-                    print("Geçersiz seçim! Lütfen 0-2 arasında bir sayı girin.")
+                    print("Geçersiz seçim! Lütfen 0-3 arasında bir sayı girin.")
         
         elif secim == "0":
             print("Programdan çıkılıyor...")

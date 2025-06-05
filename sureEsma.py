@@ -910,24 +910,6 @@ def calculate_arabic_ebced(name):
     return None, None
 
 
-def calculate_sure_esma(dogum_gunu, isim, anne_ismi, baba_ismi):
-    """
-    Tüm Sure ve Esma hesaplamalarını yapar
-    """
-    # İsmin Arapça yazılışı ve ebced değeri
-    arabic_text, ebced_value = calculate_arabic_ebced(isim)
-    
-    results = {
-        'isim': isim,
-        'arabic_text': arabic_text,
-        'ebced_value': ebced_value,
-        'fikir_sayisi': akil_fikir_sayisi_hesaplama(dogum_gunu),
-        'akil_zeka_sayisi': akil_fikir_sayisi_hesaplama(dogum_gunu),
-        'esma': get_esma(dogum_gunu, isim),
-        'sure': get_sure(dogum_gunu, isim)
-    }
-    
-    return results
 
 def test_db_connection():
     """Veritabanı bağlantısını ve tablo yapısını kontrol eder"""

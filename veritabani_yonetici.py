@@ -2,6 +2,7 @@ import sqlite3
 from datetime import datetime
 import shutil
 import os
+import subprocess
 
 class VeriTabaniYonetici:
     def __init__(self):
@@ -157,6 +158,40 @@ class VeriTabaniYonetici:
                 return False
         except Exception as e:
             print(f"Geri yükleme sırasında hata oluştu: {str(e)}")
+            # Hata durumunda bağlantıyı yeniden aç
+            self.baglanti = sqlite3.connect('kullanicilar.db')
+            self.cursor = self.baglanti.cursor()
+            return False
+    
+    def flyio_veritabani_indir(self, app_name):
+        """Fly.io'dan veritabanını indirir ve mevcut veritabanının üzerine yazar"""
+        try:
+            # Önce bağlantıyı kapat
+            self.baglanti.close()
+            
+            print("Fly.io'dan veritabanı indiriliyor...")
+            
+            # Eğer dosya varsa sil
+            if os.path.exists('kullanicilar.db'):
+                os.remove('kullanicilar.db')
+                print("Mevcut veritabanı dosyası silindi")
+            
+            # SFTP ile dosyayı indir
+            cmd = f'fly sftp get /app/kullanicilar.db kullanicilar.db -a {app_name}'
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+            
+            if result.returncode != 0:
+                raise Exception(f"Fly.io'dan indirme başarısız oldu: {result.stderr}")
+            
+            print("Veritabanı başarıyla indirildi ve güncellendi")
+            
+            # Bağlantıyı yeniden aç
+            self.baglanti = sqlite3.connect('kullanicilar.db')
+            self.cursor = self.baglanti.cursor()
+            return True
+            
+        except Exception as e:
+            print(f"Fly.io veritabanı indirme hatası: {str(e)}")
             # Hata durumunda bağlantıyı yeniden aç
             self.baglanti = sqlite3.connect('kullanicilar.db')
             self.cursor = self.baglanti.cursor()

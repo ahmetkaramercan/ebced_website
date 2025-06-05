@@ -4,7 +4,7 @@ from ebced import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
                   bereket_rakami_bulma, ana_kulvar_bulma, yan_kulvar_bulma,
                   donusum_yillari_bulma, ozellik_hesaplama)
 from iliski_analizi import iliski_pin_kodu_hesaplama
-from sureEsma import calculate_sure_esma, get_ebced_and_arabic, akil_fikir_sayisi_hesaplama, dogumGunuToplama, en_yakin_esma_bul, en_yakin_sure_bul
+from sureEsma import get_ebced_and_arabic, akil_fikir_sayisi_hesaplama, dogumGunuToplama, en_yakin_esma_bul, en_yakin_sure_bul
 import os
 import arabic_reshaper
 from bidi.algorithm import get_display

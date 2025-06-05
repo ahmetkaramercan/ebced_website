@@ -34,25 +34,25 @@ pin_kodu_yorumu = [
     ],
     [  # 4. hane - SEVGİ, OLGUNLUK
         "Bedensel hastalıklar olabilir. Kendiyle ilgili zorluk. (kendi kalıplarıyla)",
-        "Duygusal zaafiyet",
-        "Sıkıntıları konuşarak aşar",
-        "Kalbî imtihanlar",
-        "İmtihanlarını şükrederek aşacak. Polyannacılık oynayacak.",
-        "İmtihan sebebi aile ve otoritedir",
-        ". Sevginin kaynağının Yaratıcı olduğunu bilmeli. Sahte sevgi arayışları riskine girmemeli. Zihinsel sorgulama, maneviyat arayışı ve sürekli anlam peşinde koşmak bu kişinin sevgi alanına da yansır. Kalbiyle bağlantıya geçmek yerine analiz etmeyi tercih eder. Sevgiye teslim olmakta zorluk çeker çünkü kontrolsüzlük hissi onu rahatsız eder. Olgunluğu, teslimiyetten geçer.",
-        "Güç ve otoriteyi kullanarak sorunları aşar",
-        "Kalbine duygusal hatalara düşmemek için söz geçirmeli."
+        "Hayatındaki dişil figürlerle veya yakın ilişkilerle zorluklar yaşamaya meyillidir. Çünkü duygularını bastırır ve zamanla biriktirir; bu da ani veya kontrolsüz tepkilere neden olabilir. Duygusal yakınlıklarda ciddi ilkesizlik ya da aşırı fedakârlık görülebilir. Huzur bulması için önce duygu kontrolünü öğrenmesi gerekir.",
+        "İç dünyasını paylaşmaya, konuşarak anlaşılmaya ihtiyaç duyar. Sıkıntıları bastırmak yerine ifade ettikçe kalben rahatlar. Anlaşılmama korkusu taşıyorsa bunu yapamaz. Taşımıyorsa duygusal ifadesi güçlüdür. Anlaşıldıkça iyileşir.",
+        "Kararlarında kararlıdır; zorluklar karşısında net ve tutarlıdır. Ağır kalbî imtihanlar yaşayabilirler. İmtihanı aşarken kendi başlarına kalırlar. ",
+        "İmtihanlarını şükrederek aşacak. Polyannacılık oynayacak. Hayata açık ve öğrenmeye istekli bir ruha sahiptir.",
+        "İmtihan sebebi aile ve otoritedir. Aile, özellikle baba figürüyle ilgili yükler kalp merkezinde taşınır. Bu kişi sevgiyi sezgisel yollarla anlamaya çalışır ama korkularının ve geçmişten gelen kontrolcülüğün etkisiyle sevgiye teslim olmakta zorlanır. Aileden öğrendiği modelleri kırması şarttır. Yoksa aynı döngüleri tekrarlar.",
+        "Sevginin kaynağının Yaratıcı olduğunu bilmeli. Sahte sevgi arayışları riskine girmemeli. Zihinsel sorgulama, maneviyat arayışı ve sürekli anlam peşinde koşmak bu kişinin sevgi alanına da yansır. Kalbiyle bağlantıya geçmek yerine analiz etmeyi tercih eder. Sevgiye teslim olmakta zorluk çeker çünkü kontrolsüzlük hissi onu rahatsız eder. Olgunluğu, teslimiyetten geçer.",
+        "Güç ve otoriteyi kullanarak sorunları aşar. “Beni olduğum gibi kabul et, yoksa çekil” tavrı baskındır. Bu yaklaşım, gerçek bağ kurmayı zorlaştırır. Sevgiyi paylaşmak yerine, hakimiyet alanı kurmaya çalışır. Zenginlik ve bereket enerjisini kalp alanına taşıyabilmesi için yumuşaması gerekir. Zorluklar karşısında yönetici ve toparlayıcı bir karakter sergiler",
+        "Kalbine duygusal hatalara düşmemek için söz geçirmeli. Ya sınır koyamayan aşırı saf bir yapı ya da aşırı sınır koyan, mesafeli biri olabilir. Bu kişide ya hayır diyememe problemi ya da aşırı hayır deme eğilimi görülür. "
     ],
     [  # 5. hane - ŞÜKÜR VE DOYUM
-        "Mütevazi olmayı öğrenmeli.",
-        "Sevgi ve ilgi açlığı baskındır. Duygusal ilişkilerde bağımlılık geliştirme eğilimi vardır. Sevgi alma konusunda doyum yaşamadığı için, geçmişte özellikle anneyle olan ilişkiden kaynaklı bir eksiklik taşır. Romantik ilişkilerde fazlasıyla verici ya da yapışkan olabilir. Sürekli bir “doyurulma” beklentisi taşıyabilir.",
-        "İletişimden keyif alı. Konuşmak, paylaşmak ve anlatmak bu kişinin en büyük keyif kaynaklarıdır. Ancak anlatmanın arkasında görünme, onay alma ihtiyacı olabilir. Şükür alanı, dışsal etkileşimlere bağlıysa içsel huzur zor sağlanır. Her zaman çevreden bir etkileşim bekler; yalnız kalınca doyumu kaybedebilir.",
-        "Aşırı merhametli olabilir ama bu onu tüketebilir. Başkalarının acılarına aşırı odaklanmak, kendi sınırlarını yok saymasına neden olur. Bu da zamanla doyum değil yorgunluk üretir. Hayattan memnuniyet duymak için önce kendine dönmesi gerekir. Aksi halde hep başkalarının yükünü taşır.",
-        "Sevilmediğini düşünür",
-        "Aileye karşı çok fedakar",
-        "Sevgi arayışı.",
-        "Mutluluğu maddiyatta arar.",
-        "Sevgide sınırlara dikkat.. Ruhani rehberlerle vakit geçir"
+        "Bu kişi doyumu hep daha büyük hedeflerde arayabilir. Kendine dair yüksek beklentiler taşır. “Oldu ama daha iyisi olmalıydı” diyerek düşüncesinde olabilir. Ego, mükemmeliyetçilik ve kendine yönelttiği sert eleştiriler, içsel huzurunu sabote eder.  Şükrü yaşam tarzına çevirdiğinde sade bir huzur mümkün olur.Mütevazi olmayı öğrenmeli.",
+        "Bağ kurma yeteneği çok yüksektir. Sevgi ve ilgi açlığı baskındır. Duygusal ilişkilerde bağımlılık geliştirme eğilimi vardır. Sevgi alma konusunda doyum yaşamadığı için, geçmişte özellikle anneyle olan ilişkiden kaynaklı bir eksiklik taşır. Romantik ilişkilerde fazlasıyla verici ya da yapışkan olabilir. Sürekli bir “doyurulma” beklentisi taşıyabilir.",
+        "İletişimden keyif alır. Konuşmak, paylaşmak ve anlatmak bu kişinin en büyük keyif kaynaklarıdır. Konuşurken çevresine ilham ve neşe vericidir (3. cakrası iyiyse). Ancak anlatmanın arkasında görünme, onay alma ihtiyacı olabilir. Şükür alanı, dışsal etkileşimlere bağlıysa içsel huzur zor sağlanır. Her zaman çevreden bir etkileşim bekler; yalnız kalınca doyumu kaybedebilir.",
+        "Aşırı merhametli olabilir ama bu onu tüketebilir. Başkalarının acılarına aşırı odaklanmak, kendi sınırlarını yok saymasına neden olur. Hayattan memnuniyet duymak için önce kendine dönmesi gerekir. Aksi halde hep başkalarının yükünü taşır ve tükenmişlik hissi taşıyabilir.",
+        "Hayatta sevilmediğini düşünebilir, özgürlük arayışı ve iç huzursuzluk arasında gidip gelir. Sürekli bir şeylerin eksik olduğu hissi taşıyabilir. Şükürsüzlüğe doğru kayabilir. Bu durumu kendi çabalarıyla çözmesi lazımdır(5!). Bunu çözerse başkalarının kalbine kolayca ulaşır. Doyum, ancak bu eski kayıtlar temizlenirse mümkündür. Aksi halde, şükür hali yüzeysel kalır.",
+        "Güven veren, sadık sahibi bir yapıdadır. Aileye yönelik aşırı sorumluluk duygusu, bu kişiyi sürekli veren pozisyonda tutar. Doyum yaşamaktan çok, başkalarının ihtiyaçlarını karşılamaya odaklıdır. Özellikle baba figürüyle ilişkisi belirleyici olabilir. Şükretmek yerine “vermek zorundayım” hissiyle hareket etme ihtimali vardır.",
+        "Sevgi arayışı vardır. Bu sevgi arayışı ruhsaldır ama bu, kişinin gerçek doyumu yaşadığı anlamına gelmez. Sık sık “neden bana yetmiyor?” sorusuyla baş başa kalır , ama tatminsizlik hissi içini kemirebilir. Derin düşünebilme ve sezgisel analiz becerisi gelişmiştir.",
+        "Ara ara doyumu maddi mutlulukla özdeşleştirme hatasına düşebilir.  Sahip olmak, kazanç elde etmek ve konfor alanları yaratmak önceliklidir. Girişimci bir ruha sahiptir",
+        "Sevgide sınırlara dikkat.. Şefkatlidir ama sınır koymakta zorlanır. Ruhsal rehberlik, danışmanlık hizmeti ve yalnız zamanlar, içsel doyumu artırır."
     ],
     [  # 6. hane - AİLE, BABA
         "'Beni dinleyeceksin!' mesajı veren bir yapıdadır. Düşüncelerine aşırı değer verir ve otorite kurmak ister. Çocuklukta sesinin duyulmaması, ailede yeterince ciddiye alınmaması bu tepkinin kaynağı olabilir. Baba ile çatışma yaşanmış ya da babadan onay alınamamış olabilir. Aile içinde bireysel kimliğini ortaya koymak için savaş vermiştir.",
@@ -103,7 +103,7 @@ pin_kodu_yorumu = [
 pin_kodu_yorumu_giris_cumlesi = [
 "KENDİNİ NASIL GÖRÜYOR. Bu hane, kişinin düşünce sistemini, karar alma mekanizmasını ve kendilik algısını temsil eder. Kişinin dış dünyayı nasıl algıladığı ve içsel diyaloğu burada belirginleşir. Ego, özgüven, zihinsel liderlik ve bireysel farkındalık bu alanın temel temalarıdır. Aynı zamanda hangi frekansta düşündüğü, zihinsel filtrelerinin nasıl çalıştığı da bu hanede görünür.",
 "DUYGULAR ve YAKIN İLİSKİLER. Bu hane, kişinin duygusal dünyasını, yakın ilişkilerinde sevgiyi nasıl algıladığını ve duygusal bağ kurma kapasitesini temsil eder. Sevme/sevilme ihtiyacı, duygusal bağımlılıklar, kırgınlıklar, özdeğer duygusu ve duygulara dair içgörü bu alanda belirginleşir. Aynı zamanda sakral çakrayla ilişkilidir; kişinin yaratım gücünü ve duygusal hareketliliğini gösterir.",
-"",
+"DÜNYAYA AÇILMA, HİTABET ve TİCARET. Bu hane kişinin: Kendini sözlü ya da yazılı olarak nasıl ifade ettiğini, İletişim becerilerini, Meslek seçimindeki eğilimlerini, Ve hayatla kurduğu “ticari” ya da “duygusal alışveriş” dengesini temsil eder."
 "SEVGİ ,OLGUNLUK ve SINAV. Dördüncü hane “sevgi, olgunluk ve kalbin sınavları” ile doğrudan ilişkilidir. Bu hanede kişinin sevgi alma-verme biçimi, duygusal olgunluğu ve kalp merkezinden gelen tavırları ortaya çıkar.",
 "ŞÜKÜR ve DOYUM. Bu hane kişinin hayattan ne kadar tatmin olduğu, sahip olduklarıyla ne yaptığı ve içsel şükrü ne ölçüde deneyimlediğiyle ilgilidir. Aynı zamanda kişinin değer görme, sevme/sevilme biçimi ve doyum düzeyini doğrudan yansıtır.",
 "AİLE, BABA. Bu hane, kişinin aile yapısı, özellikle baba figürü ve “eril” otoriteyle kurduğu ilişkiyi temsil eder. Aynı zamanda sorumluluk alma becerisi, kontrol eğilimi ve aile içi rollerin nasıl deneyimlendiğini yansıtır. Sorunlar sadece babayla değil; aile içindeki dengeyle de ilgilidir.",
