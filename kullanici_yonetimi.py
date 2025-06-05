@@ -12,9 +12,10 @@ def main():
         print("5. Tüm Kullanıcıları Listele")
         print("6. Kullanıcı Bilgilerini Göster")
         print("7. Kullanıcı Tarihini Güncelle")
+        print("8. Veritabanı İşlemleri")
         print("0. Çıkış")
         
-        secim = input("\nLütfen bir işlem seçin (0-7): ")
+        secim = input("\nLütfen bir işlem seçin (0-8): ")
         
         if secim == "1":
             kullanici_adi = input("Kullanıcı adı: ")
@@ -43,13 +44,37 @@ def main():
         elif secim == "7":
             kullanici_adi = input("Tarihi güncellenecek kullanıcı adı: ")
             vt.tarih_guncelle(kullanici_adi)
+            
+        elif secim == "8":
+            while True:
+                print("\nVeritabanı İşlemleri")
+                print("1. Mevcut Veritabanını Yedekle")
+                print("2. Yedekten Geri Yükle")
+                print("0. Ana Menüye Dön")
+                
+                db_secim = input("\nLütfen bir işlem seçin (0-2): ")
+                
+                if db_secim == "1":
+                    if vt.veritabani_yedekle():
+                        print("Not: Yedek dosyası 'kullanicilar_yedek.db' olarak kaydedildi.")
+                
+                elif db_secim == "2":
+                    onay = input("Bu işlem mevcut veritabanının üzerine yazacak. Emin misiniz? (e/h): ")
+                    if onay.lower() == 'e':
+                        vt.veritabani_geri_yukle()
+                
+                elif db_secim == "0":
+                    break
+                
+                else:
+                    print("Geçersiz seçim! Lütfen 0-2 arasında bir sayı girin.")
         
         elif secim == "0":
             print("Programdan çıkılıyor...")
             break
         
         else:
-            print("Geçersiz seçim! Lütfen 0-7 arasında bir sayı girin.")
+            print("Geçersiz seçim! Lütfen 0-8 arasında bir sayı girin.")
 
 if __name__ == "__main__":
     main() 

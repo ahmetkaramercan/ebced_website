@@ -1,5 +1,7 @@
 import sqlite3
 from datetime import datetime
+import shutil
+import os
 
 class VeriTabaniYonetici:
     def __init__(self):
@@ -106,6 +108,58 @@ class VeriTabaniYonetici:
             return True
         else:
             print(f"Hata: {kullanici_adi} kullanıcısı bulunamadı!")
+            return False
+    
+    def veritabani_yedekle(self):
+        """Mevcut veritabanını yedekler"""
+        try:
+            # Önce bağlantıyı kapat
+            self.baglanti.close()
+            
+            # Veritabanını yedekle
+            shutil.copy2('kullanicilar.db', 'kullanicilar_yedek.db')
+            
+            # Bağlantıyı yeniden aç
+            self.baglanti = sqlite3.connect('kullanicilar.db')
+            self.cursor = self.baglanti.cursor()
+            
+            print("Veritabanı başarıyla yedeklendi: kullanicilar_yedek.db")
+            return True
+        except Exception as e:
+            print(f"Yedekleme sırasında hata oluştu: {str(e)}")
+            # Hata durumunda bağlantıyı yeniden aç
+            self.baglanti = sqlite3.connect('kullanicilar.db')
+            self.cursor = self.baglanti.cursor()
+            return False
+    
+    def veritabani_geri_yukle(self):
+        """Yedek veritabanını mevcut veritabanına geri yükler"""
+        try:
+            # Önce bağlantıyı kapat
+            self.baglanti.close()
+            
+            # Eğer yedek dosya varsa
+            if os.path.exists('kullanicilar_yedek.db'):
+                # Mevcut veritabanını yedek dosya ile değiştir
+                shutil.copy2('kullanicilar_yedek.db', 'kullanicilar.db')
+                
+                # Bağlantıyı yeniden aç
+                self.baglanti = sqlite3.connect('kullanicilar.db')
+                self.cursor = self.baglanti.cursor()
+                
+                print("Veritabanı başarıyla geri yüklendi")
+                return True
+            else:
+                print("Yedek veritabanı bulunamadı: kullanicilar_yedek.db")
+                # Bağlantıyı yeniden aç
+                self.baglanti = sqlite3.connect('kullanicilar.db')
+                self.cursor = self.baglanti.cursor()
+                return False
+        except Exception as e:
+            print(f"Geri yükleme sırasında hata oluştu: {str(e)}")
+            # Hata durumunda bağlantıyı yeniden aç
+            self.baglanti = sqlite3.connect('kullanicilar.db')
+            self.cursor = self.baglanti.cursor()
             return False
     
     def __del__(self):
