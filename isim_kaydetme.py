@@ -162,6 +162,19 @@ def manuel_isim_ekle():
                 
             isim, arapca, ebced = parts
             
+            # İsim kontrolü yap
+            existing_name = check_name_exists(conn, isim)
+            if existing_name:
+                print(f"\nBu isim zaten veritabanında mevcut:")
+                print(f"İsim: {existing_name['isim']}")
+                print(f"Ebced Değeri: {existing_name['ebced_degeri']}")
+                print(f"Arapça Yazılış: {existing_name['arapca_yazilis']}")
+                
+                update_choice = input("\nBu kaydı güncellemek ister misiniz? (E/H): ").strip().lower()
+                if update_choice != 'e':
+                    print("İşlem iptal edildi.")
+                    continue
+            
             try:
                 ebced = int(ebced)
             except ValueError:
@@ -176,13 +189,34 @@ def manuel_isim_ekle():
             ''', (isim, ebced, arapca))
             
             conn.commit()
-            print(f"✓ {isim} başarıyla veritabanına eklendi!")
+            if existing_name:
+                print(f"✓ {isim} başarıyla güncellendi!")
+            else:
+                print(f"✓ {isim} başarıyla veritabanına eklendi!")
             
         except Exception as e:
             print(f"Hata oluştu: {e}")
             
     conn.close()
     print("\nManuel isim ekleme işlemi tamamlandı.")
+
+def check_name_exists(conn, name):
+    """Veritabanında ismin var olup olmadığını kontrol eder ve varsa detaylarını döndürür"""
+    cursor = conn.cursor()
+    cursor.execute('''
+    SELECT isim, ebced_degeri, arapca_yazilis
+    FROM isimler
+    WHERE isim = ?
+    ''', (name,))
+    
+    result = cursor.fetchone()
+    if result:
+        return {
+            'isim': result[0],
+            'ebced_degeri': result[1],
+            'arapca_yazilis': result[2]
+        }
+    return None
 
 def main():
     while True:

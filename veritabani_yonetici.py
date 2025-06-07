@@ -171,6 +171,15 @@ class VeriTabaniYonetici:
             
             print("Fly.io'dan veritabanı indiriliyor...")
             
+            # Önce VM durumunu kontrol et
+            check_cmd = f'fly status -a {app_name}'
+            check_result = subprocess.run(check_cmd, shell=True, capture_output=True, text=True)
+            
+            if "No machines are running" in check_result.stderr or "has no started VMs" in check_result.stderr:
+                print(f"Hata: {app_name} uygulaması için çalışan VM bulunamadı.")
+                print("Lütfen önce uygulamanın çalıştığından emin olun: fly apps start")
+                raise Exception("Çalışan VM bulunamadı")
+            
             # Eğer dosya varsa sil
             if os.path.exists('kullanicilar.db'):
                 os.remove('kullanicilar.db')
@@ -181,7 +190,10 @@ class VeriTabaniYonetici:
             result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
             
             if result.returncode != 0:
-                raise Exception(f"Fly.io'dan indirme başarısız oldu: {result.stderr}")
+                error_msg = result.stderr.strip()
+                if "not found" in error_msg:
+                    raise Exception("Uzak sunucuda veritabanı dosyası bulunamadı")
+                raise Exception(f"Fly.io'dan indirme başarısız oldu: {error_msg}")
             
             print("Veritabanı başarıyla indirildi ve güncellendi")
             
@@ -192,6 +204,11 @@ class VeriTabaniYonetici:
             
         except Exception as e:
             print(f"Fly.io veritabanı indirme hatası: {str(e)}")
+            if "Çalışan VM bulunamadı" in str(e):
+                print("\nÇözüm önerileri:")
+                print("1. 'fly apps start -a " + app_name + "' komutu ile uygulamayı başlatın")
+                print("2. 'fly status -a " + app_name + "' komutu ile durumu kontrol edin")
+                print("3. Uygulama başladıktan sonra tekrar deneyin")
             # Hata durumunda bağlantıyı yeniden aç
             self.baglanti = sqlite3.connect('kullanicilar.db')
             self.cursor = self.baglanti.cursor()
