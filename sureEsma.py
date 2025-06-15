@@ -707,6 +707,12 @@ esmalar = {
         "zikir_gunu": "Cumartesi",
         "zikir_saati": "Sabah, ikindi sonrası, gece yarısı"
     },
+    1281: {
+        "esma": "Ya Ğaffar",
+        "anlam": "Mağfireti, affı bol olan. Günahlarımızı örten demektir. Tevbe etmeyi kolaylaştırır. Günahların affına, mağfiret frekansına ulaşmaya vesile olur. Günah ile sevap arasındaki farkı anlamaya vesile olur. Farkındalığı arttırır. Bilinç kazanmaya vesile olur.",
+        "zikir_gunu": "Cuma",
+        "zikir_saati": "Zühre Güneş doğarken okunur. İkindi namazı sonrasında okunur. Ve... Tam gece yarısında"
+    },
     1286: {
         "esma": "Ya Ğafûr",
         "anlam": "Çokça bağışlayandır. Günahları örter, affeder ve mahcubiyeti giderir.",

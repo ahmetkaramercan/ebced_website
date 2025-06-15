@@ -169,16 +169,33 @@ class VeriTabaniYonetici:
             # Önce bağlantıyı kapat
             self.baglanti.close()
             
-            print("Fly.io'dan veritabanı indiriliyor...")
+            print("Fly.io uygulaması kontrol ediliyor...")
             
-            # Önce VM durumunu kontrol et
+            # Önce uygulamanın var olup olmadığını kontrol et
+            check_app_cmd = f'fly apps list | grep {app_name}'
+            app_result = subprocess.run(check_app_cmd, shell=True, capture_output=True, text=True)
+            
+            if app_result.returncode != 0:
+                raise Exception(f"'{app_name}' adında bir uygulama bulunamadı. Lütfen uygulama adını kontrol edin.")
+            
+            # VM durumunu kontrol et
+            print("VM durumu kontrol ediliyor...")
             check_cmd = f'fly status -a {app_name}'
             check_result = subprocess.run(check_cmd, shell=True, capture_output=True, text=True)
             
-            if "No machines are running" in check_result.stderr or "has no started VMs" in check_result.stderr:
-                print(f"Hata: {app_name} uygulaması için çalışan VM bulunamadı.")
-                print("Lütfen önce uygulamanın çalıştığından emin olun: fly apps start")
+            if "Error: app" in check_result.stderr and "has no started VMs" in check_result.stderr:
+                print(f"\nHata: {app_name} uygulaması için çalışan VM bulunamadı.")
+                print("\nÇözüm adımları:")
+                print(f"1. Uygulamayı başlatın: fly apps start -a {app_name}")
+                print(f"2. Durumu kontrol edin: fly status -a {app_name}")
+                print("3. Uygulama başladıktan sonra tekrar deneyin")
+                print("\nEğer sorun devam ederse:")
+                print(f"4. Uygulamanın sağlık durumunu kontrol edin: fly status -a {app_name}")
+                print(f"5. Deployment durumunu kontrol edin: fly deployments list -a {app_name}")
+                print("6. Gerekirse uygulamayı yeniden deploy edin: fly deploy")
                 raise Exception("Çalışan VM bulunamadı")
+            
+            print("Fly.io'dan veritabanı indiriliyor...")
             
             # Eğer dosya varsa sil
             if os.path.exists('kullanicilar.db'):
@@ -205,10 +222,9 @@ class VeriTabaniYonetici:
         except Exception as e:
             print(f"Fly.io veritabanı indirme hatası: {str(e)}")
             if "Çalışan VM bulunamadı" in str(e):
-                print("\nÇözüm önerileri:")
-                print("1. 'fly apps start -a " + app_name + "' komutu ile uygulamayı başlatın")
-                print("2. 'fly status -a " + app_name + "' komutu ile durumu kontrol edin")
-                print("3. Uygulama başladıktan sonra tekrar deneyin")
+                print("\nLütfen yukarıdaki çözüm adımlarını takip edin.")
+            elif "uygulama bulunamadı" in str(e):
+                print("\nLütfen doğru uygulama adını girdiğinizden emin olun.")
             # Hata durumunda bağlantıyı yeniden aç
             self.baglanti = sqlite3.connect('kullanicilar.db')
             self.cursor = self.baglanti.cursor()

@@ -196,16 +196,28 @@ def sure_hesaplama():
         mother_name = request.form['anne_ismi'].strip()
         father_name = request.form['baba_ismi'].strip()
         # Kişi bilgileri
-        kisi_ebced, kisi_arabic = get_ebced_and_arabic(name)
-        kisi_arabic = reshape_arabic(kisi_arabic)
+        if (not name.isdigit()):
+            kisi_ebced, kisi_arabic = get_ebced_and_arabic(name)
+            kisi_arabic = reshape_arabic(kisi_arabic)
+        else:
+            kisi_ebced = int(name)
+            kisi_arabic = ""
         
         # Anne bilgileri
-        anne_ebced, anne_arabic = get_ebced_and_arabic(mother_name)
-        anne_arabic = reshape_arabic(anne_arabic)
+        if (not mother_name.isdigit()):
+            anne_ebced, anne_arabic = get_ebced_and_arabic(mother_name)
+            anne_arabic = reshape_arabic(anne_arabic)
+        else:
+            anne_ebced = int(mother_name)
+            anne_arabic = ""
         
         # Baba bilgileri
-        baba_ebced, baba_arabic = get_ebced_and_arabic(father_name)
-        baba_arabic = reshape_arabic(baba_arabic)
+        if (not father_name.isdigit()):
+            baba_ebced, baba_arabic = get_ebced_and_arabic(father_name)
+            baba_arabic = reshape_arabic(baba_arabic)
+        else:
+            baba_ebced = int(father_name)
+            baba_arabic = ""
         
         # Doğum günü toplamı
         dogum_gunu_toplam = dogumGunuToplama(dogum_gunu)

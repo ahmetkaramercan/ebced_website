@@ -1,6 +1,6 @@
 pin_kodu_yorumu = [
     [  # 1. hane - DÜŞÜNCELER
-        "Köken problemi güçlüdür. Kişi, ilk açılımını “1” ile yaparak liderlik, bireysellik ve özgüven meselelerine doğrudan temas eder. Bu durum, kök çakradaki blokajların ve içsel çatışmaların bir yansıması olabilir. Tartışmacı liderlik enerjisi vardır. Kendini beğenmeme özgüven eksiliği yetersizlik veya tam tersi Aşırı ego ile mecadele edebilir. Tartışmacı lider.",
+        "Köken problemi güçlüdür. Kişi, ilk açılımını '1” ile yaparak liderlik, bireysellik ve özgüven meselelerine doğrudan temas eder. Bu durum, kök çakradaki blokajların ve içsel çatışmaların bir yansıması olabilir. Tartışmacı liderlik enerjisi vardır. Kendini beğenmeme özgüven eksiliği yetersizlik veya tam tersi Aşırı ego ile mecadele edebilir. Tartışmacı lider.",
         "Düşünceler duygu temellidir. Bu da karar vermeyi zorlaştırır.  Bu kişilerin dişil enerjisi yüksektir. Erkeklerin, çoğunluğunda beta erkek olma eğilimi gözlemlenir. Hem duygusal hem fiziksel bağımlıklıklara yatkınlıkları fazla olabilir. diplomasi ve arabuluculuk vardır. Küsme huyu olabilir.",
         "Kendini doğru ifade etme/edememe.. Kendini tam anlatamıyor olabilir.. Kendisi hakkında iç alemini bir şekilde dile getirmeli. Gelişirse iyi bir hatip olabilir. Feminist",
         "Zihin yapısı kurallarla çalışır. “Ya hep ya hiç” düşüncesi baskındır. Kendisini de başkalarını da yargılayabilir. Esneklik azdır; dogmatik fikir yapısına kayma riski yüksektir. Sabır ve sebatla desteklenirse, sağlam, prensipli ve adil bir düşünsel yapı kurabilir.",

@@ -131,7 +131,7 @@ def save_to_database(conn, name, data):
         cursor = conn.cursor()
         cursor.execute('''
         INSERT OR REPLACE INTO isimler (isim, ebced_degeri, arapca_yazilis)
-        VALUES (?, ?, ?)
+        VALUES (LOWER(?), ?, ?)
         ''', (name, data['ebced_degeri'], data['arapca_yazilis']))
         
         conn.commit()
@@ -185,7 +185,7 @@ def manuel_isim_ekle():
             cursor = conn.cursor()
             cursor.execute('''
             INSERT OR REPLACE INTO isimler (isim, ebced_degeri, arapca_yazilis)
-            VALUES (?, ?, ?)
+            VALUES (LOWER(?), ?, ?)
             ''', (isim, ebced, arapca))
             
             conn.commit()
@@ -218,13 +218,70 @@ def check_name_exists(conn, name):
         }
     return None
 
+def isim_ara(conn, isim):
+    """Veritabanında isim arar ve detaylarını döndürür"""
+    try:
+        cursor = conn.cursor()
+        cursor.execute('''
+        SELECT isim, ebced_degeri, arapca_yazilis
+        FROM isimler
+        WHERE LOWER(isim) = LOWER(?)
+        ''', (isim,))
+        
+        sonuc = cursor.fetchone()
+        if sonuc:
+            print("\nİsim bulundu!")
+            print(f"İsim: {sonuc[0]}")
+            print(f"Ebced Değeri: {sonuc[1]}")
+            print(f"Arapça Yazılış: {sonuc[2]}")
+            return {
+                'isim': sonuc[0],
+                'ebced_degeri': sonuc[1],
+                'arapca_yazilis': sonuc[2]
+            }
+        else:
+            print(f"\n'{isim}' ismi veritabanında bulunamadı.")
+            return None
+    except Exception as e:
+        print(f"İsim arama sırasında hata oluştu: {e}")
+        return None
+
+def isimleri_kucuk_harfe_cevir(conn):
+    """Veritabanındaki tüm isimleri küçük harfe çevirir"""
+    try:
+        cursor = conn.cursor()
+        
+        # Önce tüm isimleri al
+        cursor.execute('SELECT id, isim FROM isimler')
+        isimler = cursor.fetchall()
+        
+        guncellenen = 0
+        for id, isim in isimler:
+            kucuk_isim = isim.lower()
+            if isim != kucuk_isim:
+                cursor.execute('''
+                UPDATE isimler
+                SET isim = ?
+                WHERE id = ?
+                ''', (kucuk_isim, id))
+                guncellenen += 1
+        
+        conn.commit()
+        print(f"\nToplam {guncellenen} isim küçük harfe çevrildi.")
+        return True
+    except Exception as e:
+        print(f"İsimleri küçük harfe çevirirken hata oluştu: {e}")
+        return False
+
 def main():
     while True:
         print("\n1. Web'den isim verilerini çek")
         print("2. Manuel isim ekle")
-        print("3. Çıkış")
+        print("3. İsim ara")
+        print("4. İsimleri küçük harfe çevir")
+        print("5. Çıkış")
         
-        secim = input("\nLütfen bir işlem seçin (1-3): ")
+        secim = input("\nLütfen bir işlem seçin (1-5): ")
         
         if secim == "1":
             # Veritabanını oluştur
@@ -247,6 +304,17 @@ def main():
             manuel_isim_ekle()
             
         elif secim == "3":
+            conn = create_database()
+            aranan_isim = input("\nAramak istediğiniz ismi girin: ")
+            isim_ara(conn, aranan_isim)
+            conn.close()
+            
+        elif secim == "4":
+            conn = create_database()
+            isimleri_kucuk_harfe_cevir(conn)
+            conn.close()
+            
+        elif secim == "5":
             print("\nProgram sonlandırılıyor...")
             break
             
