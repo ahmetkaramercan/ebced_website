@@ -4,7 +4,29 @@ import time
 import sqlite3
 
 # Başlangıç sayfası numarası
-BASLANGIC_SAYFA = 3
+BASLANGIC_SAYFA = 8
+
+def turkce_lower(text):
+    """Türkçe karakterleri doğru şekilde küçük harfe çevirir"""
+    if not text:
+        return text
+    
+    # Türkçe karakter dönüşüm tablosu
+    tr_map = {
+        'İ': 'i',
+        'I': 'ı',
+        'Ğ': 'ğ',
+        'Ü': 'ü',
+        'Ş': 'ş',
+        'Ö': 'ö',
+        'Ç': 'ç'
+    }
+    
+    result = text
+    for tr_char, lower_char in tr_map.items():
+        result = result.replace(tr_char, lower_char)
+    
+    return result.lower()
 
 def create_database():
     """Veritabanını ve tabloyu oluşturur"""
@@ -84,21 +106,27 @@ def get_name_details(url):
             if response.status_code == 200:
                 soup = BeautifulSoup(response.content, 'html.parser')
                 
-                # Ebced değerini bul - paragraflar içinde ara
+                # Ebced değerini bul - paragraflar içinde ara (ilk bulduğunu al)
                 ebced_degeri = None
                 paragraphs = soup.find_all('p')
                 for p in paragraphs:
                     if 'ebced değeri' in p.text.lower():
                         try:
-                            ebced_degeri = int(p.text.split(':')[1].strip())
+                            # "isminin ebced değeri : 60" formatından sayıyı çıkar
+                            text = p.text
+                            if ':' in text:
+                                ebced_str = text.split(':')[1].strip()
+                                ebced_degeri = int(ebced_str)
+                                break  # İlk bulduğu ebced değerini al ve döngüden çık
                         except:
                             continue
                 
-                # Arapça yazılışı bul - osmani class'ına sahip p etiketinde
-                arapca_p = soup.find('p', class_='osmani')
+                # Arapça yazılışı bul - osmani class'ına sahip ilk p etiketinde
                 arapca_yazilis = None
+                arapca_p = soup.find('p', class_='osmani')  # İlk osmani class'lı p'yi bul
                 if arapca_p:
                     try:
+                        # "Hamza :: حمزه" formatından Arapça kısmı al
                         arapca_yazilis = arapca_p.text.split('::')[1].strip()
                     except:
                         pass
@@ -131,8 +159,8 @@ def save_to_database(conn, name, data):
         cursor = conn.cursor()
         cursor.execute('''
         INSERT OR REPLACE INTO isimler (isim, ebced_degeri, arapca_yazilis)
-        VALUES (LOWER(?), ?, ?)
-        ''', (name, data['ebced_degeri'], data['arapca_yazilis']))
+        VALUES (?, ?, ?)
+        ''', (turkce_lower(name), data['ebced_degeri'], data['arapca_yazilis']))
         
         conn.commit()
         print(f"✓ {name} veritabanına kaydedildi")
@@ -185,8 +213,8 @@ def manuel_isim_ekle():
             cursor = conn.cursor()
             cursor.execute('''
             INSERT OR REPLACE INTO isimler (isim, ebced_degeri, arapca_yazilis)
-            VALUES (LOWER(?), ?, ?)
-            ''', (isim, ebced, arapca))
+            VALUES (?, ?, ?)
+            ''', (turkce_lower(isim), ebced, arapca))
             
             conn.commit()
             if existing_name:
@@ -207,7 +235,7 @@ def check_name_exists(conn, name):
     SELECT isim, ebced_degeri, arapca_yazilis
     FROM isimler
     WHERE isim = ?
-    ''', (name,))
+    ''', (turkce_lower(name),))
     
     result = cursor.fetchone()
     if result:
@@ -225,8 +253,8 @@ def isim_ara(conn, isim):
         cursor.execute('''
         SELECT isim, ebced_degeri, arapca_yazilis
         FROM isimler
-        WHERE LOWER(isim) = LOWER(?)
-        ''', (isim,))
+        WHERE isim = ?
+        ''', (turkce_lower(isim),))
         
         sonuc = cursor.fetchone()
         if sonuc:
@@ -246,42 +274,14 @@ def isim_ara(conn, isim):
         print(f"İsim arama sırasında hata oluştu: {e}")
         return None
 
-def isimleri_kucuk_harfe_cevir(conn):
-    """Veritabanındaki tüm isimleri küçük harfe çevirir"""
-    try:
-        cursor = conn.cursor()
-        
-        # Önce tüm isimleri al
-        cursor.execute('SELECT id, isim FROM isimler')
-        isimler = cursor.fetchall()
-        
-        guncellenen = 0
-        for id, isim in isimler:
-            kucuk_isim = isim.lower()
-            if isim != kucuk_isim:
-                cursor.execute('''
-                UPDATE isimler
-                SET isim = ?
-                WHERE id = ?
-                ''', (kucuk_isim, id))
-                guncellenen += 1
-        
-        conn.commit()
-        print(f"\nToplam {guncellenen} isim küçük harfe çevrildi.")
-        return True
-    except Exception as e:
-        print(f"İsimleri küçük harfe çevirirken hata oluştu: {e}")
-        return False
-
 def main():
     while True:
         print("\n1. Web'den isim verilerini çek")
         print("2. Manuel isim ekle")
         print("3. İsim ara")
-        print("4. İsimleri küçük harfe çevir")
-        print("5. Çıkış")
+        print("4. Çıkış")
         
-        secim = input("\nLütfen bir işlem seçin (1-5): ")
+        secim = input("\nLütfen bir işlem seçin (1-4): ")
         
         if secim == "1":
             # Veritabanını oluştur
@@ -310,35 +310,12 @@ def main():
             conn.close()
             
         elif secim == "4":
-            conn = create_database()
-            isimleri_kucuk_harfe_cevir(conn)
-            conn.close()
-            
-        elif secim == "5":
             print("\nProgram sonlandırılıyor...")
             break
             
         else:
             print("\nGeçersiz seçim! Lütfen tekrar deneyin.")
 
-"""
-    # tekrar veri tabanını oluşturmak için main kodunu buna oluştur.
-    # Veritabanını oluştur
-    conn = create_database()
-    print("Veritabanı oluşturuldu/bağlantı kuruldu.")
-    
-    current_page = BASLANGIC_SAYFA
-    while True:
-        success = get_and_process_page(current_page, conn)
-        if not success:
-            print("\nTüm sayfalar tamamlandı veya bir hata oluştu.")
-            break
-        current_page += 1
-        time.sleep(1)  # Sayfalar arası bekleme
-    
-    conn.close()
-    print(f"\nİşlem tamamlandı. Son işlenen sayfa: {current_page-1}")
-"""
 
 if __name__ == "__main__":
     main()

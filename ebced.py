@@ -94,7 +94,7 @@ pin_kodu_yorumu = [
         "Kendi işini kurmak ister, başkalarının yanında uzun süreli çalışmakta zorlanır. Bağımsızlık arzusu maddi alanda baskın şekilde görülür. Ancak bu özgürlük isteği yüzünden istikrar sağlamakta zorlanabilir. Doğru temelde ilerlerse, kendi yolunu çizen, üretken ve girişimci olabilir.",
         "Kazanç hayatında çoğu zaman duygulara bağımlıdır. Yıldız düşüklüğü ve Çocukluk travmaları olabilir (özellikle 11den 2yse). Sevildiğinde üretken olur; sevilmediğinde içe çekilir, motivasyonu düşer. Aurasını sevgiyle beslemeyi öğrenirse, hem manevî hem maddi tatmin sağlar.",
         "İletişim ve konuşma üzerinden gelir elde etme potansiyeli vardır. Ancak dikkat dağınıklığı ve kararsızlık kazanç sürekliliğini etkileyebilir. Konuşmak, anlatmak onun doğal yeteneğidir ama bunu paraya çevirmeyi öğrenmesi gerekir. Anlatım gücünü işe dönüştürebilirse, hayatını kelimelerle kurabilir.(özellikle 3.hanede de sıkıntı yoksa)",
-        "Sabır en büyük sınavıdır. Aceleci davranırsa parasal ve güçsel kayıplar yaşar. Kazancını kalıcı kılmak için ciddi emek ve zaman yatırımı gerekir. Ticarette kolay güvenmemeli; özellikle ortaklıklarda dikkatli olmalıdır. Sıkı disiplinle hareket ederse, sabırla gelen kazancı sağlamlaştırabilir.",
+        "Sabır en büyük sınavıdır. Aceleci davranırsa parasal ve güçsel kayıplar yaşar. Kazancını kalıcı kılmak için ciddi emek ve zaman yatırımı gerekir. Ticarette kolay güvenmemeli; özellikle ortaklıklarda dikkatli olmalıdır. Sıkı disiplinle hareket ederse, sabırla gelen kazancı sağlamlaştırabilir. Mühendislik enerjisi var.",
         "Yurtdışı işlerde ve sanal alemde para kazanır.",
         "Ticarette sezgileri iyi güçlüdür. Ancak aileden gelen karmik borçlar, özellikle baba kaynaklı sorunlar kazanç yolunu tıkayabilir. Babayla helalleşmesi gerekir. Bu durumları aşarsa Aile/Baba bereket kaynağıdır. Kendi kararlarını vermediği sürece sürekli başkalarının etkisinde kalabilir. Sezgilerine güvenip bireysel kararlar alırsa, bereket alanı genişler. ",
         "Spiritüel alandan para kazanma ihtimali yüksektir. Maneviyat, kazançta doğrudan belirleyicidir. Ruhsal temelli bir iş yaparsa, kalıcı bolluğu yakalayabilir. Aurayı imanla koruyamadığında sık sık maddi kayıplar yaşayabilir. Düşünce yapısı maddiyata odaklanmayı zorlaştırabilir.",
@@ -187,6 +187,15 @@ def ebced_toplama_asamali(*args):
         steps.append(str(number))
         if number == 11:
             steps.append(str("2*"))
+            return "/ ".join(steps)
+        elif number == 19:
+            steps.append(str("1*"))
+            return "/ ".join(steps)
+        elif number == 22:
+            steps.append(str("4*"))
+            return "/ ".join(steps)
+        elif number == 33:
+            steps.append(str("6*"))
             return "/ ".join(steps)
         number = sum(int(digit) for digit in str(number))
     

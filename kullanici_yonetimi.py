@@ -65,7 +65,7 @@ def main():
                         vt.veritabani_geri_yukle()
                 
                 elif db_secim == "3":
-                    app_name = input("Fly.io uygulama adınızı girin: ")
+                    app_name = "ebced-hesaplama"
                     onay = input("Bu işlem mevcut veritabanının üzerine yazacak. Emin misiniz? (e/h): ")
                     if onay.lower() == 'e':
                         vt.flyio_veritabani_indir(app_name)

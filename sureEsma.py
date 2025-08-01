@@ -2,6 +2,28 @@ import sqlite3
 import arabic_reshaper
 from bidi.algorithm import get_display
 
+def turkce_lower(text):
+    """Türkçe karakterleri doğru şekilde küçük harfe çevirir"""
+    if not text:
+        return text
+    
+    # Türkçe karakter dönüşüm tablosu
+    tr_map = {
+        'İ': 'i',
+        'I': 'ı',
+        'Ğ': 'ğ',
+        'Ü': 'ü',
+        'Ş': 'ş',
+        'Ö': 'ö',
+        'Ç': 'ç'
+    }
+    
+    result = text
+    for tr_char, lower_char in tr_map.items():
+        result = result.replace(tr_char, lower_char)
+    
+    return result.lower()
+
 sureler = {
     11: {"isim": "HACC", "anlam": "Zalimin zulmünden emin olmak ve zalimden kurtulmak niyetiyle okunabilir. Okuyanın hac sevabı aldığı rivayet edilir."},
     14: {"isim": "TAHA", "anlam": "Kısmetin açılması, dildeki konuşma kusurlarının düzelmesi için okunur."},
@@ -739,10 +761,11 @@ def get_ebced_and_arabic(isim):
         cursor = conn.cursor()
         
         # Debug için sorguyu yazdır
-        query = 'SELECT ebced_degeri, arapca_yazilis FROM isimler WHERE isim = ? COLLATE NOCASE'
+        query = 'SELECT ebced_degeri, arapca_yazilis FROM isimler WHERE isim = ?'
         print(f"Aranan isim: {isim}")
+        print(f"Türkçe lower ile: {turkce_lower(isim)}")
         
-        cursor.execute(query, (isim,))
+        cursor.execute(query, (turkce_lower(isim),))
         result = cursor.fetchone()
         
         if result:
@@ -889,7 +912,7 @@ def get_name_details_from_db(isim):
         conn = sqlite3.connect('isimler.db')
         cursor = conn.cursor()
         
-        cursor.execute('SELECT ebced_degeri, arapca_yazilis FROM isimler WHERE isim = ? COLLATE NOCASE', (isim,))
+        cursor.execute('SELECT ebced_degeri, arapca_yazilis FROM isimler WHERE isim = ?', (turkce_lower(isim),))
         result = cursor.fetchone()
         
         if result:
