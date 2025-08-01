@@ -1,5 +1,5 @@
 from flask_login import UserMixin
-from veritabani_yonetici import VeriTabaniYonetici
+from database.managers.veritabani_yonetici import VeriTabaniYonetici
 
 class User(UserMixin):
     def __init__(self, username):
