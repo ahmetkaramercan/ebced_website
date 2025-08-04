@@ -158,6 +158,15 @@ def ebced_toplama(*args):
     while total_sum >= 10:
         if total_sum == 11:
             return "2*"
+        elif total_sum == 19:
+            return "1*"
+            return "/ ".join(steps)
+        elif total_sum == 22:
+            return "4*"
+            return "/ ".join(steps)
+        elif total_sum == 33:
+            return "6*"
+            return "/ ".join(steps)
         total_sum = sum(int(digit) for digit in str(total_sum))
     
     return str(total_sum)

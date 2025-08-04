@@ -39,6 +39,3 @@ ENV/
 # Local development
 instance/
 .webassets-cache/
-
-# Fly.io
-fly.toml 
