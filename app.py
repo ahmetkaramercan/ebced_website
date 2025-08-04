@@ -11,8 +11,14 @@ from bidi.algorithm import get_display
 from models import User
 from datetime import timedelta
 
+# İslami numeroloji blueprint'ini import et
+from islami_numeroloji.routes import islami_numeroloji_bp
+
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', os.urandom(24))
+
+# Blueprint'i register et
+app.register_blueprint(islami_numeroloji_bp)
 
 # Oturum ayarları
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)  # 31 günlük oturum süresi
@@ -167,6 +173,41 @@ def bireysel_analiz():
         }
     
     return render_template('bireysel_analiz.html', results=results)
+"""
+@app.route('/islami-numeroloji-hesaplama', methods=['GET', 'POST'])
+@login_required
+def bireysel_analiz():
+    results = None
+    if request.method == 'POST':
+        input_dogum_gunu = request.form['dogum_gunu'] 
+        dogum_gunu = input_dogum_gunu.replace('.', ' ').replace('/', ' ')
+        dogum_gunu = ' '.join(dogum_gunu.split())
+        isim_soyisim = request.form['isim_soyisim']
+        
+        k_values, pin_kodu_yorumlari = pin_kodu_hesaplama(dogum_gunu)
+        chakra_result = chakra_hesapla(k_values, isim_soyisim)
+        yasam_yolu = yasam_yolu_hesapla(dogum_gunu)
+        bereket_sayisi = bereket_rakami_bulma(dogum_gunu)
+        ana_kulvar = ana_kulvar_bulma(isim_soyisim)
+        yan_kulvar = yan_kulvar_bulma(isim_soyisim)
+        donusum_yillari = donusum_yillari_bulma(dogum_gunu)
+        pin_kodu_ozellikleri = ozellik_hesaplama(k_values)
+        
+        results = {
+            'dogum_gunu': dogum_gunu,  # Orijinal formatı template'e gönder
+            'pin_kodu_dizilimi': k_values,
+            'pin_kodu_yorumlari': pin_kodu_yorumlari,
+            'chakra': chakra_result,
+            'yasam_yolu': yasam_yolu,
+            'bereket_sayisi': bereket_sayisi,
+            'ana_kulvar': ana_kulvar,
+            'yan_kulvar': yan_kulvar,
+            'donusum_yillari': donusum_yillari,
+            'pin_kodu_ozellikleri': pin_kodu_ozellikleri
+        }
+    
+    return render_template('islami-numeroloji/templates/islami-numeroloji-analiz.html', results=results)
+"""
 
 @app.route('/iliski_analizi', methods=['GET', 'POST'])
 @login_required

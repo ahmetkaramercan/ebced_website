@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ebced Hesaplama</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styles */
+        header {
+            background-color: #1a1a1a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 25px 40px;
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            gap: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: start;
+            flex-shrink: 0;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: white;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .logo span {
+            color: #ff8c00;
+        }
+
+        /* Navigation styles */
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-grow: 1;
+            justify-content: flex-end;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        nav a.active {
+            background-color: #ff8c00;
+            color: white;
+        }
+
+        .user-nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-left: 15px;
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
+            padding-left: 15px;
+        }
+
+        .profile-link {
+            color: #ff8c00;
+            text-decoration: none;
+            padding: 8px 15px;
+            border: 2px solid #ff8c00;
+            border-radius: 4px;
+            transition: all 0.3s;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .profile-link:hover {
+            background-color: #ff8c00;
+            color: white;
+        }
+
+        .auth-btn {
+            background-color: #ff8c00;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+
+        .auth-btn:hover {
+            background-color: #e67e00;
+        }
+
+        /* Mobile menu button */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+            color: white;
+        }
+
+        /* Main content */
+        main {
+            flex: 1;
+            margin-top: 100px;
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+            color: white;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+            }
+
+            main {
+                margin-top: 70px;
+                padding: 0;
+                max-width: 100%;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-container {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: #1a1a1a;
+                flex-direction: column;
+                padding: 0;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+                width: 100%;
+            }
+
+            .nav-container.active {
+                display: flex;
+            }
+
+            nav {
+                flex-direction: column;
+                width: 100%;
+                gap: 0;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            nav a:last-child {
+                border-bottom: none;
+            }
+
+            .user-nav {
+                flex-direction: column;
+                width: 100%;
+                margin-left: 0;
+                gap: 0;
+                border-left: none;
+                padding-left: 0;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .profile-link, .auth-btn {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                margin: 0;
+                border-radius: 0;
+                border: none;
+            }
+
+            .profile-link {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <h1>Ebced<span>Hesaplama</span></h1>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <div class="nav-container">
+                <nav>
+                    <a href="{{ url_for('bireysel_analiz') }}" {% if request.endpoint == 'bireysel_analiz' %}class="active"{% endif %}>Bireysel Analiz</a>
+                    <a href="{{ url_for('iliski_analizi') }}" {% if request.endpoint == 'iliski_analizi' %}class="active"{% endif %}>İlişki Analizi</a>
+                    <a href="{{ url_for('sure_hesaplama') }}" {% if request.endpoint == 'sure_hesaplama' %}class="active"{% endif %}>Sure Hesaplama</a>
+                </nav>
+                <div class="user-nav">
+                    {% if current_user.is_authenticated %}
+                        <a href="{{ url_for('profile') }}" class="profile-link" {% if request.endpoint == 'profile' %}class="active"{% endif %}>Profilim</a>
+                        <a href="{{ url_for('logout') }}" class="auth-btn">Çıkış Yap</a>
+                    {% else %}
+                        <a href="{{ url_for('login') }}" class="auth-btn">Giriş Yap</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ebced Hesaplama. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navContainer = document.querySelector('.nav-container');
+
+            menuToggle.addEventListener('click', function() {
+                navContainer.classList.toggle('active');
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!navContainer.contains(event.target) && !menuToggle.contains(event.target)) {
+                    navContainer.classList.remove('active');
+                }
+            });
+
+            // Close menu when clicking a link
+            navContainer.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                    navContainer.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

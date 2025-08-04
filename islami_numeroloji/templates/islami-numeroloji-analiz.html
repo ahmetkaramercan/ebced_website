@@ -1,0 +1,334 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h2>İSLAMİ NUMEROLOJİ HESAPLAMA</h2>
+    
+    <div class="tabs">
+        <a href="{{ url_for('islami_numeroloji.islami_numeroloji_hesaplama') }}" class="tab active">Bireysel Analiz</a>
+        <a href="{{ url_for('iliski_analizi') }}" class="tab">İlişki Analizi</a>
+        <a href="{{ url_for('sure_hesaplama') }}" class="tab">Sure Hesaplama</a>
+    </div>
+
+    <div class="form-container">
+        <h3>Bilgiler</h3>
+        <p class="info">Doğum tarihinizi seçebilir veya elle girebilirsiniz. (Örn: 09.02.2003 veya 09/02/2003 veya 09 02 2003)</p>
+        
+        <form method="POST" action="{{ url_for('islami_numeroloji.islami_numeroloji_hesaplama') }}">
+            <div class="form-group">
+                <label for="dogum_gunu">Doğum Tarihi</label>
+                <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY" required>
+                <input type="date" id="date_picker" onchange="updateDateInput(this.value)">
+            </div>
+            
+            <div class="form-group">
+                <label for="isim_soyisim">İsim Soyisim</label>
+                <input type="text" id="isim_soyisim" name="isim_soyisim" placeholder="İsim soyisim" required>
+            </div>
+            
+            <button type="submit" class="submit-btn">Gönder</button>
+        </form>
+    </div>
+
+    {% if results %}
+    <div class="results">
+        <h3>Sonuçlar:</h3>
+        
+        <div class="result-section">
+            <h4>Yaşam Yolu:</h4>
+            <p>{{ results.yasam_yolu }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Bereket Sayısı:</h4>
+            <p>{{ results.bereket_sayisi }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Pin Kodu:</h4>
+            <div class="pin-kodu-tablosu">
+                <table>
+                    <tr>
+                        <td>{{ results.dogum_gunu.split(' ')[0] }}</td>
+                        <td>{{ results.dogum_gunu.split(' ')[1] }}</td>
+                        <td>{{ results.dogum_gunu.split(' ')[2] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>{{ results.pin_kodu_dizilimi[0]}}</td>
+                        <td>{{ results.pin_kodu_dizilimi[1] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[2] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[3] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{ results.pin_kodu_dizilimi[5] }}</td>
+                        <td>{{ results.pin_kodu_dizilimi[6] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.pin_kodu_dizilimi[7]}}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.pin_kodu_dizilimi[8] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="result-section" style="background-color: #ffffff;">
+            <h4>Pin Kodu Yorumları:</h4>
+            {% for yorum in results.pin_kodu_yorumlari %}
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    {{ loop.index }}. Hane Yorumu
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    {{ yorum | safe }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="result-section">
+            <h4>Çakra Dağılımı:</h4>
+            <div class="chakra-table">
+                <table>
+                    {% for chakra in results.chakra %}
+                    <tr>
+                        <td class="plus-cell">{{ chakra.left_plus }}</td>
+                        <td class="number-cell">{{ chakra.number }}</td>
+                        <td class="plus-cell">{{ chakra.right_plus }}</td>
+                        <td class="pin-code-cell">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+
+        <div class="result-section">
+            <h4>Ana Kulvar:</h4>
+            <p>{{ results.ana_kulvar }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Yan Kulvar:</h4>
+            <p>{{ results.yan_kulvar }}</p>
+        </div>
+
+        <div class="result-section">
+            <h4>Dönüşüm Yılları:</h4>
+            <pre>{{ results.donusum_yillari }}</pre>
+        </div>
+
+        <div class="result-section">
+            <h4>Mizaç Özellikleri:</h4>
+            <p>{{ results.pin_kodu_ozellikleri }}</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('dogum_gunu');
+    const datePicker = document.getElementById('date_picker');
+
+    // Date picker'dan text input'a
+    datePicker.addEventListener('change', function(e) {
+        if (e.target.value) {
+            const date = new Date(e.target.value);
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            dateInput.value = `${day}.${month}.${year}`;
+        }
+    });
+
+    // Text input'tan date picker'a
+    dateInput.addEventListener('input', function(e) {
+        const value = e.target.value;
+        // Tüm ayraçları nokta ile değiştir
+        const normalized = value.replace(/[/\s-]/g, '.');
+        const parts = normalized.split('.');
+        
+        if (parts.length === 3) {
+            const day = parts[0].padStart(2, '0');
+            const month = parts[1].padStart(2, '0');
+            const year = parts[2];
+            
+            // Geçerli bir tarih mi kontrol et
+            const date = new Date(year, month - 1, day);
+            if (!isNaN(date) && date.getFullYear() == year) {
+                datePicker.value = `${year}-${month}-${day}`;
+            }
+        }
+    });
+});
+
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    // Tüm açık accordion'ları kapat
+    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+        accordionItem.classList.remove('active');
+    });
+    
+    // Eğer tıklanan kapalıysa, onu aç
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
+</script>
+
+<style>
+.pin-kodu-tablosu {
+    margin: 10px 0;
+}
+
+.pin-kodu-tablosu table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin: 0;
+}
+
+.pin-kodu-tablosu td {
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 1.2em;
+    min-width: 40px;
+    border: none;
+    background-color: transparent;
+}
+
+.pin-kodu-tablosu tr:first-child td {
+    background-color: transparent;
+    font-weight: normal;
+}
+
+.pin-kodu-yorum {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border-left: 4px solid #ff8c00;
+    white-space: pre-line;
+}
+
+.pin-kodu-yorum:hover {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.result-section {
+    background-color: #f8f9fa;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.chakra-table {
+    margin: 10px 0;
+}
+
+.chakra-table table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    margin: 0;
+}
+
+.chakra-table td {
+    padding: 5px 10px;
+    text-align: center;
+    font-family: monospace;
+    font-size: 1.2em;
+}
+
+.chakra-table .plus-cell {
+    color: #080808;
+    min-width: 100px;
+}
+
+.chakra-table .plus-cell:first-child {
+    text-align: right;
+}
+
+.chakra-table .plus-cell:nth-child(3) {
+    text-align: left;
+    padding-left: 0;
+}
+
+.chakra-table .number-cell {
+    font-weight: bold;
+    color: #1e1e1e;
+    min-width: 40px;
+}
+
+.chakra-table .pin-code-cell {
+    text-align: left;
+    padding-left: 30px;
+    min-width: 60px;
+    color: #080808;
+    font-weight: bold;
+}
+
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
+
+.accordion-content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 15px;
+    max-height: 1000px; /* Yeterince büyük bir değer */
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+</style>
+{% endblock %} 
