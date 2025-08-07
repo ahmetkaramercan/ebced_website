@@ -125,7 +125,7 @@ pin_kodu_yorumu = [
     ],
     [  # 9. hane - HAYAT AMACI
         "Siz bu karanlıklardan aydınlığı bulmayı ilk olarak kendinize otorite koyarak, olumsuz özelliklerinizi fark ederek ve onları olumluya dönüştürerek aşarsınız. Bunun yanında insanları adaletle yöneterek aşarsınız. Fakat bunu aşırı derecede bencillik haline getirirseniz, herkes benim dediğimi yapsın derseniz, bu sefer kök çakranız bloke olur ve böylelikle hayata tutunamaz hale gelirsiniz. İnsanlara karşı direktif vererek, emir vererek benim dediğim olsun diyerek ilişkilerinizde EGO savaşları yaşarsınız. Bu anlamda daha dikkatli olmalısınız ve en önemlisi imanınızı kuvvetlendirmeli tahkiki imanınızı artırmalısınız. İlişkilerinizde arayışlarınız neden bunları düşünmelisiniz. Doymak bilmeyen nefis ancak nefsi emareden gelir. Kötülüğü emredici nefis terbiye edilmeli, böylelikle kalp çakranızı koruyup kalbi gerçek sahibine vermelisiniz.",
-        "zort birisiniz",
+        "Sizin hayat amacınız yunusça Yaradan'dan ötürü yaradılanı severek olacaktır. Dolayısıyla sevmeyi sevilmeyi önemsemeniz oldukça önemlidirı fakat aşırı fedakarlıklar yapıyor iseniz sevmeyi sadece vermek olarak algılıyor iseniz bu dengeyi bozar. Bu yüzden bu dengeyi gözetmeniz çok önemlidir.",
         "Kendiniz olmayı, kendinizi fark etmeyi, tanımayı, kendini bilen Rabbini bilir hitabınca kendinizi nasıl terbiye edip nasıl düzelteceğinizi anlatmayı hedefler. Kendini tanımak ne demek bunu bilmelisiniz. Kendini tanımak demek nefsimizi tezkiye etmek, olumsuz yönlerimizi ayıklamak demektir. Ve üslubunuzu düzelterek tatlı dille konuşmayı, kendinizi güzel ifade etmeyi öğrenmelisiniz. Bunun yanında kalbinizi açıp, sıkıntılarınızı, özellikle ikili ilişkilerinizi, imtihanlarınızı önceden fark etmeli ve önlem almalısınız. Bunun için her zaman öngörülü olmalı, öngörülerinizi geliştirmeli, sorumluluklarınızı yerine getirmelisiniz.",
         "Sizin hedefiniz kalp çakranızı açmak olduğu için daima namazla dua ile ALLAH'ımızdan yardım istemeli maneviyatınızı yükseltmelisiniz.",
         "Hayat amacınız yeniliklerle her gün yeni bir şey öğrenerek konfor alanınızdan çıkarak olacağı için ek olarak yaptığınız hatalardan verdiğiniz tavizlerden dolayı kendinizi suçlamamayı öğrenmeniz gerekir. Gezin dolaşın. Yeni yerler görün. Bağımlılıklardan kurtulup kendi merkezinize dönün.",
@@ -133,34 +133,16 @@ pin_kodu_yorumu = [
         "Derin düşünün, hayatı yaşadıklarınızı ayrıştırarak inceleyin. Bilinçaltının sizi yönetmesine izin vermeyin. Anda kalın. Farkındalık ile yaşayın çünkü farkındalık ile ego bir bedende barınmaz.",
         "Sizin hedeflere ulaşmanız; kendinizi tanıtmak, otorite kurmak ve ticaret gibi işler yaparak olur. Sizin için insanlar arasında lider olmak, fikirlerini ifade etmek oldukça önemlidir. Bu yüzden kendinize güvenin önce auranızı koruyun ve bununla alakalı olarak öne çıkacağınız liderlik yapacağınız işler yapın!... Bunlardan asla geri durmayın. Elbette bunlar için ilk olarak kök çakranızı çok iyi korumanız gerekir. Daha sonra ise auranızı korumak gerekir ki bununla alakalı 8. çakrada dediklerimi mutlaka hayata geçirmeniz gerekir.",
         "Unutmayın siz şifa bulmak için elinizde avucunuzda ne varsa paylaşmayı bilmeli, maneviyatınızı kuvvetlendirmeli ve insanlara hizmet etmelisiniz.",
-        #11
-        "Eğer duygularınızı kontrol edebilirseniz hedeflerinize hayallerinize ulaşabilirsiniz. Bu yüzden olumlu düşünüp harekete geçin."
+        #11 19 22 33
+        "Eğer duygularınızı kontrol edebilirseniz hedeflerinize hayallerinize ulaşabilirsiniz. Bu yüzden olumlu düşünüp harekete geçin.",
+        "Sizin hayat amacınız 19 enerjisi ile olduğu için imtihanlar sizi dönüştürür, manevi anlamda eğitir ve nefs tezkiyesi yaptırır.\n Bu 19 sayısı kişide imtihan ile dönüşmeyi anlatır. Sıkıntıları fark edip olayın altındaki mesajları çözmenizi anlatır. Enerjinizi fark edin. Olaylardan ders çıkarıp, iyileşmeye niyet edin ve daha sonra yaralı bir şifalı gibi insanlığın hayrına çalışın!..",
+        "Sizin hayat amacınız  22 sayısı ile olduğu için ciddi sıkıntılar yaşamış olma ihtimaliniz yüksektir. Bunlar elbette sizin kalp çakranızı açmak, imanınızı kuvvetlendirmek, maneviyatınızı arttırmak için başınıza gelmiştir. Ama elbette imtihanlardan mesaj almayı bilip kendinizi düzeltip hayatı olanı olduğu gibi kabul ederseniz sizin makamınız daha da yükselir.",
+        "Tüm bunları anlamak değiştirmek için sağ beyninizi kullanarak kendinizi aşmalı, sezgilerinizi fark etmeli, varsa korku ve evhamlarınızı yenmelisiniz. Bunları yenmediğiniz takdirde, ciddi anlamda sorumluluklar üzerinize yüklenebilir. Çünkü sizin yaşam amacınız nefsinizi tezkiye etmek, olumsuz hallerinizi olumluya dönüştürmek ve insanlığın faydasına çalışmaktır."
     ]
 ]
 
-pin_kodu_yorumu_giris_cumlesi = [
-    "KENDİNİ NASIL GÖRÜYOR. Bu hane, kişinin düşünce sistemini, karar alma mekanizmasını ve kendilik algısını temsil eder. Kişinin dış dünyayı nasıl algıladığı ve içsel diyaloğu burada belirginleşir. Ego, özgüven, zihinsel liderlik ve bireysel farkındalık bu alanın temel temalarıdır. Aynı zamanda hangi frekansta düşündüğü, zihinsel filtrelerinin nasıl çalıştığı da bu hanede görünür.",
-    "DUYGULAR ve YAKIN İLİSKİLER. Bu hane, kişinin duygusal dünyasını, yakın ilişkilerinde sevgiyi nasıl algıladığını ve duygusal bağ kurma kapasitesini temsil eder. Sevme/sevilme ihtiyacı, duygusal bağımlılıklar, kırgınlıklar, özdeğer duygusu ve duygulara dair içgörü bu alanda belirginleşir. Aynı zamanda sakral çakrayla ilişkilidir; kişinin yaratım gücünü ve duygusal hareketliliğini gösterir.",
-    "DÜNYAYA AÇILMA, HİTABET ve TİCARET. Bu hane kişinin: Kendini sözlü ya da yazılı olarak nasıl ifade ettiğini, İletişim becerilerini, Meslek seçimindeki eğilimlerini, Ve hayatla kurduğu ticari ya da duygusal alışveriş dengesini temsil eder.",
-    "SEVGİ ,OLGUNLUK ve SINAV. Dördüncü hane sevgi, olgunluk ve kalbin sınavları ile doğrudan ilişkilidir. Bu hanede kişinin sevgi alma-verme biçimi, duygusal olgunluğu ve kalp merkezinden gelen tavırları ortaya çıkar.",
-    "ŞÜKÜR ve DOYUM. Bu hane kişinin hayattan ne kadar tatmin olduğu, sahip olduklarıyla ne yaptığı ve içsel şükrü ne ölçüde deneyimlediğiyle ilgilidir. Aynı zamanda kişinin değer görme, sevme/sevilme biçimi ve doyum düzeyini doğrudan yansıtır.",
-    "AİLE, BABA. Bu hane, kişinin aile yapısı, özellikle baba figürü ve eril otoriteyle kurduğu ilişkiyi temsil eder. Aynı zamanda sorumluluk alma becerisi, kontrol eğilimi ve aile içi rollerin nasıl deneyimlendiğini yansıtır. Sorunlar sadece babayla değil; aile içindeki dengeyle de ilgilidir.",
-    "ANNE, İNANÇ. Bu hane, kişinin anneyle ilişkisini, iman boyutunu, içsel rehberlik kapasitesini ve sezgisel yönlerini yansıtır. Aynı zamanda duygusal kökler, teslimiyet, ruhsal olgunluk ve içsel bağlılık burada saklıdır. Geçmişten gelen dişil enerji aktarımı (özellikle anne ve kadın atalar) bu hanede iz bırakır.",
-    "KAZANÇ ve BEREKET. Bu hane, kişinin maddi dünyayla ilişkisini, parayla kurduğu bağı, emanet ve değer üretme anlayışını, aynı zamanda aurasının ne kadar güçlü ya da sızdıran olduğunu gösterir.",
-    "HAYAT AMACI. Bu hane, kişinin bu hayata ne için geldiğini, hangi tema üzerinden tamamlanacağını ve yaşam boyu yönelmesi gereken asıl amacı temsil eder. Ruhsal olarak buradaki sayı, kişinin olgunluk sınavlarını, kendisini gerçekleştirme biçimini ve kalıcı etkisini yansıtır."
-]
 
-unlemli_yorumlar = [
-    "1'i 1 ile açıyorsa bir kişi: Kendine dönüp kendini sorgulayıcı bir tutum içerisinde olup kendisini çözmesi lazım. Kendisine her an ayna tutması gerekir. Kendi bedenini beğenmeme sebebiyle aşırı özgüven yahut çok içine kapanma problemi mümkündür.",
-    "2'yi 2 ile açıyorsa bir kişi: Duygusal anlamda sorun yaşadığı yerlere bakmalı. Hormonlar ve cinsel sağlığa çok dikkat etmeli. Üreme organları sıkıntılı olabilir. Duygusal terapiye ve içini dökmeye ihtiyacı var. Duygusal baskı altında olması ve etrafına duygusal baskı kurmuş olma ihtimali yüksektir.",
-    "3'ü 3 ile açıyorsa bir kişi: Ya sivri dillidir, incitici konuşmayı bırakması gerekir ya da konuşma problemleri yaşıyordur. Telaffuzu geliştirmesi gerekir. Ticari alanda da sıkıntı yaşaması muhtemeldir. Yaşadığı baskıları çözerse ve kendini geliştirirse iyi bir hatip olur.",
-    "4'ü 4 ile açıyorsa bir kişi: Sabır gerektiren ağır imtihanlardan geçer. Bu imtihanlar onun olgun ve esnek olmasını sağlamalıdır. Yaşadığı imtihanları kalbinin kılavuzluğunda aşar. Kalp sağlığına da ziyadesiyle dikkat etmesi gerekir.",
-    "5'i 5 ile açıyorsa bir kişi: Bu kişinin en büyük imtihanı şükürsüzlüktür. Bir şeyden memnun olmaz. Pozitif bakış tavsiye edilmeli. Buna rağmen bu çakrayı dengelerse dahice kararlar alır. Nimetler içinde yüzer.",
-    "6'yı 6 ile açıyorsa bir kişi: Otorite ile çatışma verir. Kişiyi aşırı korumacı olmaya itebilir. Bu kişilerin öğretmen, asker gibi işlerde yani insan yetiştirmede görevlendirilmeleri isabetli olur. Allah'tan gelene rıza göstermeyi öğrenirse çok güzel bir aile kurar.",
-    "7'yi 7 ile açıyorsa bir kişi: İnanç boyutunda sınanma yaşayabilir. Maneviyata önem vermeli, Yaradanın sınırlarına dikkat etmelidir. Kalbine akan ilhamları ve ruhunun sesini dinlemelidir.",
-    "8'i 8 ile açıyorsa bir kişi: Helal haram noktasına (yeme, içme, ilişkiler yani bedeni ve ruhi helaller) çok dikkat etmeli. Arkadaşlıklarına ve ilişkilerine Rahmani sınırlar koymalı. Ruhunu bu şekilde korursa maddi, manevi zengin olur. Çokça Ayetel Kürsi ve koruma duaları okuması tavsiye edilmelidir.",
-    "9'u 9 ile açıyorsa bir kişi: Önce kendisini iyileştirirse iyi bir şifacı olur. Aynı zamanda sınır çizme konusunu dengelemelidir. Yani aşırı sınır koymak da, hiç sınır çizmemek de aynı kapıya çıkacağı için önemli olan nerede ne kadar sınır koyma gerekliliğinin tam olarak farkına varması olduğu kişiye anlatılmalıdır."
-]
+
 
 def ebced_toplama(*args):
     """
@@ -236,51 +218,70 @@ def ebced_toplama_asamali(*args):
     return "/ ".join(steps)
 
 #ayrı yaptım fonksiyonları ayrı ayrı göstermem gerekebilir.
-def chakra_hesapla(k_values, text):
-    chakra_houses = [""] * 9
-    chakra_houses = chakra_add_pin_kodu(chakra_houses, k_values)
-    chakra_houses = chakra_add_name(chakra_houses, text)
+def chakra_hesapla(pin_kodu, isim_soyisim, ek_isim):
+    """
+    Çakra hesaplaması yapan fonksiyon.
+    3 farklı sistem kullanır:
+    0: Pin kodu (sol taraf)
+    1: İsim soyisim (sağ taraf) 
+    2: Ek isim (ek alan, varsa)
+    """
+    #0 pin kodu  1 isim soyisim  2 ek soyisim/isim den gelen artılar.
+    arti_sistemi = [[0 for _ in range(9)] for _ in range(3)]
+    # Pin kodundan sol taraf artılarını doldur
+    arti_sistemi[0] = chakra_add_pin_kodu(pin_kodu)
+    # İsim soyisimden sağ taraf artılarını doldur
+    for letter in isim_soyisim.upper():
+        if letter in chakra_values:
+            index = chakra_values[letter] - 1
+            arti_sistemi[1][index] += 1
+    
+    # Ek isim varsa, 3. sistemi doldur
+    has_ek_isim = False
+    if ek_isim and len(ek_isim.strip()) > 0:
+        has_ek_isim = True
+        for letter in ek_isim.upper():
+            if letter in chakra_values:
+                index = chakra_values[letter] - 1
+                arti_sistemi[2][index] += 1
 
     # Her çakra için bir sözlük oluştur
     chakra_data = []
     for i in range(9, 0, -1):
-        # Artıları say
-        plus_count_right = chakra_houses[i-1].count('+')
-        plus_count_left = chakra_houses[i-1].count('-')
-        # Çakra numarasını al
         number = str(i)
         # Sözlük oluştur
-        chakra_data.append({
-            'left_plus': ' +' * plus_count_left,  # Sol taraftaki artılar
-            'number': number,               # Çakra numarası
-            'right_plus': '+ ' * plus_count_right  # Sağ taraftaki artılar
-        })
+        chakra_item = {
+            'left_plus': ' +' * arti_sistemi[0][i-1],  # Pin kodundan gelen artılar
+            'number': number,                           # Çakra numarası
+            'right_plus': '+ ' * arti_sistemi[1][i-1], # İsim soyisimden gelen artılar
+            'has_ek_isim': has_ek_isim                  # Ek isim var mı?
+        }
+        
+        # Ek isim varsa, ek artıları da ekle
+        if has_ek_isim:
+            chakra_item['ek_plus'] = '+ ' * arti_sistemi[2][i-1]
+        
+        chakra_data.append(chakra_item)
 
-    return chakra_data
+    return arti_sistemi, chakra_data
 
-def chakra_add_pin_kodu(chakra_houses, k):
-    sayac = [0] * 9
+def chakra_add_pin_kodu( pin_kodu):
+    """ Pin kodundaki sayıların ilk rakamlarına göre çakra evlerini günceller."""
+    # 9 çakra evi için sayaç (1. çakra = index 0, 2. çakra = index 1, ...)
+    chakra_sayaci = [0] * 9
 
-    # Her elemanın ilk harfine göre sayacı güncelle
-    for eleman in k:
-        sayac[int(eleman[0])-1] += 1
+    # Pin kodundaki her değerin ilk rakamına göre ilgili çakra evinin sayacını artır
+    for pin_degeri in pin_kodu:
+        # Pin değerinin ilk karakterini al (örn: '3!' -> '3', '7' -> '7')
+        ilk_rakam = int(pin_degeri[0])
+        
+        # İlk rakam 1-9 arasında olmalı (çakra numarası)
+        if 1 <= ilk_rakam <= 9:
+            # İlgili çakra evinin sayacını 1 artır (0-based index için -1)
+            chakra_sayaci[ilk_rakam - 1] += 1
 
-    # Chakra_houses dizisini güncelle
-    for i in range(len(chakra_houses)):
-        chakra_houses[i] = '-' * sayac[i] #farklılık olması lazım sağ ile solu ayırt etmesi içn
+    return chakra_sayaci
 
-    return chakra_houses
-
-
-
-def chakra_add_name(chakra_houses, text):
-    # Metindeki her harfin sayısal karşılığını bul ve uygun haneye + ekle
-    for letter in text.upper():
-        if letter in chakra_values:
-            index = chakra_values[letter] - 1
-            chakra_houses[index] += '+'
-    
-    return chakra_houses
 
 def normalize_date(date_str):
     """
@@ -293,14 +294,10 @@ def normalize_date(date_str):
     """
     # Boşlukları temizle
     date_str = ' '.join(date_str.split())
-    
-    # Nokta, slash veya tire ile ayrılmış tarihleri boşluğa çevir
     date_str = date_str.replace('.', ' ').replace('/', ' ').replace('-', ' ')
     
     # Birden fazla boşluğu tek boşluğa çevir
     date_str = ' '.join(date_str.split())
-    
-    # Tarihi parçalara ayır
     parts = date_str.split(' ')
     
     if len(parts) != 3:
@@ -315,7 +312,7 @@ def normalize_date(date_str):
         raise ValueError("Tarih değerleri sayı olmalıdır.")
     
     # Değerlerin geçerli aralıkta olduğunu kontrol et
-    if not (1 <= gun <= 31 and 1 <= ay <= 12 and 1000 <= yil <= 9999):
+    if not (1 <= gun <= 31 and 1 <= ay <= 12 and 100 <= yil <= 9999):
         raise ValueError("Geçersiz tarih değerleri.")
     
     # Tek haneli gün ve ayları iki haneye tamamla
@@ -347,34 +344,219 @@ def pin_kodu_hesaplama(dogum_tarihi):
     k[7] = ebced_toplama(k[5] , k[6])
     k[8] = ebced_toplama(k[0] , k[1] , k[2] , k[3] , k[4] , k[5] , k[6] , k[7])
     
+    print("kkkkk")
+    print(k)
     # Değerleri şartlara göre güncelle
     for i in range(9):
         if int(k[i][0]) == (i + 1):
             k[i] += '!'
+    return  k
 
-    # Pin kodu yorumlarını hazırla
-    pin_kodu_yorumlari = []
-    for i in range(9):
-        yorum = f"{i+1}. Hane: {pin_kodu_yorumu_giris_cumlesi[i]}<br><br>"
-        # k[i] değerinin ilk karakterini al ve int'e çevir (örn: "4!" -> 4)
-        index = int(k[i][0]) - 1  # 0-based index için -1
-        
-        # İndeks kontrolü ekle
-        if 0 <= index < len(pin_kodu_yorumu[i]):
-            yorum += f"{index+1}. ile açılmış: {pin_kodu_yorumu[i][index]}"
-        else:
-            yorum += f"Geçersiz sayı: {index+1} (Bu hane için 1-9 arası bir sayı olmalıdır)"
-        
-        # Eğer k[i] değerinde ünlem işareti varsa, özel yorumu ekle
-        if k[i].endswith('!'):
-            sayi = int(k[i][0]) - 1  # 0-based index için -1
-            if 0 <= sayi < len(unlemli_yorumlar):
-                yorum += f"<br>Dikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
-        
-        pin_kodu_yorumlari.append(yorum)
+  # ALGORİTMA
+def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
+    """Pin kodu yorumları algoritması"""
+    # Güvenli pin kodu erişimi için helper fonksiyon
+    def safe_pin_access(index):
+        """Pin kodu elemanına güvenli erişim"""
+        if index < len(pin_kodu) and pin_kodu[index] and len(pin_kodu[index]) > 0:
+            return pin_kodu[index][0]
+        return ""
     
-    # Pin kodu görsel dizilimini hazırla    
-    return  k, pin_kodu_yorumlari
+    pin_kodu_yorumlari = []
+
+    #1.hane yorumu
+    if pin_kodu[0] == "2*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[0][9])
+    elif pin_kodu[0] == "1*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[0][10])
+    elif pin_kodu[0] == "4*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[0][11])
+    else:
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[0][int(pin_kodu[0][0])-1])
+
+    #kök çakra
+    if arti_sistemi[1][0] == 0:
+        pin_kodu_yorumlari.append("Kök çakranızın tıkalı olması size  ciddi anlamda sıkıntıları getirmiştir çünkü kök çakra hayata bağlandığımız, var olduğumuz yerdir. Eğer bu çakra tıkanık olursa kendimizi bu hayata ait hissetmekte zorlanabilir ve her koşulda işlerimiz çok kolay yürümeyebilir. Bu yüzden de zorlanabiliriz. Dolayısıyla kök çakrası tıkalı olan insanlar kendilerini ifade etmek varlıklarını ispatlamak için daha bencilce hayata bakabilirler. Bencilliğin bir kısmı iyi ama bu konuda biraz dikkatli olup kararında olması oldukça önemlidir.")
+    elif arti_sistemi[1][0] == 1:
+        pin_kodu_yorumlari.append("Kök çakranızın az çalışması sizde ciddi anlamda sıkıntıları getirmiştir çünkü kök çakra hayata bağlandığımız, var olduğumuz yerdir. Eğer bu çakra bloke olursa kendimizi bu hayata ait hissetmekte zorlanabiliriz ve her koşulda işlerimiz çok kolay yürümeyebilir. Dolayısıyla kök çakrası tıkalı olan insanlar kendilerini ifade etmek, varlıklarını ispatlamak için daha bencilce hayata bakabilirler. Bencilliğin bir kısmı iyi ama bu konuda biraz dikkatli olup kararında olması oldukça önemlidir.")
+    elif arti_sistemi[1][0] >= 4:
+        pin_kodu_yorumlari.append("Kök çakranızın aşırı çalışması sizde şikayetçi bir hâl oluşturur. Hayatı güzel görmeyi şükretmeyi öğrenmeli ve her defasında haklı olmaya çalışmamalısınız. Olanı olduğu gibi kabul etmeli elindekiniz ile yetinmelisiniz.")
+    if pin_kodu[0] == "1!" or safe_pin_access(4) == "1" or safe_pin_access(6) == "1":
+        pin_kodu_yorumlari.append("Kök çakranızın blokesi sizin hayatta tutunmakta zorluk yaşamanıza neden olmuş bununla birlikte istediğiniz şeyleri elde ederken zorlanmanıza sebep olmuştur. Ayrıca kendinizi ispat etmek için daha çok çabalamış yorulmuş ve zaman zaman karamsarlığa kapılmış olabilirsiniz.")
+
+
+    #sakral çakra
+    if arti_sistemi[1][1] == 0:
+        pin_kodu_yorumlari.append("Sakral çakranızın tıkalı olmasından dolayı ikili ilişkilerinizde hep sıkıntı yaşarsınız. Bunun en büyük nedeni bilinçaltımızla ilişkileri çekmemizden kaynaklanır.Siz çocukluktan itibaren kendinizi değersiz hissediyor olabilirsiniz. Ve ikili ilişkilerinizde eş  flört yakın arkadaş tüm hepsinde bu değersiz hissetmeler gündeme geliyor olabilir. Bunu yaşamamak için önce kendi değerinizi bilecek ve koruyacaksınız. Sınırlarınız belli olmalı ve gerektiğinde hayır demeyi bilmelisiniz. Seçimlerinizde oldukça dikkatli olmalısınız. En çok hayatın size zor geldiği nokta burasıdır. Ve imtihanlarınız buradan olabilir.Ayrıca ikili ilişkilerinizdeki bu sıkıntılar auranızı bozabilir ve sizin işlerinizin yolunda gitmemesi, bazen paranızda bereket olmaması gibi sorunlara neden olabilir. Bunun için ikili ilişkilerinizi düzeltmek sizin için oldukça önemlidir.")
+    elif arti_sistemi[1][1] == 1:
+        pin_kodu_yorumlari.append("Bunun yanında sakral çakranızın az çalışması; duygularınızı ifade ederken zorlanırsınız.  Duygularınızı biriktirdikçe dolar taşar, büyük patlamalar yaşarsınız. Bu yüzden duyguyu anında ifade etmeyi, biriktirmemeyi öğrenmelisiniz.")
+    if safe_pin_access(1) == "2" or safe_pin_access(1) == "7" or safe_pin_access(1) == "9" or safe_pin_access(4) == "2" or safe_pin_access(6) == "2":
+        pin_kodu_yorumlari.append("Değersizlik hissinden dolayı insanlara aşırı derecede değer verir, her istediklerini yapmaya şartlanırsınız. Fakat insanlar sizin kökeninizde yatan değersizliği ortaya çıkararak size değersizliği yaşatır. Böylelikle siz ilişkilerinizde tam doyuma ulaşamazsınız. Değerli olmak istedikçe daha çok değersizleşirsiniz. Aşırı fedakarlıklar yaparak değerli olmaya çalışırsınız. Bu yüzden bu hissi fark edip kendi değerinizi kendiniz vermeyi unutmamalısınız. Kimse size istediğiniz değeri vermeyecektir ve ilk kez sizi ne değersiz hissettirdi ise fark etmelisiniz. Bu anlamda kitaplar okumanızı tavsiye ederim.")
+    if arti_sistemi[1][1] > arti_sistemi[1][0]:
+        pin_kodu_yorumlari.append("Sakral çakranızın kök çakraya göre daha fazla çalışması  fedakarlıklar yaptığınızı alma verme dengesini bozduğunuzu gösterir.")
+    if (arti_sistemi[1][1] == 2 or arti_sistemi[1][1] == 3) and (safe_pin_access(1) == "2" or safe_pin_access(4) == "2" or safe_pin_access(6) == "2"):
+        pin_kodu_yorumlari.append("Sizin sakral çakranızda olan problemler yüzünden sorunlu ilişkileri kendinize çekebilir, duygularınızı ifade etmekte zorlanabilirsiniz. İlişkilerde anlaşılmayı beklersiniz.")
+    
+
+    # 3. çakra
+    pin_kodu_yorumlari.append("Nasıl halı döve döve temizlenir ise  insanoğlu hatalarla hayatta bir şeyler öğreniyor. Bu yüzden imtihanlar bizim öğretmenimizdir.")
+    if arti_sistemi[1][2] <= 1 or arti_sistemi[1][2] >= 4 or safe_pin_access(4) == "3" or safe_pin_access(6) == "3" :
+        pin_kodu_yorumlari.append("Sizin en büyük imtihanınız genellikle dilinizden konuşmalarınızdan gelir. Bunun nedeni de kökeninizde yaşadığınız sıkıntıları bir türlü çözüme kavuşturamamanızdan kaynaklanır. Kökende yaşanan sıkıntılar değişik ilişkilerde tekrar tekrar mesaj alıncaya kadar devam eder.Bu sıkıntıların temeli ise kökenden itibaren bastırılmışlığa ve kendinizi ifade ettirilmediğinize dayandığını söylemek isterim. İlk kez ne zaman konuşturulmadınız!. Sizi yetiştirilenler tarafından ne zaman kendinizi anlatmanıza izin verilmedi. Bunları fark ettiğiniz takdirde iyileşme başlar.")
+    if arti_sistemi[1][2] == 0:
+        pin_kodu_yorumlari.append("3. çakranızın tıkalı olması çocukluktan itibaren bastırılmış olduğunuzu ve kendinizi ifade etmeye çalıştığınızda her daim çocuklukta yaşadığınız anların bilinçaltınıza gelip sizi tekrar bastıracaklarını hissetmenize neden olur. Böylelikle her olayda kendinizi savunurken bulabilirsiniz. Bu çakranın tıkanıklığı kişilerde mide ve sindirim sistemi rahatsızlıklarına neden olurken bazen içe kapanıklığa sebep olur. Bu çakranın iyileşmesiyle kişi derin bir tefekkür eden insan haline dönüşerek içindeki mucizevi yapıya şahit olur.")
+    elif arti_sistemi[1][2] >= 4:
+        pin_kodu_yorumlari.append("3. çakranızın aşırı çalışması çocukluktan itibaren bastırılmış olduğunuzu ve kendinizi ifade etmeye çalıştığınızda her daim çocuklukta yaşadığınız anların bilinçaltınıza gelip sizi tekrar bastıracaklarını hissetmenize neden olur. Böylelikle her olayda kendinizi savunurken bulabilirsiniz. Bu çakranın tıkanıklığı kişilerde mide ve sindirim sistemi rahatsızlıklarına neden olurken bazen içe kapanıklığa sebep olur. Bu çakranın iyileşmesiyle kişi derin bir tefekkür eden insan haline dönüşerek içindeki mucizevi yapıya şahit olur.")
+    
+
+    # 4. çakra
+    if arti_sistemi[1][3] == 0:
+        pin_kodu_yorumlari.append("Kalp çakranızın aşırı derecede tıkanık olması sizde ciddi imtihanları hayatınıza çekmenize sebep olmuştur. Bunun için imanınızı kuvvetlendirmeli, kalbinize çokça dikkat etmelisiniz. Sizin için aşırı sevmek, aşırı bağlanma söz konusu olabilir. Bunları iptal etmelisiniz. Kalbin aşırı tıkanıklığı kişide ilerleyen zamanlarda kalp hastalıklarına, dolaşım bozukluklarına neden olabilir. Bunu çözmek için kendinizi tanımalı, içinize dönmeli, kendinizi çok iyi bilmelisiniz.\n Kalp çakranız sıkıntılı olduğu için ciddi anlamda seçimlerinizde ani acil kararlar verebilir ve yanlış tercihler yapabilirsiniz. Ayrıca imtihanlarınız olabilir bu imtihanlar genellikle kendi elinizle yaptığınız ettiğiniz ile olur ilişkilerinizde sıkıntı olur duygularınızı belirtmediğiniz için olabilir. İlişkileri sadece kadın erkek ilişkisi olarak düşünmeyip, tüm iş ilişkilerinde bile çok dikkatli adım atmalı, insanlara çabucak güvenmemeli ve her neye karar verecekseniz 40 kere düşünüp öyle hareket etmelisiniz. Çünkü genellikle ortaklarınız beraber yola çıktıklarınız sizi ortada bırakabilir.")
+        if arti_sistemi[0][3] == 0:  #iki taraftan da tıkalı
+            pin_kodu_yorumlari.append("Bunun yanında imtihanlara çok açık bir insansınız. Hem de ciddi imtihanlar olabilir. Bunlar sizi güçlendirir ama dayanmak zordur. Hayatınızı alt üst eder lakin belki hayatın altı üstünden daha iyidir. Önemli olan sağ salim çıkmışsanız bunlarla ayağa kalkmaktır.")
+    elif safe_pin_access(4) == "4" or safe_pin_access(6) == "4":
+        pin_kodu_yorumlari.append("Kalp çakranız açık fakat ilişkilerde olan sıkıntılar nedeniyle bloke olmuş bu da sizde öfke krizleri yaşamanıza neden olmuştur.Kalp çakranızın bloke olmasından ötürü insanlara aşırı güvenir ve insanlara aşırı derecede vericilik, fedakarlık yaparsınız. Bu tutumunuz o kadar ileri bir boyuta varır ki artık çevrenizdeki kişilerin ebeveyni olma konumuna gelirsiniz. Onları onlardan daha iyi düşünür ve sahiplenmek istersiniz fakat insanın sahibi yalnızca Allah'tır. Kimsenin kimse tarafından korunmasına ihtiyacı yoktur. Bu anlamda yaşadığınız ve yaptığınız, kendinizde yaşadığınız bu sorunu fark etmenizi tavsiye ederim. İşte bu sizin frekansınızı düşürmeye negatif hissetmenize yeter!... Çünkü insanoğlu nankördür ve asla sizin yaptığınızı takdir etmez. Size nankörlükle dönüş yapacağı için yorulur ve çok pişman olursunuz.\n Kalp çakranız bloke olduğu için ciddi anlamda seçimlerinizde ani acil kararlar verebilir ve yanlış tercihler yapabilirsiniz. Ayrıca imtihanlarınız olabilir bu imtihanlar genellikle kendi elinizle yaptığınız ettiğiniz ile olur ilişkilerinizde sıkıntı olur duygularınızı belirtmediğiniz için olabilir. İlişkileri sadece kadın erkek ilişkisi olarak düşünmeyip, tüm iş ilişkilerinde bile çok dikkatli adım atmalı, insanlara çabucak güvenmemeli ve her neye karar verecekseniz 40 kere düşünüp öyle hareket etmelisiniz. Çünkü genellikle ortaklarınız beraber yola çıktıklarınız sizi ortada bırakabilir.")
+
+
+    #5. çakra
+    if arti_sistemi[1][4] >= 4:
+        pin_kodu_yorumlari.append("Sizin boğaz çakranız fazla çalıştığı için hatalardan ders çıkarmayı bilmeyebilir, kendinizi suçlayabilirsiniz. Bu aşırılık ilişkilerinizde aşırı derecede bağımlılıklara neden olabilir. Bu yüzden öncelikle frekansınızı düşüren insanlarla ilişkinizi sınırlandırın, kendinizi tanıyın ve hatalardan ders çıkarmasını öğrenip daha dikkatli bir şekilde hayatı yaşayın.")
+    elif arti_sistemi[1][4] == 1:
+        pin_kodu_yorumlari.append("Boğaz çakranız az çalıştığı için frekansınız düşük genellikle moralsiz bir yapıda olabilirsiniz. Bunun en önemli nedeni ilişkilerde yaşadığınız sorunlar ve aura tıkanıklığından kaynaklıdır. Bu yüzden kendi değerinizi bilmeli, ilişkilerde bilinçaltı ile iletişim kurmamalı ve 8.çakra için verdiğim tavsiyeleri hayata geçirmelisiniz.")
+    elif arti_sistemi[1][4] == 0:
+        pin_kodu_yorumlari.append("Sizin boğaz çakranızın tıkalı olması ciddi anlamda negatif hissetmenize, depresif ataklar yaşamanıza neden olmaktadır. Bununla birlikte aşırı kontrolcü olabilirsiniz. Her şeyin istediğiniz gibi ve mükemmel olmasını isteyebilirsiniz. Bunun yanında psikolojik rahatsızlıklarınız da olabilir. Bu yüzden bol bol gezin tozun kendinizi keşfedin. Yeniliğe açık olun asla içinize kapanmayın, yeni şeyler denemekten yorulmayın ve frekansınızı düşüren sizin negatif hissetmenize sebep olan herkesten, her ortamdan uzak durun. Ayrıca 5. çakrada yazdığım tavsiyeleri mutlaka hayata geçirin.")
+
+
+    #3.hane yorumu
+    if pin_kodu[2] == "2*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[2][9])
+    elif pin_kodu[2] == "1*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[2][10])
+    elif pin_kodu[2] == "4*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[2][11])
+    else:
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[2][int(pin_kodu[2][0])-1])
+
+    #4.hane yorumu
+    if pin_kodu[3] == "2*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[3][9])
+    elif pin_kodu[3] == "1*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[3][10])
+    elif pin_kodu[3] == "4*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[3][11]) 
+    else:# 4 v3  ün 3. ve 8. yorumları aynı
+        """if pin_kodu[2] == '3' and  pin_kodu[3] == '3':
+            pass
+        elif pin_kodu[2] == '8' and  pin_kodu[3] == '8':
+            pass
+        elif pin_kodu[2] == '2' and  pin_kodu[3] == '2':
+            pass
+        elif pin_kodu[3] == '2' and ( pin_kodu[2] == '2' or pin_kodu[5] == '2' or pin_kodu[7] == '2' or pin_kodu[8] == '2'):
+            pass
+        else:"""
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[3][int(pin_kodu[3][0])-1])
+
+    #5.hane yorumu
+    if pin_kodu[4] == "2*":
+        if cinsiyet == "erkek":
+            pin_kodu_yorumlari.append(pin_kodu_yorumu[4][9])
+        elif cinsiyet == "kadin":
+            pin_kodu_yorumlari.append(pin_kodu_yorumu[4][10])
+    else:
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[4][int(pin_kodu[4][0])-1])
+
+    #6.hane yorumu
+    if pin_kodu[5] == "2*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[5][9])
+    else:
+        """if pin_kodu[5] == '2' and ( pin_kodu[2] == '2' or pin_kodu[3] == '2' or pin_kodu[7] == '2' or pin_kodu[8] == '2'):
+            pass"""
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[5][int(pin_kodu[5][0])-1])
+
+    #7.hane yorumu
+    if pin_kodu[6] == "2*":
+        """if pin_kodu[4] == "2*":
+            pass
+        el"""
+        if cinsiyet == "erkek":
+            pin_kodu_yorumlari.append(pin_kodu_yorumu[6][9])
+        elif cinsiyet == "kadin":
+            pin_kodu_yorumlari.append(pin_kodu_yorumu[6][10])
+    else:
+        """if pin_kodu[4] == '1' and  pin_kodu[6] == '1':
+            pass
+        else:"""
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[6][int(pin_kodu[6][0])-1])
+
+
+    #6. çakra
+    if arti_sistemi[1][5] == 0 and  safe_pin_access(3) != "6" and  safe_pin_access(7) != "6":
+        pin_kodu_yorumlari.append("Sizin 6. çakranız oldukça tıkalı olduğu için imanınızı mutlaka artırmalı maneviyatınızı kuvvetlendirmelisiniz. Eğer babanızı, hayatınızda olan erilleri olduğu gibi kabul edemiyorsanız kabul edin. Ailede ciddi problemler varsa bunlarla yüzleşerek sevgiyle kabule geçmelisiniz. 6.çakranızdaki aşırı tıkanıklık sizin sezgilerinizin gelişmemesine ve ebeveynlik noktasında sorunlar yaşamanıza ayrıca babanızla alakalı imtihanlarınız, sıkıntılarınız, anlaşamadığınız konular varsa bunların büyümesine neden olmuştur. Bu yüzden bir an önce babanızla, ebeveynlerinizle alakalı sıkıntılar varsa bunları aşmalı, korku vesvese varsa onların üzerine gitmeli, 6.çakra tavsiyelerini hayatınıza geçirmelisiniz.")
+    if arti_sistemi[1][5] == 0 and ( safe_pin_access(3) == "6" or  safe_pin_access(7) == "6"):
+        pin_kodu_yorumlari.append("Hem sağ hem sol beyninizi aktif bir şekilde kullanmanız gerektiği için gelişime çok açık kendini yenileyebilen bir insansınız. Bu anlamda korkularınız var mı? Hayata karşı insanlara karşı aşırı derecede merhamet duyduğunuz halleriniz var mı? Bunları kontrol etmenizi tavsiye ederim.\n Buna rağmen sağ beyniniz güzel çalışır, sezgileriniz kuvvetlidir ve önsezileriniz güçlüdür. İnsanlara yardım etmeyi seversiniz. Sorumluluk almayı sorumluluklarınızı yerine getirmeyi önemsersiniz.")
+    if arti_sistemi[1][5] == 0 and arti_sistemi[1][8] == 0:
+        pin_kodu_yorumlari.append("6. ve 9. çakranız tıkalı olduğu için ileri görüşlü olmakta zorluk çekebilirsiniz. İnsanlar tarafından ortada bırakılabilirsiniz. Yanlış kararlar alabilirsiniz. Bu yüzden seçimlerde istişare yapmanız önemlidir.")
+    if arti_sistemi[1][5] == 1 or safe_pin_access(0) == "6" or safe_pin_access(2) == "6" or safe_pin_access(4) == "6" or  safe_pin_access(6) == "6":
+        pin_kodu_yorumlari.append("Bunun yanında siz genellikle ailevi konularda imtihan olabilirsiniz. 6.çakranızın geliştirilmesi gerektiğinden aşırı derecede korku vesvese gibi durumlarınız olabilir. Ayrıca sevdiklerinize karşı aşırı mükemmeliyetçilik, korumacılık gözükebilir. Bunu değiştirip dönüştürmelisiniz. Korkularınızı yenmelisiniz. Mükemmeliyetçilik yerine her halimizle ailemizi kendimizi kabul etmeyi öğrenmeliyiz.")
+
+
+    #7. çakra
+    if arti_sistemi[1][6] == 0:
+        pin_kodu_yorumlari.append("7.çakranız tıkalı olduğu için arayışlarınız olur. Hayata karamsar bir halde bakabilirsiniz. İlişkilerinizde doymayı bilmeyebilirsiniz. Her daim yetinmediğiniz için herkes benimle ilgilensin, beni sürekli sevdiğini söylesin, ilgi göstersin gibi bir yaklaşımda bulunabilirsiniz. Bunları düzeltip kronik şikayetçi bir haliniz varsa bunlardan uzaklaşarak şükür içinde yaşayıp kanaat etmeyi öğrenmelisiniz. Her olayı derinlemesine düşünmeli, maneviyatınızı kuvvetlendirmelisiniz.\n 7.çakranızda olan tıkanıklık akletmemenize, olayların içinde yatan mesajları çözememenize neden olmuş. Bu yüzden farkındalıkla yaşamanızı, her olaydan önce 40 kere düşünüp bir kere hareket etmenizi tavsiye ederim.")
+    elif arti_sistemi[1][6] == 1 or  safe_pin_access(4) == "7" or safe_pin_access(6) == "7" or safe_pin_access(5) == "7" or safe_pin_access(0) == "7" or safe_pin_access(2) == "7":
+        pin_kodu_yorumlari.append("Ayrıca taç çakranızın blokeli olmasından ötürü ilişkilerinizde doymayı bilmek, kanaat etmek noktasında sıkıntılarınız olabilir. İnsanlar sizinle daha çok ilgilensin daha çok sizi sevsin daha çok sevdiğini söylesin diyebilirsiniz. Bu anlamda ilk olarak ilişkilerinizde doymayı yetinmeyi öğrenmelisiniz. Sizin pin kodunuz en çok size bunu hatırlatır, doymayı yetinmeyi öğrenmeyi anlatır. Eğer gerçekten tam manasıyla tatmin olmak istiyor iseniz  tahkiki imanı fark etmeli ve gerçek aşkın ve sevginin Allah'ta olduğunu anlamalısınız.\n İşte bu yüzden ilişkilerinizdeki doyumsuzluğun nedenini keşfedin!... Kökende yatan değersizlik inancı buna sebep olur. Siz doymak bilmezsiniz. İşinizi, eşinizi başka her şeyin daha iyisini isterken bulursunuz kendinizi!... Arayışlarınız olur. Bunu ancak kalbinizi sahibine vererek, imanınızı artırarak aşarsınız.\n Siz arayışlarınızı çözdüğünüzde varsa ilişkilerinizde kanaatsizlik doyumsuzluk sorunlarınızı hallettiğinizde, kronik şikayetçi haliniz varsa şüküre geçtiğinizde maneviyatı kuvvetli hale getirdiğinizde olgunluğa ulaşırsınız.")
+    if arti_sistemi[1][0] == 1:
+        pin_kodu_yorumlari.append("Kök çakranızın az çalışması yüzünden taç çakranız bloke olmuş. Bu yüzden ilişkilerde doyumsuzluk ve karamsarlık yaşanabilir.")
+    if arti_sistemi[0][6] == 0 and arti_sistemi[1][6] == 0:
+        pin_kodu_yorumlari.append("Taç çakranızın desteksiz olması sizi karamsar bir yapıda tutmuş ve bu karamsarlıklar arayışlar içinde yaşamanıza neden olmuştur. Bilhassa aileniz tarafından destek alamamış gibi hissederek olaylardan dolayı hep kendinizi suçlamışsınız.")
+    if arti_sistemi[1][6] <= 1 and arti_sistemi[0][6] >= 0:
+        pin_kodu_yorumlari.append("Taç çakranızın bloke olması kök çakranızı bloke etmiş. İşte bu yüzden her olayda daha dikkatli olmalı ve mesajları okumalısınız. Ayrıca elinizde olana şükretmeli, yetinmeyi bilmelisiniz.")
+    if arti_sistemi[1][6] <= 1 and arti_sistemi[1][4] <= 1:
+        pin_kodu_yorumlari.append("Siz 7. çakranızla, 5. çakranızın bloke olması hasebiyle ciddi anlamda ruhsal krizler yaşarsınız. Sanki çok büyük bir boşlukta gibi hissedersiniz ve bu boşluk sizi korkutur. Ve sizi ele geçirecek gibi hissettirir. Fakat korktukça bu boşluk büyür. Bu yüzden özellikle korkmamaya ve onu önemsememeye çalışmanız gerekir. Elbette bunu aşmak için öncelikle kökende yani küçüklüğünüzde yaşadığınız olaylara bakmak gerekir. Bunun için bir terapi almak şarttır. Özellikle duygularınızı boşaltmak önemlidir. Bunlar olmadan tam bir temizlik mümkün olmaz. Ama eğer ki bunu yapacak maddi bir imkanınız yoksa ilk olarak size tavsiyem YouTube'da veya kitaplarda öncelikle duygusal boşaltma ile ilgili bilgiler edinelim. Bunlar tam manasıyla boşalmadan insanın rahat bir hayat yaşaması zordur.\n Eğer böyle imkanlarınız da yoksa en güzel yöntem güzel bir tövbedir. Allah'a yönelmektir. İmanınızı artırmak ve dualarda dertlerinizi Allah'a anlatmaktır. Bu da en güzel duygusal boşaltımdır. Böylelikle hem imanınız artar hem korkularınıza karşı direnme gücünüz artar.")
+    if arti_sistemi[1][6] == 0 and arti_sistemi[1][0] == 0:
+        pin_kodu_yorumlari.append("7. çakranızdaki aşırı derecede tıkanıklık ve kök çakranızdaki tıkanıklık, her ikisi birleşmiş ve sizde aşırı derecede şikayet, ilişkilerde doymamak, sürekli arayışlarda bulunmak gibi olaylara neden olmuş olabilir.Bu da ilişkilerinizde sürekli kendini ispat, EGO, benlik, sürekli haklı olmaya çalışmak ve başkalarında kabahat aramak gibi olaylara neden olabilir.")
+
+
+    #8. çakra
+    if arti_sistemi[1][7] == 0 or safe_pin_access(4) == "8" or safe_pin_access(6) == "8" or safe_pin_access(7) == "8":
+        pin_kodu_yorumlari.append("Ciddi bir anlamda aura probleminiz var ve buna çalışmak zorunda olduğunuzu doğum tarihiniz bize söylüyor. Öncelikle 8. çakradaki yazdıklarımı önemseyin ve mutlak surette yardımlaşmaya, elinizdeki avucunuzdaki ne varsa paylaşmaya özen gösterin. Bununla beraber önce kendinize daha sonra etrafınızda olan herkese karşı sınır koymasını bilin, kendi değerinizi bilerek ölçülü hareket edin, ani ve hızlı kararlar vermeyin. Duygularınızı kontrol etmeyi öğrenin.\n Auranızda bu ciddi anlamda sıkıntılar yüzünden nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'Z' harfinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+    if (arti_sistemi[1][7] == 0 and arti_sistemi[1][8] == 0):    
+        pin_kodu_yorumlari.append("Hem 8 hem 9.çakranızın blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'Z' ve 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+
+    #9. çakra
+    if arti_sistemi[1][8] == 0 or  safe_pin_access(4) == "9" or  safe_pin_access(6) == "9" or  safe_pin_access(8) == "9":
+        pin_kodu_yorumlari.append("9.çakranızın blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+
+
+    #8.hane yorumu
+    if pin_kodu[7] == "2*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[7][9])
+    else:
+        """if pin_kodu[2] == '1' and  pin_kodu[7] == '1':
+            pass
+        elif pin_kodu[7] == '2' and ( pin_kodu[2] == '2' or pin_kodu[3] == '2' or pin_kodu[5] == '2' or pin_kodu[8] == '2'):
+            pass
+        else"""
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[7][int(pin_kodu[7][0])-1])
+
+    #9.hane yorumu
+    if pin_kodu[8] == "2*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[8][9])
+    elif pin_kodu[8] == "1*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[8][10])
+    elif pin_kodu[8] == "4*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[8][11])
+    elif pin_kodu[8] == "6*":
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[8][12])
+    else:
+        """if pin_kodu[7] == '4' and  pin_kodu[8] == '4':
+            pass
+        elif pin_kodu[8] == '2' and ( pin_kodu[2] == '2' or pin_kodu[3] == '2' or pin_kodu[5] == '2' or pin_kodu[7] == '2'):
+            pass
+        else"""
+        pin_kodu_yorumlari.append(pin_kodu_yorumu[8][int(pin_kodu[8][0])-1])
+
+    return pin_kodu_yorumlari
+
 
 
 def merkez_sayi_bulma(isim_soyisim):
@@ -392,7 +574,7 @@ def yasam_yolu_hesapla(birthdate):
     for char in birthdate:
         if char.isdigit():
             total_sum += int(char)
-    
+
     return ebced_toplama_asamali(total_sum)
 
 def donusum_yillari_bulma(dogum_tarihi):
@@ -423,6 +605,14 @@ def donusum_yillari_bulma(dogum_tarihi):
     return result
 
 def ozellik_hesaplama(k):
+    """Pin kodu özellik hesaplama fonksiyonu"""
+    # Güvenli erişim için helper fonksiyon
+    def safe_get_first_digit(pin_value):
+        """Pin değerinin ilk rakamını güvenli şekilde al"""
+        if pin_value and len(pin_value) > 0 and pin_value[0].isdigit():
+            return int(pin_value[0])
+        return 0  # Varsayılan değer
+    
     # Özellik sözlükleri
     ozellikler = {
         'esnek': [1, 2, 3, 4],
@@ -438,8 +628,10 @@ def ozellik_hesaplama(k):
     # Özellik sayacı
     sayac = {key: 0 for key in ozellikler.keys()}
     rakam_dizisi = [0,0,0,0,0,0,0,0,0]
-    for i in range(0,9):
-        rakam_dizisi[i] = int(k[i][0])
+    
+    # Güvenli erişimle rakam dizisini doldur
+    for i in range(0, min(9, len(k))):
+        rakam_dizisi[i] = safe_get_first_digit(k[i])
 
     # Her rakamı kontrol ederek ilgili özellik sayısını artır
     for rakam in rakam_dizisi:
