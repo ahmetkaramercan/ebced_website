@@ -63,6 +63,95 @@
             <p><strong>Cinsiyet:</strong> {{ results.cinsiyet|title }}</p>
         </div>
         
+        <!-- Pin Kodu ve Çakra Dağılımı yan yana -->
+        <div class="pin-chakra-container">
+            <div class="result-section pin-kodu-section">
+                <h4>Pin Kodu:</h4>
+                <div class="pin-kodu-tablosu">
+                    <table>
+                        <tr>
+                            <td>{{ results.dogum_gunu.split(' ')[0] }}</td>
+                            <td>{{ results.dogum_gunu.split(' ')[1] }}</td>
+                            <td>{{ results.dogum_gunu.split(' ')[2] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>{{ results.pin_kodu_dizilimi[0]}}</td>
+                            <td>{{ results.pin_kodu_dizilimi[1] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi[2] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi[3] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi[4] }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi[5] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi[6] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi[7]}}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi[8] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="result-section chakra-section">
+                <h4>Çakra Dağılımı:</h4>
+                <div class="chakra-table">
+                    <table>
+                        {% for chakra in results.chakra %}
+                        <tr>
+                            <td class="plus-cell">{{ chakra.left_plus }}</td>
+                            <td class="number-cell">{{ chakra.number }}</td>
+                            <td class="plus-cell">{{ chakra.right_plus }}</td>
+                            {% if chakra.has_ek_isim %}
+                            <td class="separator-cell">|</td>
+                            <td class="ek-plus-cell">{{ chakra.ek_plus }}</td>
+                            {% endif %}
+                            <td class="pin-code-cell">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Pin Kodu Yorumları -->
+        <div class="result-section" style="background-color: #ffffff;">
+            <h4>Pin Kodu Yorumları:</h4>
+            {% for yorum in results.pin_kodu_yorumlari %}
+                <p style="margin-bottom: 15px; line-height: 1.6;">{{ yorum | safe }}</p>
+            {% endfor %}
+        </div>
+
+        <!-- Çakra Metinleri -->
+        {% if results.cakra_metinleri %}
+        <div class="result-section">
+            <h4>Çakra Metinleri:</h4>
+            <div>
+                {% for metin in results.cakra_metinleri %}
+                    <div class="cakra-metin-item">
+                        <pre>{{ metin }}</pre>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+        <!-- Yaşam Yolu -->
         <div class="result-section">
             <h4>Yaşam Yolu:</h4>
             <p>{{ results.yasam_yolu }}</p>
@@ -73,79 +162,17 @@
             {% endif %}
         </div>
 
+        <!-- Merkez Sayı -->
         <div class="result-section">
             <h4>Merkez Sayı:</h4>
-            <p>{{ results.merkez_sayi }}</p>
-        </div>
-
-        <div class="result-section">
-            <h4>Pin Kodu:</h4>
-            <div class="pin-kodu-tablosu">
-                <table>
-                    <tr>
-                        <td>{{ results.dogum_gunu.split(' ')[0] }}</td>
-                        <td>{{ results.dogum_gunu.split(' ')[1] }}</td>
-                        <td>{{ results.dogum_gunu.split(' ')[2] }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>{{ results.pin_kodu_dizilimi[0]}}</td>
-                        <td>{{ results.pin_kodu_dizilimi[1] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[2] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[3] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[4] }}</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>{{ results.pin_kodu_dizilimi[5] }}</td>
-                        <td>{{ results.pin_kodu_dizilimi[6] }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>{{ results.pin_kodu_dizilimi[7]}}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>{{ results.pin_kodu_dizilimi[8] }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
+            <div class="merkez-sayi-detay">
+                <p>{{ results.merkez_sayi }}</p>
             </div>
-        </div>
-        
-        <div class="result-section" style="background-color: #ffffff;">
-            <h4>Pin Kodu Yorumları:</h4>
-            {% for yorum in results.pin_kodu_yorumlari %}
-                <p style="margin-bottom: 15px; line-height: 1.6;">{{ yorum | safe }}</p>
-            {% endfor %}
-        </div>
-
-        <div class="result-section">
-            <h4>Çakra Dağılımı:</h4>
-            <div class="chakra-table">
-                <table>
-                    {% for chakra in results.chakra %}
-                    <tr>
-                        <td class="plus-cell">{{ chakra.left_plus }}</td>
-                        <td class="number-cell">{{ chakra.number }}</td>
-                        <td class="plus-cell">{{ chakra.right_plus }}</td>
-                        {% if chakra.has_ek_isim %}
-                        <td class="separator-cell">|</td>
-                        <td class="ek-plus-cell">{{ chakra.ek_plus }}</td>
-                        {% endif %}
-                        <td class="pin-code-cell">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</td>
-                    </tr>
-                    {% endfor %}
-                </table>
+            {% if results.merkez_sayi_aciklama %}
+            <div class="merkez-sayi-aciklama">
+                <pre>{{ results.merkez_sayi_aciklama }}</pre>
             </div>
+            {% endif %}
         </div>
 
         <div class="result-section">
@@ -393,6 +420,32 @@ function toggleAccordion(button) {
     color: #ff8c00;
 }
 
+/* Pin Kodu ve Çakra Dağılımı yan yana düzen */
+.pin-chakra-container {
+    display: flex;
+    gap: 20px;
+    margin: 15px 0;
+}
+
+.pin-kodu-section,
+.chakra-section {
+    flex: 1;
+    margin: 0 !important;
+}
+
+/* Telefon için alt alta dizim */
+@media (max-width: 768px) {
+    .pin-chakra-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .pin-kodu-section,
+    .chakra-section {
+        flex: none;
+    }
+}
+
 .yasam-yolu-aciklama {
     margin-top: 15px;
     background-color: #f8f9fa;
@@ -412,6 +465,86 @@ function toggleAccordion(button) {
     background: none;
     border: none;
     padding: 0;
+}
+
+.merkez-sayi-detay {
+    background-color: #f0f8ff;
+    padding: 12px;
+    border-radius: 5px;
+    border-left: 4px solid #28a745;
+    margin-top: 10px;
+}
+
+.merkez-sayi-detay p {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: #333;
+    line-height: 1.5;
+}
+
+.merkez-sayi-aciklama {
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #28a745;
+}
+
+.merkez-sayi-aciklama pre {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: none;
+    border: none;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.cakra-metinleri-aciklama {
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #dc3545;
+}
+
+.cakra-metinleri-aciklama pre {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: none;
+    border: none;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.cakra-metin-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+    border-left: 4px solid #28a745;
+}
+
+.cakra-metin-item pre {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #333;
+    background: none;
+    border: none;
+    padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 </style>
 {% endblock %} 

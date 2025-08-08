@@ -166,13 +166,10 @@ def ebced_toplama(*args):
             return "2*"
         elif total_sum == 19:
             return "1*"
-            return "/ ".join(steps)
         elif total_sum == 22:
             return "4*"
-            return "/ ".join(steps)
         elif total_sum == 33:
             return "6*"
-            return "/ ".join(steps)
         total_sum = sum(int(digit) for digit in str(total_sum))
     
     return str(total_sum)
@@ -212,6 +209,34 @@ def ebced_toplama_asamali(*args):
         elif number == 33:
             steps.append(str("6*"))
             return "/ ".join(steps)
+        number = sum(int(digit) for digit in str(number))
+    
+    steps.append(str(number))
+    return "/ ".join(steps)
+
+def ebced_toplama_asamali_isaretsiz(*args):
+    """
+    Bu fonksiyon, verilen sayının rakamlarını toplar.
+    Bu işlemi, sayı tek haneli olana kadar tekrarlar.
+    Her aşamayı '/' işaretiyle ayırır.
+    """
+    total_sum = 0
+    for arg in args:
+        if isinstance(arg, str):
+            # Stringdeki sayı olan kısmı al ve tam sayıya çevir
+            number_str = ''.join(filter(str.isdigit, arg))
+            if number_str:
+                total_sum += int(number_str)
+        elif isinstance(arg, int):
+            total_sum += arg
+        elif isinstance(arg, float):
+            total_sum += int(arg)
+            
+    steps = []  # Her aşamayı kaydetmek için liste
+    number = total_sum
+
+    while number >= 10:
+        steps.append(str(number))
         number = sum(int(digit) for digit in str(number))
     
     steps.append(str(number))
@@ -353,7 +378,7 @@ def pin_kodu_hesaplama(dogum_tarihi):
     return  k
 
   # ALGORİTMA
-def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
+def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu):
     """Pin kodu yorumları algoritması"""
     # Güvenli pin kodu erişimi için helper fonksiyon
     def safe_pin_access(index):
@@ -444,22 +469,13 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
     elif pin_kodu[3] == "4*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[3][11]) 
     else:# 4 v3  ün 3. ve 8. yorumları aynı
-        """if pin_kodu[2] == '3' and  pin_kodu[3] == '3':
-            pass
-        elif pin_kodu[2] == '8' and  pin_kodu[3] == '8':
-            pass
-        elif pin_kodu[2] == '2' and  pin_kodu[3] == '2':
-            pass
-        elif pin_kodu[3] == '2' and ( pin_kodu[2] == '2' or pin_kodu[5] == '2' or pin_kodu[7] == '2' or pin_kodu[8] == '2'):
-            pass
-        else:"""
         pin_kodu_yorumlari.append(pin_kodu_yorumu[3][int(pin_kodu[3][0])-1])
 
     #5.hane yorumu
     if pin_kodu[4] == "2*":
         if cinsiyet == "erkek":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[4][9])
-        elif cinsiyet == "kadin":
+        elif cinsiyet == "kadın":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[4][10])
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[4][int(pin_kodu[4][0])-1])
@@ -468,23 +484,15 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
     if pin_kodu[5] == "2*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][9])
     else:
-        """if pin_kodu[5] == '2' and ( pin_kodu[2] == '2' or pin_kodu[3] == '2' or pin_kodu[7] == '2' or pin_kodu[8] == '2'):
-            pass"""
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][int(pin_kodu[5][0])-1])
 
     #7.hane yorumu
     if pin_kodu[6] == "2*":
-        """if pin_kodu[4] == "2*":
-            pass
-        el"""
         if cinsiyet == "erkek":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[6][9])
-        elif cinsiyet == "kadin":
+        elif cinsiyet == "kadın":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[6][10])
     else:
-        """if pin_kodu[4] == '1' and  pin_kodu[6] == '1':
-            pass
-        else:"""
         pin_kodu_yorumlari.append(pin_kodu_yorumu[6][int(pin_kodu[6][0])-1])
 
 
@@ -510,7 +518,7 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
         pin_kodu_yorumlari.append("Taç çakranızın desteksiz olması sizi karamsar bir yapıda tutmuş ve bu karamsarlıklar arayışlar içinde yaşamanıza neden olmuştur. Bilhassa aileniz tarafından destek alamamış gibi hissederek olaylardan dolayı hep kendinizi suçlamışsınız.")
     if arti_sistemi[1][6] <= 1 and arti_sistemi[0][6] >= 0:
         pin_kodu_yorumlari.append("Taç çakranızın bloke olması kök çakranızı bloke etmiş. İşte bu yüzden her olayda daha dikkatli olmalı ve mesajları okumalısınız. Ayrıca elinizde olana şükretmeli, yetinmeyi bilmelisiniz.")
-    if arti_sistemi[1][6] <= 1 and arti_sistemi[1][4] <= 1:
+    if (arti_sistemi[1][6] <= 1 and arti_sistemi[1][4] <= 1) or ((arti_sistemi[1][6] == 2 or arti_sistemi[1][4] == 3) and (safe_pin_access(4) == "7" or safe_pin_access(6) == "5" or safe_pin_access(8) == "5" )) :
         pin_kodu_yorumlari.append("Siz 7. çakranızla, 5. çakranızın bloke olması hasebiyle ciddi anlamda ruhsal krizler yaşarsınız. Sanki çok büyük bir boşlukta gibi hissedersiniz ve bu boşluk sizi korkutur. Ve sizi ele geçirecek gibi hissettirir. Fakat korktukça bu boşluk büyür. Bu yüzden özellikle korkmamaya ve onu önemsememeye çalışmanız gerekir. Elbette bunu aşmak için öncelikle kökende yani küçüklüğünüzde yaşadığınız olaylara bakmak gerekir. Bunun için bir terapi almak şarttır. Özellikle duygularınızı boşaltmak önemlidir. Bunlar olmadan tam bir temizlik mümkün olmaz. Ama eğer ki bunu yapacak maddi bir imkanınız yoksa ilk olarak size tavsiyem YouTube'da veya kitaplarda öncelikle duygusal boşaltma ile ilgili bilgiler edinelim. Bunlar tam manasıyla boşalmadan insanın rahat bir hayat yaşaması zordur.\n Eğer böyle imkanlarınız da yoksa en güzel yöntem güzel bir tövbedir. Allah'a yönelmektir. İmanınızı artırmak ve dualarda dertlerinizi Allah'a anlatmaktır. Bu da en güzel duygusal boşaltımdır. Böylelikle hem imanınız artar hem korkularınıza karşı direnme gücünüz artar.")
     if arti_sistemi[1][6] == 0 and arti_sistemi[1][0] == 0:
         pin_kodu_yorumlari.append("7. çakranızdaki aşırı derecede tıkanıklık ve kök çakranızdaki tıkanıklık, her ikisi birleşmiş ve sizde aşırı derecede şikayet, ilişkilerde doymamak, sürekli arayışlarda bulunmak gibi olaylara neden olmuş olabilir.Bu da ilişkilerinizde sürekli kendini ispat, EGO, benlik, sürekli haklı olmaya çalışmak ve başkalarında kabahat aramak gibi olaylara neden olabilir.")
@@ -527,15 +535,25 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
         pin_kodu_yorumlari.append("9.çakranızın blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
 
 
+    #yasam yolunun ikinci hanesi 5 ise
+    if yasam_yolu == "15/ 6" or yasam_yolu == "25/ 7" or   yasam_yolu == "35/ 8" or yasam_yolu == "45/ 9": 
+        pin_kodu_yorumlari.append("Sizin için ciddi anlamda depresyon problemi vardır. Zaman zaman dibe çökebilirsiniz. Bunun en büyük sebebi auranızın delik olmasıdır. Bu yüzden hayatta her şeyi kontrol edemeyeceğinizi bilmeli ve akışa teslim olmalısınız.")
+
+    # 3, 6, 9 haricindeki rakamları kontrol et, kurban psikolojisi
+    has_other_numbers = False
+    for k_value in pin_kodu:
+        if k_value and len(k_value) > 0:
+            first_digit = k_value[0]
+            if first_digit.isdigit() and first_digit not in ['3','6','9']:
+                has_other_numbers = True
+                break
+    if not has_other_numbers:
+        pin_kodu_yorumlari.append("Sizde kurban, zorba, kurtarıcı üçgeni dediğimiz kurban üçgeni vardır. Özellikle annenizden öğrendiğiniz kurban olma psikolojisi ilişkilerde devam ediyor olabilir. Anneniz kendi evliliğinde kurban rolü oynuyor ise ve siz çocukken annenizi kurtarmayı, babanıza karşı savunmayı ya da tam tersi de olabilir kısaca kurtarıcı rolü oynamış olabilirsiniz. Şimdi ise annenizden öğrendiğiniz kurban rolünü devam ettirirsiniz. Kimse kurban ya da kurtarıcı olmak zorunda değildir. Bu psikoloji toplumda evliliklerin ciddi anlamda sıkıntı almasına neden olmaktadır. Kişi kendi sorumluluğunu almalı, kendi sıkıntılarını imtihanlarını fark etmeli, kendisini iyileştirmeyi bilmelidir. Birilerinin yarasından ya da hastalıklarından dolayı acıyıp onu sürekli el üstünde tutmaya çalışmak çok küçük ve basit bir yaklaşımdır. Bu hal bizim toplumumuzda sıklıkla görülür ve elbette yardım etmeyince, yani eşleriniz genellikle size göre zorba olunca olur. Bu da ciddi anlamda sıkıntılara neden olur. Böyle evliliklerde ben her zaman ortak bir paydada buluşup kendinizi tanımanızı, konuşarak sorunlarınızı halletmenizi tavsiye ediyorum.")
+
     #8.hane yorumu
     if pin_kodu[7] == "2*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[7][9])
     else:
-        """if pin_kodu[2] == '1' and  pin_kodu[7] == '1':
-            pass
-        elif pin_kodu[7] == '2' and ( pin_kodu[2] == '2' or pin_kodu[3] == '2' or pin_kodu[5] == '2' or pin_kodu[8] == '2'):
-            pass
-        else"""
         pin_kodu_yorumlari.append(pin_kodu_yorumu[7][int(pin_kodu[7][0])-1])
 
     #9.hane yorumu
@@ -548,25 +566,73 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet):
     elif pin_kodu[8] == "6*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[8][12])
     else:
-        """if pin_kodu[7] == '4' and  pin_kodu[8] == '4':
-            pass
-        elif pin_kodu[8] == '2' and ( pin_kodu[2] == '2' or pin_kodu[3] == '2' or pin_kodu[5] == '2' or pin_kodu[7] == '2'):
-            pass
-        else"""
         pin_kodu_yorumlari.append(pin_kodu_yorumu[8][int(pin_kodu[8][0])-1])
 
     return pin_kodu_yorumlari
 
-
+def ebced_toplama_merkez_sayi(*args):
+    """
+    Bu fonksiyon, verilen parametrelerin rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar.
+    String parametrelerin içindeki sayı olan kısımlar tam sayıya çevrilir.
+    """
+    total_sum = 0
+    for arg in args:
+        if isinstance(arg, str):
+            number_str = ''.join(filter(str.isdigit, arg))
+            if number_str:
+                total_sum += int(number_str)
+        elif isinstance(arg, int):
+            total_sum += arg
+        elif isinstance(arg, float):
+            total_sum += int(arg)
+    
+    # Sayının rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar
+    while total_sum >= 10:
+        if total_sum == 11:
+            return "11"
+        elif total_sum == 19:
+            return "19"
+        elif total_sum == 22:
+            return "22"
+        elif total_sum == 33:
+            return "33"
+        total_sum = sum(int(digit) for digit in str(total_sum))
+    
+    return str(total_sum)
 
 def merkez_sayi_bulma(isim_soyisim):
-    #Bu fonksiyon, verilen isim soyisimin bütün sesli harflerinin rakamsal karşılığını bulup toplar.
-    total_sum = 0
-    for char in isim_soyisim.upper():
-        if char in sesli_harfler and char in chakra_values:
-            total_sum += chakra_values[char]
+    """
+    Bu fonksiyon, verilen isim soyisimin her ismini ayrı ayrı hesaplayarak
+    sesli harflerinin rakamsal karşılığını bulup toplar.
+    """
+    # İsmi boşluklara göre ayır
+    isimler = isim_soyisim.strip().split()
     
-    return ebced_toplama_asamali(total_sum)
+    if not isimler:
+        return "0"
+    
+    isim_sonuclari = []
+    toplam_sum = 0
+    
+    # Her isim için ayrı hesaplama yap
+    for isim in isimler:
+        isim_sum = 0
+        for char in isim.upper():
+            if char in sesli_harfler and char in chakra_values:
+                isim_sum += chakra_values[char]
+        
+        # İsim sonucunu aşamalı toplama ile hesapla
+        isim_sonucu = ebced_toplama_merkez_sayi(isim_sum)
+        isim_sonuclari.append(f"{isim} = {isim_sonucu}")
+        toplam_sum += int(isim_sonucu)
+    
+    # Genel sonucu hesapla
+    merkez_sayi = ebced_toplama_asamali(toplam_sum)
+    merkez_sayi_integer = ebced_toplama_merkez_sayi(toplam_sum)
+    
+    # Sonucu formatla
+    detay = " ".join(isim_sonuclari)
+    return f"{detay} merkez_sayı = {merkez_sayi}", merkez_sayi_integer
 
 def yasam_yolu_hesapla(birthdate):
     # Doğum tarihi 'gg aa yyyy' formatında olmalıdır.
@@ -575,7 +641,7 @@ def yasam_yolu_hesapla(birthdate):
         if char.isdigit():
             total_sum += int(char)
 
-    return ebced_toplama_asamali(total_sum)
+    return ebced_toplama_asamali_isaretsiz(total_sum)
 
 def donusum_yillari_bulma(dogum_tarihi):
     gun, ay, yil = dogum_tarihi.split(' ')
