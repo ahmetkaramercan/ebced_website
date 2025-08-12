@@ -388,6 +388,36 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         return ""
     
     pin_kodu_yorumlari = []
+    
+    # Özel durumları kontrol etmek için flag'ler
+    hane_3_4_3 = False  # 3. ve 4. hane 3 ise
+    hane_3_4_8 = False  # 3. ve 4. hane 8 ise
+    hane_3_8_1 = False  # 3. hane 1 ve 8. hane 1 ise
+    hane_5_7_2 = False  # 5. ve 7. hane 2 ise
+    hane_5_7_1 = False  # 5. ve 7. hane 1 ise
+    hane_8_9_4 = False  # 8. ve 9. hane 4 ise
+    hane_2_tekrari = False  # 2 rakamı tekrarlanıyorsa
+    
+    # Özel durumları kontrol et
+    if safe_pin_access(2) == "3" and safe_pin_access(3) == "3":
+        hane_3_4_3 = True
+    
+    if safe_pin_access(2) == "8" and safe_pin_access(3) == "8":
+        hane_3_4_8 = True
+    
+    if safe_pin_access(2) == "1" and safe_pin_access(7) == "1":
+        hane_3_8_1 = True
+    
+    if safe_pin_access(4) == "2" and safe_pin_access(6) == "2":
+        hane_5_7_2 = True
+    
+    if safe_pin_access(4) == "1" and safe_pin_access(6) == "1":
+        hane_5_7_1 = True
+    
+    if safe_pin_access(7) == "4" and safe_pin_access(8) == "4":
+        hane_8_9_4 = True
+    
+    
 
     #1.hane yorumu
     if pin_kodu[0] == "2*":
@@ -406,7 +436,7 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append("Kök çakranızın az çalışması sizde ciddi anlamda sıkıntıları getirmiştir çünkü kök çakra hayata bağlandığımız, var olduğumuz yerdir. Eğer bu çakra bloke olursa kendimizi bu hayata ait hissetmekte zorlanabiliriz ve her koşulda işlerimiz çok kolay yürümeyebilir. Dolayısıyla kök çakrası tıkalı olan insanlar kendilerini ifade etmek, varlıklarını ispatlamak için daha bencilce hayata bakabilirler. Bencilliğin bir kısmı iyi ama bu konuda biraz dikkatli olup kararında olması oldukça önemlidir.")
     elif arti_sistemi[1][0] >= 4:
         pin_kodu_yorumlari.append("Kök çakranızın aşırı çalışması sizde şikayetçi bir hâl oluşturur. Hayatı güzel görmeyi şükretmeyi öğrenmeli ve her defasında haklı olmaya çalışmamalısınız. Olanı olduğu gibi kabul etmeli elindekiniz ile yetinmelisiniz.")
-    if pin_kodu[0] == "1!" or safe_pin_access(4) == "1" or safe_pin_access(6) == "1":
+    if arti_sistemi[1][0] != 0 and (pin_kodu[0] == "1!" or safe_pin_access(4) == "1" or safe_pin_access(6) == "1"):
         pin_kodu_yorumlari.append("Kök çakranızın blokesi sizin hayatta tutunmakta zorluk yaşamanıza neden olmuş bununla birlikte istediğiniz şeyleri elde ederken zorlanmanıza sebep olmuştur. Ayrıca kendinizi ispat etmek için daha çok çabalamış yorulmuş ve zaman zaman karamsarlığa kapılmış olabilirsiniz.")
 
 
@@ -450,7 +480,40 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     elif arti_sistemi[1][4] == 0:
         pin_kodu_yorumlari.append("Sizin boğaz çakranızın tıkalı olması ciddi anlamda negatif hissetmenize, depresif ataklar yaşamanıza neden olmaktadır. Bununla birlikte aşırı kontrolcü olabilirsiniz. Her şeyin istediğiniz gibi ve mükemmel olmasını isteyebilirsiniz. Bunun yanında psikolojik rahatsızlıklarınız da olabilir. Bu yüzden bol bol gezin tozun kendinizi keşfedin. Yeniliğe açık olun asla içinize kapanmayın, yeni şeyler denemekten yorulmayın ve frekansınızı düşüren sizin negatif hissetmenize sebep olan herkesten, her ortamdan uzak durun. Ayrıca 5. çakrada yazdığım tavsiyeleri mutlaka hayata geçirin.")
 
-
+    # 2 rakamının tekrarlanıp tekrarlanmadığını kontrol et
+    hane_2_sayisi = 0
+    for i in [2, 3, 5, 7, 8]:  # 3, 4, 6, 8, 9. haneler (0-indexed)
+        if  pin_kodu[i] == "2":
+            hane_2_sayisi += 1
+    
+    if hane_2_sayisi > 1:
+        hane_2_tekrari = True
+        
+        # 2 rakamının bulunduğu haneleri tespit et
+        hane_2_pozisyonlari = []
+        for i in [2, 3, 5, 7, 8]:  # 3, 4, 6, 8, 9. haneler (0-indexed)
+            if pin_kodu[i] == "2":
+                hane_2_pozisyonlari.append(i)
+        
+        # Birleşik metin oluştur
+        if len(hane_2_pozisyonlari) > 1:
+            metin_parcalari = []
+            for poz in hane_2_pozisyonlari:
+                if poz == 2:  # 3. hane
+                    metin_parcalari.append("Dünyaya açılış şekliniz")
+                elif poz == 3:  # 4. hane
+                    metin_parcalari.append("Sıkıntıları aşma şekliniz")
+                elif poz == 5:  # 6. hane
+                    metin_parcalari.append("İlişki kurma şekliniz")
+                elif poz == 7:  # 8. hane
+                    metin_parcalari.append("Aura açma şekliniz")
+                elif poz == 8:  # 9. hane
+                    metin_parcalari.append("Hayat amacınız")
+            
+            # Birleşik metni oluştur ve ekle
+            birlesik_metin = " ve ".join(metin_parcalari) + " yunusça Yaradan'dan ötürü yaradılanı severek olacaktır. Dolayısıyla sevmeyi sevilmeyi önemsemeniz oldukça önemlidir fakat aşırı fedakarlıklar yapıyor iseniz sevmeyi sadece vermek olarak algılıyor iseniz bu dengeyi bozar. Bu yüzden bu dengeyi gözetmeniz çok önemlidir."
+            pin_kodu_yorumlari.append(birlesik_metin)
+            
     #3.hane yorumu
     if pin_kodu[2] == "2*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[2][9])
@@ -458,6 +521,18 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append(pin_kodu_yorumu[2][10])
     elif pin_kodu[2] == "4*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[2][11])
+    elif hane_3_4_3:
+        # 3. ve 4. hane 3 ise özel metin
+        pin_kodu_yorumlari.append("Sizin dünyaya açılma ve sıkıntıları aşma şekliniz konuşarak kendinizi ifade ederek olacağı için üzerinizdeki baskıyı fark edip, kökenlerden gelen duygularınızı ifade etmediğiniz hangi olaylar varsa bunları çözmelisiniz. Bunlar çözülmediği müddetçe 3. çakranız size ciddi anlamda sıkıntılar yaşatabilir, bastırılmış hissettirebilir ve mide diyabet gibi gastrointestinal sistem hastalıklarına sebep olabilir.")
+    elif hane_3_4_8:
+        # 3. ve 4. hane 8 ise özel metin
+        pin_kodu_yorumlari.append("Sizin dünyaya açılma şekliniz ve sıkıntıları aşma hâliniz insanlar üzerinde bir otorite kurarak liderlik yaparak olacağı için kendinizi çok iyi tanımalı auranızı korumalı nazar negatif enerji negatif insanlardan ve ortamdan uzak durmalısınız. Ayrıca haram olan her şeyden uzak kalmalı mümkün mertebe rızkınızın helal olmasına çokça dikkat etmelisiniz. Ayetel Kürsi suresini ağzınızdan düşürmemelisiniz.")
+    elif hane_3_8_1:
+        # 3. hane 1 ve 8. hane 1 ise özel metin
+        pin_kodu_yorumlari.append("Sizin dünyaya açılma ve auranızı açma haliniz kök çakranızla olduğu için öne çıkar, otorite kurmak ister ve liderlik yapmak istersiniz. Bununla birlikte çocuklukta yaşadığınız travmalarınız varsa mutlaka çalışmalı kendinizi, çocukluğunuzu yaşanan sıkıntıları sevgiyle kabule geçmelisiniz.")
+    elif hane_2_tekrari and safe_pin_access(2) == "2":
+        # 2 rakamı tekrarlanıyorsa ve 3. hane 2 ise
+        pass
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[2][int(pin_kodu[2][0])-1])
 
@@ -468,7 +543,13 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append(pin_kodu_yorumu[3][10])
     elif pin_kodu[3] == "4*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[3][11]) 
-    else:# 4 v3  ün 3. ve 8. yorumları aynı
+    elif hane_3_4_3 or hane_3_4_8:
+        # 3. ve 4. hane aynı ise tekrar ekleme
+        pass
+    elif hane_2_tekrari and safe_pin_access(3) == "2":
+        # 2 rakamı tekrarlanıyorsa ve 4. hane 2 ise
+        pass
+    else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[3][int(pin_kodu[3][0])-1])
 
     #5.hane yorumu
@@ -483,11 +564,20 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     #6.hane yorumu
     if pin_kodu[5] == "2*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][9])
+    elif hane_2_tekrari and safe_pin_access(5) == "2":
+        # 2 rakamı tekrarlanıyorsa ve 6. hane 2 ise
+        pass
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][int(pin_kodu[5][0])-1])
 
     #7.hane yorumu
-    if pin_kodu[6] == "2*":
+    if hane_5_7_2:
+        # 5. ve 7. hane 2 ise tekrar ekleme
+        pass
+    elif hane_5_7_1:
+        # 5. ve 7. hane 1 ise tekrar ekleme
+        pass
+    elif pin_kodu[6] == "2*":
         if cinsiyet == "erkek":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[6][9])
         elif cinsiyet == "kadın":
@@ -518,7 +608,7 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append("Taç çakranızın desteksiz olması sizi karamsar bir yapıda tutmuş ve bu karamsarlıklar arayışlar içinde yaşamanıza neden olmuştur. Bilhassa aileniz tarafından destek alamamış gibi hissederek olaylardan dolayı hep kendinizi suçlamışsınız.")
     if arti_sistemi[1][6] <= 1 and arti_sistemi[0][6] >= 0:
         pin_kodu_yorumlari.append("Taç çakranızın bloke olması kök çakranızı bloke etmiş. İşte bu yüzden her olayda daha dikkatli olmalı ve mesajları okumalısınız. Ayrıca elinizde olana şükretmeli, yetinmeyi bilmelisiniz.")
-    if (arti_sistemi[1][6] <= 1 and arti_sistemi[1][4] <= 1) or ((arti_sistemi[1][6] == 2 or arti_sistemi[1][4] == 3) and (safe_pin_access(4) == "7" or safe_pin_access(6) == "5" or safe_pin_access(8) == "5" )) :
+    if (arti_sistemi[1][6] <= 1 and arti_sistemi[1][4] <= 1) or ((arti_sistemi[1][6] == 2 or arti_sistemi[1][6] == 3) and (safe_pin_access(4) == "7" or safe_pin_access(6) == "5" or safe_pin_access(8) == "5" or safe_pin_access(8) == "7"  )) :
         pin_kodu_yorumlari.append("Siz 7. çakranızla, 5. çakranızın bloke olması hasebiyle ciddi anlamda ruhsal krizler yaşarsınız. Sanki çok büyük bir boşlukta gibi hissedersiniz ve bu boşluk sizi korkutur. Ve sizi ele geçirecek gibi hissettirir. Fakat korktukça bu boşluk büyür. Bu yüzden özellikle korkmamaya ve onu önemsememeye çalışmanız gerekir. Elbette bunu aşmak için öncelikle kökende yani küçüklüğünüzde yaşadığınız olaylara bakmak gerekir. Bunun için bir terapi almak şarttır. Özellikle duygularınızı boşaltmak önemlidir. Bunlar olmadan tam bir temizlik mümkün olmaz. Ama eğer ki bunu yapacak maddi bir imkanınız yoksa ilk olarak size tavsiyem YouTube'da veya kitaplarda öncelikle duygusal boşaltma ile ilgili bilgiler edinelim. Bunlar tam manasıyla boşalmadan insanın rahat bir hayat yaşaması zordur.\n Eğer böyle imkanlarınız da yoksa en güzel yöntem güzel bir tövbedir. Allah'a yönelmektir. İmanınızı artırmak ve dualarda dertlerinizi Allah'a anlatmaktır. Bu da en güzel duygusal boşaltımdır. Böylelikle hem imanınız artar hem korkularınıza karşı direnme gücünüz artar.")
     if arti_sistemi[1][6] == 0 and arti_sistemi[1][0] == 0:
         pin_kodu_yorumlari.append("7. çakranızdaki aşırı derecede tıkanıklık ve kök çakranızdaki tıkanıklık, her ikisi birleşmiş ve sizde aşırı derecede şikayet, ilişkilerde doymamak, sürekli arayışlarda bulunmak gibi olaylara neden olmuş olabilir.Bu da ilişkilerinizde sürekli kendini ispat, EGO, benlik, sürekli haklı olmaya çalışmak ve başkalarında kabahat aramak gibi olaylara neden olabilir.")
@@ -528,11 +618,11 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     if arti_sistemi[1][7] == 0 or safe_pin_access(4) == "8" or safe_pin_access(6) == "8" or safe_pin_access(7) == "8":
         pin_kodu_yorumlari.append("Ciddi bir anlamda aura probleminiz var ve buna çalışmak zorunda olduğunuzu doğum tarihiniz bize söylüyor. Öncelikle 8. çakradaki yazdıklarımı önemseyin ve mutlak surette yardımlaşmaya, elinizdeki avucunuzdaki ne varsa paylaşmaya özen gösterin. Bununla beraber önce kendinize daha sonra etrafınızda olan herkese karşı sınır koymasını bilin, kendi değerinizi bilerek ölçülü hareket edin, ani ve hızlı kararlar vermeyin. Duygularınızı kontrol etmeyi öğrenin.\n Auranızda bu ciddi anlamda sıkıntılar yüzünden nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'Z' harfinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
     if (arti_sistemi[1][7] == 0 and arti_sistemi[1][8] == 0):    
-        pin_kodu_yorumlari.append("Hem 8 hem 9.çakranızın blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'Z' ve 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+        pin_kodu_yorumlari.append("Hem 8 hem 9.çakranızın tıkalı olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'Z' ve 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
 
     #9. çakra
-    if arti_sistemi[1][8] == 0 or  safe_pin_access(4) == "9" or  safe_pin_access(6) == "9" or  safe_pin_access(8) == "9":
-        pin_kodu_yorumlari.append("9.çakranızın blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+    if arti_sistemi[1][7] >= 0 and(arti_sistemi[1][8] == 0 or  safe_pin_access(4) == "9" or  safe_pin_access(6) == "9" or  safe_pin_access(8) == "9"):
+        pin_kodu_yorumlari.append("9.tıkalı blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
 
 
     #yasam yolunun ikinci hanesi 5 ise
@@ -553,6 +643,8 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     #8.hane yorumu
     if pin_kodu[7] == "2*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[7][9])
+    elif hane_8_9_4 or hane_3_8_1 or (hane_2_tekrari and safe_pin_access(7) == "2"):
+        pass
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[7][int(pin_kodu[7][0])-1])
 
@@ -565,74 +657,18 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append(pin_kodu_yorumu[8][11])
     elif pin_kodu[8] == "6*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[8][12])
+    elif hane_2_tekrari and safe_pin_access(8) == "2":
+        # 2 rakamı tekrarlanıyorsa ve 9. hane 2 ise
+        pass
+    elif hane_8_9_4:
+        # 8. ve 9. hane 4 ise tekrar ekleme
+        pass
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[8][int(pin_kodu[8][0])-1])
 
     return pin_kodu_yorumlari
 
-def ebced_toplama_merkez_sayi(*args):
-    """
-    Bu fonksiyon, verilen parametrelerin rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar.
-    String parametrelerin içindeki sayı olan kısımlar tam sayıya çevrilir.
-    """
-    total_sum = 0
-    for arg in args:
-        if isinstance(arg, str):
-            number_str = ''.join(filter(str.isdigit, arg))
-            if number_str:
-                total_sum += int(number_str)
-        elif isinstance(arg, int):
-            total_sum += arg
-        elif isinstance(arg, float):
-            total_sum += int(arg)
-    
-    # Sayının rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar
-    while total_sum >= 10:
-        if total_sum == 11:
-            return "11"
-        elif total_sum == 19:
-            return "19"
-        elif total_sum == 22:
-            return "22"
-        elif total_sum == 33:
-            return "33"
-        total_sum = sum(int(digit) for digit in str(total_sum))
-    
-    return str(total_sum)
 
-def merkez_sayi_bulma(isim_soyisim):
-    """
-    Bu fonksiyon, verilen isim soyisimin her ismini ayrı ayrı hesaplayarak
-    sesli harflerinin rakamsal karşılığını bulup toplar.
-    """
-    # İsmi boşluklara göre ayır
-    isimler = isim_soyisim.strip().split()
-    
-    if not isimler:
-        return "0"
-    
-    isim_sonuclari = []
-    toplam_sum = 0
-    
-    # Her isim için ayrı hesaplama yap
-    for isim in isimler:
-        isim_sum = 0
-        for char in isim.upper():
-            if char in sesli_harfler and char in chakra_values:
-                isim_sum += chakra_values[char]
-        
-        # İsim sonucunu aşamalı toplama ile hesapla
-        isim_sonucu = ebced_toplama_merkez_sayi(isim_sum)
-        isim_sonuclari.append(f"{isim} = {isim_sonucu}")
-        toplam_sum += int(isim_sonucu)
-    
-    # Genel sonucu hesapla
-    merkez_sayi = ebced_toplama_asamali(toplam_sum)
-    merkez_sayi_integer = ebced_toplama_merkez_sayi(toplam_sum)
-    
-    # Sonucu formatla
-    detay = " ".join(isim_sonuclari)
-    return f"{detay} merkez_sayı = {merkez_sayi}", merkez_sayi_integer
 
 def yasam_yolu_hesapla(birthdate):
     # Doğum tarihi 'gg aa yyyy' formatında olmalıdır.

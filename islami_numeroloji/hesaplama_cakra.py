@@ -357,7 +357,7 @@ evlilik_metinleri = [
         """Bu çakranız evlilikle gelişmiştir. Sezgisel özelliğinizi daha iyi kullanmaya başlamışsınız. Artık öngörünüz artmış ve farkındalıklı bir kişi olmuşsunuz.""",
     ],
     [#7
-        """Bu çakranız evlilikle gelişmiştir. Sezgisel özelliğinizi daha iyi kullanmaya başlamışsınız. Artık öngörünüz artmış ve farkındalıklı bir kişi olmuşsunuz.""",
+        """Evlilik ile bu çakranız açılmış. Yaşadıklarınız size düşünerek hareket etmeyi öğretmiştir. Böylece daha iyi analitik edecek duruma geldiniz. Bu aynı zamanda maneviyatınızın artırmasını sağlamıştır.""",
         """Evlilik ile bu çakranız aşırı çalışmış. Siz analitik düşünebilen bir kişi olduğunuz halde karamsarlık nedeni ile bu özelliğinizi kullanmadığınızı gösteriyor. Olanı olduğu gibi kabul edip olumsuz düşünmeyi bırakarak, Hakk'a teslim olmanızı tavsiye ederim. """,
     ],
     [

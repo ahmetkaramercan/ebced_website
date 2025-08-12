@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, request
 from flask_login import login_required
 from .hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
-                  merkez_sayi_bulma, donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
+                  donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
 from .hesaplama_cakra import cakra_metin_hesaplamalari
+from .hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
 from .text import yasam_yollari
-from .text import merkez_sayi_aciklamalari
 
 # Blueprint oluştur - templates ve static klasörleri belirt
 islami_numeroloji_bp = Blueprint(
@@ -43,10 +43,8 @@ def islami_numeroloji_hesaplama():
         # Yaşam yolu açıklamasını al
         yasam_yolu_aciklama = yasam_yollari.get(yasam_yolu, "Bu yaşam yolu için açıklama bulunamadı.")
         
-        # Merkez sayı açıklaması - dictionary'den al veya varsayılan mesaj
-        merkez_sayi_aciklama = merkez_sayi_aciklamalari.get(str(merkez_sayi_integer))
-        if "******" in merkez_sayi_aciklama:
-            merkez_sayi_aciklama = merkez_sayi_aciklama.replace("******", isim_soyisim)
+        # Merkez sayı açıklaması artık merkez_sayi_detay içinde geliyor
+        merkez_sayi_aciklama = merkez_sayi_detay
         
         results = {
             'dogum_gunu': dogum_gunu,
