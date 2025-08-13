@@ -9,18 +9,279 @@ from reportlab.lib.colors import HexColor
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from pypdf import PdfReader, PdfWriter
+import fitz  # PyMuPDF
 import tempfile
 import os
 import shutil
 
 # Hesaplama fonksiyonlarını import et
 from hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
-                  merkez_sayi_bulma, donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
+                  donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
+from hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
 from hesaplama_cakra import cakra_metin_hesaplamalari
-from text import yasam_yollari, merkez_sayi_aciklamalari
+from text import yasam_yollari
 
 # pdf.py dosyasından create_pdf ve replace_name_on_cover fonksiyonlarını import et
-from pdf import create_pdf, replace_name_on_cover
+# Fonksiyonlar artık bu dosyada tanımlanmıştır
+
+# pdf.py'den alınan fonksiyonlar
+def wrap_text(cnv, text, max_width, font_name, font_size, start_x, start_y, line_height, body_text_color):
+    """Metni sayfalara bölerek yazdırır, kalan metni döndürür"""
+    # Eğer metin zaten işlenmiş satırlar ise, tekrar işleme
+    if isinstance(text, list):
+        all_lines = text
+    else:
+        # Önce \n karakterlerini kullanarak paragrafları böl
+        paragraphs = text.split('\n')
+        all_lines = []
+        
+        for paragraph in paragraphs:
+            if paragraph.strip():  # Boş paragrafları atla
+                # Her paragraf için kelime kelime satır oluştur
+                words = paragraph.split()
+                line = ""
+                lines = []
+                
+                for w in words:
+                    test = (line + " " + w).strip() if line else w
+                    if cnv.stringWidth(test, font_name, font_size) <= max_width:
+                        line = test
+                    else:
+                        if line:  # Boş satır ekleme
+                            lines.append(line)
+                        line = w
+                
+                if line:  # Son satırı ekle
+                    lines.append(line)
+                
+                # Bu paragrafın satırlarını ana listeye ekle
+                all_lines.extend(lines)
+                # Paragraflar arası boşluk ekle
+                if lines:  # Eğer paragraf boş değilse
+                    all_lines.append("")  # Boş satır ekle
+
+    # Sayfa yüksekliği hesapla (A4 sayfası için)
+    page_height = 842  # A4 yüksekliği (point cinsinden)
+    margin_top = 50
+    margin_bottom = 50
+    
+    # Mevcut y pozisyonundan başla
+    current_y = start_y
+    remaining_text = []
+    current_line_index = 0
+    
+    # Her satırı yazdır
+    for i, ln in enumerate(all_lines):
+        if ln.strip():  # Boş satırları atla
+            # Eğer sayfa sonuna geldiysek kalan metni kaydet
+            if current_y < margin_bottom:
+                # Kalan metni kaydet
+                remaining_text = all_lines[i:]
+                print(f"Sayfa doldu, kalan metin için yeni PDF oluşturulacak")
+                break
+            
+            # Metni yazdır
+            cnv.setFont(font_name, font_size)
+            cnv.setFillColor(colors.HexColor(body_text_color))  # Parametrik metin rengi
+            cnv.drawString(start_x, current_y, ln)
+        
+        current_y -= line_height
+    
+    # Kalan metni döndür (satır listesi olarak)
+    if remaining_text:
+        return remaining_text  # Satır listesi olarak döndür
+    
+    return []  # Kalan metin yok
+
+def create_pdf(output_path="tasarim.pdf", 
+               background_color="#0F6A64", 
+               panel_color="#F2643D", 
+               text_color="#FFFFFF",
+               body_text_color="#FFFFFF",
+               title="",
+               body_text=None,
+               is_continuation=False):
+    # Türkçe karakter desteği için font yükle
+    font_name = "Helvetica"  # Varsayılan font
+    
+    # macOS için sistem fontlarını dene
+    font_paths = [
+        "/System/Library/Fonts/Geneva.ttf",  # macOS'ta mevcut
+        "/System/Library/Fonts/Monaco.ttf",  # macOS'ta mevcut
+        "/System/Library/Fonts/Apple Symbols.ttf",  # macOS'ta mevcut
+        "/Library/Fonts/Arial.ttf",
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",  # Linux
+        "C:\\Windows\\Fonts\\arial.ttf",  # Windows
+    ]
+    
+    for font_path in font_paths:
+        if os.path.isfile(font_path):
+            try:
+                if font_path.endswith('.ttc'):
+                    # .ttc dosyaları için özel işlem gerekebilir
+                    continue
+                pdfmetrics.registerFont(TTFont('TurkishFont', font_path))
+                font_name = 'TurkishFont'
+                print(f"Türkçe font yüklendi: {font_path}")
+                break
+            except Exception as e:
+                print(f"Font yükleme hatası ({font_path}): {e}")
+                continue
+    
+    if font_name == "Helvetica":
+        print("Türkçe font bulunamadı, varsayılan font kullanılıyor")
+
+    c = canvas.Canvas(output_path, pagesize=A4)
+    width, height = A4
+
+    # Arka plan (parametre olarak verilen renk)
+    c.setFillColor(colors.HexColor(background_color))
+    c.rect(0, 0, width, height, fill=1, stroke=0)
+
+    # Orta tarafta panel (parametre olarak verilen renk)
+    panel_w = width * 0.82
+    panel_h = height * 0.92
+    panel_x = width * 0.00
+    panel_y = height * 0.0
+    c.setFillColor(colors.HexColor(panel_color))
+    c.roundRect(panel_x, panel_y, panel_w, panel_h, radius=20, fill=1, stroke=0)
+
+    # Başlık (parametre olarak verilen renk)
+    c.setFillColor(colors.HexColor(text_color))
+    c.setFont(font_name, 42)  # 36'dan 48'e çıkarıldı
+    c.drawString(panel_x + 30, panel_y + panel_h - 70, title)
+
+    # Gövde/metin
+    c.setFont(font_name, 26)  # 20'den 28'e çıkarıldı 
+    
+    
+    wrap_max = panel_w - 36
+    if len(title) > 1:
+        baslangic = panel_y + panel_h - 110
+    else: 
+        baslangic = panel_y + panel_h - 50
+    
+    # Metni yazdır ve gerekirse yeni sayfalar oluştur
+    remaining_text = wrap_text(c, body_text, wrap_max, font_name, 24, panel_x + 18, baslangic, 28, body_text_color)
+    
+    c.save()
+    
+    # Eğer kalan metin varsa, yeni PDF oluştur (recursive olarak)
+    if remaining_text and len(remaining_text) > 0:
+        print(f"Kalan metin için yeni PDF oluşturuluyor...")
+        
+        # Yeni PDF için dosya adı oluştur
+        base_name = output_path.rsplit('.', 1)[0]
+        extension = output_path.rsplit('.', 1)[1]
+        
+        # Kaçıncı devam sayfası olduğunu bul
+        if "_devam" in base_name:
+            # Zaten devam sayfası ise, sayıyı artır
+            parts = base_name.split("_devam")
+            if len(parts) > 1 and parts[1].isdigit():
+                page_num = int(parts[1]) + 1
+                new_output_path = f"{parts[0]}_devam{page_num}.{extension}"
+            else:
+                new_output_path = f"{base_name}_devam1.{extension}"
+        else:
+            # İlk devam sayfası
+            new_output_path = f"{base_name}_devam1.{extension}"
+        
+        # Kalan metin için yeni PDF oluştur (recursive call)
+        # remaining_text zaten satır listesi, tekrar işleme
+        additional_pdfs = create_pdf(
+            output_path=new_output_path,
+            background_color=background_color,
+            panel_color=panel_color,
+            text_color=text_color,
+            body_text_color=body_text_color,
+            title="",
+            body_text=remaining_text,  # Zaten işlenmiş satır listesi
+            is_continuation=True  # Devam sayfası olduğunu belirt
+        )
+        
+        # Tüm PDF'leri birleştir
+        all_pdfs = [output_path] + additional_pdfs
+        return all_pdfs
+    
+    return [output_path]  # Tek PDF oluşturuldu
+
+def replace_name_on_cover(input_pdf, output_pdf, new_name, x, y, w=350, h=100, fontsize=28):
+    # x,y: metnin yazılacağı noktaların sol-alt köşesi (points)
+    # w,h: temizlemek için kapatacağımız alanın boyutu (bu alanı kapatır, sonra metin ekleriz)
+    doc = fitz.open(input_pdf)
+    page = doc[0]
+    
+    # Yeni metnin arkasını turuncu renkle doldur (kenar çizgisi olmadan)
+    rect = fitz.Rect(x, y, x + w, y + h)
+    page.draw_rect(rect, fill=(251/255, 100/255, 62/255), stroke_opacity=0)  # #fb643e RGB değerleri, kenar çizgisi yok
+    
+    # Türkçe karakter desteği için font yükle
+    try:
+        # Sistem fontlarını dene
+        font_paths = [
+            "/System/Library/Fonts/Arial.ttf",  # macOS
+            "/System/Library/Fonts/Helvetica.ttc",  # macOS
+            "/System/Library/Fonts/Geneva.ttf",  # macOS
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",  # Linux
+            "C:/Windows/Fonts/arial.ttf",  # Windows
+        ]
+        
+        turkish_font = None
+        for font_path in font_paths:
+            if os.path.exists(font_path):
+                try:
+                    if font_path.endswith('.ttc'):
+                        # .ttc dosyaları için özel işlem gerekebilir
+                        continue
+                    turkish_font = font_path
+                    break
+                except:
+                    continue
+        
+        if turkish_font:
+            print(f"Türkçe font bulundu: {turkish_font}")
+        else:
+            print("Türkçe font bulunamadı, varsayılan font kullanılıyor")
+            
+    except Exception as e:
+        print(f"Font yükleme hatası: {e}")
+    
+    # Metni akıllı satır sarma ile böl
+    lines = []
+    
+    # Metni \n karakterine göre satırlara böl
+    print(f"Debug: Gelen metin: '{new_name}'")
+    
+    # \n ile ayrılmış satırları al
+    raw_lines = new_name.split('\n')
+    print(f"Debug: Bölünen satırlar: {raw_lines}")
+    
+    # Her satırı ayrı ayrı işle
+    for raw_line in raw_lines:
+        if raw_line.strip():  # Boş satırları atla
+            print(f"Debug: Satır işleniyor: '{raw_line}'")
+            lines.append(raw_line.strip())
+    
+    print(f"Debug: Final lines: {lines}")
+    
+    # Metni ortalayarak yaz
+    line_height = fontsize * 1.2
+    total_height = len(lines) * line_height
+    start_y = y + h - (h - total_height) / 2 - line_height  # Dikey ortalama
+    
+    for i, line in enumerate(lines):
+        # Her satırı yatay olarak ortala
+        text_width = len(line) * fontsize * 0.6  # Yaklaşık metin genişliği
+        text_x = x + (w - text_width) / 2  # Yatay ortalama
+        
+        # Türkçe karakter desteği için font adını değiştir
+        if turkish_font:
+            page.insert_text((text_x, start_y - i * line_height), line, fontsize=fontsize, fontname="helv", color=(0, 0, 0))
+        else:
+            page.insert_text((text_x, start_y - i * line_height), line, fontsize=fontsize, fontname="helv", color=(0, 0, 0))
+    
+    doc.save(output_pdf)
 
 # Türkçe karakter desteği için font tanımla
 def setup_turkish_fonts():
@@ -108,7 +369,7 @@ def create_custom_pdf():
         additional_content = create_additional_pages_content(results)
         
         # Direkt birleşik PDF oluştur
-        final_pdf_path = f"birlesik_{output_pdf_path}"
+        final_pdf_path = f"{output_pdf_path}"
         create_unified_pdf(output_pdf_path, additional_content, final_pdf_path, results)
         
         print(f"Birleşik PDF başarıyla oluşturuldu: {final_pdf_path}")
@@ -251,18 +512,50 @@ def create_additional_pages_content(results):
         }
     ]
     
-    # Çakra metinleri için içerik
+    # Çakra metinleri için içerik - İlk kısım (açıklama ve durum)
     if results['cakra_metinleri']:
         for i, metin in enumerate(results['cakra_metinleri']):
-            cakra_content = {
-                'type': 'cakra',
-                'title': "", #f"{i+1}. ÇAKRA METNİ",
-                'body_text': metin,
-                'background_color': "#F8F9F",  #  tema
-                'panel_color': cakra_colors[i]['panel_color'],
-                'text_color': "#FFFFFF"
-            }
-            additional_content.append(cakra_content)
+            # Metni iki kısma ayır
+            metin_parcalari = metin.split("~~~")
+            
+            if len(metin_parcalari) >= 2:
+                # İlk kısım: Çakra açıklaması ve durumu
+                ilk_kisim = metin_parcalari[0].strip()
+                # İkinci kısım: ~~~ olmadan sadece sonrası
+                ikinci_kisim = metin_parcalari[1].strip()
+                
+                # İlk kısım için içerik (1. sayfa)
+                cakra_content_ilk = {
+                    'type': 'cakra_ilk',
+                    'title': "",
+                    'body_text': ilk_kisim,
+                    'background_color': "#065F46",  # Daha koyu gri arka plan
+                    'panel_color': cakra_colors[i]['panel_color'],
+                    'text_color': "#FFFFFF"
+                }
+                additional_content.append(cakra_content_ilk)
+                
+                # İkinci kısım için içerik (2. sayfa)
+                cakra_content_ikinci = {
+                    'type': 'cakra_ikinci',
+                    'title': "",
+                    'body_text': ikinci_kisim,
+                    'background_color': "#065F46",  # Daha koyu gri arka plan
+                    'panel_color': cakra_colors[i]['panel_color'],
+                    'text_color': "#FFFFFF"
+                }
+                additional_content.append(cakra_content_ikinci)
+            else:
+                # Eğer "~~~" bulunamazsa, metni olduğu gibi ekle
+                cakra_content = {
+                    'type': 'cakra',
+                    'title': f"Alma verme dengeniz",
+                    'body_text': metin,
+                    'background_color': "#065F46",  # Daha koyu gri arka plan
+                    'panel_color': cakra_colors[i]['panel_color'],
+                    'text_color': "#FFFFFF"
+                }
+                additional_content.append(cakra_content)
     
     # Pin kodu yorumları için içerik
     if results['pin_kodu_yorumlari']:
@@ -327,10 +620,10 @@ def create_unified_pdf(base_pdf_path, additional_content, output_path, results):
                 writer.add_page(page)
             print(f"Ana PDF'den {len(reader.pages)} sayfa kopyalandı")
             
-            # Çakra sayfalarını ekle (ilk 9 content)
+            # Çakra sayfalarını ekle (ilk kısım ve ikinci kısım)
             cakra_count = 0
             for i, content in enumerate(additional_content):
-                if content['type'] == 'cakra':
+                if content['type'] in ['cakra', 'cakra_ilk', 'cakra_ikinci']:
                     # Her çakra sayfası için direkt PDF oluştur
                     output_pdf_path = f"content_{i}.pdf"
                     created_pdfs = create_pdf(
@@ -355,7 +648,7 @@ def create_unified_pdf(base_pdf_path, additional_content, output_path, results):
                         os.remove(pdf_path)
                     
                     cakra_count += 1
-                    if cakra_count >= 9:  # İlk 9 çakra sayfasından sonra dur
+                    if cakra_count >= 18:  # İlk 9 çakra için 18 sayfa (her çakra 2 sayfa)
                         break
             
             # 35. sayfayı örnek.pdf'den kopyala
@@ -372,7 +665,7 @@ def create_unified_pdf(base_pdf_path, additional_content, output_path, results):
             
             # Kalan içerik sayfalarını ekle (PIN kodu, yaşam yolu, merkez sayı)
             for i, content in enumerate(additional_content):
-                if content['type'] != 'cakra':  # Çakra olmayan sayfalar
+                if content['type'] not in ['cakra', 'cakra_ilk', 'cakra_ikinci']:  # Çakra olmayan sayfalar
                     output_pdf_path = f"content_{i}.pdf"
                     created_pdfs = create_pdf(
                         output_path=output_pdf_path,
@@ -440,9 +733,6 @@ def create_unified_pdf(base_pdf_path, additional_content, output_path, results):
     except Exception as e:
         print(f"Birleşik PDF oluşturma hatası: {e}")
         raise
-
-
-    
     # PDF'i oluştur
     doc.build(story)
 
