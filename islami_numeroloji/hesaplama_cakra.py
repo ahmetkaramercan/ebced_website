@@ -328,6 +328,363 @@ evlilik_metinleri = [
     ],
 ]
 
+cocuk_cakralari = [
+    [
+        """1.ÇAKRA olan kök çakra Tıkanıktır
+Bu çakra hayatımızın ilk basamağıdır. İlk 9 yılımızı ifade eder ve genellikle anne baba 1. dereceden yakınlarla geçirdiğimiz süredir. İlk bilinçsiz basamağımızdır. Bu çakrası tıkalı olan insanlar ilk 9 yılını ne yazık ki zorluklarla atlatmıştırlar. Konuşmaları ve kendi fikirlerini söylenmeleri engellenmiştir. Sizin hayata tutunamama ve sanki bu dünyaya ait hissedememe gibi problemleriniz vardır. Hatta bazen belli düşüncelerde ısrar edebilirsiniz. Fanatiklikler (parti, sanatçı ,takım vs.) yaşanabilir. Ve eleştiriye gelememe gibi hisleriniz olabilir.
+Bunları düzeltmedikçe bu çakranızın sıkıntıları geçmez ve geçmişte yaşar sürekli pişmanlık hissedersiniz. Bunları düzeltmek elinizdedir. Kendinizin her daim duygu ve düşüncelerinizi kontrol etmek her an farkındalıkla yaşamak ile olur. Herkesin fikri olabilir ve saygı duyulmalıdır. Kaderiniz sizi geliştirmek için liderlik yapacağınız işlere iter. Ve siz insanlar arasında aranan lider karakterli bir insan olmuş olabilirsiniz. Bunu yaparken elbette çokça sabretmiş, imtihanlar atlatmış olmalısınız. Bu çakra için liderlik yöneticilik özelliklerinize tutunmanız sizin için çok önemlidir. Kök çakranızı geliştirirken kendinizi olduğunuz gibi kabul etmeniz ve iradenizi geliştirmeniz oldukça önemlidir.
+Kök çakranın sıkıntıları genellikle halsizlik, yorgunluk kansızlık ve kemik ağrılarına neden olur. Unutmayın ki her hastalık habercidir ve mesajı vardır. Bu çakranın az gelişmişliği size psikolojik anlamda yukarıda saydıklarımı yaparken bunlardan mesajı alamadı iseniz fizyolojik hastalıklar başlamıştır. Bu yüzden kendinizi fark etmeli hastalıkların mesajını almalı ve kendinizi dinlemeyi öğrenmelisiniz. Farkındalık yolculuğunuzu başlatmalısınız.
+~~~KÖK ÇAKRANIZIN TIKANIKLIĞINI NASIL AŞARSINIZ? 
+Hayatınızın ilk yıllarından itibaren sizi üzen sizin sınırlarınızı zorlayan kişileri düşünüp onları kabule affedebilirsiniz.
+Affetmek zordur fakat bu sizin bilinçaltınızın yükünü azaltacağı için hem fizyolojik hem psikolojik hastalıklar bakımından çok önemlidir. 
+Bilhassa bunu teheccüd zamanında yalnız bir ortamda sizi üzen hadiseleri tekrar gözünüzün önüne getirip söylemek istediklerinizi söyleyip o kişiyi olduğu gibi affetim demelisiniz. Ve içinizde ona karşı olumsuz hiç tutum kalmayana kadar bu işleme devam etmelisiniz. İnsanların sözlerinin sizi incitmesine izin vermemelisiniz. Eleştiriye açık olmaya çalışın. Olabilir bu sizin fikriniz demeyi öğrenin. Ve Nefs Tezkiyesi Yapın!... (Nefs Tezkiyesi olumsuz özelliklerimizi olumluya dönüştürmektir.)
+ """,
+        
+        """1.ÇAKRA olan kök çakra açık ve geliştirilmelidir
+Bu çakra hayatımızın ilk basamağıdır. İlk 9 yılımızı ifade eder ve genellikle anne baba 1. dereceden yakınlarla geçirdiğimiz süredir. İlk bilinçsiz basamağımızdır. Sizin bu çakranız güzel çalışıyor. Siz istediğinizde duygularınızı ifade eder, öne çıkar, konuşursunuz. Hayatınıza sahip çıkarsınız. Yönetme gücünüz vardır. Sizin bu çakranız geliştirilmelidir. Siz hayata tutunamama ve sanki bu dünyaya ait hissedememe gibi problemleriniz vardır. Hatta bazen belli düşüncelerde ısrar edebilirsiniz. Fanatiklikler (parti,sanatçı,takım vs.) yaşanabilir. Ve eleştiriye gelememe gibi hisleriniz olabilir. 
+Bunları düzeltmedikçe bu çakranızın sıkıntıları geçmez ve geçmişte yaşar sürekli pişmanlık hissedersiniz. Bunları düzeltmek elinizdedir. Kendinizin her daim duygu ve düşüncelerinizi kontrol etmek her an farkındalıkla yaşamak ile olur. Herkesin fikri olabilir ve saygı duyulmalıdır. Ayrıca kendi işinizin patronu olmuş olabilirsiniz. Çünkü kaderiniz sizi geliştirmek için liderlik yapacağınız işlere iter. Ve siz insanlar arasında aranan lider karakterli bir insan olmuş olabilirsiniz. Bunu yaparken elbette çokça sabretmiş, imtihanlar atlatmış olmalısınız. Bu çakra için liderlik, yöneticilik özelliklerinize tutunmanız sizin için çok önemlidir. Kök çakranızı geliştirirken kendinizi olduğunuz gibi kabul etmeniz ve iradenizi geliştirmeniz oldukça önemlidir.
+Kök çakranın sıkıntıları genellikle halsizlik, yorgunluk kansızlık ve kemik ağrılarına neden olur. Unutmayın ki her hastalık habercidir ve mesajı vardır. Bu çakranın az gelişmişliği size psikolojik anlamda yukarıda saydıklarımı yaparken bunlardan mesajı alamadı iseniz fizyolojik hastalıklar başlamıştır. Bu yüzden kendinizi fark etmeli, hastalıkların mesajını almalı ve kendinizi 
+dinlemeyi öğrenmelisiniz. Farkındalık yolculuğunuzu başlatmalısınız.
+~~~1.Çakramızı Nasıl Geliştirebiliriz?
+Mutlaka Olan sıkıntıları sevgi ile kabule geçin. Yara aldığınız halen ailenizle ilgili sıkıntılarınız varsa mutlaka çözün. 
+Affedemediğiniz büyükleriniz ya da çevreniz varsa sadece kendiniz için affedin ve hayatı olduğu gibi kabule geçin. 
+Ve Nefs Tezkiyesi yapın!. (Nefs Tezkiyesi olumsuz özelliklerimizi fark ederek olumluya dönüştürmektir.)
+ """,
+        """1.ÇAKRA OLAN KÖK ÇAKRA 
+açık ve güzel çalışıyor
+Bu çakra hayatımızın ilk basamağıdır. İlk 9 yılımızı ifade eder ve genellikle anne baba 1. dereceden yakınlarla geçirdiğimiz süredir. İlk bilinçsiz basamağımızdır. Sizin bu çakranız güzel çalışıyor. Siz istediğinizde duygularınızı ifade eder, öne çıkar, konuşursunuz. Hayatınıza sahip çıkarsınız. Yönetme gücünüz vardır. Kök çakramız nefsi emmare ile eşdeğerdir. Bu yüzden bu çakranız ne kadar açık olsa da her kişinin çocukluktan getirdiği travmaları vardır. İnsanoğlu ömür boyu çocukluğunda yaşadığı olayları iyileştirmek için ilişkiler çeker. Onun kötülüğü emredici yani olumsuz hallerini yaşamamak için aşağıda verdiğim tavsiyeleri uygulamanız yerinde olur.
+
+~~~KÖK ÇAKRANIZI KORUMAK İÇİN
+Hayatınızın ilk yıllarından itibaren sizi üzen sizin sınırlarınızı zorlayan kişileri düşünüp onları kabule geçebilirsiniz.Affetmek zordur fakat bu sizin bilinçaltınızın yükünü azaltacağı için hem fizyolojik hem psikolojik hastalıklar bakımından çok önemlidir. 
+Bilhassa bunu teheccüd zamanında yalnız bir ortamda sizi üzen hadiseleri tekrar gözünüzün önüne getirip söylemek istediklerinizi söyleyip o kişiyi olduğu gibi kabul ettim demelisiniz. Ve içinizde ona karşı olumsuz hiç tutum kalmayana kadar bu işleme devam etmelisiniz.
+İnsanların sözlerinin sizi incitmesine izin vermemelisiniz. Eleştiriye açık olmaya çalışın. Olabilir bu sizin fikriniz demeyi öğrenin.
+ """,
+        
+        """1.ÇAKRA olan kök çakra 
+açık ve çok fazla çalışıyor 
+Bu çakra hayatımızın ilk basamağıdır. İlk 9 yılımızı ifade eder ve genellikle anne baba 1. dereceden yakınlarla geçirdiğimiz süredir. İlk bilinçsiz basamağımızdır. 
+Siz kendinizi ifade edebilir, öne çıkabilirsiniz ve fikirlerinizi düşüncelerinizi rahatlıkla söyleyebilirsiniz. Fakat sizin bu çakranız fazlasıyla çalıştığı için insanlar sizin fikirlerinizi önemsemediğinde üzülürsünüz ve eleştiriye gelemezsiniz. Hayatınızın yolunda gitmediğini zor bir yaşam geçirdiğinizi de düşünürsünüz. Hatta bazen şikayet de edebilirsiniz. Bardağı dolu tarafından görmeye çalışmak ve şükür defteri tutmak sizin için çok güzel olur.
+~~~1.ÇAKRANIN AŞIRILIĞINI GİDERMEK İÇİN
+Hayatınızın ilk yıllarından itibaren sizi üzen sizin sınırlarınızı zorlayan kişileri düşünüp onları affedebilirsiniz. 
+Affetmek zordur fakat bu sizin bilinçaltınızın yükünü azaltacağı için hem fizyolojik hem psikolojik hastalıklar bakımından çok önemlidir. 
+Bilhassa bunu teheccüd zamanında yalnız bir ortamda sizi üzen hadiseleri tekrar gözünüzün önüne getirip söylemek istediklerinizi söyleyip o kişiyi affetim demelisiniz. Ve içinizde ona karşı olumsuz hiç tutum kalmayana kadar bu işleme devam etmelisiniz.
+İnsanların sözlerini sizi incitmemesine izin vermemelisiniz. Eleştiriye açık olmaya çalışın. Olabilir bu sizin fikriniz demeyi öğrenin 
+Ve Nefs Tezkiyesi yapın!..
+ """
+    ],
+    [
+        """2. ÇAKRA olan sakral çakranız tıkanık 
+Hayatımızın ikinci dönemi olan SAKRAL ÇAKRA delikanlı olduğumuz zamana kadar olan süreyi ifade eder. İkili ilişkilerinizin geliştiği dönemde sıkıntılar yaşanabilir. Duygularınız önemsenmez ve yaşadığınız çevrede baskılar olursa bu çakranız etkilenebilir. Ve bu çakrayı iyileştirmek için kendinize öğretici ilişkiler çekebilirsiniz. Sizin alıngan, hassas bir kişiliğiniz vardır. Ve duygularınız anlaşılmayı bekler fakat beklentileriniz olmadığında sıkıntılara girersiniz. Bu anlamda beklentiye girmemeniz çok önemlidir.
+
+~~~2.ÇAKRANIN TIKANIKLIĞINI NASIL AŞARSINIZ? 
+Duygularınıza oldukça önem verin. Yaşadığınız her olayda; “bu olayda ne hissediyorum? diye düşünün. 
+Duygularınızı ifade edin.Duygularınızı bastıracağınız her davranışınızdan kaçının. 
+İlişkilerinizde beklenti ya da gereksiz fedakarlıklar yapmayın. Dengeyi koruyun ve kendi kendinizle iyi olun. 
+Değersizlik gibi hisleriniz varsa ki bunu çözmedi iseniz bu çakra dengesizliklerinde mutlaka olur. Kendinizin bir tane olduğunu hiç unutmayın. Kendi değerinizi kendiniz vermelisiniz.
+ """,
+        """İKİNCİ ÇAKRANIZ AÇIK VE GELİŞTİRİLMELİDİR
+Hayatımızın ikinci dönemi olan ikili ilişkilerimizin geliştiği dönemdir. İnsanlar ailesinden aldığı özgüven ile bu çakrasını öyle geliştirir ve hayata atılır. İkili ilişkilerinde başarılı olur. Sizin ikinci çakranız geliştirilmelidir. İlişkilerinizde soğuk insan rolünde olabilirsiniz. Ve hatta kırılgan bir yapınız olabilir. Belki doğumda, anne karnında ilk 9 yıl yaşanan travmalarla bastırılmışlık duyguları yaşamanız muhtemeldir. Siz esasında duygusal, sevecen bir insansınız. Sadece size yaklaşılmalı, adımı karşı tarafın atmasını beklersiniz.
+
+~~~2.ÇAKRANIZI NASIL GELİŞTİRİRİZ?
+Duygularınıza oldukça önem verin. 
+Yaşadığınız her olayda; “bu olayda ne hissediyorum? diye düşünün. Duygularınızı ifade edin.
+Duygularınızı bastıracağınız her davranışınızdan kaçının. İlişkilerinizde beklenti ya da gereksiz fedakarlıklar yapmayın. 
+Dengeyi koruyun ve kendi kendinizle iyi olun. Değersizlik gibi hisleriniz varsa ki bunu çözmedi iseniz bu çakra dengesizliklerinde mutlaka olur. Kendinizin bir tane olduğunu hiç unutmayın. Kendi değerinizi kendiniz vermelisiniz.
+ """,
+        """2. ÇAKRA OLAN SAKRAL ÇAKRANIZ AÇIK VE GÜZEL ÇALIŞIYOR 
+Siz duygularınızı önemseyen bir insansınız. İkili ilişkiler kurarsınız. Seversiniz, sevilirsiniz. Empati yaparsınız. İkili ilişkilerde aranan insan olursunuz. 
+Fakat ne yazık ki öncelikle kültürümüz ve yetiştirilme tarzımızdan kaynaklı olarak bu çakramız genellikle bloke olur. Ve ilk olarak kırılganlık hassaslık ile başlayan şikayetler ardından kadınlarda kadın hastalıklarını ortaya çıkarır. Nerdeyse kadın hastalıklarından muzdarip kadın yok denecek kadar azdır. Erkeklerde ise duygusal krizlere neden olur. 
+Sizin bu çakranız isminizden destekli fakat yukarıda yazdığım nedenlerden ötürü bu çakranızın bloke olma ihtimali çokça yüksektir. Eğer duygularınızı ifade edebiliyor ve güzel ilişkiler kurabilirseniz bu çakranız aktiftir. Bu yüzden duygularımızı fark etmeli, duygularınızı yönetmeyi öğrenmelisiniz. Her olayda kendinize ne hissediyorum diye sormanız çok kıymetlidir. Böylelikle duygularınızı yönetmeyi öğrenirsiniz.
+
+~~~2.ÇAKRANIZI NASIL KORURSUNUZ? 
+Duygularınıza oldukça önem verin. Yaşadığınız her olayda; “bu olayda ne hissediyorum? diye düşünün. Duygularınızı ifade edin.
+Duygularınızı bastıracağınız her davranışınızdan kaçının. İlişkilerinizde beklenti ya da gereksiz fedakarlıklar yapmayın. 
+Dengeyi koruyun ve kendi kendinizle iyi olun. Değersizlik gibi hisleriniz varsa ki bunu çözmedi iseniz bu çakra dengesizliklerinde mutlaka olur. Kendinizin bir tane olduğunu hiç unutmayın. Kendi değerinizi kendiniz vermelisiniz.
+ """,
+
+        """
+2. ÇAKRA OLAN SAKRAL ÇAKRANIZ AÇIK VE aşırı çalışıyor
+Hayatımızın ikinci dönemi olan ikili ilişkilerimizin geliştiği dönemdir. İnsanlar ailesinden aldığı özgüven ile bu çakrasını öyle geliştirir ve hayata atılır. İkili ilişkilerinde başarılı olur. 
+Siz duygularınızı önemseyen bir insansınız. İkili ilişkiler kurarsınız. Seversiniz, sevilirsiniz. Fakat fazla çalışması nedeni ile çok hassas bir kişiliğiniz var. İkili ilişkilerde fedakarlık yapan hep siz olursunuz. Ne yazık ki zamanla bu yönünüzün kullanıldığını fark eder ve kırılırsınız. Bu yüzden aşırı kırılganlık ve hassasiyet başlar. 
+
+Hatta biraz daha düşündüğünüzde bu sefer niçin bana kimse fedakarlık yapmıyor dersiniz. İşte bu alma verme dengesinin sıkıntılı olduğunu gösterir. Bu fedakarlık kendi değerinizi tam bilmediğinizden ve onure edemediğinizden kaynaklanır. İlk olarak kendinizi önemsemeli önce kendinizi düşünmeli evet birazcık bencil olmayı öğrenmelisiniz.
+~~~2.ÇAKRANIN AŞIRILIĞINI NASIL AŞARSINIZ? 
+Duygularınıza oldukça önem verin. 
+Yaşadığınız her olayda; “bu olayda ne hissediyorum? diye düşünün. 
+Duygularınızı ifade edin.
+Duygularınızı bastıracağınız her davranışınızdan kaçının. 
+İlişkilerinizde beklenti ya da gereksiz fedakarlıklar yapmayın. 
+Dengeyi koruyun ve kendi kendinizle iyi olun. 
+Değersizlik gibi hisleriniz varsa ki bunu çözmedi iseniz bu çakra dengesizliklerinde mutlaka olur. Kendinizin bir tane olduğunu hiç unutmayın. Kendi değerinizi kendiniz vermelisiniz.
+ """
+    ],
+    [
+        """3.ÇAKRA olan solar pleksus tıkanık
+Sizin bu çakranız tıkanıktır. Bu çakranızın tıkanıklığının ana sebebi bastırılmışlıklardır. Küçüklükten itibaren yaşanan herhangi bir sorun dahi bilinçaltında biriktiği için her ilişkide hakkının yeneceğini ve bastırılacağını düşünerek sivrilebilir. Bu çakrası tıkanık olanlar bazen sert konuşabilir. Hatta konuşmaları kırıcı olabilir. Bunun yanında kıskançlık yaşayabilir, sevdiklerini paylaşmakta güçlük çekebilir.
+
+~~~3.ÇAKRANIZIN TIKANIKLIĞINI NASIL AŞARSINIZ? 
+Bu çakranın tıkanıklığı kök çakrayı etkiler. Bu yüzden yaşanan sıkıntıları sevgiyle kabule geçmelisiniz. Bu çakranızı geliştirmek için duygularınızı ve düşüncelerinizi ifade etmelisiniz. İçinize kapanmamalı ve duygu, düşüncelerinizi anlatmalısınız. Sözlerinizi özenle seçin. Yunus’umuzun dediği gibi “Söz ola kese savaşı, söz ola kestire başı” buna oldukça çok dikkat edin. Her duygunun aşırısının fazla olduğunu unutmayın. Kıskançlık gibi sevdiğini paylaşamamak ilerlediğinde kişiye ve ilişkisine de zarar verir. Dozunda olan her şey daha güzeldir. Sizin fedakarlık gibi sevdiğini çok sevme, paylaşamama özelliğiniz varsa bunun üzerinde çalışın. Unutmayın en önemli sizsiniz. Ve siz paylaşılmayacak tek insansınız.
+ """,
+        """3.ÇAKRA olan solar pleksus çakranız açık ve geliştirilmeli 
+Sizin bu çakranız çalışıyor. Fakat geliştirilmelidir. Siz konuşur kendinizi ifade edersiniz. Bazen çokça konuşup çevrenizden şikayet alabilirsiniz. Zaman zaman ise kırıcı olabilirsiniz. 
+
+~~~3.ÇAKRAMIZI NASIL GELİŞTİRELİM? 
+Kendinize yeni hobiler edinin ve güzel şeyler üretin. 
+Duygularınızı düşüncelerinizi anlatın! 
+İçinize kapanmayın, sadece öfke halinde konuşmayın!.
+ """,
+        """3.ÇAKRA olan solar pleksus çakranız açık ve çok güzel çalışıyor
+Sizin bu çakranız oldukça güzel çalışıyor. Siz kendinizi ifade edersiniz. Konuştuğunuzda kelimeleri güzel seçersiniz. Hitabetiniz iyidir. Ve elinize bir şey alsanız ondan yeni bir şeyler üretebilirsiniz. 
+Elbette yaşanan olaylar dolayısıyla bu çakralar bloke olmuş olabilir. İşte bu yüzden bu çakralarınızı korumak için aşağıdaki tavsiyeleri hayata geçirin!..
+~~~3.ÇAKRAMIZI NASIL KORUYALIM? 
+Kendinize yeni hobiler edinin ve güzel şeyler üretin. 
+Duygularınızı düşüncelerinizi anlatın! 
+İçinize kapanmayın sadece öfke halinde konuşmayın!.
+ """,
+        """3.ÇAKRA olan solar pleksus çakranız açık ve fazla çalışıyor
+Sizin bu çakranız oldukça güzel çalışıyor. Siz kendinizi ifade edersiniz. Konuştuğunuzda kelimeleri güzel seçersiniz. Hitabetiniz iyidir. Ve elinize bir şey alsanız ondan yeni bir şeyler üretebilirsiniz. 
+Fakat bu çakranız fazla çalıştığı için sivri dilli olabilir, farkında olmadan kalp kırabilirsiniz. Bunun yanında amiyane tabirle ayran gönüllü dediğimiz daldan dala atlayabilirsiniz. Ve sevdiklerinizi paylaşmakta güçlü çekebilirsiniz.
+~~~3.ÇAKRANIN FAZLA ÇALIŞMASINI NASIL ENGELLERSİNİZ? 
+Sözlerinizi özenle seçin. 
+Yunus’umuzun dediği gibi “Söz ola kese savaşı, söz ola kestire başı” buna oldukça çok dikkat edin. 
+Her duygunun aşırısının fazla olduğunu unutmayın. Kıskançlık gibi sevdiğini paylaşamamak ilerlediğinde kişiye ve ilişkisine de zarar verir. Dozunda olan her şey daha güzeldir. Sizin fedakarlık gibi sevdiğini çok sevme, paylaşamama özelliğiniz varsa bunun üzerinde çalışın. Unutmayın en önemli sizsiniz. Ve siz paylaşılmayacak tek insansınız.
+"""
+    ],
+    [
+        """4.ÇAKRA olan kalp çakrası tıkanık 
+Bu kalp çakrası sevginin en temel yeridir. Olası imtihanlar hep vardır. Hayat öyledir ki; sıkıntılarımızdan ders almazsak, pişirip pişirip önümüze sunar. Siz ta ki anlayıp farkındalığınızı geliştirene kadar böyle devam eder. Siz imtihanlarınızdan bu dersi öğrenene kadar, bu yemek her öğün önünüze gelecektir. Bu çakranın tıkanıklığı sizde inat, bildiğinde ısrar etme ve hatta başkasının fikrine saygı göstermede zorluklar verir. Kolayca sinirlenebilir ve aceleci davranabilirsiniz. 
+
+~~~4.ÇAKRANIN TIKANIKLIĞINI NASIL ÇÖZERSİNİZ? 
+Sizin her tıkanıklığınız ilk olarak kalbinize dayanıyor. Size burada şunu sormak isterim. Aynı şeyleri yaşıyor musunuz? Bunu fark edin. Hangi olaylar sürekli tekrar ediyor. Ne zaman tekrar ediyor. Fark ettikçe azalacaktır. Ve kalbiniz daha güzel çalışacaktır. Bunun yanında kalbinizi geliştirmek için bol bol yeşillik alanlarda vakit geçirin. Şehrin temposundan uzaklaşın. Namaz, bilhassa huşu ile namaz kılın. Sadaka verin. Dua edin. Tam manası ile Hakk’ın huzurunda olduğunuz bilinci ile yaşayın. 
+Ayrıca insanlara aşırı derecede güvenmeyin. Çünkü aşırı güvenince ciddi fedakarlıklar yapıyor ve karşılığında belki de aradığınızı bulamayabilirsiniz. Bu yüzden insanlara güvenmeden, inanmadan önce çokça düşünün. Gereksiz fedakarlıklar yapmayın. Kararlarınızı ani ve acil bir şekilde vermeyin. Ve olayların altında yatan kötü insanların kötü niyetlerini düşünün. Bu yüzden seçimlerinizde 40 kere düşünüp 1 kere hareket edin. 
+ """,
+        """4. ÇAKRA OLAN KALP ÇAKRASI GELİŞTİRİLMELİDİR
+Bu kalp çakrası sevginin en temel yeridir. Olası imtihanlar hep vardır. Hayat öyledir ki; sıkıntılarımızdan ders almazsak, pişirip pişirip önümüze sunar. Siz ta ki anlayıp farkındalığınızı geliştirene kadar böyle devam eder. Siz imtihanlarınızdan bu dersi öğrenene kadar, bu yemek her öğün önünüze gelecektir. 
+Siz sabırlı sakin olgun bir insansınız. Maneviyatınız güçlüdür. İmtihanlar karşısında sabreder ve ALLAH’a dayanmayı bilirseniz enerjinizi fark etmiş olursunuz. Fakat geliştirileceği için zaman zaman imtihanlar yaşayabilirsiniz. Bu yüzden tedbirli ve temkinli olmakta fayda var. 
+Ani hareketler ve ani seçimler yapmamalısınız.
+Bu çakranızı açmaya çalışmak size ciddi imtihanlar verebilir. Hayatınız gerek sizin gerekse ailenizin vs. yanlış seçimleri dolayısıyla sıkıntılar yaşayabilirsiniz. Fakat bu imtihanlardan ders alıp daha iyi olduğunuzda daha sabırlı ve olgun bir insan olursunuz. Bunlar sizin tekamülünüz için yaşanır. Bu yüzden sıkıntılarınız olduğunda sabredin ve ALLAH’a dayanın
+~~~4.ÇAKRANIZI NASIL GELİŞTİRİRSİNİZ?
+Kalbinizi geliştirmek için bol bol yeşillik alanlarda vakit geçirin. Şehrin temposundan uzaklaşın. Namaz, bilhassa huşu ile namaz kılın. Sadaka verin. Dua edin. Tam manası ile Hakk’ın huzurunda olduğunuz bilinci ile yaşayın. Ayrıca insanlara aşırı derecede güveniyor olabilirsiniz. Ve aşırı güvenince ciddi fedakarlıklar yapıyor ve karşılığında belki de aradığınızı bulamıyor olabilirsiniz. Bu yüzden insanlara güvenmeden inanmadan önce çokça düşünün. 
+Gereksiz fedakarlıklar yapmayın. Kararlarınızı ani ve acil bir şekilde vermeyin. Ve olayların altında yatan kötü insanların kötü niyetlerini düşünün. Bu yüzden seçimlerinizde 40 kere düşünüp 1 kere hareket edin.
+ """,
+        """4.ÇAKRA olan kalp çakrası açık ve güzel çalışıyor
+Bu kalp çakrası sevginin en temel yeridir. Olası imtihanlar hep vardır. Hayat öyledir ki; sıkıntılarımızdan ders almazsak, pişirip pişirip önümüze sunar. Siz ta ki anlayıp farkındalığınızı geliştirene kadar böyle devam eder. Siz imtihanlarınızdan bu dersi öğrenene kadar, bu yemek her öğün önünüze gelecektir. Siz sabırlı sakin olgun bir insansınız. Maneviyatınız güçlüdür. İmtihanlar karşısında sabreder ve ALLAH’a dayanmayı bilirseniz enerjinizi fark etmiş olursunuz. Aynı şeylerin döngülerini fark eder, mesajlarını alırsanız döngüler tekrar etmeyi bırakır. Ve bilincinizde yaşar, anda kalırsınız
+~~~KALP ÇAKRANIZI NASIL KORURSUNUZ?
+Kalbinizi korumak için bol bol yeşillik alanlarda vakit geçirin. Şehrin temposundan uzaklaşın. Namaz, bilhassa huşu ile namaz kılın. Sadaka verin. Dua edin. Tam manası ile Hakk’ın huzurunda olduğunuz bilinci ile yaşayın. Ayrıca insanlara aşırı derecede güveniyor olabilirsiniz. Ve aşırı güvenince ciddi fedakarlıklar yapıyor ve karşılığında belki de aradığınızı bulamıyor olabilirsiniz. Bu yüzden insanlara güvenmeden inanmadan önce çokça düşünün.
+Gereksiz fedakarlıklar yapmayın. Kararlarınızı ani ve acil bir şekilde vermeyin. Ve olayların altında yatan kötü insanların kötü niyetlerini düşünün. Bu yüzden seçimlerinizde 40 kere düşünüp 1 kere hareket edin.
+ """,
+        """4. ÇAKRA OLAN KALP ÇAKRASI AÇIK VE AŞIRI ÇALIŞIYOR
+Bu kalp çakrası sevginin en temel yeridir. Olası imtihanlar hep vardır. Hayat öyledir ki; sıkıntılarımızdan ders almazsak, pişirip pişirip önümüze sunar. Siz ta ki anlayıp farkındalığınızı geliştirene kadar böyle devam eder. Siz imtihanlarınızdan bu dersi öğrenene kadar, bu yemek her öğün önünüze gelecektir. 
+Siz sabırlı sakin olgun bir insansınız. Maneviyatınız güçlüdür. İmtihanlar karşısında sabreder ve ALLAH’a dayanmayı bilirseniz enerjinizi fark etmiş olursunuz. 
+Bu çakranızın fazla çalışması sizi inat, bildiğinde ısrar eden ve öfkeli bir kişi yapabilir. Bu alanda çalışmak için bilhassa olumsuz yönlerimizi bilip olumluya dönüştürmeye çalışmalıyız. Ve bunu yaparken sabırla kendimizle mücadele etmeliyiz.
+~~~4.ÇAKRANIZI DENGEYE NASIL GETİRİRSİNİZ?
+Bu çakranızı normal çalıştırmak için bol bol yeşillik alanlarda vakit geçirin. Şehrin temposundan uzaklaşın. Namaz, bilhassa huşu ile namaz kılın. Sadaka verin. Dua edin. Tam manası ile Hakk’ın huzurunda olduğunuz bilinci ile yaşayın. Ayrıca insanlara aşırı derecede güveniyor olabilirsiniz. Ve aşırı güvenince ciddi fedakarlıklar yapıyor ve karşılığında belki de aradığınızı bulamıyor olabilirsiniz. Bu yüzden insanlara güvenmeden inanmadan önce çokça düşünün. 
+Gereksiz fedakarlıklar yapmayın. Kararlarınızı ani ve acil bir şekilde vermeyin. Ve olayların altında yatan kötü insanların kötü niyetlerini düşünün. Bu yüzden seçimlerinizde 40 kere düşünüp 1 kere hareket edin.
+ """
+    ],
+    [
+        """5.ÇAKRA olan boğaz çakranız tıkanıktır 
+
+Bu çakranız boğaz bölgesindedir ve tıkanıktır. Tıkanık olmasından dolayı dikkatinizi toplamakta zorlanırsınız. Ayrıca daldan dala atlayabilir ve sürekli hobi değiştirebilirsiniz. Bunun yanında ciddi depresyon atakları yaşayabilirsiniz. Hayattan keyif almayabilirsiniz ve sürekli daralıyor olabilirsiniz. Ayrıca toplumda negatif enerjiye olumsuz olan her şeye katlanamayabilirsiniz.
+Ve genellikle olaylardan kendinizi mesul tutar, suçlarsınız. Hatalar bizim ders almamız içindir. Bunun idrakinde olup hatalarımızdan dolayı kendimizi suçlamayıp derslerimizi alıp hayatımıza devam etmeliyiz. Ayrıca bu çakranın tıkanıklığı aşırı kontrolcü ve mükemmelliyetçi yapabilir. Olayları ve hayatı akışa bırakmak ve olmayandaki hayrı görmek çok kıymetlidir.
+~~~5.ÇAKRANIN TIKANIKLIĞINI NASIL AŞARSINIZ? 
+Öncelikle her olaydan kendinizi mesul tutmayın. Hata yapmış iseniz bile dersinizi alıp hayatınıza devam edin. Dikkat geliştirme alıştırmaları yapabilirsiniz. Tek bir hobi ya da ilgi alanına odaklanmanız sizin için daha iyi olur. Ortamlarda sizi negatife çeken tüm insanlardan ve ortamlarından uzak kalmaya çalışın. Ve yanınızda gül yağı taşıyın. Eğer negatif ortamda kalmak zorunda olursanız burnunuza sürün. Frekansınızı yükseltecektir.
+Akışta kalın. Olayları ve kişileri olduğu gibi kabul edin. """,
+        """5. ÇAKRA olan boğaz çakranız açık ve geliştirmelidir
+Bu çakranız boğaz bölgesindedir. Siz çok gezmek yerine daha çok evde kalmayı tercih edebilirsiniz. Bulunduğunuz toplumda negatif insanların negatif enerjileri size derinden etkiler. Zaman zaman frekansınız düşebilir. Bu yüzden negatif insanlarla birlikte olmamaya çalışın. Negatif insanlarla iletişim kurmamaya çalışın. Alışkanlıklarınızdan vazgeçmek sizin için oldukça zor olabilir. Yeni fırsatları görmek için konfor alanından çıkmak çok önemlidir. Mesajları alırsanız belki bulunmakta olduğunuz konumdan daha güzel iş ve hayat sizi bekliyor olabilir. Bu yüzden yenilikleri hayatınıza koymayı ihmal etmeyin. 
+~~~5.ÇAKRAYI GELİŞTİRMEK İÇİN
+Turlara katılıp yeni yerler görmeye odaklanın. 
+Frekansınızı düşürecek kişi ve ortamlardan uzak durun. 
+Yanınızda doğal gül yağı olsun. Frekansınız düştüğü an burnunuzun ucuna sürün. 
+Konfor alanınızdan çıkıp yeni şeyler deneyimleyin.
+ """,
+        """5. ÇAKRA olan boğaz çakranız açık ve güzel çalışıyor 
+Bu çakranız boğaz bölgesindedir ve çalışmaktadır. Siz keşfetmeyi yenilikleri seversiniz. Siz toplumda fikirlerinizi açıklar, öne çıkarsınız. 
+Dahası irade yeteneğiniz iyidir. Bir şeye karar verdiğinizde iradeniz iyidir ve sonuna kadar gidersiniz. 
+Yaşadığımız bazı imtihanlardan dolayı bu çakramız blokelenmiş olabilir. Bu çakranın bozulması halinde frekansımız düşük olur. Moralsiz ve konfor alanından çıkmakta zorlanırız. Eğer böyle bir durumunuz varsa bu çakranızı sonradan bloke edebilirsiniz.Bu durumdan korunmak için aşağıda verdiğim tavsiyelere uymalısınız.
+~~~5.ÇAKRAMIZI NASIL KORURUZ? 
+Dikkat geliştirme alıştırmaları yapabilirsiniz. Su doku, bulmaca vs. gibi..
+Tek bir hobi ya da ilgi alanına odaklanmanız sizin için daha iyi olur.
+Ortamlarda sizi negatife çeken tüm insanlardan ve ortamlarından uzak kalmaya çalışın. Ve yanınızda gül yağı taşıyın. Eğer negatif ortamda kalmak zorunda olursanız burnunuza sürün. Frekansınızı yükseltecektir.
+Auranızı koruyun ve 8.çakrada olan tavsiyeleri hayata geçirin.
+ """,
+        """5. ÇAKRA olan boğaz çakranız çok fazla çalışıyor
+Bu çakranız boğaz bölgesindedir ve çalışmaktadır. Siz keşfetmeyi yenilikleri seversiniz.
+Fakat fazla çalışmasından dolayı dikkatinizi toplamakta zorlanırsınız. Ayrıca daldan dala atlayabilir ve sürekli hobi değiştirebilirsiniz. Bunun yanında tiroid problemleriniz ve kilo problemi olabilir. Tiroid için tahlil yaptırmanızı öneririm. 
+Ve genellikle bu çakrası fazla çalışanlar olaylardan kendini mesul tutar ve suçlar. Hatalar bizim ders almamız içindir. Bunun idrakinde olup, hatalarımızdan dolayı kendimizi suçlamayıp, derslerimizi alıp, hayatımıza devam etmeliyiz.
+~~~5.ÇAKRANIN FAZLA ÇALIŞMASINI NASIL ENGELLERSİNİZ? 
+Öncelikle her olaydan kendinizi mesul tutmayın. 
+Hata yapmış iseniz bile dersinizi alıp hayatınıza devam edin. 
+Dikkat geliştirme alıştırmaları yapabilirsiniz. Tek bir hobi ya da ilgi alanına odaklanmanız sizin için daha iyi olur. Ortamlarda sizi negatife çeken tüm insanlardan ve negatif ortamlardan uzak kalmaya çalışın. Ve yanınızda gül yağı taşıyın. Eğer negatif ortamda kalmak zorunda olursanız burnunuza sürün. Frekansınızı yükseltecektir.
+
+ """
+    ],
+    [
+        """6.ÇAKRANIZ olan alın çakrası (3.göz) Tıkalı 
+Bu çakranız tıkanıktır. Bu çakranın tıkanıklığı veya blokajında sizde evham korku olabilir. Mükemmeliyetçi olabilirsiniz. Bu kişiler iyi bir anne ya da eş olduklarında veya hayatlarında sorumluluklar alıp yerine getirdiklerinde bu çakralarını açmayı başarırlar. Dahası açtıktan sonra 6.hisleri açılır ve önceden olabilecekleri hissetmeye başlarlar.
+~~~6.ÇAKRAMIZI NASIL AÇALIM ?
+Bu çakra oldukça hassas olduğu için ve paketli gıda tüketiyor, florürlü diş macunu kullanıyorsanız kemikleşmiş olabilir. Bu yüzden bu çakramızı nasıl açalım konusunda verdiğim tavsiyeleri hayata geçirmelisiniz.
+İlk olarak alın hacamatı öneririm. (Hacamat tüm vücut olarak öneririm ama alın da çok önemlidir.)
+Bunun yanında vesvese ve korkularınız varsa üzerine gitmenizi (yani korku ve vesvese ile yüzleşmenizi) öneririm. Çünkü vesvese ve korku dillendirildikçe artarlar ve kişiyi etkisi altına alırlar. 
+Mutlaka musiki ya da sanata yönlenin
+Florürlü diş macunları kullanmayın.
+ """,
+        """6.ÇAKRANIZ olan alın çakrası (3.göz) açık
+Bu çakranın açıklığı sizin duygusal bir zekaya sahip olduğunuzu gösterir. Siz sezgisel bir insansınız. Karşılaşacağınız olayları ve insanları hisseder, genellikle önlemini alırsınız. Elbette bunları, bu çakrayı bloke etmedi iseniz yaşarsınız. Eğer bu haller yoksa bu çakranız bloke olmuştur. Bu çakra aile ile ilgilidir.
+Bu çakranın aktif olarak çalışması sizin sorumluluk sahibi biri olmanızı sağlamış. İyi bir ebeveyn olursunuz. Çevrenizden gelen yardım çağrılarına kayıtsız kalmazsınız. Ayrıca sezgileriniz (6.his) kuvvetlidir. Tahminleriniz genelde doğru çıkar. 
+Ve musiki yeteneğiniz vardır. Mutlaka bunu geliştirmenizi bir musiki ile ilgilenmenizi tavsiye ederim.
+~~~6.ÇAKRAMIZI NASIL KORUYALIM?
+Bu çakra oldukça hassas olduğu için ve paketli gıda tüketiyor, florürlü diş macunu kullanıyorsanız kemikleşmiş olabilir. Bu yüzden bu çakramızı nasıl koruyalım konusunda verdiğim tavsiyeleri hayata geçirmelisiniz.
+İlk olarak alın hacamatı öneririm. (Hacamat tüm vücut olarak öneririm ama alın da çok önemlidir.)
+Bunun yanında vesvese ve korkularınız varsa üzerine gitmenizi (yani korku ve vesvese ile yüzleşmenizi) öneririm. Çünkü vesvese ve korku dillendirildikçe artarlar ve kişiyi etkisi altına alırlar. 
+Mutlaka musiki ya da sanata yönlenin
+Florürlü diş macunları kullanmayın.
+ """,
+ """6.ÇAKRANIZ olan alın çakrası (3.göz) açık
+Bu çakranın açıklığı sizin duygusal bir zekaya sahip olduğunuzu gösterir. Siz sezgisel bir insansınız. Karşılaşacağınız olayları ve insanları hisseder, genellikle önlemini alırsınız. Elbette bunları, bu çakrayı bloke etmedi iseniz yaşarsınız. Eğer bu haller yoksa bu çakranız bloke olmuştur. Bu çakra aile ile ilgilidir.
+Bu çakranın aktif olarak çalışması sizin sorumluluk sahibi biri olmanızı sağlamış. İyi bir ebeveyn olursunuz. Çevrenizden gelen yardım çağrılarına kayıtsız kalmazsınız. Ayrıca sezgileriniz (6.his) kuvvetlidir. Tahminleriniz genelde doğru çıkar. 
+Ve musiki yeteneğiniz vardır. Mutlaka bunu geliştirmenizi bir musiki ile ilgilenmenizi tavsiye ederim.
+~~~6.ÇAKRAMIZI NASIL KORUYALIM?
+Bu çakra oldukça hassas olduğu için ve paketli gıda tüketiyor, florürlü diş macunu kullanıyorsanız kemikleşmiş olabilir. Bu yüzden bu çakramızı nasıl koruyalım konusunda verdiğim tavsiyeleri hayata geçirmelisiniz.
+İlk olarak alın hacamatı öneririm. (Hacamat tüm vücut olarak öneririm ama alın da çok önemlidir.)
+Bunun yanında vesvese ve korkularınız varsa üzerine gitmenizi (yani korku ve vesvese ile yüzleşmenizi) öneririm. Çünkü vesvese ve korku dillendirildikçe artarlar ve kişiyi etkisi altına alırlar. 
+Mutlaka musiki ya da sanata yönlenin
+Florürlü diş macunları kullanmayın.
+ """,
+ """6.ÇAKRANIZ olan alın çakrası (3.göz) açık
+Bu çakranın açıklığı sizin duygusal bir zekaya sahip olduğunuzu gösterir. Siz sezgisel bir insansınız. Karşılaşacağınız olayları ve insanları hisseder, genellikle önlemini alırsınız. Elbette bunları, bu çakrayı bloke etmedi iseniz yaşarsınız. Eğer bu haller yoksa bu çakranız bloke olmuştur. Bu çakra aile ile ilgilidir.
+Bu çakranın aktif olarak çalışması sizin sorumluluk sahibi biri olmanızı sağlamış. İyi bir ebeveyn olursunuz. Çevrenizden gelen yardım çağrılarına kayıtsız kalmazsınız. Ayrıca sezgileriniz (6.his) kuvvetlidir. Tahminleriniz genelde doğru çıkar. 
+Ve musiki yeteneğiniz vardır. Mutlaka bunu geliştirmenizi bir musiki ile ilgilenmenizi tavsiye ederim.
+~~~6.ÇAKRAMIZI NASIL KORUYALIM?
+Bu çakra oldukça hassas olduğu için ve paketli gıda tüketiyor, florürlü diş macunu kullanıyorsanız kemikleşmiş olabilir. Bu yüzden bu çakramızı nasıl koruyalım konusunda verdiğim tavsiyeleri hayata geçirmelisiniz.
+İlk olarak alın hacamatı öneririm. (Hacamat tüm vücut olarak öneririm ama alın da çok önemlidir.)
+Bunun yanında vesvese ve korkularınız varsa üzerine gitmenizi (yani korku ve vesvese ile yüzleşmenizi) öneririm. Çünkü vesvese ve korku dillendirildikçe artarlar ve kişiyi etkisi altına alırlar. 
+Mutlaka musiki ya da sanata yönlenin
+Florürlü diş macunları kullanmayın.
+ """
+    ],
+    [
+        """7.ÇAKRANIZ olan taç çakra tıkanık
+Bu çakra özgüven, IQ konusunda bilgi verir. Kainatta öyle bir enerji döngüsü vardır ki hayran kalırsınız. Biz insanların içine kuyruk sokumundan girer ve bebeklikte fontanel denilen çukurdan çıkar. Bu enerji döngüsü kusursuz çalışırsa fiziksel ve psikolojik rahatsızlıklardan uzak olursunuz. 
+Sizin bu çakranızın tıkanık olması sizi arayışlara yönlendirebilir. Hiçbir şeyden memnun olmayabilir ve şikayet edebilirsiniz.
+Bununla birlikte bu çakranın tıkanıklığı doyumsuzluklar yaşamanıza neden olmuş olabilir. Elinizdeki sizi mutlu etmeye yetmez ve doymayı bilmeyebilirsiniz. Önemli olan kanaat etmeyi bilmektir. Bu da manevi bir terbiye ile olur. Çok ciddi sıkıntılar yaşıyor ve karamsarlığı aşamıyorsanız mahlas isim alabilirsiniz.
+~~~7.ÇAKRANIN TIKANIKLIĞINI AÇMAK İÇİN!.. 
+Öncelikle arayışlarınızı sorgulayın ve içinize dönün!.. 
+İçinizde olan sesleri ayırt edin!.. 
+Manevi olarak namaz kılın, huşu ile kılın!.. 
+Yeni bir dil öğrenin. Bol bol kitap okuyun ve kendinizi fark edin!. 
+Kendini bilen Rabbini bilir, 
+bu arayışı mutlaka neticelendirin.
+ """,
+        """7.ÇAKRANIZ olan taç çakra geliştirilmeli
+Bu çakra özgüven, IQ konusunda bilgi verir. Kainatta öyle bir enerji döngüsü vardır ki hayran kalırsınız. Biz insanların içine kuyruk sokumundan girer ve bebeklikte fontanel denilen çukurdan çıkar. Bu enerji döngüsü kusursuz çalışırsa fiziksel ve psikolojik rahatsızlıklardan uzak olursunuz. Bu çakranın açık olması sizin analitik etmenizi tefekkür etmenizi kolaylaştırır. Fakat bu çakranın gelişmesi gerektiği için zaman zaman karamsar olabilirsiniz Olumsuz düşünebilir, elinizdeki ile yetinmeyi bilmeyebilirsiniz.
+~~~7.ÇAKRANIZI GELİŞTİRMEK İÇİN
+Öncelikle arayışlarınızı sorgulayın ve içinize dönün!.. İçinizde olan sesleri ayırt edin!.. Manevi olarak namaz kılın, huşu ile kılın!.. 
+Yeni bir dil öğrenin. Bol bol kitap okuyun ve kendinizi fark edin!. 
+Kendini bilen Rabbini bilir, bu arayışı mutlaka neticelendirin.
+ """,
+        """7.ÇAKRANIZ olan taç çakra açık ve enerji alıyor
+Bu çakra özgüven, IQ konusunda bilgi verir. Kainatta öyle bir enerji döngüsü vardır ki hayran kalırsınız. Biz insanların içine kuyruk sokumundan girer ve bebeklikte fontanel denilen çukurdan çıkar. Bu enerji döngüsü kusursuz çalışırsa fiziksel ve psikolojik rahatsızlıklardan uzak olursunuz. 
+Sizin bu çakranız enerji aldığı için sizin algılarınız kuvvetlidir. Analitik edebilir, tefekkür yapabilirsiniz. Bu çakra açıkken sorunlarınızı çözebilecek güç bulursunuz. Sizin IQ’nuz yüksektir. Analitik yeteneğiniz gelişmiştir. Bunu daha da geliştirmeli bol bol kitap okumalı yeni yerler keşfedip beyninizde yeni sinir yolakları oluşturmalısınız. 
+Bununla birlikte bu çakranızı maneviyatla mutlaka desteklemelisiniz. Erteleme gibi halleriniz varsa bunu çözmeli her işi vaktinde yaparak nefsinizle her daim farkında olarak savaşmalısınız. Eğer bu çakra bloke olur ise sizi ne yazık ki karamsarlıkların içine atabilir. Eğer olumsuz düşünüyor ve kendinize güvenmiyor iseniz bu çakranızı bloke etmişsinizdir. 
+~~~TAÇ ÇAKRANIZI KORUMAK İÇİN 
+Öncelikle arayışlarınızı sorgulayın ve içinize dönün!.. 
+İçinizde olan sesleri ayırt edin!.. Manevi olarak namaz kılın, huşu ile kılın!.. 
+Yeni bir dil öğrenin. Bol bol kitap okuyun ve kendinizi fark edin!. Kendini bilen Rabbini bilir, bu arayışı mutlaka neticelendirin.
+ """,
+        """7.ÇAKRANIZ olan taç çakra AÇIK VE FAZLA ÇALIŞIYOR
+Bu çakra özgüven, IQ konusunda bilgi verir. Kainatta öyle bir enerji döngüsü vardır ki hayran kalırsınız. Biz insanların içine kuyruk sokumundan girer ve bebeklikte fontanel denilen çukurdan çıkar. Bu enerji döngüsü kusursuz çalışırsa fiziksel ve psikolojik rahatsızlıklardan uzak olursunuz. 
+Sizin bu çakranız enerji aldığı için sizin algılarınız kuvvetlidir. Analitik edebilir, tefekkür yapabilirsiniz. 
+Fakat bu çakranızın aşırı çalışıyor olması sizi arayışlara yönlendirmiştir. Belki bir çok şey deneyimlemiş ve bir türlü gereken huzuru tam alamamışsınızdır. Sanki bir boşluk içindesinizdir. Ve karamsarlıklar yaşamaktasınız. 
+~~~7.ÇAKRANIZI DENGELEMEK İÇİN 
+Öncelikle arayışlarınızı sorgulayın ve içinize dönün!.. 
+İçinizde olan sesleri ayırt edin!.. 
+Manevi olarak namaz kılın, huşu ile kılın!.. 
+Yeni bir dil öğrenin. Bol bol kitap okuyun ve kendinizi fark edin!. 
+Kendini bilen Rabbini bilir, 
+bu arayışı mutlaka neticelendirin.
+
+ """
+    ],
+    [
+        """8.ÇAKRA olan bu çakra aurada bulunur tıkanıktır
+Dünyanın etrafında atmosfer tabakaları olduğu gibi bizim etrafımızda da auramız bulunur. Bu yüzden bu çakrayı sürekli aktif tutmamız önemlidir. Çünkü yanlış seçimlerden aurada deliklerin açılması sonucu bu çakranız blokajlanabilir. Bu çakranız tıkanıktır. Sizde zaman zaman alışveriş tutkunluğu olabilir. İsrafa kayabilirsiniz ve nazara, düşük frekanslı insanların yaydığı negatif enerjiye çabuk düşersiniz. 
+Bolluk bereket eksikliği yaşayıp kıtlık bilincinde olabilirsiniz. Bunun için inandığınız kalıplara bakmalı ilişkilerinizi düzeltmeli ve olumlu düşünmelisiniz. Ayrıca aşağıda olan tavsiyeleri hayata geçirmelisiniz.
+
+~~~8.ÇAKRANIZI NASIL AÇARSINIZ? 
+1. Koşulsuz ALLAH’IMIZA güvenin. 
+2. Haram ve helallere son derece dikkat edin. 
+3. Özellikle muhafezetyn(felak ve nas surelerini) ve Ayet’el Kursi’yi çokça okuyun. 
+4.Defne yaprağını evde tütsü yapın 
+5.Evinizi sileceğiniz suya sirke ekleyin ve sirke için 
+6.Nefesle dirilmeyi öğrenin. Doğru nefes diyaframdan alınan nefestir. Bunu bebekler çok iyi bilir. Fakat zamanla bunu kaybederler. 
+ """,
+        """8.ÇAKRA olan bu çakra aurada bulunur açıktır
+Dünyanın etrafında atmosfer tabakaları olduğu gibi bizim etrafımızda da auramız bulunur. Bu yüzden bu çakrayı sürekli aktif tutmamız önemlidir. Çünkü yanlış seçimlerden aurada deliklerin açılması sonucu bu çakranız blokajlanabilir. 
+Bu çakranız açıktır. Siz kısmetli bir insansınız. Bu çakranızı yani auranızı koruyabilirseniz parayı ve hayatınızda bereketi her zaman elinizde tutabilirsiniz. 
+
+~~~8.ÇAKRANIZI NASIL KORURSUNUZ? 
+1. Koşulsuz ALLAH’IMIZA güvenin. 
+2. Haram ve helallere son derece dikkat edin. 
+3. Özellikle muhafezetyn(felak ve nas surelerini) ve Ayet’el Kursi’yi çokça okuyun. 
+4.Defne yaprağını evde tütsü yapın 
+5.Evinizi sileceğiniz suya sirke ekleyin ve sirke için 
+6.Nefesle dirilmeyi öğrenin. Doğru nefes diyaframdan alınan nefestir. Bunu bebekler çok iyi bilir. Fakat zamanla bunu kaybederler. 
+ """,
+        """8.ÇAKRA olan bu çakra aurada bulunur açıktır
+Dünyanın etrafında atmosfer tabakaları olduğu gibi bizim etrafımızda da auramız bulunur. Bu yüzden bu çakrayı sürekli aktif tutmamız önemlidir. Çünkü yanlış seçimlerden aurada deliklerin açılması sonucu bu çakranız blokajlanabilir. 
+Bu çakranız açıktır. Siz kısmetli bir insansınız. Bu çakranızı yani auranızı koruyabilirseniz parayı ve hayatınızda bereketi her zaman elinizde tutabilirsiniz. 
+
+~~~8.ÇAKRANIZI NASIL KORURSUNUZ? 
+1. Koşulsuz ALLAH’IMIZA güvenin. 
+2. Haram ve helallere son derece dikkat edin. 
+3. Özellikle muhafezetyn(felak ve nas surelerini) ve Ayet’el Kursi’yi çokça okuyun. 
+4.Defne yaprağını evde tütsü yapın 
+5.Evinizi sileceğiniz suya sirke ekleyin ve sirke için 
+6.Nefesle dirilmeyi öğrenin. Doğru nefes diyaframdan alınan nefestir. Bunu bebekler çok iyi bilir. Fakat zamanla bunu kaybederler. 
+ """,
+ """8.ÇAKRA olan bu çakra aurada bulunur açıktır
+Dünyanın etrafında atmosfer tabakaları olduğu gibi bizim etrafımızda da auramız bulunur. Bu yüzden bu çakrayı sürekli aktif tutmamız önemlidir. Çünkü yanlış seçimlerden aurada deliklerin açılması sonucu bu çakranız blokajlanabilir. 
+Bu çakranız açıktır. Siz kısmetli bir insansınız. Bu çakranızı yani auranızı koruyabilirseniz parayı ve hayatınızda bereketi her zaman elinizde tutabilirsiniz. 
+
+~~~8.ÇAKRANIZI NASIL KORURSUNUZ? 
+1. Koşulsuz ALLAH’IMIZA güvenin. 
+2. Haram ve helallere son derece dikkat edin. 
+3. Özellikle muhafezetyn(felak ve nas surelerini) ve Ayet’el Kursi’yi çokça okuyun. 
+4.Defne yaprağını evde tütsü yapın 
+5.Evinizi sileceğiniz suya sirke ekleyin ve sirke için 
+6.Nefesle dirilmeyi öğrenin. Doğru nefes diyaframdan alınan nefestir. Bunu bebekler çok iyi bilir. Fakat zamanla bunu kaybederler. 
+ """
+    ],
+    [
+        """9.çakranız TIKANIK
+Bu çakra tıkanıklığında insanlar olayların altında yatan gerçekleri görmezler. Temiz niyetlerle insanlara inanırlar. Ve sınır koyamadıkları hayır diyemedikleri için ilişkilerinde özellikle ikili ilişkilerinde sıkıntı yaşayabilirler. Fedakarlık yapıp alma verme dengenizi bozmamalısınız. Bunun için tıpkı satranç oynar gibi seçiminizin bir sonraki aşamada size ne katacağını düşünmelisiniz. Bunun yanında insanlara yardım etmeniz, el uzatmanız da sizin bu çakrayı geliştirmeniz için önemlidir.
+~~~9.ÇAKRAMIZI NASIL AÇALIM?
+Öncelikle ikili ilişkilerinizde koruyamadığınız sınırlar neler bunları belirleyin.
+İlişkilerinizde kullanılan yönünüzü tespit edip hayır demeyi öğrenin. Ve şifacılık yapmaya çalışın. Tabii ki ilk olarak kendinizi iyileştirin. Bunun yanında insanlara kol kanat gerin ve yardımcı olun.
+ """,
+        """9.çakranız AÇIK FAKAT geliştirilmeli
+Sizin önsezileriniz kuvvetlidir. Mutlaka ilahi ilhamlara açıksınız. Size yardım için gelen bir kişiyi asla geri çevirmezsiniz. Hizmet etmek, bildiğini paylaşmak en önemli özelliklerinizdendir. Bu çakranızın geliştirilmesi gerektiği için ikili ilişkilerde sınır koymayı, gerektiğinde hayır demeyi öğrenmelisiniz. Fedakarlık yapıp alma verme dengenizi bozmamalısınız. Bunun için tıpkı satranç oynar gibi seçiminizin bir sonraki aşamada size ne katacağını düşünmelisiniz. Bunun yanında insanlara yardım etmeniz, el uzatmanız da sizin bu çakrayı geliştirmeniz için önemlidir.
+
+~~~9.ÇAKRAMIZI NASIL GELİŞTİRELİM?
+Öncelikle ikili ilişkilerinizde koruyamadığınız sınırlar neler bunları belirleyin.
+İlişkilerinizde kullanılan yönünüzü tespit edip hayır demeyi öğrenin.Ve şifacılık yapmaya çalışın. Tabii ki ilk olarak kendinizi iyileştirin. Bunun yanında insanlara kol kanat gerin ve yardımcı olun.
+ """,
+        """9.çakranız açık ve GÜZEL çalışıyor
+Sizin önsezileriniz kuvvetlidir. Mutlaka ilahi ilhamlara açıksınız. Size yardım için gelen bir kişiyi asla geri çevirmezsiniz. Hizmet etmek, bildiğini paylaşmak en önemli özelliklerinizdendir. Siz şifacı olabilirsiniz. Fakat ilişkilerde sıkıntılar olursa alma verme dengenizi bozarsanız bu çakranız bloke olur. Sınırlarınızı koruyamaz hale gelirsiniz.
+
+~~~9.ÇAKRANIZI KORUMAK İÇİN
+Öncelikle ikili ilişkilerinizde koruyamadığınız sınırlar neler bunları belirleyin.
+İlişkilerinizde kullanılan yönünüzü tespit edip hayır demeyi öğrenin.Ve şifacılık yapmaya çalışın. Tabii ki ilk olarak kendinizi iyileştirin.Bunun yanında insanlara kol kanat gerin ve yardımcı olun.
+ """,
+        """9.çakranız AÇIK ve ÇOK çalışıyor
+Sizin önsezileriniz kuvvetlidir. Mutlaka ilahi ilhamlara açıksınız. Size yardım için gelen bir kişiyi asla geri çevirmezsiniz. Hizmet etmek, bildiğini paylaşmak en önemli özelliklerinizdendir. Siz şifacı olabilirsiniz. Bu çakranız fazla çalıştığı için ikili ilişkilerde sınır koymayı, gerektiğinde hayır demeyi öğrenmelisiniz. Fedakarlık yapıp alma verme dengenizi bozmamalısınız. Bunun için tıpkı satranç oynar gibi seçiminizin bir sonraki aşamada size ne katacağını düşünmelisiniz. Bunun yanında insanlara yardım etmeniz, el uzatmanız da sizin bu çakrayı geliştirmeniz için önemlidir.
+~~~9.ÇAKRAMIZI NASIL DENGELEYELİM?
+Öncelikle ikili ilişkilerinizde koruyamadığınız sınırlar neler bunları belirleyin.
+İlişkilerinizde kullanılan yönünüzü tespit edip hayır demeyi öğrenin. Ve şifacılık yapmaya çalışın. Tabii ki ilk olarak kendinizi iyileştirin.Bunun yanında insanlara kol kanat gerin ve yardımcı olun.
+ """
+    ],
+]
 
 
 def cakra_metin_hesaplamalari(arti_sistemi, cinsiyet):
@@ -375,5 +732,40 @@ def cakra_metin_hesaplamalari(arti_sistemi, cinsiyet):
     return cakra_yorumlari 
 
 
+def cocuk_cakra_metin_hesaplamalari(arti_sistemi):
+    cakra_yorumlari = []
 
-            
+    for i in range(9):
+        if arti_sistemi[1][i] == 0:
+            cakra_yorumlari.append(cakra_metinleri[i][0])
+        elif arti_sistemi[1][i] == 1:
+            cakra_yorumlari.append(cakra_metinleri[i][1])
+        elif arti_sistemi[1][i] <= 3:
+            cakra_yorumlari.append(cakra_metinleri[i][2])
+        else:
+            cakra_yorumlari.append(cakra_metinleri[i][3])
+
+
+        if (i == 1):
+            if arti_sistemi[1][0] > arti_sistemi[1][1]:
+                cakra_yorumlari.append("""Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenize baktığımda aşırı olmasa da beklentili olduğunuzu görüyorum. En doğrusu beklentiyi sıfıra indirmektir.
+                                    ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
+                                    Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+                                    İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Ve bekledikçe daha çok yorulacağınızı unutmayın. Dönüşüme buradan başlayın.
+                                    """)
+            elif arti_sistemi[1][0] < arti_sistemi[1][1]:
+                cakra_yorumlari.append("""Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. 
+                                    Sizin bu alma verme dengenize baktığımda fedakar olduğunuzu görüyorum. Fedakarlık ilişkilerde karşılıklı dengeleri bozar ve sizi yorar.
+                                    ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
+                                    Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+                                    İnsanlara hemen verici olmak yerine biraz karşı tarafı gözlemlemeyi tercih edin.Her zaman orta yolu tercih edin. Tam veren ya da tam alan yani hep beklentili bir kişi olmayın.
+                                    """)
+            else: 
+                cakra_yorumlari.append("""Ayrıca kainatta korunması gereken bir alma verme duygusu vardır. 
+                                    1.çakranızın 2.çakranız ile dengeli olması bu dengeyi çok güzel gözeteceğiniz anlamına geliyor. Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenizi korumanız çok önemlidir.
+                                    ALMA VERME DENGESİNİ NASIL KORURSUNUZ? 
+                                    Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+                                    İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Sizde olan bu alma verme dengesinin güzelliğini fark edin ve onu koruyun.
+                                    """)
+
+    return cakra_yorumlari        

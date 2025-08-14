@@ -1,15 +1,9 @@
-{% extends "base.html" %}
+{% extends "base_in.html" %}
 
 {% block content %}
 <div class="container">
-    <h2>İSLAMİ NUMEROLOJİ HESAPLAMA</h2>
+    <h2>İslami Numeroloji Hesaplama</h2>
     
-    <div class="tabs">
-        <a href="{{ url_for('islami_numeroloji.islami_numeroloji_hesaplama') }}" class="tab active">Bireysel Analiz</a>
-        <a href="{{ url_for('iliski_analizi') }}" class="tab">İlişki Analizi</a>
-        <a href="{{ url_for('sure_hesaplama') }}" class="tab">Sure Hesaplama</a>
-    </div>
-
     <div class="form-container">
         <h3>Bilgiler</h3>
         <p class="info">Doğum tarihinizi seçebilir veya elle girebilirsiniz. (Örn: 09.02.2003 veya 09/02/2003 veya 09 02 2003)</p>
@@ -61,6 +55,9 @@
             <p><strong>Eklenen İsim:</strong> {{ results.eklenen_isim }}</p>
             {% endif %}
             <p><strong>Cinsiyet:</strong> {{ results.cinsiyet|title }}</p>
+            {% if results.yas is not none %}
+            <p><strong>Yaş:</strong> {{ results.yas }}</p>
+            {% endif %}
         </div>
         
         <!-- Pin Kodu ve Çakra Dağılımı yan yana -->
@@ -140,7 +137,7 @@
         <!-- Çakra Metinleri -->
         {% if results.cakra_metinleri %}
         <div class="result-section">
-            <h4>Çakra Metinleri:</h4>
+            <h4>{{ results.cakra_tipi }}:</h4>
             <div>
                 {% for metin in results.cakra_metinleri %}
                     <div class="cakra-metin-item">

@@ -18,7 +18,7 @@ import shutil
 from hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
                   donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
 from hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
-from hesaplama_cakra import cakra_metin_hesaplamalari
+from hesaplama_cakra import cakra_metin_hesaplamalari, cocuk_cakra_metin_hesaplamalari
 from text import yasam_yollari
 
 # pdf.py dosyasından create_pdf ve replace_name_on_cover fonksiyonlarını import et
@@ -324,7 +324,31 @@ def create_custom_pdf():
     pin_kodu = pin_kodu_hesaplama(dogum_gunu)
     arti_sistemi, chakra_result = chakra_hesapla(pin_kodu, isim_soyisim, eklenen_isim)
     pin_kodu_yorumlari = pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
-    cakra_metinleri = cakra_metin_hesaplamalari(arti_sistemi, cinsiyet)
+    
+    # Yaş hesapla
+    from datetime import datetime
+    try:
+        dogum_parcalari = dogum_gunu.split()
+        if len(dogum_parcalari) == 3:
+            gun, ay, yil = int(dogum_parcalari[0]), int(dogum_parcalari[1]), int(dogum_parcalari[2])
+            dogum_tarihi = datetime(yil, ay, gun)
+            bugun = datetime.now()
+            
+            yas = bugun.year - dogum_tarihi.year
+            if bugun.month < dogum_tarihi.month or (bugun.month == dogum_tarihi.month and bugun.day < dogum_tarihi.day):
+                yas -= 1
+        else:
+            yas = None
+    except:
+        yas = None
+    
+    # Yaşa göre çakra hesaplama seç
+    if yas is not None and yas <= 5:
+        cakra_metinleri = cocuk_cakra_metin_hesaplamalari(arti_sistemi)
+        cakra_tipi = "Çocuk çakra hesaplaması"
+    else:
+        cakra_metinleri = cakra_metin_hesaplamalari(arti_sistemi, cinsiyet)
+        cakra_tipi = "Çakra hesaplaması"
     # Merkez sayının tuple değerini al
     merkez_sayi_detay, merkez_sayi_integer = merkez_sayi_bulma(isim_soyisim)
 
@@ -344,10 +368,12 @@ def create_custom_pdf():
         'isim_soyisim': isim_soyisim,
         'eklenen_isim': eklenen_isim,
         'cinsiyet': cinsiyet,
+        'yas': yas,
         'pin_kodu_dizilimi': pin_kodu,
         'pin_kodu_yorumlari': pin_kodu_yorumlari,
         'chakra': chakra_result,
         'cakra_metinleri': cakra_metinleri,
+        'cakra_tipi': cakra_tipi,
         'yasam_yolu': yasam_yolu,
         'yasam_yolu_aciklama': yasam_yolu_aciklama,
         'merkez_sayi': merkez_sayi_detay,

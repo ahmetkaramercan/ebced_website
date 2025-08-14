@@ -396,6 +396,7 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     hane_5_7_2 = False  # 5. ve 7. hane 2 ise
     hane_5_7_1 = False  # 5. ve 7. hane 1 ise
     hane_8_9_4 = False  # 8. ve 9. hane 4 ise
+    hane_5_6_7_9 = False
     hane_2_tekrari = False  # 2 rakamı tekrarlanıyorsa
     
     # Özel durumları kontrol et
@@ -416,6 +417,9 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     
     if safe_pin_access(7) == "4" and safe_pin_access(8) == "4":
         hane_8_9_4 = True
+    
+    if (safe_pin_access(4) == "9" and safe_pin_access(5) == "9") or (safe_pin_access(4) == "9" and safe_pin_access(6) == "9") or (safe_pin_access(5) == "9" and safe_pin_access(6) == "9"):
+        hane_5_6_7_9 = True
     
     
 
@@ -552,30 +556,33 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[3][int(pin_kodu[3][0])-1])
 
+
+    if hane_5_6_7_9:
+        pin_kodu_yorumlari.append("İlişkilerinizde gerektiğinde hayır demeyi bilmenizi, beklentili yaşamaya son vermenizi, sevginizi değer verdiğiniz kişilere göstermenizi, duyguları içinizde yaşamamanızı ve seviyorsanız sevdiğinizi sevmiyorsanız sevmediğinizi yani duygunuz neyse bunu ifade etmenizi size tavsiye ederim. Çünkü yaşadığımız duygular içimizde kaldıkça bir bomba etkisindedir ve her an aşırı derecede patlayabilir. Bu da ilişkilerinize zarar verir. Ve sınırlar koymayı unutmamalı, kendinizi hissettiklerinizi anlatmalısınız.")
     #5.hane yorumu
     if pin_kodu[4] == "2*":
         if cinsiyet == "erkek":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[4][9])
         elif cinsiyet == "kadın":
             pin_kodu_yorumlari.append(pin_kodu_yorumu[4][10])
+    elif hane_5_6_7_9 and safe_pin_access(4) == "9":
+        # 5. ve 6. hane 9 ise tekrar ekleme
+        pass
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[4][int(pin_kodu[4][0])-1])
 
     #6.hane yorumu
     if pin_kodu[5] == "2*":
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][9])
-    elif hane_2_tekrari and safe_pin_access(5) == "2":
+    elif (hane_2_tekrari and safe_pin_access(5) == "2") or (hane_5_6_7_9 and safe_pin_access(5) == "9"):
         # 2 rakamı tekrarlanıyorsa ve 6. hane 2 ise
         pass
     else:
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][int(pin_kodu[5][0])-1])
 
     #7.hane yorumu
-    if hane_5_7_2:
+    if hane_5_7_2 or hane_5_7_1 or (hane_5_6_7_9 and safe_pin_access(6) == "9"):
         # 5. ve 7. hane 2 ise tekrar ekleme
-        pass
-    elif hane_5_7_1:
-        # 5. ve 7. hane 1 ise tekrar ekleme
         pass
     elif pin_kodu[6] == "2*":
         if cinsiyet == "erkek":
@@ -621,8 +628,10 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append("Ciddi bir anlamda aura probleminiz var ve buna çalışmak zorunda olduğunuzu doğum tarihiniz bize söylüyor. Öncelikle 8. çakradaki yazdıklarımı önemseyin ve mutlak surette yardımlaşmaya, elinizdeki avucunuzdaki ne varsa paylaşmaya özen gösterin. Bununla beraber önce kendinize daha sonra etrafınızda olan herkese karşı sınır koymasını bilin, kendi değerinizi bilerek ölçülü hareket edin, ani ve hızlı kararlar vermeyin. Duygularınızı kontrol etmeyi öğrenin.\n Auranızda bu ciddi anlamda sıkıntılar yüzünden nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'Z' harfinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
     
     #9. çakra
-    if arti_sistemi[1][7] > 0 and(arti_sistemi[1][8] == 0 or  safe_pin_access(4) == "9" or  safe_pin_access(6) == "9" or  safe_pin_access(8) == "9"):
-        pin_kodu_yorumlari.append("9.çakra tıkalı, blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+    if (arti_sistemi[1][7] > 0 and arti_sistemi[1][8] == 0):
+        pin_kodu_yorumlari.append("9.çakra tıkalı olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
+    elif arti_sistemi[1][7] > 0 and((arti_sistemi[1][8] == 1 or arti_sistemi[1][8] == 2) and  (safe_pin_access(4) == "9" or  safe_pin_access(6) == "9" or  safe_pin_access(8) == "9")):
+        pin_kodu_yorumlari.append("9.çakra blokeli olmasından kaynaklı işleriniz kolayca olmaz. Bunun en büyük nedeni beden evinizi koruyan auranızın delinmesidir. Bu delinme sizin frekans düşüklüğünüzden kaynaklanır. Negatif düşündükçe daha çok frekans düşer ve daha çok delinir. Öyle ise bunun tam tersini yaparak önce olumlu düşünerek, negatif olan düşüncelere tövbe ederek başlamalısınız. Yani kısaca nazardan negatif enerjiden ciddi anlamda etkilenirsiniz. Bu yüzden size mutlaka 'I, İ, R' (harflerinden herhangi birini yada ikisini kullanabilirsiniz) harflerinden oluşan mahlas almanızı tavsiye ederim. Mahlas eski bir inanış olup kişilerin sadece Allah ile arasında olacağı bir isimdir. Hiç kimsenin bilmemesi elzemdir. Bunun için detaylı bilgiyi analizden sonra benden alabilirsiniz.")
 
 
     #yasam yolunun ikinci hanesi 5 ise
