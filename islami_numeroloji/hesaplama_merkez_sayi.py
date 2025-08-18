@@ -45,6 +45,34 @@ def ebced_toplama_merkez_sayi(sayi):
     return str(sayi)
 
 
+def add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, sayi_str, isimler):
+    """
+    Helper function to ensure consistency between kalan_sayilar and kalan_isimler
+    """
+    if sayi_str not in kalan_isimler:
+        kalan_isimler[sayi_str] = []
+    kalan_isimler[sayi_str].extend(isimler)
+    if sayi_str not in kalan_sayilar:
+        kalan_sayilar.append(sayi_str)
+
+
+def validate_kalan_consistency(kalan_sayilar, kalan_isimler):
+    """
+    Validate that kalan_sayilar and kalan_isimler are consistent
+    """
+    for sayi in kalan_sayilar:
+        if sayi not in kalan_isimler:
+            print(f"UYARI: {sayi} kalan_sayilar'da var ama kalan_isimler'de yok!")
+            # Fix the inconsistency
+            kalan_isimler[sayi] = []
+    
+    for sayi in kalan_isimler:
+        if sayi not in kalan_sayilar:
+            print(f"UYARI: {sayi} kalan_isimler'de var ama kalan_sayilar'da yok!")
+            # Fix the inconsistency
+            kalan_sayilar.append(sayi)
+
+
 def isim_hesaplama(isim):
     """
     Tek bir isim için sesli harflerin toplamını hesaplar
@@ -66,7 +94,7 @@ def isim_hesaplama(isim):
     return ebced_toplama_merkez_sayi(total_sum)
 
 
-def ozel_sayi_kombinasyonu_bul(sayilar, isim_eslesmesi):
+def ozel_sayi_kombinasyonu_bul(sayilar, kalan_isimler):
     """
     Özel sayıların kombinasyonlarını kontrol eder ve toplanabilir olanları bulur
     """
@@ -107,19 +135,41 @@ def ozel_sayi_kombinasyonu_bul(sayilar, isim_eslesmesi):
                 
                 if kalan is not None:
                     # 19 ve diğer sayıyı kaldır, toplam ve kalan ekle
-                    kullanilan_isimler = isim_eslesmesi[sayi1_str] + isim_eslesmesi[sayi2_str]
-                    return True, [sayi1_str, sayi2_str], toplam, kalan, kullanilan_isimler
+                    # Key existence check before accessing
+                    if sayi1_str in kalan_isimler and sayi2_str in kalan_isimler:
+                        kullanilan_isimler = kalan_isimler[sayi1_str] + kalan_isimler[sayi2_str]
+                        return True, [sayi1_str, sayi2_str], toplam, kalan, kullanilan_isimler
+                    else:
+                        # Debug information
+                        missing_keys = []
+                        if sayi1_str not in kalan_isimler:
+                            missing_keys.append(sayi1_str)
+                        if sayi2_str not in kalan_isimler:
+                            missing_keys.append(sayi2_str)
+                        print(f"UYARI: Özel sayı kombinasyonunda eksik anahtarlar: {missing_keys}")
+                        print(f"kalan_isimler anahtarları: {list(kalan_isimler.keys())}")
         else:
             # Normal özel sayı toplama
             toplam = sayi1 + sayi2
             if toplam in ozel_sayilar:
-                kullanilan_isimler = isim_eslesmesi[sayi1_str] + isim_eslesmesi[sayi2_str]
-                return True, [sayi1_str, sayi2_str], toplam, None, kullanilan_isimler
+                # Key existence check before accessing
+                if sayi1_str in kalan_isimler and sayi2_str in kalan_isimler:
+                    kullanilan_isimler = kalan_isimler[sayi1_str] + kalan_isimler[sayi2_str]
+                    return True, [sayi1_str, sayi2_str], toplam, None, kullanilan_isimler
+                else:
+                    # Debug information
+                    missing_keys = []
+                    if sayi1_str not in kalan_isimler:
+                        missing_keys.append(sayi1_str)
+                    if sayi2_str not in kalan_isimler:
+                        missing_keys.append(sayi2_str)
+                    print(f"UYARI: Özel sayı kombinasyonunda eksik anahtarlar: {missing_keys}")
+                    print(f"kalan_isimler anahtarları: {list(kalan_isimler.keys())}")
     
     return False, None, None, None, None
 
 
-def normal_sayi_kombinasyonu_bul(sayilar, isim_eslesmesi):
+def normal_sayi_kombinasyonu_bul(sayilar, kalan_isimler):
     """
     Normal sayıların kombinasyonlarını kontrol eder ve özel sayı oluşturanları bulur
     """
@@ -141,13 +191,24 @@ def normal_sayi_kombinasyonu_bul(sayilar, isim_eslesmesi):
         toplam = sayi1 + sayi2
         
         if toplam in ozel_sayilar:
-            kullanilan_isimler = isim_eslesmesi[sayi1_str] + isim_eslesmesi[sayi2_str]
-            return True, [sayi1_str, sayi2_str], toplam, None, kullanilan_isimler
+            # Key existence check before accessing
+            if sayi1_str in kalan_isimler and sayi2_str in kalan_isimler:
+                kullanilan_isimler = kalan_isimler[sayi1_str] + kalan_isimler[sayi2_str]
+                return True, [sayi1_str, sayi2_str], toplam, None, kullanilan_isimler
+            else:
+                # Debug information
+                missing_keys = []
+                if sayi1_str not in kalan_isimler:
+                    missing_keys.append(sayi1_str)
+                if sayi2_str not in kalan_isimler:
+                    missing_keys.append(sayi2_str)
+                print(f"UYARI: Normal sayı kombinasyonunda eksik anahtarlar: {missing_keys}")
+                print(f"kalan_isimler anahtarları: {list(kalan_isimler.keys())}")
     
     return False, None, None, None, None
 
 
-def istisna_kontrol(sayilar, isim_eslesmesi):
+def istisna_kontrol(sayilar, kalan_isimler):
     """
     İstisna durumları kontrol eder:
     - 19 + 3 = 22 (19 yakınında 3 varsa)
@@ -155,15 +216,37 @@ def istisna_kontrol(sayilar, isim_eslesmesi):
     """
     # 19 + 3 = 22 kontrolü
     if "19" in sayilar and "3" in sayilar:
-        kullanilan_isimler = isim_eslesmesi["19"] + isim_eslesmesi["3"]
-        return True, ["19", "3"], 22, None, kullanilan_isimler
+        # Key existence check before accessing
+        if "19" in kalan_isimler and "3" in kalan_isimler:
+            kullanilan_isimler = kalan_isimler["19"] + kalan_isimler["3"]
+            return True, ["19", "3"], 22, None, kullanilan_isimler
+        else:
+            # Debug information
+            missing_keys = []
+            if "19" not in kalan_isimler:
+                missing_keys.append("19")
+            if "3" not in kalan_isimler:
+                missing_keys.append("3")
+            print(f"UYARI: İstisna kontrolünde eksik anahtarlar: {missing_keys}")
+            print(f"kalan_isimler anahtarları: {list(kalan_isimler.keys())}")
     
     # 11 + 8 = 19 kontrolü (başka 11 yoksa)
     if "11" in sayilar and "8" in sayilar:
         on_bir_sayisi = sayilar.count("11")
         if on_bir_sayisi == 1:  # Sadece 1 tane 11 varsa
-            kullanilan_isimler = isim_eslesmesi["11"] + isim_eslesmesi["8"]
-            return True, ["11", "8"], 19, None, kullanilan_isimler
+            # Key existence check before accessing
+            if "11" in kalan_isimler and "8" in kalan_isimler:
+                kullanilan_isimler = kalan_isimler["11"] + kalan_isimler["8"]
+                return True, ["11", "8"], 19, None, kullanilan_isimler
+            else:
+                # Debug information
+                missing_keys = []
+                if "11" not in kalan_isimler:
+                    missing_keys.append("11")
+                if "8" not in kalan_isimler:
+                    missing_keys.append("8")
+                print(f"UYARI: İstisna kontrolünde eksik anahtarlar: {missing_keys}")
+                print(f"kalan_isimler anahtarları: {list(kalan_isimler.keys())}")
     
     return False, None, None, None, None
 
@@ -219,16 +302,13 @@ def merkez_sayi_bulma(isim_soyisim):
     sonuc = ""
     
     while len(kalan_sayilar) > 1:
-        #sonuc += f"--- DÖNGÜ {dongu_sayisi} ---\n"
-        #sonuc += f"Kalan sayılar: {', '.join(kalan_sayilar)}\n"
+        # Validate consistency at the start of each iteration
+        validate_kalan_consistency(kalan_sayilar, kalan_isimler)
         
         # 1. Öncelik: Normal sayı kombinasyonları (özel sayı oluşturan)
         normal_kombinasyon, normal_sayilar, normal_sonuc, normal_kalan, normal_isimler = normal_sayi_kombinasyonu_bul(kalan_sayilar, kalan_isimler)
         
         if normal_kombinasyon:
-            #sonuc += f"Normal sayı kombinasyonu: {' + '.join(normal_sayilar)} = {normal_sonuc}\n"
-            #sonuc += f"Kullanılan isimler: {', '.join(normal_isimler)}\n\n"
-            
             # Kullanılan sayıları kalan sayılardan çıkar
             for sayi in normal_sayilar:
                 if sayi in kalan_sayilar:
@@ -237,10 +317,7 @@ def merkez_sayi_bulma(isim_soyisim):
                     del kalan_isimler[sayi]
             
             # Sonucu ekle
-            if str(normal_sonuc) not in kalan_isimler:
-                kalan_isimler[str(normal_sonuc)] = []
-            kalan_isimler[str(normal_sonuc)].extend(normal_isimler)
-            kalan_sayilar.append(str(normal_sonuc))
+            add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(normal_sonuc), normal_isimler)
             
             dongu_sayisi += 1
             continue
@@ -268,20 +345,20 @@ def merkez_sayi_bulma(isim_soyisim):
             isimler2 = kalan_isimler.get(sayi2_str, [])
             tum_isimler = isimler1 + isimler2
             
-            #sonuc += f"Normal sayı toplama: {sayi1} + {sayi2} = {toplam}\n"
-            #sonuc += f"Kullanılan isimler: {', '.join(tum_isimler)}\n\n"
-            
             # Kullanılan sayıları kalan sayılardan çıkar
             kalan_sayilar.remove(sayi1_str)
             kalan_sayilar.remove(sayi2_str)
-            del kalan_isimler[sayi1_str]
-            del kalan_isimler[sayi2_str]
+            if sayi1_str in kalan_isimler:
+                del kalan_isimler[sayi1_str]
+            if sayi2_str in kalan_isimler:
+                del kalan_isimler[sayi2_str]
             
-            # Sonucu ekle
-            if str(toplam) not in kalan_isimler:
-                kalan_isimler[str(toplam)] = []
-            kalan_isimler[str(toplam)].extend(tum_isimler)
-            kalan_sayilar.append( str(ebced_toplama_merkez_sayi(toplam)))
+            # Sonucu ekle - sadece ebced sonucunu ekle, orijinal toplamı ekleme
+            ebced_sonuc = ebced_toplama_merkez_sayi(toplam)
+            add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(ebced_sonuc), tum_isimler)
+            
+            # Orijinal toplamı ekleme - bu yanlış kombinasyonlara neden oluyor
+            # add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(toplam), tum_isimler)
             
             dongu_sayisi += 1
             continue
@@ -301,17 +378,11 @@ def merkez_sayi_bulma(isim_soyisim):
                     del kalan_isimler[sayi]
             
             # Sonucu ekle
-            if str(istisna_sonuc) not in kalan_isimler:
-                kalan_isimler[str(istisna_sonuc)] = []
-            kalan_isimler[str(istisna_sonuc)].extend(istisna_isimler)
-            kalan_sayilar.append(str(istisna_sonuc))
+            add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(istisna_sonuc), istisna_isimler)
             
             # Kalan varsa ekle (19+11=22+8 gibi durumlar için)
             if istisna_kalan is not None:
-                if str(istisna_kalan) not in kalan_isimler:
-                    kalan_isimler[str(istisna_kalan)] = []
-                kalan_isimler[str(istisna_kalan)].extend(istisna_isimler)
-                kalan_sayilar.append(str(istisna_kalan))
+                add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(istisna_kalan), istisna_isimler)
             
             dongu_sayisi += 1
             continue
@@ -331,17 +402,11 @@ def merkez_sayi_bulma(isim_soyisim):
                     del kalan_isimler[sayi]
             
             # Sonucu ekle
-            if str(ozel_sonuc) not in kalan_isimler:
-                kalan_isimler[str(ozel_sonuc)] = []
-            kalan_isimler[str(ozel_sonuc)].extend(ozel_isimler)
-            kalan_sayilar.append(str(ozel_sonuc))
+            add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(ozel_sonuc), ozel_isimler)
             
             # Kalan varsa ekle (19+11=22+8 gibi durumlar için)
             if ozel_kalan is not None:
-                if str(ozel_kalan) not in kalan_isimler:
-                    kalan_isimler[str(ozel_kalan)] = []
-                kalan_isimler[str(ozel_kalan)].extend(ozel_isimler)
-                kalan_sayilar.append(str(ozel_kalan))
+                add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(ozel_kalan), ozel_isimler)
             
             dongu_sayisi += 1
             continue

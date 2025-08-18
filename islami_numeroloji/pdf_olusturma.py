@@ -15,11 +15,11 @@ import os
 import shutil
 
 # Hesaplama fonksiyonlarını import et
-from hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
+from .hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
                   donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
-from hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
-from hesaplama_cakra import cakra_metin_hesaplamalari, cocuk_cakra_metin_hesaplamalari
-from text import yasam_yollari
+from .hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
+from .hesaplama_cakra import cakra_metin_hesaplamalari, cocuk_cakra_metin_hesaplamalari
+from .text import yasam_yollari
 
 # pdf.py dosyasından create_pdf ve replace_name_on_cover fonksiyonlarını import et
 # Fonksiyonlar artık bu dosyada tanımlanmıştır

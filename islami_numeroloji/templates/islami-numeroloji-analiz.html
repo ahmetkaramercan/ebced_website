@@ -45,6 +45,28 @@
 
     {% if results %}
     <div class="results">
+        <!-- İndirme Butonları -->
+        <div class="result-section download-section">
+            <div class="download-buttons">
+                <button type="button" class="pdf-download-btn" onclick="openPrintPage()">
+                    <span class="pdf-icon">📄</span>
+                    PDF Olarak İndir
+                </button>
+                <button type="button" class="csv-download-btn" onclick="downloadCSV()">
+                    <span class="csv-icon">📊</span>
+                    CSV Olarak İndir (Canva için)
+                </button>
+            </div>
+            <div id="pdf-loading" class="loading-message" style="display: none;">
+                <span>Print sayfası açılıyor...</span>
+                <div class="loading-spinner"></div>
+            </div>
+            <div id="csv-loading" class="loading-message" style="display: none;">
+                <span>CSV hazırlanıyor...</span>
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+        
         <h3>Sonuçlar:</h3>
         
         <div class="result-section">
@@ -232,6 +254,83 @@ function toggleAccordion(button) {
     if (!isActive) {
         item.classList.add('active');
     }
+}
+
+// PDF Print fonksiyonu
+function openPrintPage() {
+    const loadingDiv = document.getElementById('pdf-loading');
+    loadingDiv.style.display = 'flex';
+    
+    // Form verilerini topla
+    const formData = new FormData();
+    formData.append('dogum_gunu', '{{ results.dogum_gunu }}');
+    formData.append('isim_soyisim', '{{ results.isim_soyisim }}');
+    formData.append('eklenen_isim', '{{ results.eklenen_isim }}');
+    formData.append('cinsiyet', '{{ results.cinsiyet }}');
+    
+    // POST isteği gönder ve yeni pencerede aç
+    fetch('/islami-numeroloji/pdf-print', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.text())
+    .then(html => {
+        // Yeni pencere aç ve HTML'i yaz
+        const printWindow = window.open('', '_blank');
+        printWindow.document.write(html);
+        printWindow.document.close();
+        
+        loadingDiv.style.display = 'none';
+    })
+    .catch(error => {
+        console.error('Print sayfası hatası:', error);
+        loadingDiv.style.display = 'none';
+        alert('Print sayfası açılırken bir hata oluştu.');
+    });
+}
+
+// CSV Download fonksiyonu
+function downloadCSV() {
+    const loadingDiv = document.getElementById('csv-loading');
+    loadingDiv.style.display = 'flex';
+    
+    // Form verilerini topla
+    const formData = new FormData();
+    formData.append('dogum_gunu', '{{ results.dogum_gunu }}');
+    formData.append('isim_soyisim', '{{ results.isim_soyisim }}');
+    formData.append('eklenen_isim', '{{ results.eklenen_isim }}');
+    formData.append('cinsiyet', '{{ results.cinsiyet }}');
+    
+    // POST isteği gönder ve dosyayı indir
+    fetch('/islami-numeroloji/csv-export', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('CSV oluşturulurken hata oluştu');
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        // Dosyayı indir
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.style.display = 'none';
+        a.href = url;
+        a.download = 'islami_numeroloji_analiz_{{ results.isim_soyisim.replace(" ", "_") }}.csv';
+        document.body.appendChild(a);
+        a.click();
+        window.URL.revokeObjectURL(url);
+        document.body.removeChild(a);
+        
+        loadingDiv.style.display = 'none';
+    })
+    .catch(error => {
+        console.error('CSV indirme hatası:', error);
+        loadingDiv.style.display = 'none';
+        alert('CSV dosyası indirilirken bir hata oluştu.');
+    });
 }
 </script>
 
@@ -539,6 +638,105 @@ function toggleAccordion(button) {
     padding: 0;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+
+/* İndirme Butonları Stilleri */
+.download-section {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.pdf-download-btn, .csv-download-btn {
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    justify-content: center;
+}
+
+.pdf-download-btn {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.pdf-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    background: linear-gradient(135deg, #ff5252 0%, #d84315 100%);
+}
+
+.csv-download-btn {
+    background: linear-gradient(135deg, #4ecdc4 0%, #2ecc71 100%);
+    box-shadow: 0 4px 15px rgba(78, 205, 196, 0.3);
+}
+
+.csv-download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(78, 205, 196, 0.4);
+    background: linear-gradient(135deg, #26d0ce 0%, #27ae60 100%);
+}
+
+.pdf-download-btn:active, .csv-download-btn:active {
+    transform: translateY(0);
+}
+
+.pdf-icon, .csv-icon {
+    font-size: 18px;
+}
+
+.loading-message {
+    margin-top: 15px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.loading-spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .download-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .pdf-download-btn, .csv-download-btn {
+        width: 100%;
+        max-width: 280px;
+    }
 }
 </style>
 {% endblock %} 

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İslami Numeroloji Analizi - {{ results.isim_soyisim|title }}</title>
+    <style>
+        /* Print-friendly CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: #000;
+            background: white;
+            max-width: 210mm;
+            margin: 0 auto;
+            padding: 20mm;
+        }
+
+        /* Print stilleri */
+        @media print {
+            body {
+                margin: 0;
+                padding: 15mm;
+                font-size: 11pt;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+            
+            .avoid-break {
+                page-break-inside: avoid;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+        }
+
+        /* Header - Orijinal PDF sistem renkleri */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #0F6A64;  /* Orijinal arka plan rengi */
+            color: white;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #F2643D;  /* Orijinal panel rengi */
+            border-radius: 20px;
+            margin: 10px;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 24pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            font-size: 18pt;
+            font-weight: normal;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 14pt;
+            opacity: 0.9;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid;
+        }
+
+        .section h3 {
+            color: #667eea;
+            font-size: 16pt;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 5px;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 4px solid #667eea;
+        }
+
+        /* Pin Grid */
+        .pin-grid {
+            font-family: 'Courier New', monospace;
+            font-size: 14pt;
+            text-align: center;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+
+        .pin-row {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .pin-row span {
+            padding: 8px;
+            background: #f0f8ff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-weight: bold;
+            min-height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Content boxes */
+        .content-box {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #ff8c00;
+            page-break-inside: avoid;
+        }
+
+        .content-box.green {
+            border-left-color: #28a745;
+            background: #f0f8ff;
+        }
+
+        .content-box.red {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        /* Çakra renkleri - Orijinal sistem */
+        .cakra-1 { background: #DC2626; color: white; }  /* Kırmızı */
+        .cakra-2 { background: #FB923C; color: white; }  /* Turuncu */
+        .cakra-3 { background: #FCD34D; color: black; }  /* Sarı */
+        .cakra-4 { background: #22C55E; color: white; }  /* Yeşil */
+        .cakra-5 { background: #3B82F6; color: white; }  /* Mavi */
+        .cakra-6 { background: #6366F1; color: white; }  /* İndigo */
+        .cakra-7 { background: #A855F7; color: white; }  /* Mor */
+        .cakra-8 { background: #EC4899; color: white; }  /* Pembe */
+        .cakra-9 { background: #8B5CF6; color: white; }  /* Eflatun */
+        
+        /* Bölüm temaları - Orijinal sistem */
+        .tema-pin-kodu {
+            background: #065F46;  /* Koyu yeşil arka plan */
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .tema-pin-kodu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #10B981;  /* Yeşil panel */
+            border-radius: 20px;
+            margin: 10px;
+        }
+        
+        .tema-yasam-yolu {
+            background: #7C2D12;  /* Kahverengi arka plan */
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .tema-yasam-yolu::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #F59E0B;  /* Turuncu panel */
+            border-radius: 20px;
+            margin: 10px;
+        }
+        
+        .tema-merkez-sayi {
+            background: #581C87;  /* Mor arka plan */
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .tema-merkez-sayi::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #8B5CF6;  /* Açık mor panel */
+            border-radius: 20px;
+            margin: 10px;
+        }
+        
+        .tema-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            color: white;
+        }
+
+        .content-box.purple {
+            border-left-color: #6f42c1;
+        }
+
+        .content-box pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin: 0;
+            font-family: inherit;
+            font-size: inherit;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        /* Chakra grid */
+        .chakra-grid {
+            font-family: 'Courier New', monospace;
+            font-size: 12pt;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .chakra-row {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto auto;
+            gap: 10px;
+            margin-bottom: 5px;
+            align-items: center;
+        }
+
+        .chakra-plus {
+            text-align: right;
+        }
+
+        .chakra-number {
+            font-weight: bold;
+            text-align: center;
+            min-width: 30px;
+        }
+
+        .chakra-plus-right {
+            text-align: left;
+        }
+
+        .chakra-separator {
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chakra-pin {
+            text-align: left;
+            font-weight: bold;
+            padding-left: 10px;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            text-align: center;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 10pt;
+            color: #666;
+            page-break-inside: avoid;
+        }
+
+        /* Print button */
+        .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14pt;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .print-button:hover {
+            background: #5a67d8;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .print-button {
+                position: relative;
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()">📄 PDF Olarak İndir</button>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header avoid-break">
+            <div class="header-content">
+                <h1>İslami Numeroloji Analizi</h1>
+                <h2>{{ results.isim_soyisim|title }}</h2>
+                <p class="subtitle">İçsel Yolculuk Rehberi</p>
+            </div>
+        </div>
+
+        <!-- Kişisel Bilgiler -->
+        <div class="section avoid-break">
+            <h3>Kişisel Bilgiler</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <strong>Doğum Tarihi:</strong> {{ results.dogum_gunu }}
+                </div>
+                <div class="info-item">
+                    <strong>Ana İsim:</strong> {{ results.isim_soyisim|title }}
+                </div>
+                {% if results.eklenen_isim %}
+                <div class="info-item">
+                    <strong>Eklenen İsim:</strong> {{ results.eklenen_isim|title }}
+                </div>
+                {% endif %}
+                <div class="info-item">
+                    <strong>Cinsiyet:</strong> {{ results.cinsiyet|title }}
+                </div>
+                {% if results.yas %}
+                <div class="info-item">
+                    <strong>Yaş:</strong> {{ results.yas }}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Pin Kodu -->
+        <div class="section avoid-break">
+            <h3>Pin Kodu Dizilimi</h3>
+            <div class="pin-grid">
+                <div class="pin-row">
+                    <span>{{ results.dogum_gunu.split(' ')[0] }}</span>
+                    <span>{{ results.dogum_gunu.split(' ')[1] }}</span>
+                    <span>{{ results.dogum_gunu.split(' ')[2] }}</span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="pin-row">
+                    <span>{{ results.pin_kodu_dizilimi[0] }}</span>
+                    <span>{{ results.pin_kodu_dizilimi[1] }}</span>
+                    <span>{{ results.pin_kodu_dizilimi[2] }}</span>
+                    <span>{{ results.pin_kodu_dizilimi[3] }}</span>
+                    <span>{{ results.pin_kodu_dizilimi[4] }}</span>
+                </div>
+                <div class="pin-row">
+                    <span></span>
+                    <span>{{ results.pin_kodu_dizilimi[5] }}</span>
+                    <span>{{ results.pin_kodu_dizilimi[6] }}</span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="pin-row">
+                    <span></span>
+                    <span></span>
+                    <span>{{ results.pin_kodu_dizilimi[7] }}</span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="pin-row">
+                    <span></span>
+                    <span></span>
+                    <span>{{ results.pin_kodu_dizilimi[8] }}</span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Çakra Dağılımı -->
+        <div class="section avoid-break">
+            <h3>Çakra Dağılımı</h3>
+            <div class="chakra-grid">
+                {% for chakra in results.chakra %}
+                <div class="chakra-row">
+                    <div class="chakra-plus">{{ chakra.left_plus }}</div>
+                    <div class="chakra-number">{{ chakra.number }}</div>
+                    <div class="chakra-plus-right">{{ chakra.right_plus }}</div>
+                    {% if chakra.has_ek_isim %}
+                    <div class="chakra-separator">|</div>
+                    <div class="chakra-plus-right">{{ chakra.ek_plus }}</div>
+                    {% else %}
+                    <div></div>
+                    <div></div>
+                    {% endif %}
+                    <div class="chakra-pin">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Pin Kodu Yorumları - Orijinal tema -->
+        <div class="section tema-pin-kodu">
+            <div class="tema-content">
+                <h3 style="color: white; border-bottom-color: white;">Pin Kodu Yorumları</h3>
+                {% for yorum in results.pin_kodu_yorumlari %}
+                <div style="margin-bottom: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                    <p style="margin: 0; line-height: 1.6;">{{ yorum }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="page-break"></div>
+
+        <!-- Yaşam Yolu - Orijinal tema -->
+        <div class="section tema-yasam-yolu">
+            <div class="tema-content">
+                <h3 style="color: white; border-bottom-color: white;">Yaşam Yolu Analizi</h3>
+                <div style="margin-bottom: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                    <p style="margin: 0 0 15px 0;"><strong>Yaşam Yolu Sayınız:</strong> {{ results.yasam_yolu }}</p>
+                    {% if results.yasam_yolu_aciklama %}
+                    <div style="margin-top: 15px;">
+                        <pre style="color: white; margin: 0; white-space: pre-wrap; word-wrap: break-word; font-family: inherit;">{{ results.yasam_yolu_aciklama }}</pre>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Merkez Sayı - Orijinal tema -->
+        {% if results.merkez_sayi_aciklama %}
+        <div class="section tema-merkez-sayi">
+            <div class="tema-content">
+                <h3 style="color: white; border-bottom-color: white;">Merkez Sayı Analizi</h3>
+                <div style="margin-bottom: 15px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px;">
+                    <p style="margin: 0 0 15px 0;"><strong>Merkez Sayınız:</strong> {{ results.merkez_sayi }}</p>
+                    <div style="margin-top: 15px;">
+                        <pre style="color: white; margin: 0; white-space: pre-wrap; word-wrap: break-word; font-family: inherit;">{{ results.merkez_sayi_aciklama }}</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
+        <div class="page-break"></div>
+
+        <!-- Çakra Metinleri - Orijinal renkler -->
+        {% if results.cakra_metinleri %}
+        <div class="section">
+            <h3>{{ results.cakra_tipi }}</h3>
+            {% for metin in results.cakra_metinleri %}
+            <div class="avoid-break cakra-{{ loop.index }}" style="margin-bottom: 20px; padding: 20px; border-radius: 15px; page-break-inside: avoid;">
+                <pre style="margin: 0; white-space: pre-wrap; word-wrap: break-word; font-family: inherit; font-size: inherit;">{{ metin }}</pre>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <!-- Dönüşüm Yılları -->
+        <div class="section avoid-break">
+            <h3>Dönüşüm Yılları</h3>
+            <div class="content-box purple">
+                <pre>{{ results.donusum_yillari }}</pre>
+            </div>
+        </div>
+
+        <!-- Mizaç Özellikleri -->
+        <div class="section avoid-break">
+            <h3>Mizaç Özellikleri</h3>
+            <div class="content-box purple">
+                <p>{{ results.pin_kodu_ozellikleri }}</p>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer avoid-break">
+            <p><strong>Bu analiz İslami Numeroloji prensiplerince hazırlanmıştır.</strong></p>
+            <p><script>document.write(new Date().toLocaleDateString('tr-TR'))</script> tarihinde oluşturulmuştur.</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto print on load if requested
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('autoprint') === 'true') {
+            window.onload = function() {
+                setTimeout(function() {
+                    window.print();
+                }, 1000);
+            };
+        }
+
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                window.print();
+            }
+        });
+    </script>
+</body>
+</html>
