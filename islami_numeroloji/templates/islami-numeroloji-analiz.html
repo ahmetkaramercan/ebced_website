@@ -258,6 +258,11 @@ function toggleAccordion(button) {
 
 // PDF Print fonksiyonu
 function openPrintPage() {
+    {% if not results %}
+    alert('Lütfen önce hesaplama yapın.');
+    return;
+    {% endif %}
+    
     const loadingDiv = document.getElementById('pdf-loading');
     loadingDiv.style.display = 'flex';
     
@@ -291,6 +296,11 @@ function openPrintPage() {
 
 // CSV Download fonksiyonu
 function downloadCSV() {
+    {% if not results %}
+    alert('Lütfen önce hesaplama yapın.');
+    return;
+    {% endif %}
+    
     const loadingDiv = document.getElementById('csv-loading');
     loadingDiv.style.display = 'flex';
     
@@ -318,7 +328,7 @@ function downloadCSV() {
         const a = document.createElement('a');
         a.style.display = 'none';
         a.href = url;
-        a.download = 'islami_numeroloji_analiz_{{ results.isim_soyisim.replace(" ", "_") }}.csv';
+        a.download = 'islami_numeroloji_analiz_{% if results %}{{ results.isim_soyisim.replace(" ", "_") }}{% else %}user{% endif %}.csv';
         document.body.appendChild(a);
         a.click();
         window.URL.revokeObjectURL(url);
