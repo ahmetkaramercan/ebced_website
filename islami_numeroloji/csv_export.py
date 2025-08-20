@@ -279,7 +279,7 @@ def generate_csv_export(data):
             pin_kodu_pages[f'_sayfa_{page_num}'] = "."
     
     # Yaşam yolu açıklaması - 11 sayfaya kadar doldur
-    temp_yasam_pages = split_text_by_pages(yasam_yolu_aciklama or '', 650)
+    temp_yasam_pages = split_text_by_pages(yasam_yolu_aciklama or '', 600)
     yasam_yolu_pages = {}
     for page_num in range(1, 12):
         page_key = f'_sayfa_{page_num}'
@@ -357,7 +357,6 @@ def generate_csv_export(data):
     for page_num in range(1, 4):
         headers.append(f'merkez_sayi_aciklama_sayfa_{page_num}')
     
-
     
     # Alma verme dengesi başlıkları
     for page_num in range(1, max_alma_verme_pages + 1):
