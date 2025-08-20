@@ -149,30 +149,34 @@ def ebced_toplama(*args):
     Bu fonksiyon, verilen parametrelerin rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar.
     String parametrelerin içindeki sayı olan kısımlar tam sayıya çevrilir.
     """
-    total_sum = 0
-    for arg in args:
-        if isinstance(arg, str):
-            number_str = ''.join(filter(str.isdigit, arg))
-            if number_str:
-                total_sum += int(number_str)
-        elif isinstance(arg, int):
-            total_sum += arg
-        elif isinstance(arg, float):
-            total_sum += int(arg)
-    
-    # Sayının rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar
-    while total_sum >= 10:
-        if total_sum == 11:
-            return "2*"
-        elif total_sum == 19:
-            return "1*"
-        elif total_sum == 22:
-            return "4*"
-        elif total_sum == 33:
-            return "6*"
-        total_sum = sum(int(digit) for digit in str(total_sum))
-    
-    return str(total_sum)
+    try:
+        total_sum = 0
+        for arg in args:
+            if isinstance(arg, str):
+                number_str = ''.join(filter(str.isdigit, arg))
+                if number_str:
+                    total_sum += int(number_str)
+            elif isinstance(arg, int):
+                total_sum += arg
+            elif isinstance(arg, float):
+                total_sum += int(arg)
+        
+        # Sayının rakamlarını toplar ve tek hane olana kadar bu işlemi tekrarlar
+        while total_sum >= 10:
+            if total_sum == 11:
+                return "2*"
+            elif total_sum == 19:
+                return "1*"
+            elif total_sum == 22:
+                return "4*"
+            elif total_sum == 33:
+                return "6*"
+            total_sum = sum(int(digit) for digit in str(total_sum))
+        
+        return str(total_sum)
+    except Exception as e:
+        print(f"ebced_toplama hatası: {e}")
+        return "0"
 
 def ebced_toplama_asamali(*args):
     """
@@ -180,39 +184,43 @@ def ebced_toplama_asamali(*args):
     Bu işlemi, sayı tek haneli olana kadar tekrarlar.
     Her aşamayı '/' işaretiyle ayırır.
     """
-    total_sum = 0
-    for arg in args:
-        if isinstance(arg, str):
-            # Stringdeki sayı olan kısmı al ve tam sayıya çevir
-            number_str = ''.join(filter(str.isdigit, arg))
-            if number_str:
-                total_sum += int(number_str)
-        elif isinstance(arg, int):
-            total_sum += arg
-        elif isinstance(arg, float):
-            total_sum += int(arg)
-            
-    steps = []  # Her aşamayı kaydetmek için liste
-    number = total_sum
+    try:
+        total_sum = 0
+        for arg in args:
+            if isinstance(arg, str):
+                # Stringdeki sayı olan kısmı al ve tam sayıya çevir
+                number_str = ''.join(filter(str.isdigit, arg))
+                if number_str:
+                    total_sum += int(number_str)
+            elif isinstance(arg, int):
+                total_sum += arg
+            elif isinstance(arg, float):
+                total_sum += int(arg)
+                
+        steps = []  # Her aşamayı kaydetmek için liste
+        number = total_sum
 
-    while number >= 10:
+        while number >= 10:
+            steps.append(str(number))
+            if number == 11:
+                steps.append(str("2*"))
+                return "/ ".join(steps)
+            elif number == 19:
+                steps.append(str("1*"))
+                return "/ ".join(steps)
+            elif number == 22:
+                steps.append(str("4*"))
+                return "/ ".join(steps)
+            elif number == 33:
+                steps.append(str("6*"))
+                return "/ ".join(steps)
+            number = sum(int(digit) for digit in str(number))
+        
         steps.append(str(number))
-        if number == 11:
-            steps.append(str("2*"))
-            return "/ ".join(steps)
-        elif number == 19:
-            steps.append(str("1*"))
-            return "/ ".join(steps)
-        elif number == 22:
-            steps.append(str("4*"))
-            return "/ ".join(steps)
-        elif number == 33:
-            steps.append(str("6*"))
-            return "/ ".join(steps)
-        number = sum(int(digit) for digit in str(number))
-    
-    steps.append(str(number))
-    return "/ ".join(steps)
+        return "/ ".join(steps)
+    except Exception as e:
+        print(f"ebced_toplama_asamali hatası: {e}")
+        return "0"
 
 def ebced_toplama_asamali_isaretsiz(*args):
     """
@@ -220,27 +228,31 @@ def ebced_toplama_asamali_isaretsiz(*args):
     Bu işlemi, sayı tek haneli olana kadar tekrarlar.
     Her aşamayı '/' işaretiyle ayırır.
     """
-    total_sum = 0
-    for arg in args:
-        if isinstance(arg, str):
-            # Stringdeki sayı olan kısmı al ve tam sayıya çevir
-            number_str = ''.join(filter(str.isdigit, arg))
-            if number_str:
-                total_sum += int(number_str)
-        elif isinstance(arg, int):
-            total_sum += arg
-        elif isinstance(arg, float):
-            total_sum += int(arg)
-            
-    steps = []  # Her aşamayı kaydetmek için liste
-    number = total_sum
+    try:
+        total_sum = 0
+        for arg in args:
+            if isinstance(arg, str):
+                # Stringdeki sayı olan kısmı al ve tam sayıya çevir
+                number_str = ''.join(filter(str.isdigit, arg))
+                if number_str:
+                    total_sum += int(number_str)
+            elif isinstance(arg, int):
+                total_sum += arg
+            elif isinstance(arg, float):
+                total_sum += int(arg)
+                
+        steps = []  # Her aşamayı kaydetmek için liste
+        number = total_sum
 
-    while number >= 10:
+        while number >= 10:
+            steps.append(str(number))
+            number = sum(int(digit) for digit in str(number))
+        
         steps.append(str(number))
-        number = sum(int(digit) for digit in str(number))
-    
-    steps.append(str(number))
-    return "/ ".join(steps)
+        return "/ ".join(steps)
+    except Exception as e:
+        print(f"ebced_toplama_asamali_isaretsiz hatası: {e}")
+        return "0"
 
 #ayrı yaptım fonksiyonları ayrı ayrı göstermem gerekebilir.
 def chakra_hesapla(pin_kodu, isim_soyisim, ek_isim):

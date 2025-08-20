@@ -16,7 +16,7 @@ import shutil
 
 # Hesaplama fonksiyonlarını import et
 from .hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
-                  donusum_yillari_bulma, ozellik_hesaplama, pin_kodu_yorumlari_algoritmasi)
+                  donusum_yillari_bulma, pin_kodu_yorumlari_algoritmasi)
 from .hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
 from .hesaplama_cakra import cakra_metin_hesaplamalari, cocuk_cakra_metin_hesaplamalari
 from .text import yasam_yollari
@@ -353,7 +353,6 @@ def create_custom_pdf():
     merkez_sayi_detay, merkez_sayi_integer = merkez_sayi_bulma(isim_soyisim)
 
     donusum_yillari = donusum_yillari_bulma(dogum_gunu)
-    pin_kodu_ozellikleri = ozellik_hesaplama(pin_kodu)
 
     # Yaşam yolu açıklamasını al
     yasam_yolu_aciklama = yasam_yollari.get(yasam_yolu, "Bu yaşam yolu için açıklama bulunamadı.")
@@ -379,8 +378,7 @@ def create_custom_pdf():
         'merkez_sayi': merkez_sayi_detay,
         'merkez_sayi_integer': merkez_sayi_integer,
         'merkez_sayi_aciklama': merkez_sayi_aciklama,
-        'donusum_yillari': donusum_yillari,
-        'pin_kodu_ozellikleri': pin_kodu_ozellikleri
+        'donusum_yillari': donusum_yillari
     }
 
     # PDF dosya yolları

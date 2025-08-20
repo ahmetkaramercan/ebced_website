@@ -1,23 +1,31 @@
 {% extends "base_in.html" %}
 
+{% block title %}İslami Numeroloji Hesaplama{% endblock %}
+
 {% block content %}
 <div class="container">
     <h2>İslami Numeroloji Hesaplama</h2>
     
     <div class="form-container">
-        <h3>Bilgiler</h3>
-        <p class="info">Doğum tarihinizi seçebilir veya elle girebilirsiniz. (Örn: 09.02.2003 veya 09/02/2003 veya 09 02 2003)</p>
+        <h3>Kişisel Bilgiler</h3>
+        <p class="info">Doğum tarihinizi ve kişisel bilgilerinizi girerek detaylı numeroloji analizi yapabilirsiniz.</p>
         
-        <form method="POST" action="{{ url_for('islami_numeroloji.islami_numeroloji_hesaplama') }}">
+        {% if error %}
+        <div class="error-message">
+            <strong>Hata:</strong> {{ error }}
+        </div>
+        {% endif %}
+        
+        <form method="POST">
             <div class="form-group">
-                <label for="dogum_gunu">Doğum Tarihi</label>
-                <input type="text" id="dogum_gunu" name="dogum_gunu" placeholder="GG.AA.YYYY veya GG/AA/YYYY" required>
-                <input type="date" id="date_picker" onchange="updateDateInput(this.value)">
+                <label for="dogum_gunu">Doğum Tarihi:</label>
+                <input type="text" id="dogum_gunu" name="dogum_gunu" required 
+                       placeholder="GG AA YYYY (örn: 15 03 1990) veya GG.AA.YYYY">
             </div>
             
             <div class="form-group">
-                <label for="isim_soyisim">İsim Soyisim</label>
-                <input type="text" id="isim_soyisim" name="isim_soyisim" placeholder="İsim soyisim" required>
+                <label for="isim_soyisim">Ad Soyad:</label>
+                <input type="text" id="isim_soyisim" name="isim_soyisim" placeholder="Ad ve soyadınızı giriniz" required>
             </div>
             
             <div class="form-group">
@@ -83,10 +91,10 @@
         </div>
         
         <!-- Pin Kodu ve Çakra Dağılımı yan yana -->
-        <div class="pin-chakra-container">
-            <div class="result-section pin-kodu-section">
+        <div class="pin-chakra-container full-width">
+            <div class="result-section">
                 <h4>Pin Kodu:</h4>
-                <div class="pin-kodu-tablosu">
+                <div class="chakra-table">
                     <table>
                         <tr>
                             <td>{{ results.dogum_gunu.split(' ')[0] }}</td>
@@ -127,7 +135,7 @@
                 </div>
             </div>
 
-            <div class="result-section chakra-section">
+            <div class="result-section">
                 <h4>Çakra Dağılımı:</h4>
                 <div class="chakra-table">
                     <table>
@@ -148,34 +156,30 @@
             </div>
         </div>
         
-        <!-- Pin Kodu Yorumları -->
-        <div class="result-section" style="background-color: #ffffff;">
-            <h4>Pin Kodu Yorumları:</h4>
-            {% for yorum in results.pin_kodu_yorumlari %}
-                <p style="margin-bottom: 15px; line-height: 1.6;">{{ yorum | safe }}</p>
-            {% endfor %}
-        </div>
-
-        <!-- Çakra Metinleri -->
-        {% if results.cakra_metinleri %}
         <div class="result-section">
-            <h4>{{ results.cakra_tipi }}:</h4>
-            <div>
+            <h4>Çakra Analizi</h4>
+            <div class="cakra-metinleri">
                 {% for metin in results.cakra_metinleri %}
-                    <div class="cakra-metin-item">
-                        <pre>{{ metin }}</pre>
+                    <div >
+                        <p class="cakra-text">{{ metin }}</p>
                     </div>
                 {% endfor %}
             </div>
         </div>
-        {% endif %}
+
+        <!-- Pin Kodu Yorumları -->
+        <div class="result-section" style="background-color: #ffffff;">
+            <h4>Pin Kodu Yorumları:</h4>
+            {% for yorum in results.pin_kodu_yorumlari %}
+                <p class="content-text">{{ yorum | safe }}</p>
+            {% endfor %}
+        </div>
 
         <!-- Yaşam Yolu -->
         <div class="result-section">
             <h4>Yaşam Yolu:</h4>
-            <p>{{ results.yasam_yolu }}</p>
             {% if results.yasam_yolu_aciklama %}
-            <div class="yasam-yolu-aciklama">
+            <div class="yasam-yolu-aciklama yasam-yolu-text">
                 <pre>{{ results.yasam_yolu_aciklama }}</pre>
             </div>
             {% endif %}
@@ -195,154 +199,9 @@
             <h4>Dönüşüm Yılları:</h4>
             <pre>{{ results.donusum_yillari }}</pre>
         </div>
-
-        <div class="result-section">
-            <h4>Mizaç Özellikleri:</h4>
-            <p>{{ results.pin_kodu_ozellikleri }}</p>
-        </div>
     </div>
     {% endif %}
 </div>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const dateInput = document.getElementById('dogum_gunu');
-    const datePicker = document.getElementById('date_picker');
-
-    // Date picker'dan text input'a
-    datePicker.addEventListener('change', function(e) {
-        if (e.target.value) {
-            const date = new Date(e.target.value);
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0');
-            const year = date.getFullYear();
-            dateInput.value = `${day}.${month}.${year}`;
-        }
-    });
-
-    // Text input'tan date picker'a
-    dateInput.addEventListener('input', function(e) {
-        const value = e.target.value;
-        // Tüm ayraçları nokta ile değiştir
-        const normalized = value.replace(/[/\s-]/g, '.');
-        const parts = normalized.split('.');
-        
-        if (parts.length === 3) {
-            const day = parts[0].padStart(2, '0');
-            const month = parts[1].padStart(2, '0');
-            const year = parts[2];
-            
-            // Geçerli bir tarih mi kontrol et
-            const date = new Date(year, month - 1, day);
-            if (!isNaN(date) && date.getFullYear() == year) {
-                datePicker.value = `${year}-${month}-${day}`;
-            }
-        }
-    });
-});
-
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const isActive = item.classList.contains('active');
-    
-    // Tüm açık accordion'ları kapat
-    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
-        accordionItem.classList.remove('active');
-    });
-    
-    // Eğer tıklanan kapalıysa, onu aç
-    if (!isActive) {
-        item.classList.add('active');
-    }
-}
-
-// PDF Print fonksiyonu
-function openPrintPage() {
-    {% if not results %}
-    alert('Lütfen önce hesaplama yapın.');
-    return;
-    {% endif %}
-    
-    const loadingDiv = document.getElementById('pdf-loading');
-    loadingDiv.style.display = 'flex';
-    
-    // Form verilerini topla
-    const formData = new FormData();
-    formData.append('dogum_gunu', '{{ results.dogum_gunu }}');
-    formData.append('isim_soyisim', '{{ results.isim_soyisim }}');
-    formData.append('eklenen_isim', '{{ results.eklenen_isim }}');
-    formData.append('cinsiyet', '{{ results.cinsiyet }}');
-    
-    // POST isteği gönder ve yeni pencerede aç
-    fetch('/islami-numeroloji/pdf-print', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(html => {
-        // Yeni pencere aç ve HTML'i yaz
-        const printWindow = window.open('', '_blank');
-        printWindow.document.write(html);
-        printWindow.document.close();
-        
-        loadingDiv.style.display = 'none';
-    })
-    .catch(error => {
-        console.error('Print sayfası hatası:', error);
-        loadingDiv.style.display = 'none';
-        alert('Print sayfası açılırken bir hata oluştu.');
-    });
-}
-
-// CSV Download fonksiyonu
-function downloadCSV() {
-    {% if not results %}
-    alert('Lütfen önce hesaplama yapın.');
-    return;
-    {% endif %}
-    
-    const loadingDiv = document.getElementById('csv-loading');
-    loadingDiv.style.display = 'flex';
-    
-    // Form verilerini topla
-    const formData = new FormData();
-    formData.append('dogum_gunu', '{{ results.dogum_gunu }}');
-    formData.append('isim_soyisim', '{{ results.isim_soyisim }}');
-    formData.append('eklenen_isim', '{{ results.eklenen_isim }}');
-    formData.append('cinsiyet', '{{ results.cinsiyet }}');
-    
-    // POST isteği gönder ve dosyayı indir
-    fetch('/islami-numeroloji/csv-export', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('CSV oluşturulurken hata oluştu');
-        }
-        return response.blob();
-    })
-    .then(blob => {
-        // Dosyayı indir
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = 'islami_numeroloji_analiz_{% if results %}{{ results.isim_soyisim.replace(" ", "_") }}{% else %}user{% endif %}.csv';
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-        
-        loadingDiv.style.display = 'none';
-    })
-    .catch(error => {
-        console.error('CSV indirme hatası:', error);
-        loadingDiv.style.display = 'none';
-        alert('CSV dosyası indirilirken bir hata oluştu.');
-    });
-}
-</script>
 
 <style>
 .pin-kodu-tablosu {
@@ -399,206 +258,8 @@ function downloadCSV() {
     margin: 0;
 }
 
-.chakra-table td {
-    padding: 5px 10px;
-    text-align: center;
-    font-family: monospace;
-    font-size: 1.2em;
-}
-
-.chakra-table .plus-cell {
-    color: #080808;
-    min-width: 100px;
-}
-
-.chakra-table .plus-cell:first-child {
-    text-align: right;
-}
-
-.chakra-table .plus-cell:nth-child(3) {
-    text-align: left;
-    padding-left: 0;
-}
-
-.chakra-table .number-cell {
-    font-weight: bold;
-    color: #1e1e1e;
-    min-width: 40px;
-}
-
-.chakra-table .pin-code-cell {
-    text-align: left;
-    padding-left: 30px;
-    min-width: 60px;
-    color: #080808;
-    font-weight: bold;
-}
-
-.chakra-table .separator-cell {
-    min-width: 20px;
-    text-align: center;
-    color: #080808;
-    font-weight: bold;
-}
-
-.chakra-table .ek-plus-cell {
-    min-width: 100px;
-    text-align: left;
-    padding-left: 10px;
-    color: #080808;
-    font-weight: bold;
-}
-
-.accordion-item {
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.accordion-button {
-    width: 100%;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: none;
-    text-align: left;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1em;
-    color: #333;
-    transition: background-color 0.3s;
-}
-
-.accordion-button:hover {
-    background-color: #e9ecef;
-}
-
-.accordion-icon {
-    font-size: 0.8em;
-    transition: transform 0.3s;
-}
-
-.accordion-content {
-    padding: 0 15px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background-color: white;
-}
-
-.accordion-item.active .accordion-content {
-    padding: 15px;
-    max-height: 1000px; /* Yeterince büyük bir değer */
-}
-
-.accordion-item.active .accordion-icon {
-    transform: rotate(180deg);
-}
-
-.radio-group {
-    display: flex;
-    gap: 20px;
-    margin-top: 8px;
-}
-
-.radio-label {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-weight: normal;
-}
-
-.radio-label input[type="radio"] {
-    margin-right: 8px;
-    transform: scale(1.2);
-}
-
-.radio-text {
-    color: #333;
-    font-size: 1em;
-}
-
-.radio-label:hover .radio-text {
-    color: #ff8c00;
-}
-
-/* Pin Kodu ve Çakra Dağılımı yan yana düzen */
-.pin-chakra-container {
-    display: flex;
-    gap: 20px;
-    margin: 15px 0;
-}
-
-.pin-kodu-section,
-.chakra-section {
-    flex: 1;
-    margin: 0 !important;
-}
-
-/* Telefon için alt alta dizim */
-@media (max-width: 768px) {
-    .pin-chakra-container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .pin-kodu-section,
-    .chakra-section {
-        flex: none;
-    }
-}
-
-.yasam-yolu-aciklama {
-    margin-top: 15px;
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid #28a745;
-}
-
-.yasam-yolu-aciklama pre {
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333;
-    background: none;
-    border: none;
-    padding: 0;
-}
-
-.merkez-sayi-detay {
-    background-color: #f0f8ff;
-    padding: 12px;
-    border-radius: 5px;
-    border-left: 4px solid #28a745;
-    margin-top: 10px;
-}
-
-.merkez-sayi-detay p {
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    font-size: 15px;
-    font-weight: 500;
-    color: #333;
-    line-height: 1.5;
-}
-
-.merkez-sayi-aciklama {
-    margin-top: 10px;
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid #28a745;
-}
-
-.merkez-sayi-aciklama pre {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
+.result-section p {
+    margin-bottom: 0.5rem;
     line-height: 1.6;
     color: #333;
     background: none;
@@ -608,34 +269,7 @@ function downloadCSV() {
     word-wrap: break-word;
 }
 
-.cakra-metinleri-aciklama {
-    margin-top: 10px;
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid #dc3545;
-}
 
-.cakra-metinleri-aciklama pre {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 14px;
-    line-height: 1.6;
-    color: #333;
-    background: none;
-    border: none;
-    padding: 0;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-}
-
-.cakra-metin-item {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #f0f8ff;
-    border-radius: 5px;
-    border-left: 4px solid #28a745;
-}
 
 .cakra-metin-item pre {
     margin: 0;
@@ -749,4 +383,144 @@ function downloadCSV() {
     }
 }
 </style>
+
+<script>
+// PDF Print sayfası açma fonksiyonu
+function openPrintPage() {
+    const pdfLoading = document.getElementById('pdf-loading');
+    const csvLoading = document.getElementById('csv-loading');
+    
+    // Loading mesajlarını gizle
+    if (pdfLoading) pdfLoading.style.display = 'none';
+    if (csvLoading) csvLoading.style.display = 'none';
+    
+    // PDF loading'i göster
+    if (pdfLoading) pdfLoading.style.display = 'flex';
+    
+    try {
+        // Hesaplanan sonuçlardan verileri al
+        const dogumGunu = '{{ results.dogum_gunu if results else "" }}';
+        const isimSoyisim = '{{ results.isim_soyisim if results else "" }}';
+        const eklenenIsim = '{{ results.eklenen_isim if results else "" }}';
+        const cinsiyet = '{{ results.cinsiyet if results else "" }}';
+        const yas = '{{ results.yas if results else "" }}';
+        
+        if (!dogumGunu || !isimSoyisim || !cinsiyet) {
+            alert('Lütfen önce hesaplama yapın.');
+            if (pdfLoading) pdfLoading.style.display = 'none';
+            return;
+        }
+        
+        // URL parametreleri ile print sayfasını aç
+        const printUrl = '{{ url_for("islami_numeroloji.pdf_print") }}' + 
+                        '?dogum_gunu=' + encodeURIComponent(dogumGunu) +
+                        '&isim_soyisim=' + encodeURIComponent(isimSoyisim) +
+                        '&eklenen_isim=' + encodeURIComponent(eklenenIsim) +
+                        '&cinsiyet=' + encodeURIComponent(cinsiyet) +
+                        '&yas=' + encodeURIComponent(yas);
+        
+        const printWindow = window.open(printUrl, '_blank');
+        
+        if (printWindow) {
+            // Loading mesajını gizle
+            setTimeout(() => {
+                if (pdfLoading) pdfLoading.style.display = 'none';
+            }, 2000);
+        } else {
+            // Popup engellendiyse loading'i gizle
+            if (pdfLoading) pdfLoading.style.display = 'none';
+            alert('Popup engellendi. Lütfen popup engelleyiciyi kapatıp tekrar deneyin.');
+        }
+        
+    } catch (error) {
+        console.error('PDF print hatası:', error);
+        alert('PDF print sırasında bir hata oluştu: ' + error.message);
+        if (pdfLoading) pdfLoading.style.display = 'none';
+    }
+}
+
+// CSV indirme fonksiyonu
+function downloadCSV() {
+    const pdfLoading = document.getElementById('pdf-loading');
+    const csvLoading = document.getElementById('csv-loading');
+    
+    // Loading mesajlarını gizle
+    if (pdfLoading) pdfLoading.style.display = 'none';
+    if (csvLoading) csvLoading.style.display = 'none';
+    
+    // CSV loading'i göster
+    if (csvLoading) csvLoading.style.display = 'flex';
+    
+    try {
+        // Hesaplanan sonuçlardan verileri al
+        const dogumGunu = '{{ results.dogum_gunu if results else "" }}';
+        const isimSoyisim = '{{ results.isim_soyisim if results else "" }}';
+        const eklenenIsim = '{{ results.eklenen_isim if results else "" }}';
+        const cinsiyet = '{{ results.cinsiyet if results else "" }}';
+        const yas = '{{ results.yas if results else "" }}';
+        
+        if (!dogumGunu || !isimSoyisim || !cinsiyet) {
+            alert('Lütfen önce hesaplama yapın.');
+            if (csvLoading) csvLoading.style.display = 'none';
+            return;
+        }
+        
+        // Form verilerini topla
+        const formData = new FormData();
+        
+        formData.append('dogum_gunu', dogumGunu);
+        formData.append('isim_soyisim', isimSoyisim);
+        formData.append('eklenen_isim', eklenenIsim);
+        formData.append('cinsiyet', cinsiyet);
+        formData.append('yas', yas);
+        
+        // CSV export endpoint'ine POST isteği gönder
+        fetch('{{ url_for("islami_numeroloji.csv_export") }}', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            // CSV dosyasını indir
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            
+            // Dosya adını oluştur
+            const cleanName = isimSoyisim.replace(/[çğıöşüÇĞIÖŞÜ]/g, function(match) {
+                const replacements = {
+                    'ç': 'c', 'ğ': 'g', 'ı': 'i', 'ö': 'o', 'ş': 's', 'ü': 'u',
+                    'Ç': 'C', 'Ğ': 'G', 'İ': 'I', 'Ö': 'O', 'Ş': 'S', 'Ü': 'U'
+                };
+                return replacements[match] || match;
+            }).replace(/\s+/g, '_');
+            
+            a.download = `islami_numeroloji_analiz_${cleanName}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+            
+            // Loading mesajını gizle
+            if (csvLoading) csvLoading.style.display = 'none';
+        })
+        .catch(error => {
+            console.error('CSV indirme hatası:', error);
+            alert('CSV indirme sırasında bir hata oluştu: ' + error.message);
+            if (csvLoading) csvLoading.style.display = 'none';
+        });
+        
+    } catch (error) {
+        console.error('CSV indirme hatası:', error);
+        alert('CSV indirme sırasında bir hata oluştu: ' + error.message);
+        if (csvLoading) csvLoading.style.display = 'none';
+    }
+}
+</script>
 {% endblock %} 

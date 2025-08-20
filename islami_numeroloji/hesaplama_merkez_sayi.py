@@ -283,9 +283,12 @@ def merkez_sayi_bulma(isim_soyisim):
         sayi = isim_hesaplama(isim)
         isim_sayilari.append(int(sayi))
         isim_sayilari_str.append(sayi)
-        isim_eslesmesi[sayi] = [isim]
-    
-    #print(f"İsim sayıları: {isim_sayilari_str}")  # Debug için
+        
+        # Aynı sayıya sahip isimlerin üzerine yazılmaması için
+        if sayi in isim_eslesmesi:
+            isim_eslesmesi[sayi].append(isim)
+        else:
+            isim_eslesmesi[sayi] = [isim]
     
     # 19 kontrolü - hesaplamanın herhangi bir yerinde 19 var mı?
     on_dokuz_var = "19" in isim_sayilari_str
@@ -296,8 +299,17 @@ def merkez_sayi_bulma(isim_soyisim):
                 on_dokuz_isimleri.append(isimler[i])
     
     # While döngüsü - toplanacak şey kalmayana kadar devam et
-    kalan_sayilar = isim_sayilari_str.copy()
+    # Aynı sayıya sahip isimlerin sayısını da hesaba kat
+    sayi_sayilari = {}
+    for sayi in isim_sayilari_str:
+        if sayi in sayi_sayilari:
+            sayi_sayilari[sayi] += 1
+        else:
+            sayi_sayilari[sayi] = 1
+    
+    kalan_sayilar = list(sayi_sayilari.keys())  # Unique sayılar
     kalan_isimler = isim_eslesmesi.copy()
+    
     dongu_sayisi = 1
     sonuc = ""
     
@@ -338,7 +350,12 @@ def merkez_sayi_bulma(isim_soyisim):
             sayi2_str = normal_sayilar[1]
             sayi1 = int(sayi1_str)
             sayi2 = int(sayi2_str)
-            toplam = sayi1 + sayi2
+            
+            # Aynı sayıdan kaç tane kullanacağımızı hesapla
+            sayi1_adedi = sayi_sayilari.get(sayi1_str, 1)
+            sayi2_adedi = sayi_sayilari.get(sayi2_str, 1)
+            
+            toplam = (sayi1 * sayi1_adedi) + (sayi2 * sayi2_adedi)
             
             # İsimleri sakla (silmeden önce)
             isimler1 = kalan_isimler.get(sayi1_str, [])
@@ -357,9 +374,6 @@ def merkez_sayi_bulma(isim_soyisim):
             ebced_sonuc = ebced_toplama_merkez_sayi(toplam)
             add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(ebced_sonuc), tum_isimler)
             
-            # Orijinal toplamı ekleme - bu yanlış kombinasyonlara neden oluyor
-            # add_to_kalan_sayilar_and_isimler(kalan_sayilar, kalan_isimler, str(toplam), tum_isimler)
-            
             dongu_sayisi += 1
             continue
         
@@ -367,9 +381,6 @@ def merkez_sayi_bulma(isim_soyisim):
         istisna_bulundu, istisna_sayilar, istisna_sonuc, istisna_kalan, istisna_isimler = istisna_kontrol(kalan_sayilar, kalan_isimler)
         
         if istisna_bulundu:
-            #sonuc += f"İstisna toplama: {' + '.join(istisna_sayilar)} = {istisna_sonuc}\n"
-            #sonuc += f"Kullanılan isimler: {', '.join(istisna_isimler)}\n\n"
-            
             # Kullanılan sayıları kalan sayılardan çıkar
             for sayi in istisna_sayilar:
                 if sayi in kalan_sayilar:
@@ -391,9 +402,6 @@ def merkez_sayi_bulma(isim_soyisim):
         ozel_kombinasyon, ozel_sayilar, ozel_sonuc, ozel_kalan, ozel_isimler = ozel_sayi_kombinasyonu_bul(kalan_sayilar, kalan_isimler)
         
         if ozel_kombinasyon:
-            #sonuc += f"Özel sayı kombinasyonu: {' + '.join(ozel_sayilar)} = {ozel_sonuc}\n"
-            #sonuc += f"Kullanılan isimler: {', '.join(ozel_isimler)}\n\n"
-            
             # Kullanılan sayıları kalan sayılardan çıkar
             for sayi in ozel_sayilar:
                 if sayi in kalan_sayilar:
@@ -418,16 +426,22 @@ def merkez_sayi_bulma(isim_soyisim):
     sonuc += f"\n--- İSİM SAYILARI ---\n"
     for isim in isimler:
         isim_sayisi = isim_hesaplama(isim)
-        sonuc += f"{isim} = {isim_sayisi}\n"
+        sonuc += f"{isim} = {isim_sayisi}    "
     
     # Final sonuç
     sonuc += f"\n--- MERKEZ SAYI ---\n"
-    sonuc += f"Kalan sayılar: {', '.join(kalan_sayilar)}\n\n"
+    sonuc += f"Kalan sayılar: {', '.join(kalan_sayilar)}"
     
     # Merkez sayıyı belirle ve sadeleştir
     if len(kalan_sayilar) == 1:
-        final_sayi = int(kalan_sayilar[0])
-        merkez_sayi = ebced_toplama_merkez_sayi(final_sayi)
+        # Eğer birden fazla isim varsa ve tek benzersiz sayı kaldıysa,
+        # tüm isim sayılarını toplayıp ebced ile sadeleştir
+        if len(isim_sayilari_str) > 1:
+            final_sayi = sum(int(s) for s in isim_sayilari_str)
+            merkez_sayi = ebced_toplama_merkez_sayi(final_sayi)
+        else:
+            final_sayi = int(kalan_sayilar[0])
+            merkez_sayi = ebced_toplama_merkez_sayi(final_sayi)
     else:
         # Eğer 19 varsa ve başka sayılar varsa, 19 hariç diğer sayıları topla
         if "19" in kalan_sayilar:
