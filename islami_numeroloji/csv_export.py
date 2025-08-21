@@ -241,13 +241,10 @@ def generate_csv_export(data):
                 # Diğer çakralar (3., 5., 6., 8., 9.): split_text_by_pages kullanma
                 else:
                     # 1. kısım ilk sayfaya
-                    if page_counter <= max_pages_per_chakra[i]:
-                        cakra_pages_data[i][f'_sayfa_{page_counter}'] = ilk_kisim
-                        page_counter += 1
+                    cakra_pages_data[i]['_sayfa_1'] = ilk_kisim
                     
                     # 2. kısım ikinci sayfaya
-                    if page_counter <= max_pages_per_chakra[i]:
-                        cakra_pages_data[i][f'_sayfa_{page_counter}'] = ikinci_kisim
+                    cakra_pages_data[i]['_sayfa_2'] = ikinci_kisim
             else:
                 # ~~~ yoksa ilk sayfaya ekle
                 if max_pages_per_chakra[i] >= 1:
