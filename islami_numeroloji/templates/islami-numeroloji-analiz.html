@@ -195,6 +195,22 @@
             {% endif %}
         </div>
 
+        <!-- Evlilik Ek Metinleri -->
+        {% if results.evlilik_ek_metinleri and results.evlilik_ek_metinleri|length > 0 %}
+        <div class="result-section">
+            <h4>Evlilik Ek Metinleri:</h4>
+            <div class="evlilik-ek-metinleri">
+                {% for metin in results.evlilik_ek_metinleri %}
+                    {% if metin and metin.strip() %}
+                    <div class="evlilik-ek-metin-item">
+                        <p class="evlilik-ek-text">{{ metin }}</p>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
         <div class="result-section">
             <h4>Dönüşüm Yılları:</h4>
             <pre>{{ results.donusum_yillari }}</pre>
@@ -280,6 +296,34 @@
     background: none;
     border: none;
     padding: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.evlilik-ek-metinleri {
+    margin: 10px 0;
+}
+
+.evlilik-ek-metin-item {
+    background-color: #f0f8ff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border-left: 4px solid #4ecdc4;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.evlilik-ek-metin-item:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+    transition: all 0.3s ease;
+}
+
+.evlilik-ek-text {
+    margin: 0;
+    line-height: 1.6;
+    color: #2c3e50;
+    font-size: 14px;
     white-space: pre-wrap;
     word-wrap: break-word;
 }

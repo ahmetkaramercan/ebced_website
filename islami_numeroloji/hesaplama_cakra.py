@@ -412,11 +412,13 @@ Bilhassa bunu teheccüd zamanında yalnız bir ortamda sizi üzen hadiseleri tek
  """,
         
         """1.ÇAKRA olan kök çakra açık ve geliştirilmelidir
+
 Bu çakra hayatımızın ilk basamağıdır. İlk 9 yılımızı ifade eder ve genellikle anne baba 1. dereceden yakınlarla geçirdiğimiz süredir. İlk bilinçsiz basamağımızdır. Sizin bu çakranız güzel çalışıyor. Siz istediğinizde duygularınızı ifade eder, öne çıkar, konuşursunuz. Hayatınıza sahip çıkarsınız. Yönetme gücünüz vardır. Sizin bu çakranız geliştirilmelidir. Siz hayata tutunamama ve sanki bu dünyaya ait hissedememe gibi problemleriniz vardır. Hatta bazen belli düşüncelerde ısrar edebilirsiniz. Fanatiklikler (parti,sanatçı,takım vs.) yaşanabilir. Ve eleştiriye gelememe gibi hisleriniz olabilir. 
 Bunları düzeltmedikçe bu çakranızın sıkıntıları geçmez ve geçmişte yaşar sürekli pişmanlık hissedersiniz. Bunları düzeltmek elinizdedir. Kendinizin her daim duygu ve düşüncelerinizi kontrol etmek her an farkındalıkla yaşamak ile olur. Herkesin fikri olabilir ve saygı duyulmalıdır. Ayrıca kendi işinizin patronu olmuş olabilirsiniz. Çünkü kaderiniz sizi geliştirmek için liderlik yapacağınız işlere iter. Ve siz insanlar arasında aranan lider karakterli bir insan olmuş olabilirsiniz. Bunu yaparken elbette çokça sabretmiş, imtihanlar atlatmış olmalısınız. Bu çakra için liderlik, yöneticilik özelliklerinize tutunmanız sizin için çok önemlidir. Kök çakranızı geliştirirken kendinizi olduğunuz gibi kabul etmeniz ve iradenizi geliştirmeniz oldukça önemlidir.
 Kök çakranın sıkıntıları genellikle halsizlik, yorgunluk kansızlık ve kemik ağrılarına neden olur. Unutmayın ki her hastalık habercidir ve mesajı vardır. Bu çakranın az gelişmişliği size psikolojik anlamda yukarıda saydıklarımı yaparken bunlardan mesajı alamadı iseniz fizyolojik hastalıklar başlamıştır. Bu yüzden kendinizi fark etmeli, hastalıkların mesajını almalı ve kendinizi 
 dinlemeyi öğrenmelisiniz. Farkındalık yolculuğunuzu başlatmalısınız.
 ~~~1.Çakramızı Nasıl Geliştirebiliriz?
+
 Mutlaka Olan sıkıntıları sevgi ile kabule geçin. Yara aldığınız halen ailenizle ilgili sıkıntılarınız varsa mutlaka çözün. 
 Affedemediğiniz büyükleriniz ya da çevreniz varsa sadece kendiniz için affedin ve hayatı olduğu gibi kabule geçin. 
 Ve Nefs Tezkiyesi yapın!. (Nefs Tezkiyesi olumsuz özelliklerimizi fark ederek olumluya dönüştürmektir.)
@@ -486,7 +488,6 @@ Dengeyi koruyun ve kendi kendinizle iyi olun. Değersizlik gibi hisleriniz varsa
 
 Hayatımızın ikinci dönemi olan ikili ilişkilerimizin geliştiği dönemdir. İnsanlar ailesinden aldığı özgüven ile bu çakrasını öyle geliştirir ve hayata atılır. İkili ilişkilerinde başarılı olur. 
 Siz duygularınızı önemseyen bir insansınız. İkili ilişkiler kurarsınız. Seversiniz, sevilirsiniz. Fakat fazla çalışması nedeni ile çok hassas bir kişiliğiniz var. İkili ilişkilerde fedakarlık yapan hep siz olursunuz. Ne yazık ki zamanla bu yönünüzün kullanıldığını fark eder ve kırılırsınız. Bu yüzden aşırı kırılganlık ve hassasiyet başlar. 
-
 Hatta biraz daha düşündüğünüzde bu sefer niçin bana kimse fedakarlık yapmıyor dersiniz. İşte bu alma verme dengesinin sıkıntılı olduğunu gösterir. Bu fedakarlık kendi değerinizi tam bilmediğinizden ve onure edemediğinizden kaynaklanır. İlk olarak kendinizi önemsemeli önce kendinizi düşünmeli evet birazcık bencil olmayı öğrenmelisiniz.
 ~~~2.ÇAKRANIN AŞIRILIĞINI NASIL AŞARSINIZ? 
 
@@ -839,24 +840,24 @@ def cakra_metin_hesaplamalari(arti_sistemi, cinsiyet):
         if (i == 1):
             if arti_sistemi[1][0] > arti_sistemi[1][1]:
                 cakra_yorumlari.append("""Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenize baktığımda aşırı olmasa da beklentili olduğunuzu görüyorum. En doğrusu beklentiyi sıfıra indirmektir.
-                                    ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
-                                    Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
-                                    İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Ve bekledikçe daha çok yorulacağınızı unutmayın. Dönüşüme buradan başlayın.
-                                    """)
+ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
+Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Ve bekledikçe daha çok yorulacağınızı unutmayın. Dönüşüme buradan başlayın.
+""")
             elif arti_sistemi[1][0] < arti_sistemi[1][1]:
                 cakra_yorumlari.append("""Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. 
-                                    Sizin bu alma verme dengenize baktığımda fedakar olduğunuzu görüyorum. Fedakarlık ilişkilerde karşılıklı dengeleri bozar ve sizi yorar.
-                                    ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
-                                    Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
-                                    İnsanlara hemen verici olmak yerine biraz karşı tarafı gözlemlemeyi tercih edin.Her zaman orta yolu tercih edin. Tam veren ya da tam alan yani hep beklentili bir kişi olmayın.
-                                    """)
+Sizin bu alma verme dengenize baktığımda fedakar olduğunuzu görüyorum. Fedakarlık ilişkilerde karşılıklı dengeleri bozar ve sizi yorar.
+ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
+Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+İnsanlara hemen verici olmak yerine biraz karşı tarafı gözlemlemeyi tercih edin.Her zaman orta yolu tercih edin. Tam veren ya da tam alan yani hep beklentili bir kişi olmayın.
+""")
             else: 
                 cakra_yorumlari.append("""Ayrıca kainatta korunması gereken bir alma verme duygusu vardır. 
-                                    1.çakranızın 2.çakranız ile dengeli olması bu dengeyi çok güzel gözeteceğiniz anlamına geliyor. Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenizi korumanız çok önemlidir.
-                                    ALMA VERME DENGESİNİ NASIL KORURSUNUZ? 
-                                    Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
-                                    İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Sizde olan bu alma verme dengesinin güzelliğini fark edin ve onu koruyun.
-                                    """)
+1.çakranızın 2.çakranız ile dengeli olması bu dengeyi çok güzel gözeteceğiniz anlamına geliyor. Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenizi korumanız çok önemlidir.
+ALMA VERME DENGESİNİ NASIL KORURSUNUZ? 
+Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Sizde olan bu alma verme dengesinin güzelliğini fark edin ve onu koruyun.
+""")
 
 
         if cinsiyet == "kadın" and arti_sistemi[2][i] > 0: 
@@ -925,18 +926,20 @@ ALMA VERME DENGESİNİ NASIL KORURSUNUZ?
     return cakra_yorumlari, evlilik_metinleri_sonuc, alma_verme_dengesi
 
 
-def cocuk_cakra_metin_hesaplamalari(arti_sistemi):
+def cocuk_cakra_metin_hesaplamalari_ayrintili(arti_sistemi):
+    global cocuk_cakralari
     cakra_yorumlari = []
+    alma_verme_dengesi = ""  # Başlangıç değeri
 
     for i in range(9):
         if arti_sistemi[1][i] == 0:
-            cakra_yorumlari.append(cakra_metinleri[i][0])
+            cakra_yorumlari.append(cocuk_cakralari[i][0])
         elif arti_sistemi[1][i] == 1:
-            cakra_yorumlari.append(cakra_metinleri[i][1])
+            cakra_yorumlari.append(cocuk_cakralari[i][1])
         elif arti_sistemi[1][i] <= 3:
-            cakra_yorumlari.append(cakra_metinleri[i][2])
+            cakra_yorumlari.append(cocuk_cakralari[i][2])
         else:
-            cakra_yorumlari.append(cakra_metinleri[i][3])
+            cakra_yorumlari.append(cocuk_cakralari[i][3])
 
 
         if (i == 1):
@@ -964,4 +967,49 @@ ALMA VERME DENGESİNİ NASIL KORURSUNUZ?
 İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Sizde olan bu alma verme dengesinin güzelliğini fark edin ve onu koruyun.
 """
 
-    return cakra_yorumlari , alma_verme_dengesi     
+    # Çocuklar için evlilik metni yok, boş liste döndür
+    evlilik_metinleri = []
+    
+    return cakra_yorumlari, evlilik_metinleri, alma_verme_dengesi     
+
+def cocuk_cakra_metin_hesaplamalari(arti_sistemi):
+    global cocuk_cakralari
+    cakra_yorumlari = []
+
+    for i in range(9):
+        if arti_sistemi[1][i] == 0:
+            cakra_yorumlari.append(cocuk_cakralari[i][0])
+        elif arti_sistemi[1][i] == 1:
+            cakra_yorumlari.append(cocuk_cakralari[i][1])
+        elif arti_sistemi[1][i] <= 3:
+            cakra_yorumlari.append(cocuk_cakralari[i][2])
+        else:
+            cakra_yorumlari.append(cocuk_cakralari[i][3])
+
+
+        if (i == 1):
+            if arti_sistemi[1][0] > arti_sistemi[1][1]:
+                cakra_yorumlari.append("""Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenize baktığımda aşırı olmasa da beklentili olduğunuzu görüyorum. En doğrusu beklentiyi sıfıra indirmektir.
+
+ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
+Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Ve bekledikçe daha çok yorulacağınızı unutmayın. Dönüşüme buradan başlayın.
+""")
+            elif arti_sistemi[1][0] < arti_sistemi[1][1]:
+                cakra_yorumlari.append("""Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. 
+Sizin bu alma verme dengenize baktığımda fedakar olduğunuzu görüyorum. Fedakarlık ilişkilerde karşılıklı dengeleri bozar ve sizi yorar.
+
+ALMA VERME DENGESİNİ NASIL SAĞLARSINIZ? 
+Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+İnsanlara hemen verici olmak yerine biraz karşı tarafı gözlemlemeyi tercih edin.Her zaman orta yolu tercih edin. Tam veren ya da tam alan yani hep beklentili bir kişi olmayın.
+""")
+            else: 
+                cakra_yorumlari.append("""Ayrıca kainatta korunması gereken bir alma verme duygusu vardır. 
+1.çakranızın 2.çakranız ile dengeli olması bu dengeyi çok güzel gözeteceğiniz anlamına geliyor. Alma verme dengesi kainatta korunması gereken en büyük dengelerden.. Bazen fedakarlıkta bazen beklentide aşırı kaçtığımızda bu dengeyi bozduğumuz için hayli yoruluruz. Çoğu bunu fark etmeden dünya değiştirir. Sizin bu alma verme dengenizi korumanız çok önemlidir.
+
+ALMA VERME DENGESİNİ NASIL KORURSUNUZ? 
+Öncelikle her daim verici ya da daim alıcı olmayı unutun. İlişkilerinizde dengeyi oturtun. Sevmeyi sevilmeyi önemseyin. 
+İnsanlardan bir şey beklememeyi onun yerine işleri akışına bırakmayı deneyin.Sizde olan bu alma verme dengesinin güzelliğini fark edin ve onu koruyun.
+""")
+
+    return cakra_yorumlari     
