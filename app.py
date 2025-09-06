@@ -149,19 +149,21 @@ def bireysel_analiz():
         dogum_gunu = input_dogum_gunu.replace('.', ' ').replace('/', ' ')
         dogum_gunu = ' '.join(dogum_gunu.split())
         isim_soyisim = request.form['isim_soyisim']
-        
-        k_values, pin_kodu_yorumlari = pin_kodu_hesaplama(dogum_gunu)
-        chakra_result = chakra_hesapla(k_values, isim_soyisim)
+        eklenen_isim = request.form['eklenen_isim']
+
+        pin_kodu, pin_kodu_yorumlari  = pin_kodu_hesaplama(dogum_gunu)
+        arti_sistemi, chakra_result = chakra_hesapla(pin_kodu, isim_soyisim, eklenen_isim)
+
         yasam_yolu = yasam_yolu_hesapla(dogum_gunu)
         bereket_sayisi = bereket_rakami_bulma(dogum_gunu)
         ana_kulvar = ana_kulvar_bulma(isim_soyisim)
         yan_kulvar = yan_kulvar_bulma(isim_soyisim)
         donusum_yillari = donusum_yillari_bulma(dogum_gunu)
-        pin_kodu_ozellikleri = ozellik_hesaplama(k_values)
+        pin_kodu_ozellikleri = ozellik_hesaplama(pin_kodu)
         
         results = {
             'dogum_gunu': dogum_gunu,  # Orijinal formatı template'e gönder
-            'pin_kodu_dizilimi': k_values,
+            'pin_kodu_dizilimi': pin_kodu,
             'pin_kodu_yorumlari': pin_kodu_yorumlari,
             'chakra': chakra_result,
             'yasam_yolu': yasam_yolu,

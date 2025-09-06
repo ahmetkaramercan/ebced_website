@@ -211,52 +211,68 @@ def ebced_toplama_asamali(*args):
     steps.append(str(number))
     return "/ ".join(steps)
 
-#ayrı yaptım fonksiyonları ayrı ayrı göstermem gerekebilir.
-def chakra_hesapla(k_values, text):
-    chakra_houses = [""] * 9
-    chakra_houses = chakra_add_pin_kodu(chakra_houses, k_values)
-    chakra_houses = chakra_add_name(chakra_houses, text)
+
+def chakra_hesapla(pin_kodu, isim_soyisim, ek_isim):
+    """
+    Çakra hesaplaması yapan fonksiyon.
+    3 farklı sistem kullanır:
+    0: Pin kodu (sol taraf)
+    1: İsim soyisim (sağ taraf) 
+    2: Ek isim (ek alan, varsa)
+    """
+    #0 pin kodu  1 isim soyisim  2 ek soyisim/isim den gelen artılar.
+    arti_sistemi = [[0 for _ in range(9)] for _ in range(3)]
+    # Pin kodundan sol taraf artılarını doldur
+    arti_sistemi[0] = chakra_add_pin_kodu(pin_kodu)
+    # İsim soyisimden sağ taraf artılarını doldur
+    for letter in isim_soyisim.upper():
+        if letter in chakra_values:
+            index = chakra_values[letter] - 1
+            arti_sistemi[1][index] += 1
+    
+    # Ek isim varsa, 3. sistemi doldur
+    has_ek_isim = False
+    if ek_isim and len(ek_isim.strip()) > 0:
+        has_ek_isim = True
+        for letter in ek_isim.upper():
+            if letter in chakra_values:
+                index = chakra_values[letter] - 1
+                arti_sistemi[2][index] += 1
 
     # Her çakra için bir sözlük oluştur
     chakra_data = []
     for i in range(9, 0, -1):
-        # Artıları say
-        plus_count_right = chakra_houses[i-1].count('+')
-        plus_count_left = chakra_houses[i-1].count('-')
-        # Çakra numarasını al
         number = str(i)
         # Sözlük oluştur
-        chakra_data.append({
-            'left_plus': ' +' * plus_count_left,  # Sol taraftaki artılar
-            'number': number,               # Çakra numarası
-            'right_plus': '+ ' * plus_count_right  # Sağ taraftaki artılar
-        })
+        chakra_item = {
+            'left_plus': ' +' * arti_sistemi[0][i-1],  # Pin kodundan gelen artılar
+            'number': number,                           # Çakra numarası
+            'right_plus': '+ ' * arti_sistemi[1][i-1], # İsim soyisimden gelen artılar
+            'has_ek_isim': has_ek_isim                  # Ek isim var mı?
+        }
+        
+        # Ek isim varsa, ek artıları da ekle
+        if has_ek_isim:
+            chakra_item['ek_plus'] = '+ ' * arti_sistemi[2][i-1]
+        
+        chakra_data.append(chakra_item)
 
-    return chakra_data
+    return arti_sistemi, chakra_data
 
-def chakra_add_pin_kodu(chakra_houses, k):
-    sayac = [0] * 9
+def chakra_add_pin_kodu( pin_kodu):
+    """ Pin kodundaki sayıların ilk rakamlarına göre çakra evlerini günceller."""
+    chakra_sayaci = [0] * 9
 
-    # Her elemanın ilk harfine göre sayacı güncelle
-    for eleman in k:
-        sayac[int(eleman[0])-1] += 1
-
-    # Chakra_houses dizisini güncelle
-    for i in range(len(chakra_houses)):
-        chakra_houses[i] = '-' * sayac[i] #farklılık olması lazım sağ ile solu ayırt etmesi içn
-
-    return chakra_houses
-
-
-
-def chakra_add_name(chakra_houses, text):
-    # Metindeki her harfin sayısal karşılığını bul ve uygun haneye + ekle
-    for letter in text.upper():
-        if letter in chakra_values:
-            index = chakra_values[letter] - 1
-            chakra_houses[index] += '+'
-    
-    return chakra_houses
+    # Pin kodundaki her değerin ilk rakamına göre ilgili çakra evinin sayacını artır
+    for pin_degeri in pin_kodu:
+        # Pin değerinin ilk karakterini al (örn: '3!' -> '3', '7' -> '7')
+        ilk_rakam = int(pin_degeri[0])
+        
+        # İlk rakam 1-9 arasında olmalı (çakra numarası)
+        if 1 <= ilk_rakam <= 9:
+            # İlgili çakra evinin sayacını 1 artır (0-based index için -1)
+            chakra_sayaci[ilk_rakam - 1] += 1
+    return chakra_sayaci
 
 def normalize_date(date_str):
     """
@@ -300,6 +316,7 @@ def normalize_date(date_str):
     
     return f"{gun_str} {ay_str} {yil}"
 
+    
 def pin_kodu_hesaplama(dogum_tarihi):
     # Tarihi normalize et
     try:
@@ -322,14 +339,14 @@ def pin_kodu_hesaplama(dogum_tarihi):
     k[6] = ebced_toplama(k[1] , k[2])
     k[7] = ebced_toplama(k[5] , k[6])
     k[8] = ebced_toplama(k[0] , k[1] , k[2] , k[3] , k[4] , k[5] , k[6] , k[7])
-    
+    print(k)
     # Değerleri şartlara göre güncelle
     for i in range(9):
         if int(k[i][0]) == (i + 1):
             k[i] += '!'
-
-    # Pin kodu yorumlarını hazırla
-    pin_kodu_yorumlari = []
+    
+    # Pin kodu yorumlarını oluştur
+    yorumlar = []
     for i in range(9):
         yorum = f"{i+1}. Hane: {pin_kodu_yorumu_giris_cumlesi[i]}<br><br>"
         # k[i] değerinin ilk karakterini al ve int'e çevir (örn: "4!" -> 4)
@@ -347,10 +364,9 @@ def pin_kodu_hesaplama(dogum_tarihi):
             if 0 <= sayi < len(unlemli_yorumlar):
                 yorum += f"<br>Dikkat etmesi lazım: {unlemli_yorumlar[sayi]}"
         
-        pin_kodu_yorumlari.append(yorum)
+        yorumlar.append(yorum)
     
-    # Pin kodu görsel dizilimini hazırla    
-    return  k, pin_kodu_yorumlari
+    return k, yorumlar
 
 def ana_kulvar_bulma(isim_soyisim):
     #Bu fonksiyon, verilen isim soyisimin bütün harflerinin rakamsal karşılığını bulup toplar.

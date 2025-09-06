@@ -26,6 +26,11 @@
                 <input type="text" id="isim_soyisim" name="isim_soyisim" placeholder="İsim soyisim" required>
             </div>
             
+            <div class="form-group">
+                <label for="eklenen_isim">Ek İsim (evlilik ismi veya kişiye eklenecek isim)</label>
+                <input type="text" id="eklenen_isim" name="eklenen_isim" placeholder="Eklenen isim (isteğe bağlı)">
+            </div>
+            
             <button type="submit" class="submit-btn">Gönder</button>
         </form>
     </div>
@@ -111,6 +116,10 @@
                         <td class="plus-cell">{{ chakra.left_plus }}</td>
                         <td class="number-cell">{{ chakra.number }}</td>
                         <td class="plus-cell">{{ chakra.right_plus }}</td>
+                        {% if chakra.has_ek_isim %}
+                        <td class="separator-cell">|</td>
+                        <td class="ek-plus-cell">{{ chakra.ek_plus }}</td>
+                        {% endif %}
                         <td class="pin-code-cell">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</td>
                     </tr>
                     {% endfor %}
@@ -322,6 +331,20 @@ function toggleAccordion(button) {
     min-width: 60px;
     color: #080808;
     font-weight: bold;
+}
+
+.chakra-table .separator-cell {
+    color: #080808;
+    min-width: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.chakra-table .ek-plus-cell {
+    color: #080808;
+    min-width: 100px;
+    text-align: left;
+    padding-left: 0;
 }
 
 .accordion-item {
