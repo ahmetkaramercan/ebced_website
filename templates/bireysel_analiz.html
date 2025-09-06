@@ -135,7 +135,47 @@
 
         <div class="result-section">
             <h4>Mizaç Özellikleri:</h4>
-            <p>{{ results.pin_kodu_ozellikleri }}</p>
+            <div class="mizac-tablosu">
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th colspan="2">esnek-katı</th>
+                            <th colspan="2">baskın-edilgen</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>hava</strong></td>
+                            <td>{{ results.pin_kodu_ozellikleri.hava.esnek }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.hava.katı }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.hava.baskın }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.hava.edilgen }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>su</strong></td>
+                            <td>{{ results.pin_kodu_ozellikleri.su.esnek }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.su.katı }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.su.baskın }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.su.edilgen }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>toprak</strong></td>
+                            <td>{{ results.pin_kodu_ozellikleri.toprak.esnek }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.toprak.katı }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.toprak.baskın }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.toprak.edilgen }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ateş</strong></td>
+                            <td>{{ results.pin_kodu_ozellikleri.ates.esnek }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.ates.katı }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.ates.baskın }}</td>
+                            <td>{{ results.pin_kodu_ozellikleri.ates.edilgen }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     {% endif %}

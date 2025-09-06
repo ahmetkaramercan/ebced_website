@@ -7,6 +7,7 @@ from .hesaplama_cakra import cakra_metin_hesaplamalari, cocuk_cakra_metin_hesapl
 from .hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
 from .text import yasam_yollari
 from .csv_export import generate_csv_export
+from .ek_evlilik_metinleri import evlilik_ek_metin
 
 # Blueprint oluştur - templates ve static klasörleri belirt
 islami_numeroloji_bp = Blueprint(
@@ -73,7 +74,7 @@ def islami_numeroloji_hesaplama():
                     return render_template('islami-numeroloji-analiz.html', results=None, error=error_message)
                 
                 gun, ay, yil = int(dogum_parcalari[0]), int(dogum_parcalari[1]), int(dogum_parcalari[2])
-                if not (1 <= gun <= 31 and 1 <= ay <= 12 and 1900 <= yil <= 2100):
+                if not (1 <= gun <= 31 and 1 <= ay <= 12 and 1000 <= yil <= 2200):
                     error_message = "Geçersiz tarih değerleri"
                     return render_template('islami-numeroloji-analiz.html', results=None, error=error_message)
                     
@@ -117,6 +118,15 @@ def islami_numeroloji_hesaplama():
             # Merkez sayı açıklaması artık merkez_sayi_detay içinde geliyor
             merkez_sayi_aciklama = merkez_sayi_detay
             
+            # Evlilik ek metinlerini hesapla (eğer eklenen_isim varsa)
+            evlilik_ek_metinleri = []
+            if eklenen_isim:
+                try:
+                    evlilik_ek_metinleri = evlilik_ek_metin(eklenen_isim)
+                except Exception as e:
+                    print(f"Evlilik ek metinleri hesaplanırken hata: {e}")
+                    evlilik_ek_metinleri = []
+            
             results = {
                 'dogum_gunu': dogum_gunu,
                 'isim_soyisim': isim_soyisim,
@@ -134,7 +144,8 @@ def islami_numeroloji_hesaplama():
                 'merkez_sayi_integer': merkez_sayi_integer,
                 'merkez_sayi_aciklama': merkez_sayi_aciklama,
                 'donusum_yillari': donusum_yillari,
-                'pin_kodu_ozellikleri': pin_kodu_ozellikleri
+                'pin_kodu_ozellikleri': pin_kodu_ozellikleri,
+                'evlilik_ek_metinleri': evlilik_ek_metinleri
             }
             
         except Exception as e:

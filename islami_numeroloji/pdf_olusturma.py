@@ -20,6 +20,7 @@ from .hesaplama import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
 from .hesaplama_merkez_sayi import merkez_sayi_bulma, merkez_sayi_aciklamalari
 from .hesaplama_cakra import cakra_metin_hesaplamalari, cocuk_cakra_metin_hesaplamalari
 from .text import yasam_yollari
+from .ek_evlilik_metinleri import evlilik_ek_metin
 
 # pdf.py dosyasından create_pdf ve replace_name_on_cover fonksiyonlarını import et
 # Fonksiyonlar artık bu dosyada tanımlanmıştır
@@ -316,7 +317,7 @@ def create_custom_pdf():
     # Kullanıcı verileri
     dogum_gunu = "09 08 2001"  # Eksik olan değişkeni tanımladık
     isim_soyisim = "ahmet karamercan"
-    eklenen_isim = ""  # İsteğe bağlı alan
+    eklenen_isim = "USLU"  # Test için evlilik metinleri eklenen isim
     cinsiyet = "erkek"
 
     # Hesaplamalar
@@ -349,6 +350,10 @@ def create_custom_pdf():
     else:
         cakra_metinleri = cakra_metin_hesaplamalari(arti_sistemi, cinsiyet)
         cakra_tipi = "Çakra hesaplaması"
+    
+    # Evlilik ek metinleri hesapla
+    evlilik_metinleri = evlilik_ek_metin(eklenen_isim) if eklenen_isim else []
+    
     # Merkez sayının tuple değerini al
     merkez_sayi_detay, merkez_sayi_integer = merkez_sayi_bulma(isim_soyisim)
 
@@ -378,7 +383,8 @@ def create_custom_pdf():
         'merkez_sayi': merkez_sayi_detay,
         'merkez_sayi_integer': merkez_sayi_integer,
         'merkez_sayi_aciklama': merkez_sayi_aciklama,
-        'donusum_yillari': donusum_yillari
+        'donusum_yillari': donusum_yillari,
+        'evlilik_metinleri': evlilik_metinleri
     }
 
     # PDF dosya yolları
@@ -628,6 +634,22 @@ def create_additional_pages_content(results):
         }
         additional_content.append(merkez_content)
     
+    # Evlilik metinleri için içerik
+    if results['evlilik_metinleri'] and len(results['evlilik_metinleri']) > 0:
+        evlilik_text = ""
+        for i, metin in enumerate(results['evlilik_metinleri']):
+            evlilik_text += f"{metin}\n\n"
+        
+        evlilik_content = {
+            'type': 'evlilik',
+            'title': "EVLİLİK ANALİZİ",
+            'body_text': evlilik_text,
+            'background_color': "#991B1B",  # Koyu kırmızı tema
+            'panel_color': "#EF4444",
+            'text_color': "#FFFFFF"
+        }
+        additional_content.append(evlilik_content)
+    
     print(f"Toplam {len(additional_content)} ek sayfa içeriği hazırlandı")
     return additional_content
 
@@ -687,7 +709,7 @@ def create_unified_pdf(base_pdf_path, additional_content, output_path, results):
             except Exception as e:
                 print(f"35. sayfa kopyalama hatası: {e}")
             
-            # Kalan içerik sayfalarını ekle (PIN kodu, yaşam yolu, merkez sayı)
+            # Kalan içerik sayfalarını ekle (PIN kodu, yaşam yolu, merkez sayı, evlilik)
             for i, content in enumerate(additional_content):
                 if content['type'] not in ['cakra', 'cakra_ilk', 'cakra_ikinci']:  # Çakra olmayan sayfalar
                     output_pdf_path = f"content_{i}.pdf"

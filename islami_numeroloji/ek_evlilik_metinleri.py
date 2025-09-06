@@ -1,7 +1,7 @@
 
 def evlilik_ek_metin(ek_isim):
     ek_evlilik_metinleri = []
-    giris_metni = "Ömür boyu kurduğumuz tüm ilişkiler bizim için çoğunlukla öğretici ilişkilerdir. Her ilişkide bize almamız gereken çeşitli mesajlar vardır ve evliliklerimiz en büyük öğretici ilişkilerimizdir. İşte ******* soy ismi de sizin için öğretici bir ilişki olmuş, öncelikle sizin kökeninizi size hatırlatarak, kökeninizi iyileştirmenizi istemiştir ve bunu size değersiz hissettirerek yapmıştır. Duygularınızı ifade etmediğiniz sürece aşırı derecede bağımlılıklar geliştirerek, duygu patlamaları yaşamış olabilirsiniz ve hayat böyle giderken olaylar karşısında ciddi anlamda sıkıntılı bir hayat yaşamış olabilirsiniz. Önemli olan kökendeki sıkıntılarımızı fark etmek, ilişkilerimizde bunu çözmeye çalışmaktır. Çünkü yarayı kökenden kurutmadıkça kabuğu her ilişkide kanayacaktır."
+    giris_metni = "Ömür boyu kurduğumuz tüm ilişkiler bizim için çoğunlukla öğretici ilişkilerdir. Her ilişkide bize almamız gereken çeşitli mesajlar vardır ve evliliklerimiz en büyük öğretici ilişkilerimizdir. İşte ****** soy ismi de sizin için öğretici bir ilişki olmuş, öncelikle sizin kökeninizi size hatırlatarak, kökeninizi iyileştirmenizi istemiştir ve bunu size değersiz hissettirerek yapmıştır. Duygularınızı ifade etmediğiniz sürece aşırı derecede bağımlılıklar geliştirerek, duygu patlamaları yaşamış olabilirsiniz ve hayat böyle giderken olaylar karşısında ciddi anlamda sıkıntılı bir hayat yaşamış olabilirsiniz. Önemli olan kökendeki sıkıntılarımızı fark etmek, ilişkilerimizde bunu çözmeye çalışmaktır. Çünkü yarayı kökenden kurutmadıkça kabuğu her ilişkide kanayacaktır."
     giris_metni = giris_metni.replace("******", ek_isim)
     ek_evlilik_metinleri.append(giris_metni)    
     
@@ -16,6 +16,8 @@ def evlilik_ek_metin(ek_isim):
     pyg_count = sum(1 for harf in ek_isim_upper if harf in ['P', 'Y', 'G', 'Ğ'])
     hz_count = sum(1 for harf in ek_isim_upper if harf in ['H', 'Z'])
     ir_count = sum(1 for harf in ek_isim_upper if harf in ['I', 'İ', 'R'])
+
+    print(asj_count, btk_count, ulc_count, dmv_count,en_count, fo_count, pyg_count)
 
     if 1 <= dmv_count and 1 <= asj_count:
         ek_paragraf = "Bu evlilik sizin kalp çakranızı ve 1. çakranızı geliştirerek ilk olarak imtihanlarla olgunlaşmanızı istemiştir. Böylelikle sizi daha sabırlı sebatlı olgun bir karaktere büründürmüş hayatta ısrarla istediğiniz ve aşırı bağımlılıklarınız varsa onları kontrol etmeniz için sizi yönlendirmiştir. Bunun yanında olaylardan ötürü kendinizi ifade edemiyor iseniz bununla çalışmanızı sağlamıştır. Siz hayata bağlamış ve kök çakranızı iyileştirmiştir. Tüm ilişkiler bizim için öğreticidir ve her ilişkide biz mutlaka çocukluğumuzdan izler buluruz. Size tavsiyem her ilişkinizde aldığınız mesajları kontrol edebilirsiniz."
@@ -73,12 +75,12 @@ def evlilik_ek_metin(ek_isim):
         ek_evlilik_metinleri.append(ek_paragraf)
 
     # Koşulları kontrol et: B,T,K'den 1-3 tane VE U,Ü,L,C,Ç'den 1-3 tane olmalı
-    elif 1 <= btk_count and 1 <= ulc_count:
+    elif  1 <= ulc_count:
         ek_paragraf = "Bu evlilik sizin için ilk olarak sizde olan değersizlik hissini ortaya çıkararak onu iptal etmenizi, bunun için çaba göstermenizi sağlamıştır. Bu yüzden sizi fazlaca konuşturmuş kendi değerinizi anlatmanıza sebep olmuş olabilir. Fakat değersizlik hissi karşımızdaki kişiyle alakalı değil kendi kökenlerimizde yatan sorunlardan kaynaklanır. Kişi ilk olarak doğduğu evde değersiz hisseder ve sonra bunu ilişkilerinde yaşar. Bu yüzden kişiye değer verecek kişi yalnızca kendisidir. Kimseden değer beklememeyi öğrenmek elzemdir. Bu yüzden bu evlilik size kendinizi ifade etmenizi sağlayarak duygularınızı fark etmenizi öğretmiştir. Böylece sizin hayata tutunmanızı sağlamıştır."
         ek_evlilik_metinleri.append(ek_paragraf)       
 
     
-
     return ek_evlilik_metinleri
     
    
+print(evlilik_ek_metin("USLU"))

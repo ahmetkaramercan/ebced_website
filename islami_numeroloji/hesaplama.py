@@ -407,6 +407,7 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     hane_3_8_1 = False  # 3. hane 1 ve 8. hane 1 ise
     hane_5_7_2 = False  # 5. ve 7. hane 2 ise
     hane_5_7_1 = False  # 5. ve 7. hane 1 ise
+    hane_5_7_8 = False
     hane_8_9_4 = False  # 8. ve 9. hane 4 ise
     hane_5_6_7_9 = False
     hane_2_tekrari = False  # 2 rakamı tekrarlanıyorsa
@@ -426,6 +427,10 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
     
     if safe_pin_access(4) == "1" and safe_pin_access(6) == "1":
         hane_5_7_1 = True
+    
+    if safe_pin_access(4) == "8" and safe_pin_access(6) == "8":
+        hane_5_7_8 = True
+    
     
     if safe_pin_access(7) == "4" and safe_pin_access(8) == "4":
         hane_8_9_4 = True
@@ -593,7 +598,7 @@ def pin_kodu_yorumlari_algoritmasi(pin_kodu, arti_sistemi, cinsiyet, yasam_yolu)
         pin_kodu_yorumlari.append(pin_kodu_yorumu[5][int(pin_kodu[5][0])-1])
 
     #7.hane yorumu
-    if hane_5_7_2 or hane_5_7_1 or (hane_5_6_7_9 and safe_pin_access(6) == "9"):
+    if hane_5_7_2 or hane_5_7_1 or hane_5_7_8 or (hane_5_6_7_9 and safe_pin_access(6) == "9"):
         # 5. ve 7. hane 2 ise tekrar ekleme
         pass
     elif pin_kodu[6] == "2*":

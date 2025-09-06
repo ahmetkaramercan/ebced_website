@@ -430,21 +430,49 @@ def ozellik_hesaplama(k):
         'ateş': [3, 6]
     }
     
-    # Özellik sayacı
-    sayac = {key: 0 for key in ozellikler.keys()}
+    # Rakam dizisini oluştur
     rakam_dizisi = [0,0,0,0,0,0,0,0,0]
     for i in range(0,9):
         rakam_dizisi[i] = int(k[i][0])
 
-    # Her rakamı kontrol ederek ilgili özellik sayısını artır
-    for rakam in rakam_dizisi:
-        for ozellik, degerler in ozellikler.items():
-            if rakam in degerler:
-                sayac[ozellik] += 1
+    # Her element için özellik hesaplama
+    element_ozellikleri = {}
+    
+    # Hava elementi (1, 5) için
+    hava_rakamlari = [r for r in rakam_dizisi if r in ozellikler['hava']]
+    element_ozellikleri['hava'] = {
+        'esnek': len([r for r in hava_rakamlari if r in ozellikler['esnek']]),
+        'katı': len([r for r in hava_rakamlari if r in ozellikler['katı']]),
+        'baskın': len([r for r in hava_rakamlari if r in ozellikler['Etken/Baskın']]),
+        'edilgen': len([r for r in hava_rakamlari if r in ozellikler['edilgen']])
+    }
+    
+    # Su elementi (2, 7) için
+    su_rakamlari = [r for r in rakam_dizisi if r in ozellikler['su']]
+    element_ozellikleri['su'] = {
+        'esnek': len([r for r in su_rakamlari if r in ozellikler['esnek']]),
+        'katı': len([r for r in su_rakamlari if r in ozellikler['katı']]),
+        'baskın': len([r for r in su_rakamlari if r in ozellikler['Etken/Baskın']]),
+        'edilgen': len([r for r in su_rakamlari if r in ozellikler['edilgen']])
+    }
+    
+    # Toprak elementi (4, 8) için
+    toprak_rakamlari = [r for r in rakam_dizisi if r in ozellikler['toprak']]
+    element_ozellikleri['toprak'] = {
+        'esnek': len([r for r in toprak_rakamlari if r in ozellikler['esnek']]),
+        'katı': len([r for r in toprak_rakamlari if r in ozellikler['katı']]),
+        'baskın': len([r for r in toprak_rakamlari if r in ozellikler['Etken/Baskın']]),
+        'edilgen': len([r for r in toprak_rakamlari if r in ozellikler['edilgen']])
+    }
+    
+    # Ateş elementi (3, 6) için
+    ates_rakamlari = [r for r in rakam_dizisi if r in ozellikler['ateş']]
+    element_ozellikleri['ates'] = {
+        'esnek': len([r for r in ates_rakamlari if r in ozellikler['esnek']]),
+        'katı': len([r for r in ates_rakamlari if r in ozellikler['katı']]),
+        'baskın': len([r for r in ates_rakamlari if r in ozellikler['Etken/Baskın']]),
+        'edilgen': len([r for r in ates_rakamlari if r in ozellikler['edilgen']])
+    }
 
-    result = ""
-    for ozellik, deger in sayac.items():
-        result += f"{ozellik}: {deger}    "
-
-    return result
+    return element_ozellikleri
 

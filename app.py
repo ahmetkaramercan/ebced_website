@@ -187,7 +187,17 @@ def iliski_analizi():
         dogum_gunu2 = dogum_gunu2.replace('.', ' ').replace('/', ' ')
         dogum_gunu2 = ' '.join(dogum_gunu2.split())
         
+        # Bireysel pin kodu dizilimlerini hesapla
+        k_values_1, _ = pin_kodu_hesaplama(dogum_gunu1)
+        k_values_2, _ = pin_kodu_hesaplama(dogum_gunu2)
+
+        # İlişki analizi sonuçlarını hesapla
         results = iliski_pin_kodu_hesaplama(dogum_gunu1, dogum_gunu2)
+
+        # Sonuçlara bireysel pin kodu dizilimlerini ekle
+        if isinstance(results, dict):
+            results['pin_kodu_dizilimi_1'] = k_values_1
+            results['pin_kodu_dizilimi_2'] = k_values_2
         
     return render_template('iliski_analizi.html', results=results)
 

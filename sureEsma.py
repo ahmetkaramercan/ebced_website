@@ -1,6 +1,10 @@
 import sqlite3
 import arabic_reshaper
 from bidi.algorithm import get_display
+import requests
+from bs4 import BeautifulSoup
+import re
+import time
 
 def turkce_lower(text):
     """Türkçe karakterleri doğru şekilde küçük harfe çevirir"""
@@ -23,6 +27,33 @@ def turkce_lower(text):
         result = result.replace(tr_char, lower_char)
     
     return result.lower()
+
+def format_arabic_text(arabic_text):
+    """
+    Arapça metni düzgün formata çevirir (sağdan sola yazım)
+    """
+    if not arabic_text:
+        return arabic_text
+    
+    try:
+        # Metni temizle
+        arabic_text = arabic_text.strip()
+        
+        # Arapça karakterleri kontrol et
+        if any('\u0600' <= char <= '\u06FF' for char in arabic_text):
+            # Arapça metin bulundu, düzelt
+            reshaped_text = arabic_reshaper.reshape(arabic_text)
+            formatted_text = get_display(reshaped_text)
+            print(f"Arapça metin düzeltildi: '{arabic_text}' -> '{formatted_text}'")
+            return formatted_text
+        else:
+            print(f"Arapça karakter bulunamadı, metin düzeltilmedi: '{arabic_text}'")
+            return arabic_text
+            
+    except Exception as e:
+        print(f"Arapça metin dönüştürme hatası: {e}")
+        print(f"Ham metin korundu: '{arabic_text}'")
+        return arabic_text
 
 sureler = {
     11: {"isim": "HACC", "anlam": "Zalimin zulmünden emin olmak ve zalimden kurtulmak niyetiyle okunabilir. Okuyanın hac sevabı aldığı rivayet edilir."},
@@ -751,7 +782,7 @@ esmalar = {
 
 
 def get_ebced_and_arabic(isim):
-    """Veritabanından ismin ebced değerini ve Arapça yazılışını çeker"""
+    """Veritabanından ismin ebced değerini ve Arapça yazılışını çeker. Bulunamazsa web sitesinden arar."""
     if not isim:
         print("İsim parametresi boş!")
         return None, None
@@ -769,7 +800,7 @@ def get_ebced_and_arabic(isim):
         result = cursor.fetchone()
         
         if result:
-            print(f"Bulunan sonuç: {result}")
+            print(f"Veritabanından bulunan sonuç: {result}")
             ebced_value = str(result[0]) if result[0] is not None else None
             arabic_text = result[1]
             if arabic_text:
@@ -780,15 +811,52 @@ def get_ebced_and_arabic(isim):
                     print(f"Arapça metin dönüştürme hatası: {e}")
             return ebced_value, arabic_text
         else:
-            print(f"'{isim}' için sonuç bulunamadı!")
-            return None, None
+            print(f"'{isim}' veritabanında bulunamadı! Web sitesinden aranıyor...")
+            
+            # Web sitesinden ara
+            web_ebced, web_arabic = scrape_ozgul_yildiz_ebced(isim)
+            
+            if web_ebced or web_arabic:
+                # Arapça metni düzgün formatla
+                if web_arabic:
+                    web_arabic = format_arabic_text(web_arabic)
+                
+                print(f"Web sitesinden bulunan sonuç - Ebced: {web_ebced}, Arapça: {web_arabic}")
+                return web_ebced, web_arabic
+            else:
+                print(f"'{isim}' için hiçbir kaynakta sonuç bulunamadı!")
+                return None, None
         
     except sqlite3.Error as e:
         print(f"SQLite hatası: {e}")
+        print("Veritabanı hatası nedeniyle web sitesinden aranıyor...")
+        
+        # Veritabanı hatası durumunda web sitesinden ara
+        web_ebced, web_arabic = scrape_ozgul_yildiz_ebced(isim)
+        if web_ebced or web_arabic:
+            # Arapça metni düzgün formatla
+            if web_arabic:
+                web_arabic = format_arabic_text(web_arabic)
+            
+            print(f"Web sitesinden bulunan sonuç - Ebced: {web_ebced}, Arapça: {web_arabic}")
+            return web_ebced, web_arabic
         return None, None
+        
     except Exception as e:
         print(f"Beklenmeyen hata: {e}")
+        print("Hata nedeniyle web sitesinden aranıyor...")
+        
+        # Genel hata durumunda web sitesinden ara
+        web_ebced, web_arabic = scrape_ozgul_yildiz_ebced(isim)
+        if web_ebced or web_arabic:
+            # Arapça metni düzgün formatla
+            if web_arabic:
+                web_arabic = format_arabic_text(web_arabic)
+            
+            print(f"Web sitesinden bulunan sonuç - Ebced: {web_ebced}, Arapça: {web_arabic}")
+            return web_ebced, web_arabic
         return None, None
+        
     finally:
         if conn:
             conn.close()
@@ -907,7 +975,7 @@ def akil_fikir_sayisi_hesaplama(number1, number2):
         return 0
 
 def get_name_details_from_db(isim):
-    """Veritabanından isim detaylarını çeker"""
+    """Veritabanından isim detaylarını çeker. Bulunamazsa web sitesinden arar."""
     try:
         conn = sqlite3.connect('isimler.db')
         cursor = conn.cursor()
@@ -920,10 +988,39 @@ def get_name_details_from_db(isim):
                 'ebced_degeri': result[0],
                 'arapca_yazilis': result[1]
             }
+        
+        # Veritabanında bulunamadı, web sitesinden ara
+        print(f"'{isim}' veritabanında bulunamadı! Web sitesinden aranıyor...")
+        web_ebced, web_arabic = scrape_ozgul_yildiz_ebced(isim)
+        
+        if web_ebced or web_arabic:
+            # Arapça metni düzgün formatla
+            if web_arabic:
+                web_arabic = format_arabic_text(web_arabic)
+            
+            return {
+                'ebced_degeri': web_ebced,
+                'arapca_yazilis': web_arabic
+            }
+        
         return None
         
     except Exception as e:
         print(f"Veritabanı hatası: {e}")
+        print("Web sitesinden aranıyor...")
+        
+        # Hata durumunda web sitesinden ara
+        web_ebced, web_arabic = scrape_ozgul_yildiz_ebced(isim)
+        if web_ebced or web_arabic:
+            # Arapça metni düzelt
+            if web_arabic:
+                web_arabic = format_arabic_text(web_arabic)
+            
+            return {
+                'ebced_degeri': web_ebced,
+                'arapca_yazilis': web_arabic
+            }
+        
         return None
     finally:
         if conn:
@@ -931,12 +1028,21 @@ def get_name_details_from_db(isim):
 
 def calculate_arabic_ebced(name):
     """
-    İsmin Arapça yazılışını ve ebced değerini veritabanından çeker
+    İsmin Arapça yazılışını ve ebced değerini veritabanından çeker. Bulunamazsa web sitesinden arar.
     """
     details = get_name_details_from_db(name)
     if details:
         return details['arapca_yazilis'], details['ebced_degeri']
-    return None, None
+    
+    # Eğer hala bulunamadıysa, doğrudan web sitesinden ara
+    print(f"'{name}' için web sitesinden doğrudan aranıyor...")
+    web_ebced, web_arabic = scrape_ozgul_yildiz_ebced(name)
+    
+    # Arapça metni düzgün formatla
+    if web_arabic:
+        web_arabic = format_arabic_text(web_arabic)
+    
+    return web_arabic, web_ebced
 
 
 
@@ -970,6 +1076,76 @@ def test_db_connection():
     finally:
         if conn:
             conn.close()
+
+def scrape_ozgul_yildiz_ebced(isim):
+    """
+    Özgül Yıldız websitesinden ismin ebced değerini ve Arapça yazılışını çeker
+    """
+    if not isim:
+        return None, None
+    
+    try:
+        # URL'yi oluştur
+        base_url = "https://www.ozgulyildiz.com/araclar/ebced/"
+        search_url = base_url + isim
+        
+        # User-Agent ekleyerek daha gerçekçi bir istek yap
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        
+        print(f"Web sitesinden aranıyor: {search_url}")
+        
+        # İsteği gönder
+        response = requests.get(search_url, headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        # HTML'i parse et
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Ebced değerini bul
+        ebced_element = soup.find('div', {'id': 'Sonebced'})
+        ebced_value = None
+        arabic_text = None
+        
+        if ebced_element:
+            # Ebced değerini bul
+            ebced_span = ebced_element.find('span')
+            if ebced_span:
+                ebced_text = ebced_span.get_text(strip=True)
+                # Sayısal değeri çıkar
+                ebced_match = re.search(r'\d+', ebced_text)
+                if ebced_match:
+                    ebced_value = ebced_match.group()
+                    print(f"Web sitesinden bulunan ebced değeri: {ebced_value}")
+        
+        # Arapça yazılışı bul
+        arabic_elements = soup.find_all('div', {'id': 'Sonebced'})
+        for element in arabic_elements:
+            h5_element = element.find('h5')
+            if h5_element and 'Arapça Yazılışı' in h5_element.get_text():
+                arabic_span = element.find('span')
+                if arabic_span:
+                    # HTML'den doğrudan metni al
+                    arabic_text = arabic_span.get_text(strip=True)
+                    print(f"Ham Arapça metin: {arabic_text}")
+                    
+                    # Arapça metni düzgün şekilde formatla (sağdan sola)
+                    arabic_text = format_arabic_text(arabic_text)
+                    print(f"Web sitesinden bulunan Arapça yazılış (düzeltilmiş): {arabic_text}")
+                    break
+        
+        # Rate limiting - çok hızlı istekler yapmayalım
+        time.sleep(1)
+        
+        return ebced_value, arabic_text
+        
+    except requests.RequestException as e:
+        print(f"Web sitesi isteği hatası: {e}")
+        return None, None
+    except Exception as e:
+        print(f"Web scraping hatası: {e}")
+        return None, None
 
 # Test fonksiyonunu çağır
 if __name__ == "__main__":

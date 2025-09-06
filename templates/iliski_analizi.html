@@ -66,6 +66,86 @@
     <div class="results">
         <h3>Sonuçlar:</h3>
         
+        {% if results.pin_kodu_dizilimi_1 or results.pin_kodu_dizilimi_2 %}
+        <div class="flex-row">
+            {% if results.pin_kodu_dizilimi_1 %}
+            <div class="result-section col">
+                <h4>Kişi 1 pin kodu:</h4>
+                <div class="pin-kodu-tablosu">
+                    <table>
+                        <tr>
+                            <td>{{ results.pin_kodu_dizilimi_1[0] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_1[1] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_1[2] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_1[3] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_1[4] }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi_1[5] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_1[6] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi_1[7] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi_1[8] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+
+            {% if results.pin_kodu_dizilimi_2 %}
+            <div class="result-section col">
+                <h4>Kişi 2 pin kodu:</h4>
+                <div class="pin-kodu-tablosu">
+                    <table>
+                        <tr>
+                            <td>{{ results.pin_kodu_dizilimi_2[0] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_2[1] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_2[2] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_2[3] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_2[4] }}</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi_2[5] }}</td>
+                            <td>{{ results.pin_kodu_dizilimi_2[6] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi_2[7] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>{{ results.pin_kodu_dizilimi_2[8] }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        {% endif %}
+
         <div class="result-section">
             <h4>İlişki pin kodu:</h4>
             <div class="pin-kodu-tablosu">
