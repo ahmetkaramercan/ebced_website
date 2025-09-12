@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from ebced import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
-                  bereket_rakami_bulma, ana_kulvar_bulma, yan_kulvar_bulma,
+                  bereket_rakami_bulma, tam_kulvar_bulma,
                   donusum_yillari_bulma, ozellik_hesaplama)
+from hesaplama_merkez_sayi import merkez_sayi_bulma
 from iliski_analizi import iliski_pin_kodu_hesaplama
 from sureEsma import get_ebced_and_arabic, akil_fikir_sayisi_hesaplama, dogumGunuToplama, en_yakin_esma_bul, en_yakin_sure_bul
+from text_yasam_yolu import yasam_yollari
 import os
 import arabic_reshaper
 from bidi.algorithm import get_display
@@ -155,9 +157,10 @@ def bireysel_analiz():
         arti_sistemi, chakra_result = chakra_hesapla(pin_kodu, isim_soyisim, eklenen_isim)
 
         yasam_yolu = yasam_yolu_hesapla(dogum_gunu)
+        yasam_yolu_aciklama = yasam_yollari.get(yasam_yolu, "Bu yaşam yolu için açıklama bulunamadı.")
         bereket_sayisi = bereket_rakami_bulma(dogum_gunu)
-        ana_kulvar = ana_kulvar_bulma(isim_soyisim)
-        yan_kulvar = yan_kulvar_bulma(isim_soyisim)
+        tam_kulvar = tam_kulvar_bulma(isim_soyisim)
+        merkez_sayi_sonuc, merkez_sayi = merkez_sayi_bulma(isim_soyisim)
         donusum_yillari = donusum_yillari_bulma(dogum_gunu)
         pin_kodu_ozellikleri = ozellik_hesaplama(pin_kodu)
         
@@ -167,9 +170,11 @@ def bireysel_analiz():
             'pin_kodu_yorumlari': pin_kodu_yorumlari,
             'chakra': chakra_result,
             'yasam_yolu': yasam_yolu,
+            'yasam_yolu_aciklama': yasam_yolu_aciklama,
             'bereket_sayisi': bereket_sayisi,
-            'ana_kulvar': ana_kulvar,
-            'yan_kulvar': yan_kulvar,
+            'tam_kulvar': tam_kulvar,
+            'merkez_sayi_sonuc': merkez_sayi_sonuc,
+            'merkez_sayi': merkez_sayi,
             'donusum_yillari': donusum_yillari,
             'pin_kodu_ozellikleri': pin_kodu_ozellikleri
         }
@@ -182,24 +187,54 @@ def bireysel_analiz():
 def iliski_analizi():
     results = None
     if request.method == 'POST':
+        # Form verilerini al
         dogum_gunu1 = request.form['dogum_gunu1']
         dogum_gunu1 = dogum_gunu1.replace('.', ' ').replace('/', ' ')
         dogum_gunu1 = ' '.join(dogum_gunu1.split())
+        
         dogum_gunu2 = request.form['dogum_gunu2']
         dogum_gunu2 = dogum_gunu2.replace('.', ' ').replace('/', ' ')
         dogum_gunu2 = ' '.join(dogum_gunu2.split())
+        
+        isim_soyisim1 = request.form['isim_soyisim1'].strip()
+        isim_soyisim2 = request.form['isim_soyisim2'].strip()
+        eklenen_isim1 = request.form.get('eklenen_isim1', '').strip()
+        eklenen_isim2 = request.form.get('eklenen_isim2', '').strip()
         
         # Bireysel pin kodu dizilimlerini hesapla
         k_values_1, _ = pin_kodu_hesaplama(dogum_gunu1)
         k_values_2, _ = pin_kodu_hesaplama(dogum_gunu2)
 
+        # Her kişi için çakra hesaplaması
+        arti_sistemi_1, chakra_result_1 = chakra_hesapla(k_values_1, isim_soyisim1, eklenen_isim1)
+        arti_sistemi_2, chakra_result_2 = chakra_hesapla(k_values_2, isim_soyisim2, eklenen_isim2)
+
+        # Her kişi için yaşam yolu ve merkez sayı hesaplaması
+        yasam_yolu_1 = yasam_yolu_hesapla(dogum_gunu1)
+        yasam_yolu_2 = yasam_yolu_hesapla(dogum_gunu2)
+        
+        merkez_sayi_sonuc_1, merkez_sayi_1 = merkez_sayi_bulma(isim_soyisim1)
+        merkez_sayi_sonuc_2, merkez_sayi_2 = merkez_sayi_bulma(isim_soyisim2)
+
         # İlişki analizi sonuçlarını hesapla
         results = iliski_pin_kodu_hesaplama(dogum_gunu1, dogum_gunu2)
 
-        # Sonuçlara bireysel pin kodu dizilimlerini ekle
+        # Sonuçlara bireysel pin kodu dizilimlerini ve çakra bilgilerini ekle
         if isinstance(results, dict):
             results['pin_kodu_dizilimi_1'] = k_values_1
             results['pin_kodu_dizilimi_2'] = k_values_2
+            results['chakra_1'] = chakra_result_1
+            results['chakra_2'] = chakra_result_2
+            results['isim_soyisim1'] = isim_soyisim1
+            results['isim_soyisim2'] = isim_soyisim2
+            results['eklenen_isim1'] = eklenen_isim1
+            results['eklenen_isim2'] = eklenen_isim2
+            results['dogum_gunu1'] = dogum_gunu1
+            results['dogum_gunu2'] = dogum_gunu2
+            results['yasam_yolu_1'] = yasam_yolu_1
+            results['yasam_yolu_2'] = yasam_yolu_2
+            results['merkez_sayi_1'] = merkez_sayi_1
+            results['merkez_sayi_2'] = merkez_sayi_2
         
     return render_template('iliski_analizi.html', results=results)
 

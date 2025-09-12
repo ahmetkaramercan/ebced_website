@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <h2>EBCED HESAPLAMA</h2>
+    <h2>NUMEROLOJİ-EBCED HESAPLAMA</h2>
     
     <div class="tabs">
         <a href="{{ url_for('bireysel_analiz') }}" class="tab active">Bireysel Analiz</a>
@@ -42,6 +42,18 @@
         <div class="result-section">
             <h4>Yaşam Yolu:</h4>
             <p>{{ results.yasam_yolu }}</p>
+        </div>
+
+        <div class="result-section" style="background-color: #ffffff;">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Yaşam Yolu Açıklaması
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <pre>{{ results.yasam_yolu_aciklama | safe }}</pre>
+                </div>
+            </div>
         </div>
 
         <div class="result-section">
@@ -128,18 +140,57 @@
         </div>
 
         <div class="result-section">
-            <h4>Ana Kulvar:</h4>
-            <p>{{ results.ana_kulvar }}</p>
+            <h4>Merkez Sayı / Ana kulvar: (ek isim dahil değil)</h4>
+            <p><strong>{{ results.merkez_sayi }}</strong></p>
+            <div>
+                <pre>{{ results.merkez_sayi_sonuc }}</pre>
+            </div>
         </div>
 
         <div class="result-section">
-            <h4>Yan Kulvar:</h4>
-            <p>{{ results.yan_kulvar }}</p>
+            <h4>Tam Kulvar: (Bütün harflerin toplamı)</h4>
+            <p>{{ results.tam_kulvar }}</p>
         </div>
+
+        
 
         <div class="result-section">
             <h4>Dönüşüm Yılları:</h4>
             <pre>{{ results.donusum_yillari }}</pre>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Dönüşüm Yılları Bilgi:
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <pre>Dönüşüm yılları:
+    Bir kişi uzun zamanlarda bir dönüşüm yaşıyorsa ya da aynı aralıkta aynı sayı ile dönüşüyorsa bu kişinin inatçı olduğunu, zoor öğrendiğini, kabul etmek istemediğini gösterebilir. aynı zamanda o haneden çok çetin zor bir imtihan yaşıyor ve orayı atlatamıyor olabilir. Tekrar tekrar üzerinden geçiyor olabilir.
+
+    Eğer kişi 3-5 yılda bir dönüşüm yaşıyor ise bu kişi daha kolay bir öğrenme kabiliyetine sahiptir. Dönüşüm yılları o yılın içinde kendi doğum tarihimizden sonra geçerli olmaya başlar. 11/2* ya da 22/4* gibi sayılar çıktığı zaman extra zorluk demektir.
+
+    1 ile dönüşüm: Liderlik, eril enerji, kök çakra ve iskelet sistemi, kendini görme, doğum ( 1 anneyi bedenen zorlamış) , evlenme, boşanma, manevi bir alana girme, mal-mülk alma, toprak alma demektir. (parayı kazanacak demektir.)
+
+    2 ile dönüşüm: Dişil enerji, üretim, doğurganlık , cinsellik ,sevgi sevgi enerjisi, aşık olma potansiyeli platonik aşk, kişi duygusal bir dönemdedir, duygusal yaklaşmak gerekir, ortaklık kurmak da demektir. sevgi arayışı, Dişi figürlerden destek görme (anne-abla-arkadaş).
+
+    3 ile dönüşüm: 3 dönüşüm yılında kişi keyifli muhabbetlerden hoşlanır. Medyatik işler, iletişim, sanal alem, sosyal medya, bakış açısı. Meslek sahibi olma, iletişim yönünde dilini şikayetten ve yakınmaktan korumalı, kusur ve eleştiren kaçınılmalı. Eğer 3'ün pozitif yanını yaşamak istiyorsa dilini insanların iyiliğine kullanmalı.
+
+    4 ile dönüşüm: Genel olarak 4 yıllarımız da zorlanırız. Ruhumuzda yer alan bir hasar olursa ruhen dönüşüm yaşarız. Zorlandırığımız yıllarda ya 4 etkisi vardır ya da açan hanede 4 etkisi vardır illa dönüşüm yaşamak zorunda değiliz. Sabır, sebat, zorlanma, öğrenme, eğitim. Bu dönüşüm yılındaysa kişi ciddi olarak konuşmalı ve uzatmadan özet olarak söylemeli kişi sabırsızdır. yıkım ve yeniden düzen kurma yılıdır, kişinin sorumlulukları artar yeniden bir düzen kurar. Mesela, kişinin babasının hastalıkları artabilir, ağır bir rahatsızlık geçirebilir.
+
+    5 ile dönüşüm: Şükür enerjisi, sevgi enerjisi, yükseliş. Gezme tozma, keyif, eğlence, bolca alışveriş yapma, para harcama, farklı farklı kültürler tanıma. Kişiye iş olarak yükseliş ve başarı da verebilir. (Kişinin 5. Çakrası nasıl nasıl çalışıyor ve pin kodunun 5. Hanesinde hangi rakam olduğu çok önemlidir.) Aynı zamanda bu yükseliş mabinevi anlamda da olabilir. 5 dönüşüm yıllarında kişinin kendini eve kapatıp isyan etmeye meyilli vardır. O yüzden dikkat etmeli , şükür enerjisinden kalmalı. Dönüşüm yılları ardı ardına 5 çıkıyorsa kişinin olaylara pozitif yanıyla bakması, şükür konusunda ekstra dikkat etmesi ve bu yaşadığım olay beni ne kadar yükseltti uyandırdı diye sorgulaması iyi yanından bakması gerekir. 5 sayısının pozitif dönüşüm / negatif dönüşüm etkisi vardır bu ayrıma kişinin hangi sayılarla ve pin kodunda 5. Haneye ardından 5. Çakrasına bakarak yorum yapılır. 14/5 ile dönüşüm yaşıyor ise 4 öğrenmek 1 bireysel 5 eğlenerek öğrenmek diye yorumlayabiliriz.
+
+    6 ile dönüşüm: Sorumluluk alma, evlilik, çocuk. Ailesinden, babasından, hanımından, çocuğundan, evlenme potansiyeline bahsedeceğiz. (Kişi genç ise doğum hamilelik-doğum olabilir) bir şey kurmak, bir şey başlatmak, aşk ihtimali. Doğum, kayıp, ölüm, baba ile imtihan.
+
+    7 ile dönüşüm: Huzur ve arayıştır. Maneviyat olarak kendi içine çekil, kendini tanı, özün dön, kalabalıklar içinde kendini yalnız hissetme, bireysel başarıya önem verilmeli. Aynı zamanda spiritüel alanlara yönelme. 7 yılında altına imza attığın her şeye dikkat et. Davet edildiği her yere katılmaya özen göster, her davette bir fırsat yakalayabilirsin. Yaptığın iyiliklerin karşılığını o yıl bekleme bir sonraki yıl fazla fazla alırsın. Maddi olarak karşılığı az olan işlerde dahi yardım et ve bir sonraki yıl karşılığını bekle. Kişi ne istiyor karar vermeli, yardım kuruluşlarında gönüllü yer alabilir. Kendi içine çekilip maneviyatını güçlendirebilir. Para istiyor ise yatırım yapmalı ama para akışı bir sonraki yıl artar. Pin kodunda 7. Hane 3 ile açılıyorsa iletişim anlamında, ortaklı iş yapma, sözleşmeler, her davete katılma konusunda çalışır.
+
+    8 ile dönüşüm: Ruh, güç, otorite, korunma, makam-mevkii, şöhret, bereket, para-pul, aynı zamanda yer değişikliği de olabilir. Bir yıl öncesinden ne verdiysen katlayarak sana geri verir. Eğer bir önceki yılı yanlış değerlendirdiysen 8 yılı yıkım olabilir, maddi zarar olabilir. İyi değerlendirdiysen bol kazanç ve yükseliş yaşarsın. Bir iş yeri başka şubeler açabilir ya da yeni bir iş yeri açma, yeni bir işte yükselme çok karlı projeler yaparak yüklü kazançlar olabilir.
+
+    9 ile dönüşüm: Kişiye şifalanacağı alanlardan bahsedebiliriz, bitişler ve kayıplar olabilir, bitiş demektir. Sınırları korumak ile alakalıdır. 9 dönüşüm yılında yeni bir işe başlanacak eğer kişinin pin kodunda 9. haneye bakarız eğer 1 varsa o kişi için olumludur benlik, bireysellik, liderlik konusunda şifalanma diyebiliriz. Düzenli olarak tahliller yaptırmasını, ihtiyacına göre tedavilere yönelerek ( hacamat, sülük, bilinçaltı vb.) şifalanabilir gibi tavsiyeler verebiliriz.
+    
+    NOT: Kişinin dönüşüm yılındaki rakamın pin koduna ve çakra dağılımdaki + lara bakarsak çok daha detaylı bilgiye ulaşabilirsiniz.
+                    </pre>
+                </div>
+            </div>
         </div>
 
         <div class="result-section">
@@ -149,8 +200,10 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th colspan="2">esnek-katı</th>
-                            <th colspan="2">baskın-edilgen</th>
+                            <th >esnek</th>
+                            <th >katı</th>
+                            <th >baskın</th>
+                            <th >edilgen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -383,15 +436,69 @@ function toggleAccordion(button) {
     overflow: hidden;
     transition: max-height 0.3s ease-out;
     background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
 }
 
 .accordion-item.active .accordion-content {
     padding: 15px;
-    max-height: 1000px; /* Yeterince büyük bir değer */
+    max-height: none; /* İçeriğin tamamını göster */
+    height: auto;
 }
 
 .accordion-item.active .accordion-icon {
     transform: rotate(180deg);
+}
+
+.accordion-content pre {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.result-section pre {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background-color: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 6px;
+}
+
+.mizac-tablosu {
+    margin: 10px 0;
+    overflow-x: auto;
+}
+
+.mizac-tablosu table {
+    border-collapse: separate;
+    border-spacing: 6px;
+    margin: 0;
+    width: 100%;
+    max-width: 650px;
+}
+
+.mizac-tablosu td {
+    padding: 4px 7px;
+    text-align: center;
+    font-size: 1em;
+    min-width: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+.mizac-tablosu th {
+    padding: 3px 6px;
+    text-align: center;
+    font-size: 0.8em;
+    font-weight: bold;
+    min-width: 30px;
 }
 </style>
 {% endblock %} 

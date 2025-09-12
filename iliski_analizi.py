@@ -31,7 +31,7 @@ def ebced_toplama(*args):
     
     return str(total_sum)
 
-def iliski_pin_kodu_hesaplama(dogum_tarihi1, dogum_tarihi2, isim1="", isim2=""):
+def iliski_pin_kodu_hesaplama(dogum_tarihi1, dogum_tarihi2, isim1="", isim2="", ek_isim1="", ek_isim2=""):
     # Doğum tarihi 'gg aa yyyy' formatında olmalıdır.
     # Doğum tarihini gün, ay ve yıl olarak ayır
     gun1, ay1, yil1 = dogum_tarihi1.split(' ')
@@ -90,36 +90,11 @@ def iliski_pin_kodu_hesaplama(dogum_tarihi1, dogum_tarihi2, isim1="", isim2=""):
     yasam_yolu1 = yasam_yolu_hesapla(dogum_tarihi1)
     yasam_yolu2 = yasam_yolu_hesapla(dogum_tarihi2)
     
-    # Çakra analizleri
-    chakra1 = chakra_hesapla(k1, isim1) if isim1 else []
-    chakra2 = chakra_hesapla(k2, isim2) if isim2 else []
+    # Çakra analizleri (ek isimleri dahil ederek)
+    _, chakra1 = chakra_hesapla(k1, isim1, ek_isim1)
+    _, chakra2 = chakra_hesapla(k2, isim2, ek_isim2)
     
-    # Sonuçları tek satırda yazdır
-    print("İLİŞKİ ANALİZİ SONUÇLARI:")
-    print("=" * 80)
-    
-    # Kişi 1 bilgileri
-    print(f"KİŞİ 1 - İsim: {isim1}, Doğum: {dogum_tarihi1}")
-    print(f"Pin Kodu: {' '.join(k1)}")
-    print(f"Yaşam Yolu: {yasam_yolu1}")
-    if chakra1:
-        chakra_str1 = " | ".join([f"{c['left_plus']}{c['number']}{c['right_plus']}" for c in chakra1])
-        print(f"Çakra: {chakra_str1}")
-    print("-" * 40)
-    
-    # Kişi 2 bilgileri
-    print(f"KİŞİ 2 - İsim: {isim2}, Doğum: {dogum_tarihi2}")
-    print(f"Pin Kodu: {' '.join(k2)}")
-    print(f"Yaşam Yolu: {yasam_yolu2}")
-    if chakra2:
-        chakra_str2 = " | ".join([f"{c['left_plus']}{c['number']}{c['right_plus']}" for c in chakra2])
-        print(f"Çakra: {chakra_str2}")
-    print("-" * 40)
-    
-    # İlişki pin kodu
-    print(f"İLİŞKİ PİN KODU: {' '.join(k)}")
-    print("=" * 80)
-
+    # Sonuçları döndür
     return {
         'k': k,
         'kisi1': {
