@@ -246,6 +246,23 @@
                 </table>
             </div>
         </div>
+
+        {% if results.pin_kodu_yorumlari %}
+        <div class="result-section" style="background-color: #ffffff;">
+            <h4>Pin Kodu Yorumları:</h4>
+            {% for yorum in results.pin_kodu_yorumlari %}
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    {{ loop.index }}. Hane Yorumu
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    {{ yorum | safe }}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
         {% if results.pin_kodu_dizilimi_1 or results.pin_kodu_dizilimi_2 %}
         <div class="flex-row">
             {% if results.pin_kodu_dizilimi_1 %}
