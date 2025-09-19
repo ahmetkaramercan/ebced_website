@@ -20,7 +20,7 @@ iliski_analizi_metinleri = [
         "Bu ilişkideki bireyler birbirlerine üstünlük sağlamak isteyebilirler veya birlikte hayata tutunmak için bir araya gelmiş olabilirler. Auralarını korumaları çok önemlidir Nazar negatif enerji olumsuz haller noktasında dikkat ederek güzel hallerini çevreyle paylaşmamalıdırlar.",
         "Bu ilişkinin amacı bağışlama, iyileştirme ve tamamlanmadır. Birbirinize iyi gelirsiniz fakat özgürlük isteği ve sınırsız davranışlar ilişkiyi zorlayabilir. Sorumluluk bilincini geliştirmek, geçmişten ders almak ve sağlıklı sınırlar koymak bu bağı olgunlaştırır. Şefkat, saygı ve kabul ile ilişki tamamlanma noktasına ulaşır.",
         #11
-        "Bu ilişkideki bireyler birbirlerini sever duygularını birbirleriyle paylaşırlar. Tarafların birbirine karşı güzel duyguları vardır. Bu ilişki karşılıklı şefkat ve anlayışı büyütür.  Fakat eğer bu sayı olumsuzdaysa (11den 2) ve bireylerin sakral çakraları tıkalıysa duygularını ifade edemeyecekleri için değersiz hissedebilirler ve duygusal krizleri olabilir( bireysel analizlerinde de 11den 2ler varsa). Ben değil biz olmayı öğrenirlerse aşarlar."
+        "Bu ilişkideki bireyler birbirlerini sever duygularını birbirleriyle paylaşırlar. Tarafların birbirine karşı güzel duyguları vardır. Bu ilişki karşılıklı şefkat ve anlayışı büyütür.  Fakat eğer bu sayı olumsuzdaysa (11den 2) ve bireylerin sakral çakraları tıkalıysa duygularını ifade edemeyecekleri için değersiz hissedebilirler ve duygusal krizleri olabilir(bireysel analizlerinde de 11den 2ler varsa). Ben değil biz olmayı öğrenirlerse bu durumu aşarlar. Sakral çakra açıksa bu hanenin olumlu özelliklerini yaşarlar."
     ],
     [#2
         "Bu ilişkide olan bireyler dışarıya güçlü bir izlenim verir. Bu güçlü izlenim daha gelişmesi kendi ayakları üzerinde durması için bilinçaltlarını kontrol etmeyi öğrenmelidir. ",
@@ -128,7 +128,17 @@ iliski_analizi_metinleri = [
     ],
 ]
 
-
+iliski_analizi_metinleri_baslik = [
+    "1.HANE: İlişkinin temel enerjisi, ilişkinin özünü ve dinamiğini belirler.",
+    "2.HANE: Dışarıya yansıma, ilişkinin toplumsal görünümünü ve duygusal beslenmesini gösterir.",
+    "3.HANE: İletişim, Ortak Hedefler ve Üretim. Birlikte çalışma üretme ve ifade etme biçimlerini ortaya koyar.",
+    "4.HANE: Sabır, Güven ve Destek Noktası. ilişkinin kurallarını, dayanıklılığını ve sağlam temelini temsil eder. Kişilerin birbirlerine destek olduğu/olması gerektiği yeri gösterir.",
+    "5.HANE: Kriz Anındaki Tepki, Zaaf ve haz. İlişkideki bireylerin kriz anlarında verdiği ilk tepkiyi, ilişkinin hassas noktasını ve birlikte yaşanan keyifli deneyimleri yansıtır(o çakra olumluya dönüştüğünde).",
+    "6.HANE: Çocuk, Ebeveynlik ve Aile Temeli. İlişkide şefkat, sorumluluk ve aile kurma dinamiklerini gösterir; ebeveynlik rolünü ve koruma alanlarını yansıtır. Ailedeki alınan sorumluluk türünü de verebilir.",
+    "7.HANE: Manevi Doyum ve Gelişim Alanı. İlişkinin ruhsal boyutunu, derin anlam arayışını ve manevi beslenme ihtiyacını ortaya koyar.",
+    "8.HANE: Aura, Bereket ve Üretim Enerjisi. İlişkinin dışarıya yaydığı enerjiyi, maddi-manevi bereketi ve ortak üretim gücünü temsil eder.",
+    "9.HANE: Hedef, Kadersel Amaç ve Derin Bağ. İlişkinin varmak istediği son noktayı, ortak misyonunu ve kadersel bağını ifade eder."
+]
 
 def ebced_toplama(*args):
     """
@@ -223,7 +233,12 @@ def iliski_pin_kodu_hesaplama(dogum_tarihi1, dogum_tarihi2):
                 sayi = int(deger[0]) if deger and deger[0].isdigit() else 0
                 sayi = 1 if sayi < 1 else (9 if sayi > 9 else sayi)
                 idx = sayi - 1
-            pin_kodu_yorumlari.append(iliski_analizi_metinleri[i][idx])
+            
+            # Hane açıklaması + yorum formatında birleştir
+            hane_aciklamasi = iliski_analizi_metinleri_baslik[i]
+            yorum = iliski_analizi_metinleri[i][idx]
+            formatli_yorum = f"{hane_aciklamasi}\n\n{yorum}"
+            pin_kodu_yorumlari.append(formatli_yorum)
         except Exception:
             pin_kodu_yorumlari.append("")
 

@@ -93,7 +93,9 @@ pin_kodu_yorumu = [
         "Aile ve baba figürüyle ilişkilerde sorumluluk yükünü ağır hissetmeye eğilimli bir yapıyı gösterir. Kişi, aile içinde ve ailesi olarak gördüğü insanlara karşı fazla kontrolcü ve müdahaleci davranabilir, boşlukları kendisi doldurmaya çalışabilir ve bu durum ilişkilerde gerilim yaratabilir. Aşırı korumacılık ve çatışma eğilimi, özellikle otorite figürleriyle ilişkilerde belirginleşir. Duygusal esneklik geliştirilmezse, bu tavır hem aile hem de çevrede sorunlara yol açabilir. Olumlu yön olarak, başkalarını koruma ve destekleme isteği, insan yetiştirme veya rehberlik gerektiren alanlarda başarı sağlar.",
         "Baba figüründe dişil bir enerji olabilir. Ya da kişi, ailede “anne” rolünü üstlenmiş olabilir. Ailede manevi temalar baskındır, ancak bu ruhsallık ve maneviyat bazen kaçış halini alabilir. Gerçek sorunlarla yüzleşmek yerine idealleştirme eğilimi vardır. Kişinin ailedeki rollerle kendi kimliğini ayırt etmesi gerekir. Bu insanlarda ailevi ve yakın ilişkilerinde tatmin olamama ve beklentiye girme durumları olabilir. Bunun bilincinde hareket etmeli. Tatminsizlik oluştuğunda, beklentiyi bırakmalı, kanaatkar olmalı, bardağın dolu tarafını görmeli,  ve maneviyatını güçlü tutmalı.",
         "Aileyle, özellikle babayla maddi ilişkiler öne çıkabilir. Parasal konularla aile içi bağlar iç içe geçmiş olabilir. Eğer kişinin babasıyla arası iyi değilse bolluk ve bereket enerjisi akmaz. Güç ve para ilişkileri üzerinden sevgi tanımı oluşmuş olabilir. Aileyle iyi geçinmek, sadece duygusal değil, enerjisel ve parasal düzeyde de bir açılım sağlar. Ailevi ve yakın ilişkilerinizde otoriter ve baskın olabilirsiniz.  Babayla arası iyiyse babadan parasal destek görebilir. Çoğu zaman bu kişi, babasının mesleğine benzer bir alana yönelir ya da babanın iş anlayışı, vizyonu, yöntemleri üzerinde güçlü bir etkide bulunur.",
-        "Aile içinde, babasıyla veya otoriteyle sınır problemleri yaşayabilir. Kendi alanını korumakta zorlanır. Bu alanda hayır öğrenmesi gerekir.  Suistimal ya da aşırı fedakârlık döngüsü görülebilir. Aile ilişkilerinde şifa ancak net sınırlarla mümkün olur. Kendi bireysel alanını belirlemeden ilişkilerde huzur bulması zordur."
+        "Aile içinde, babasıyla veya otoriteyle sınır problemleri yaşayabilir. Kendi alanını korumakta zorlanır. Bu alanda hayır öğrenmesi gerekir.  Suistimal ya da aşırı fedakârlık döngüsü görülebilir. Aile ilişkilerinde şifa ancak net sınırlarla mümkün olur. Kendi bireysel alanını belirlemeden ilişkilerde huzur bulması zordur.",
+        #11
+        "Bu hanedeki 11/2 açılımı aile ve babayla ilgili derin duygusal krizler taşır; çocuklukta eksik kalan sevgi yetişkinlikte onay arayışına ve duygusal bağımlılık eğilimine dönüşebilir. Baba figürünün koşullu sevgi ve manipülasyonları (“bunu yaparsan seni severim”) güven duygusunu zedelemiş, sınır koymayı zorlaştırmıştır. Bunun sonucu olarak ilişkilerde kararsızlık, duygusal yorgunluk ve sık sık kendini değersiz hissetme görülebilir. Öte yandan 11 enerjisi inatçı bir kararlılık ve vizyon verir; hayallerine tutunma, dirayet ve hedefe odaklanma kapasiteniz yüksektir. En güçlü yeteneğiniz, empati ve sezgisel anlayışınızı kullanarak başkalarına rehberlik edebilmenizdir — fakat bunun sürdürülebilir olması için net sınırlar koyup gerektiğinde “hayır” demeyi öğrenmelisiniz.",
     ],
     [  # 7. hane - ANNE, İMAN
         "Kişi anneye benzeyebilir. Kökten gelen sorunları ancak güçlü bir iradeyle aşabilir. Anneyle ilişkisi ya mesafelidir ya da rekabetlidir. Bu kişi için “kendi ayakları üzerinde durmak” temel inanç haline gelmiştir. Maneviyatı güçlenmeden içsel huzura ulaşması zordur. Kişiye manevi aktarımlar vardır.",
@@ -104,7 +106,7 @@ pin_kodu_yorumu = [
         "Kendini ailesine veya çevresine “anne” gibi konumlandırabilir. Başkalarını kurtarma eğilimindedir. Sorumluluk bilinci yüksek ama bu onu duygusal olarak yalnız bırakabilir. Sezgisel rehberdir. Gerçekten dinlemeyi bilen, koruyucu ve dönüştürücü bir figür olabilir.",
         "Bu hanede 7 olması zordur. Kişi çoğu zaman inanç krizi yaşar. Kendine, hayata, sisteme ya da Yaratıcıya güven duymakta zorlanabilir. Melankoli ve yalnızlık hissi baskındır. Tahkiki iman geliştirirse, çok güçlü bir içsel merkez kurar. Derin bilgi ve manevî sezgi ile donanır.",
         "Bu hanedeki 8 rakamı aura problemini verir. Bu insanlar doyumu; otorite, güç ve maddi mutlulukla özdeşleştirme hatasına düşebilir. Sahip olmak, yönetmek, kazanç elde etmek ve konfor alanları yaratmak önceliklidir. Zaafı da budur. Bu durum, çevrenize karşı baskıcı ve zorlayıcı davranışlara yol açabilir. farkında olmadan insanları kırabilirsiniz.  Aura problemini çözerlerse girişimci ve fırsatları değerlendiren bir yapıya sahiptir. Ayet el kürsi önerilir. ",
-        "Sürekli sınır ihlallerine açık olabilir (Anne müdahalesine dikkat). Anneyle ya da kadın figürlerle arasındaki sınır çizgileri bulanıktır. Ya aşırı teslim olur ya da tamamen uzaklaşır. Ruhsal sezgileri ve temiz kalbiyle gerçek maneviyatı deneyimlemeye açıktır. Şifacı potansiyeli güçlüdür."
+        "Sürekli sınır ihlallerine açık olabilir (Anne müdahalesine dikkat). Anneyle ya da kadın figürlerle arasındaki sınır çizgileri bulanıktır. Ya aşırı teslim olur ya da tamamen uzaklaşır. Ruhsal sezgileri ve temiz kalbiyle gerçek maneviyatı deneyimlemeye açıktır. Şifacı potansiyeli güçlüdür.",
         #11
         "11/2 kişinin ilişkiler ve doyum konularında en büyük imtihanını simgeler. Bağ kurma yeteneği yüksek olsa da, sevgi ve ilgi açlığı kolayca bağımlılığa dönüşebilir. Anneyle güçlü ya da zayıf bağlar, yetişkinlikte tatminsizlik ve sürekli beslenme beklentisi yaratır. Dışarıya pek belli etmses de duygusal krizleri ve patlamaları ilişkilerde sağlıksız döngülere yol açabilir. Kişi bazen başkalarının duygularını anlamak yerine kendi kurgusuna göre tepki verebilir; bu durum hem özel hem iş yaşamında kriz ve baskıcı tavırlara neden olur. İçsel şükür ve tatmin gelişmediğinde sürekli boşluk hissi yaşar. Ailenin ve geçmişteki dişil figürlerin travmalarını anlamak ve şifa yöntemleriyle işlem yapmak ve sakral çakrayı iyileştirmek, bu döngüyü kırmada önemlidir."    
     ],
@@ -128,10 +130,15 @@ pin_kodu_yorumu = [
         "Üretme, düzen kurma, disiplin ve kararlılık enerjisini temsil eder. Bu hane, kaos içinde düzen oluşturmak ve zorluklar karşısında yılmadan ilerlemekle ilgilidir. Hayat amacınız, üretmek, aktarmak ve kendi yeteneklerinizi hem kendiniz hem toplum için değerli kılmaktır; bunu yaparken onay aramak yerine kendinizi gerçekleştirmek önemlidir. Disiplin ve organizasyon sırasında, bazen başkalarının kendilerini baskı altında hissetmeleri mümkündür; duygusallığınızı kontrol ederek ve öfkenizi yöneterek bu süreci daha uyumlu kılabilirsiniz. Kendinizi tanımak, olumsuz yönlerinizi dönüştürmek ve iletişimde incelikli davranmak, hem kişisel hem de toplumsal başarınızı destekler. Sorumluluklarınızı yerine getirirken öngörülü olmak ve planlı hareket etmek, bu hanenin amacını en verimli şekilde yaşamanızı sağlar",
         "Sabrı ve derin anlayış enerjisini temsil eder. Esneklik, olgunluk ve sabır, bu hanenin hayat boyu öğrenmesi gereken temel değerleridir. Kurallara ve kendine karşı katı olma eğilimi, ilerlemenizi zaman zaman zorlaştırabilir; bu nedenle kendinize karşı yumuşamayı öğrenmek önemlidir. Olgunluk ve sabırla birleştiğinde hem kendi yolunuzu hem de başkalarına rehberlik etme kapasitenizi güçlendirir. Bu hane, hem kendi hem de başkalarının yaşam yollarında işaretleri okuyabilme ve büyük resmi görebilme yeteneği verir. Araştırma ve keşif sırasında merakınızı dengede tutmak, başkalarının yaşamına aşırı müdahale etmeden yönlendirme yapmak gerekir. Hayat amacınız, öğrenme ve keşfetme sürecinde dengeyi koruyarak başkalarına farkındalık kazandırmak ve doğru yönlendirmeler sunmaktır. Maneviyatınızı güçlendirmek, dualar ve içsel farkındalıkla bu enerjiyi en verimli şekilde kullanmanızı sağlar.",
         "Yenilik, özgürlük ve devrim yaratma enerjisini temsil eder. Bu hane, sorunlara yaratıcı çözümler bulmayı, yenilikçi düşünmeyi ve gerektiğinde cesur adımlar atmayı teşvik eder. Hayat amacınız, konfor alanınızdan çıkarak yeni şeyler keşfetmek, deneyimlemek ve insanlara özgürlüğü öğretmektir. İnsanları etkileme ve bir araya getirme beceriniz, devrim niteliğinde değişimler başlatmanızı sağlar. Bununla birlikte, aşırı sivri dilli kontrolcü, veya asi olma eğiliminizi dengelemek, ilişkilerde ve yaşam yolunda daha başarılı olmanıza yardımcı olur. Özgürlüğün sınırlarını ve sorumluluklarını bilmek, hatalardan öğrenmek ve bağımlılıklardan arınmak, bu hanenin enerjisini dengeli ve verimli kullanmanızı sağlar.",
-        "Denge, sezgiler ve sorumluluk enerjisini temsil eder. Hayat amacınız, hem kendi yaşamınızı hem de başkalarının yaşamlarını güzelleştirerek dengeli bir yol izlemektir. İnsanlara, hayatlarında dengeyi bulmaları ve zevkleri ölçülü şekilde deneyimlemeleri konusunda rehberlik edebilirsiniz. Sezgilerinizi fark etmeli ve onlara kulak vermelisiniz. Bu süreçte, aşırı ilgi veya zevke kapılmamak ve kıskançlık eğilimlerini kontrol altında tutmak önemlidir. Sorumluluklarınızı dengeli üstlenmeyi öğrenmek, kendinizi tüketmeden başkalarına katkı sağlamanızı mümkün kılar ve kurban psikolojisine girmenizi engeller. İçsel korkularınızı ve endişelerinizi farketmez ve yönetmek, bu hanenin enerjisini bilinçli ve verimli kullanmanızı sağlar. Böylece hem toplumsal hem de kişisel yaşamınızda olumlu ve kalıcı etkiler yaratabilirsiniz.",        
+        "Denge, sezgiler ve sorumluluk enerjisini temsil eder. Hayat amacınız, hem kendi yaşamınızı hem de başkalarının yaşamlarını güzelleştirerek dengeli bir yol izlemektir. İnsanlara, hayatlarında dengeyi bulmaları ve zevkleri ölçülü şekilde deneyimlemeleri konusunda rehberlik edebilirsiniz. Sezgilerinizi fark etmeli ve onlara kulak vermelisiniz. Bu süreçte, aşırı ilgi veya zevke kapılmamak ve kıskançlık eğilimlerini kontrol altında tutmak önemlidir. Sorumluluklarınızı dengeli üstlenmeyi öğrenmek, kendinizi tüketmeden başkalarına katkı sağlamanızı mümkün kılar ve kurban psikolojisine girmenizi engeller. İçsel korkularınızı ve endişelerinizi fark etmek ve yönetmek, bu hanenin enerjisini bilinçli ve verimli kullanmanızı sağlar. Böylece hem toplumsal hem de kişisel yaşamınızda olumlu ve kalıcı etkiler yaratabilirsiniz.",        
         "Ruhsal derinlik, sezgi ve gizemli bilgi enerjisini temsil eder. Hayat yolunuzun ana teması, içsel tatmini ve gerçek huzuru içeride aramayı öğrenmek, inançlarınızı test ederek derin bir ruhsal olgunluğa ulaşmaktır. Evrenin sırlarını keşfetmek ve bunları sanat veya diğer yaratıcı yollarla başkalarına aktarmak sizin görevinizdir. Mahremiyetinize ve başkalarının sınırlarına saygı gösterirken, bireyselliği ve güveni öğretmek önemlidir. Bitmek bilmeyen arayışlar ve güvensizlikler, bu süreçte sizi zaman zaman geriye çekebilir; bunları fark edip dengelediğinizde, yaşam yolunuzda çok daha etkili ve zahmetsiz ilerlersiniz. Gerçekten ne istediğiniz anlamak ve farkındalığınızı artırmak  bu hanenin enerjisini dengeli ve etkili şekilde kullanmanızı sağlar.",
         "Maddi başarıyı ,sistem kurmayı ve otorite enerjisini ve aurayı temsil eder. Hayat amacınız, bu gücü bilinçli ve doğru bir şekilde yönetmektir. Bu enerji, liderlik yapmanızı, hedeflere ulaşmanızı ve çevrenizde sağlam yapılar kurmanızı sağlar. İnsanları bir araya getirme, sınırlar çizme ve sorumluluk alma beceriniz güçlüdür; ancak aşırı yüklenmek veya kontrolcü tutum geliştirmek sizi zorlayabilir. Kendinizi ve kaynaklarınızı dengede tutarak, hayır demeyi öğrenmek ve aşırı yüklerin altına girmemek ve aura alanınızı pozitifte tutmak yaşam yolunda daha verimli ve başarılı olmanızı sağlar. Otoritenizi ruhsal değerlerle birleştirdiğinizde ve aura alanınızı koruduğunuzda, güçlü bir vizyoner olabilirsiniz. Ama bu güç doğru niyetle yönlendirilmezse kontrolcü, aşırı hırslı ve doyumsuz bir kişiliğe dönüşebilirsiniz.",
-        "Sınırları, öğrenme ve şifa enerjisini temsil eder. Hayat amacınız, sahip olduğunuz bilgeliği ve yetenekleri hem kendiniz hem de başkaları için faydalı şekilde kullanmaktır. İnsanlara güvenmeyi, hayallerinin peşinden gitmeyi ve kendi potansiyellerini keşfetmelerini öğretmek sizin görevleriniz arasındadır. Şifa potansiyeliniz yüksek olsa da, öncelikle kendi içsel yaralarınızı sarmayı ve kişisel sınırlarınızı korumayı öğrenmeniz önemlidir. Aşırı inatçılık ve sabit fikirli tutumlardan kaçınmak, enerjinizi verimli kullanmanızı sağlar. Kendi yaralarınızı iyileştirdiğinizde, hem kendinize hem de topluma ruhsal hizmet sunabilecek olgunluk ve bilgelik geliştirirsiniz. Maneviyatınızı güçlendirmek ve başkalarına yardım ederken dengeyi korumak, bu hanenin enerjisini en etkili şekilde yaşamanızı mümkün kılar."
+        "Sınırları, öğrenme ve şifa enerjisini temsil eder. Hayat amacınız, sahip olduğunuz bilgeliği ve yetenekleri hem kendiniz hem de başkaları için faydalı şekilde kullanmaktır. İnsanlara güvenmeyi, hayallerinin peşinden gitmeyi ve kendi potansiyellerini keşfetmelerini öğretmek sizin görevleriniz arasındadır. Şifa potansiyeliniz yüksek olsa da, öncelikle kendi içsel yaralarınızı sarmayı ve kişisel sınırlarınızı korumayı öğrenmeniz önemlidir. Aşırı inatçılık ve sabit fikirli tutumlardan kaçınmak, enerjinizi verimli kullanmanızı sağlar. Kendi yaralarınızı iyileştirdiğinizde, hem kendinize hem de topluma ruhsal hizmet sunabilecek olgunluk ve bilgelik geliştirirsiniz. Maneviyatınızı güçlendirmek ve başkalarına yardım ederken dengeyi korumak, bu hanenin enerjisini en etkili şekilde yaşamanızı mümkün kılar.",
+        #11 19 22 33
+        "hanedeki 2 rakamı, koruma, destek ve şefkat enerjisini temsil eder. Ama bu hane, 11/2 olduğu için duyguları kontrol edebilmek daha zordur. Normal 2 lere göre daha inatçı ve hedef odaklı olduğunuz için Eğer duygularınızı kontrol edebilirseniz hedeflerinize hayallerinize ulaşabilirsiniz. Bu yüzden olumlu düşünüp harekete geçin. Bu hanedeki zorlukları dönüştürdüğünüzde ünlü olma potansiyeliniz vardır. Ama destek bekleyen bir yapıda olmanıza rağmen hayat amacı konusunu tek başınıza çözmeniz gerekir. Başkalarına yardım ederken aynı zamanda kendi sınırlarınızı korumanız gerektiğini hatırlatır. İnsanları korumak ve onlara rehberlik etmek önemli olsa da, onların hatalarından öğrenmelerine izin vermek de gerekir; aksi takdirde bağımlılık ilişkileri ve aşırı kontrol sorunları oluşabilir. Sakral çakranız açıksa bu haneyi hızlı açarsınız.  Dengeyi gözetmek ve duygusal sınırlarınızı korumak, hem sizin hem de çevrenizdekilerin büyümesini destekler.",
+        "hanedeki 1 rakamı, liderlik ve yönlendirme enerjisini temsil eder. Bu hane, kişinin hem kendine hem de başkalarına rehberlik etme kapasitesini gösterir. Ama bu kişi 19 dan 1 ile dönüştüğü için bu kişilerin kibre düşme ihtimali vardır. Manevi eğitim için bu kişilerin zorlukları imtihanları normal 1 lere göre biraz daha fazla olabilir. Sağlam bir liderlik, insanların iyiliğini gözeterek adil ve dengeli kararlar almakla mümkündür; aşırı kontrol veya bencillik, ilişkilerde gerilime ve ego çatışmalarına yol açabilir. Öncelikle kişinin kendi iç dengesini ve olumsuz özelliklerini fark ederek onları dönüştürmesi önemlidir. Kök çakra ile sağlam temeller kurmak, bu liderlik enerjisinin kalıcı ve ilham verici olmasını sağlar. İnsanlara ışık tutmak ve onları desteklemek, varoluş amacınızı gerçekleştirmenin anahtarıdır. Güçlü bir öz-farkındalık ve doğru niyetle, bu hane hem kişisel hem de toplumsal alanda olumlu etkiler yaratabilir.",
+        "hanedeki 22/4 rakamı, sabrı ve derin anlayış enerjisini temsil eder. Esneklik, olgunluk ve sabır, bu hanenin hayat boyu öğrenmesi gereken temel değerleridir. Kurallara ve kendine karşı katı olma eğilimi, ilerlemenizi zaman zaman zorlaştırabilir; bu nedenle kendinize karşı yumuşamayı öğrenmek önemlidir. Olgunluk ve sabırla birleştiğinde hem kendi yolunuzu hem de başkalarına rehberlik etme kapasitenizi güçlendirir. Bu hane, hem kendi hem de başkalarının yaşam yollarında işaretleri okuyabilme ve büyük resmi görebilme yeteneği verir. Araştırma ve keşif sırasında merakınızı dengede tutmak, başkalarının yaşamına aşırı müdahale etmeden yönlendirme yapmak gerekir. Açılımınız 22 sayısı ile olduğu için ciddi sıkıntılar yaşamış olma ihtimaliniz yüksektir. Bunlar elbette sizin kalp çakranızı açmak, imanınızı kuvvetlendirmek, maneviyatınızı arttırmak için başınıza gelmiştir. Maneviyatınızı güçlendirmek, dualar ve içsel farkındalıkla bu enerjiyi en verimli şekilde kullanmanızı sağlar.",
+        "hanedeki 6 rakamı, denge, sezgiler ve sorumluluk enerjisini temsil eder. Hayat amacınız, hem kendi yaşamınızı hem de başkalarının yaşamlarını güzelleştirerek dengeli bir yol izlemektir. Ama 33 den 6 olduğunuz için normalden daha ağır sorumluluklara maruz kalmış olabilirsiniz. O yüzden sizin bu dengeyi kurmanız daha da önemlidir ve daha zordur.  Başarabilirseniz İnsanlara, hayatlarında dengeyi bulmaları ve zevkleri ölçülü şekilde deneyimlemeleri konusunda rehberlik edebilirsiniz. Sezgilerinizi fark etmeli ve onlara kulak vermelisiniz. Bu süreçte, aşırı ilgi veya zevke kapılmamak ve kıskançlık eğilimlerini kontrol altında tutmak önemlidir. Sorumluluklarınızı dengeli üstlenmeyi öğrenmek, kendinizi tüketmeden başkalarına katkı sağlamanızı mümkün kılar ve kurban psikolojisine girmenizi engeller. İçsel korkularınızı ve endişelerinizi fark etmek ve yönetmek, bu hanenin enerjisini bilinçli ve verimli kullanmanızı sağlar. Böylece hem toplumsal hem de kişisel yaşamınızda olumlu ve kalıcı etkiler yaratabilirsiniz. "
     ]
 ]
 
@@ -147,6 +154,206 @@ pin_kodu_yorumu_giris_cumlesi = [
     "HAYAT AMACI. Bu hane, kişinin bu hayata ne için geldiğini, hangi tema üzerinden tamamlanacağını ve yaşam boyu yönelmesi gereken asıl amacı temsil eder. Ruhsal olarak buradaki sayı, kişinin olgunluk sınavlarını, kendisini gerçekleştirme biçimini ve kalıcı etkisini yansıtır."
 ]
 
+
+cakra_yorumlari_text = [
+    [#1
+        """Kök Çakra – Tıkanık
+•	Hayatın ilk 9 yılında yaşanan zorluklar, aile içi sınırlamalar ve duyguların bastırılmasıyla oluşur. Aidiyet eksikliği ve “sanki bu dünyada yok gibiyim” hissi belirgindir. Fanatiklik, eleştiriye gelememe, sabırsızlık ve geçmişte takılı kalma görülür.
+•	Fiziksel belirtiler: halsizlik, yorgunluk, kansızlık, kemik ağrıları.
+•	Psikolojik ve fizyolojik iyileşme için: geçmişi kabullenmek, affetmek, farkındalık geliştirmek, nefs tezkiyesi yapmak önemlidir.
+ """,
+        """Kök Çakra – Az Çalışan
+•	Kök çakra kısmen açık olsa da kişi aidiyet hissetse bile ego ve hırsa bağlı davranır. Eleştiriyi kabul etmekte zorlanır, sürekli kendini haklı görme eğilimindedir.
+•	Başarı için çok çalışmış, zorluklarla mücadele etmiş olabilir.
+•	Gelişim için: başkalarının fikirlerine saygı göstermek, farklılıkları kabul etmek, kendi düşüncesini mutlak doğru saymamak gerekir.
+ """,
+        """Kök Çakra – İyi Çalışan
+•	Duygularını rahat ifade eder, hayata sahip çıkar, liderlik ve yönetim yeteneklerini kullanır. Kendini ve başkalarını kabul etme bilinci yüksektir.
+•	Çocukluk travmaları her zaman tamamen yok olmaz, bu yüzden çakra açık olsa da geliştirilmelidir.
+•	Gelişim için: geçmişi iyileştirmek, affetmek, nefs tezkiyesi yapmak ve eleştiriye açık olmak önemlidir.
+ """,
+        """Kök Çakra – Çok Fazla Çalışan
+•	Kendini güçlü ifade eder, fikirlerini rahatça söyler, hayatta sağlam basar. Ancak aşırı çalışması nedeniyle eleştiriye tahammülsüzlük, şikayet, kavgacı tavırlar görülebilir.
+•	Hem olumlu hem olumsuz yönler aynı anda yaşanır.
+•	Denge için: affetmek, farkındalık geliştirmek, şükür defteri tutmak ve nefs tezkiyesi yapmak gereklidir.
+ """
+    ],
+    [#2
+        """Sakral Çakra – Tıkanık
+•	İkili ilişkilerde sıkıntı, duyguların bastırılması ve değer görmeme hissi hakimdir. Kısırlık, üreme problemleri veya psikolojik kapanıklık görülebilir. Aidiyet ve sevgi eksikliği, fedakarlık veya beklenti dengesizlikleri sorun yaratır.
+•	Psikolojik durum: pısırıklık, duygularını ifade edememe, ilişki kuramama, sürekli olumsuz soru sorma ve kendini yalnız hissetme.
+•	Fiziksel ve ruhsal belirtiler: kalp ve üreme sistemi ile bağlantılı problemler, ilişki kuramama, aura dengesizlikleri.
+•	Dengeyi sağlamak için: duygularınızı fark etmek ve ifade etmek, gereksiz fedakarlıklardan kaçınmak, kendi değerinizi kendiniz vermek, ilişkilerde dengeyi korumak.
+ """,
+        """Sakral Çakra – Az Çalışan
+•	Duygularını ifade edebilir ama yüzüne yansıtamadığından soğuk veya duygusuz görünebilir. İlişkilerde çekingen, kontrollü ve kırılgan olabilir.
+•	Başkalarının duygularına yeterince açıklık göstermez, kendi egosunu koruma eğilimindedir.
+•	Gelişim için: kendini gözlemleyerek iletişim ve empatiyi geliştirmek, duyguları bastırmamayı öğrenmek, ilişkilerde sağlıklı sınırlar oluşturmak gerekir.
+ """,
+        """Sakral Çakra – İyi Çalışan
+•	Duygularını rahat ifade eder, empati kurar ve sağlıklı ikili ilişkiler geliştirir. Sevgi ve yakınlık verir ve alır, ilişkilerinde aranan kişi olur.
+•	Çocuklukta bastırılmış duygular olsa bile, çakra aktif çalıştığında ilişkilerde dengeyi koruyabilir.
+•	Korunması için: duygulara önem vermek, olaylarda hisleri fark etmek, gereksiz fedakarlıklardan kaçınmak ve kendi kendine iyi olmak gerekir.
+ """,
+        """Sakral Çakra – Çok Fazla Çalışan
+•	İlişkilerde aşırı fedakar ve hassastır; alma-verme dengesi bozulmuştur. Sıklıkla kırılır ve duygusal olarak yıpranır.
+•	Fazla çalışması nedeniyle ilişkilerde kendi değeri göz ardı edilir, bu da kırılganlık ve hassasiyeti artırır.
+•	Dengeyi sağlamak için: kendini önceliklendirmek, sınırlar koymak, gereksiz fedakarlıklardan kaçınmak, duyguları ifade etmek ve kendi değerini bilmek önemlidir.
+ """
+    ],
+    [#3
+        """Solar Pleksus – Tıkanık
+•	Çocuklukta bastırılmış duygular nedeniyle kişinin kendini ifade etmesi engellenmiştir. Bu kişiler içe kapanık, duygularını ifade edemeyen, kıskanç, sivri dilli olabilirler ve ilişkilerde paylaşım zorluğu yaşarlar.
+•	Fiziksel etkiler: mide ağrıları, sindirim sistemi sorunları, pankreas ve karaciğer problemleri görülebilir.
+•	Psikolojik etkiler: özgüvensizlik, sürekli savunma halinde olma, agresif veya geveze davranışlar, ilişkilerde kırılganlık ve daldan dala atma eğilimi.
+•	İyileştirme için: çocukluk travmalarını sevgiyle kabullenmek, duyguları ve düşünceleri ifade etmek, sözleri özenle seçmek ve dozunda paylaşım yapmak önemlidir.
+ """,
+        """Solar Pleksus – Az Çalışan
+•	Kısmen açık olan bu çakra, kişinin duygularını ifade etmesine izin verir ancak bazen geveze, sivri dilli veya kırıcı olabilir. İçe kapanma riski azalır ama hâlâ duygusal kontrol zorluğu yaşanabilir.
+•	Gelişim için: üretken faaliyetler, hobiler ve duyguların düzenli olarak ifade edilmesi, öfke anında konuşmamaya dikkat etmek gerekir.
+ """,
+        """Solar Pleksus – İyi Çalışan
+•	Kendi duygularını ve düşüncelerini güzel ifade eder, hitabeti güçlüdür. Üretken ve yaratıcıdır; kitap yazma veya projeler geliştirme kapasitesi yüksektir.
+•	Çocuklukta yaşanan bastırılmışlıklar tamamen yok olmasa da çakra aktif çalıştığında kişi dengeli, kendine güvenli ve ilişkilerinde başarılıdır.
+•	Korunması için: hobiler ve üretken aktivitelerle meşgul olmak, duygularını paylaşmak ve içe kapanmamak önemlidir.
+ """,
+        """Solar Pleksus – Çok Fazla Çalışan
+•	Kendini çok iyi ifade edebilir fakat sivri dilli ve eleştirel olabilir, kırıcı sözler söyleme eğilimi vardır. Duygusal olarak aşırı hassas ve “daldan dala atlayan” bir yapısı olabilir.
+•	Hem olumlu hem olumsuz özellikler aynı anda görülür; kendini savunma ve üretkenlik yüksek, ama ilişkilerde kırılganlık ve kıskançlık artabilir.
+•	Denge için: sözleri özenle seçmek, dozunda paylaşmak, kıskançlık ve paylaşım sorunları üzerinde çalışmak ve üretkenliği olumlu şekilde yönlendirmek gerekir.
+ """
+    ],
+    [#4
+        """Kalp Çakrası – Tıkanık
+•	Sevginin temel çakrasıdır; tıkanıklıkta kişi inatçı, öfkeli, aceleci ve başkalarının fikrine saygı göstermekte zorlanır. İlişkilerde güven ve sabır eksikliği yaşanır. Ani kararlar ve tedbirsiz davranışlar sık görülür.
+•	Fiziksel etkiler: Timüs bezi ve bağışıklık sistemi ile ilgili sıkıntılar, kalp hastalıkları ve genel enerji dengesizliği ortaya çıkabilir.
+•	Psikolojik etkiler: Öfke, sabırsızlık, dar görüşlülük, kincilik, empati eksikliği ve sürekli tekrar eden olumsuz deneyimler.
+•	İyileştirme için: farkındalık geliştirmek, yaşanan imtihanları ders olarak görmek, sabırlı ve olgun davranmak, maneviyata yönelmek, yeşil alanlarda vakit geçirmek, namaz ve dua ile kalbi güçlendirmek, ani karar ve gereksiz fedakarlıktan kaçınmak.
+""",
+        """Kalp Çakrası – Az Çalışan / Geliştirilmeli
+•	Kısmen açık olup kişi sabırlı, sakin ve maneviyatı güçlüdür. Ancak zaman zaman imtihanlar ve ani olaylar karşısında tepkilerde zorluk yaşayabilir.
+•	Gelişim için: tedbirli ve temkinli olmak, ani karar vermemek, olumsuz yönleri fark edip olumluya çevirmek, sabır ve farkındalıkla hareket etmek.
+ """,
+        """Kalp Çakrası – İyi Çalışan
+•	Sabırlı, sebatlı, sevgi dolu ve olgun bir kişilik vardır. Maneviyat güçlüdür ve yaptığı işleri sonuna kadar götürebilir. Kendini sever, olumlu düşünür ve ilişkilerde sağlıklıdır.
+•	Kalp çakrasını korumak için: yeşil alanlarda vakit geçirmek, namaz ve dua ile manevi enerji sağlamak, ani karar ve gereksiz fedakarlıktan kaçınmak, bilinçli ve ölçülü güvenmek gerekir.
+ """,
+        """Kalp Çakrası – Çok Fazla Çalışan
+•	Enerjisi yüksek ve aktif olup, aşırı çalışması inatçılık, öfke ve ani karar verme eğilimi yaratabilir. İnat ve sabrı dengede tutmak önemlidir.
+•	Olumsuz yönleri fark edip sabır ve bilinçle yönetmek gerekir. Bu kişiler güçlü maneviyat ve sabır sayesinde enerjilerini olumlu yönde kullanabilir.
+•	Aşırı çalışan: Nadirdir. İsmi Muhammet Mustafa olan kişilerde görülür. İnatçı olurlar. Peygamberimiz buna örnektir. İnadını azme çevirmiştir.
+ """
+    ],
+    [#5
+        """Tıkanık Boğaz Çakrası
+•	Kişi dikkatsiz, odaklanma güçlüğü çeker, daldan dala atlar, depresyon ve kaygı yaşayabilir. Aşırı kontrol ve mükemmeliyetçilik görülür; olayları akışına bırakmakta zorlanır.
+•	Bedensel etkiler: Tiroit sorunları ve metabolik dengesizlikler riski artar.
+•	Psikolojik etkiler: Negatif enerjiye duyarlılık, kendini suçlama, depresyon ve kaygı eğilimi.
+•	İyileştirme: Alfa dalgasına geçmek, dikkat geliştirme alıştırmaları, tek bir hobiye odaklanmak, negatif ortam ve kişilerden uzak durmak, gül yağı ile frekans yükseltmek, hatalardan ders alıp akışta kalmak.
+ """,
+        """Az Çalışan / Geliştirilmeli Boğaz Çakrası
+•	Kısmen açık olup kişi yeniliklere ve keşiflere düşkündür, fakat konfor alanından çıkmakta zorlanabilir ve alışkanlıklarından vazgeçemez.
+•	Gelişim için: Yeni deneyimler edinmek, negatif kişilerden uzak durmak, zihni sakinleştirmek ve alfa dalgasına yönelmek gerekir.
+ """,
+        """İyi Çalışan Boğaz Çakrası
+•	Yenilikleri seven, kendini ifade edebilen, iradesi güçlü ve öğrenmeye açık kişilerdir. Monotonluğu sevmezler, hayatı aktif ve keşif odaklı yaşarlar.
+•	Koruma yöntemleri: Dikkat geliştirme alıştırmaları yapmak, tek bir hobiye odaklanmak, frekansı düşüren ortam ve kişilerden uzak durmak, gül yağı ile enerji artırmak.
+ """,
+        """Çok Fazla Çalışan Boğaz Çakrası
+•	Enerjisi yüksek fakat dikkati dağınık, maymun iştahlı, tiroit ve metabolik sorunlara yatkındır. Kendini sürekli sorgular, konfor alanına bağlıdır ve değişime dirençlidir.
+•	Bu kişilerin ağzında sürekli “Canım sıkılıyor.” cümlesi dolanır. Zihinleri sürekli konuşur. Konsantre olamama ve dikkat eksikliği gibi problemler yaşarlar. 
+•	Dengelemek için: Alfa dalgasına yükselmek, alışkanlıkları terk etmek, yenilikleri hayatına dahil etmek, dikkati toplamak ve frekansını yükseltmek gerekir.
+ """
+    ],
+    [#6
+        """Tıkanık Alın Çakrası
+•	Evhamlı, korku ve vesvese eğilimi olan, mükemmeliyetçi ve endişeli kişilikler görülür. Baba veya aile ile sorunlar çakrayı bloke edebilir.
+•	Bedensel etkiler: Florür ve paketli gıdalar çakra tıkanıklığını artırabilir; stres ve zihinsel yorgunluk ortaya çıkar.
+•	Psikolojik etkiler: Öngörüsüzlük, karar alma güçlüğü, sürekli olumsuz senaryolar düşünme, korkularla yaşam.
+•	Açma yöntemleri: Alın hacamatı, korku ve vesvese ile yüzleşmek, müzik veya sanatla ilgilenmek, florürsüz ürünler kullanmak.
+ """,
+        """Az Çalışan / Geliştirilmeli Alın Çakrası
+•	Kısmen açık olup sezgisi az gelişmiş, B planı olmayan, ani kararlarla zorlanan kişiler.
+•	Gelişim için: Sanat ve müzikle ilgilenmek, gözlem yeteneğini geliştirmek, sorumluluk alma pratikleri yapmak.
+ """,
+        """İyi Çalışan Alın Çakrası
+•	Sezgisel, önünü gören, öngörüsü kuvvetli ve duygusal zekası yüksek kişilerdir. İyi ebeveyn olabilir ve çevresine yardım ederler.
+•	Koruma yöntemleri: Alfa dalgasında sakin bir zihinle yaşamak, korkularla yüzleşmek, sanatsal faaliyetlere yönelmek, florürsüz ürün kullanmak.
+
+ """,
+        """İyi Çalışan Alın Çakrası
+•	Sezgisel, önünü gören, öngörüsü kuvvetli ve duygusal zekası yüksek kişilerdir. İyi ebeveyn olabilir ve çevresine yardım ederler.
+•	Koruma yöntemleri: Alfa dalgasında sakin bir zihinle yaşamak, korkularla yüzleşmek, sanatsal faaliyetlere yönelmek, florürsüz ürün kullanmak.
+
+ """
+    ],
+    [#7
+        """Tıkanık Taç Çakra
+•	Karamsar, doyumsuz ve sürekli arayış içinde olma; eldekiyle yetinmeme, huzursuzluk ve boşluk hissi.
+•	Bedensel/psikolojik etkiler: Zihinsel blokaj, stres, huzursuzluk, ruhsal tatminsizlik.
+•	Nefsi ve maneviyat eksikliği, kanaatsizlik ve şükretmeme eğilimi.
+•	Açma yöntemleri: İçsel farkındalık, namaz ve huşu, kitap okumak, felsefeyle uğraşmak, yeni dil öğrenmek, manevi arayış ve tefekkür.
+ """,
+        """Az Çalışan / Geliştirilmeli Taç Çakra
+•	Kısmen açık olup analitik ve zekâ yeteneği mevcut; ancak kanaat edemez, zaman zaman karamsar ve arayış içindedir.
+•	Gelişim için: Arayışları sorgulamak, manevi ve zihinsel farkındalık çalışmaları yapmak, elindekilerle yetinmeyi öğrenmek.
+ """,
+        """İyi Çalışan Taç Çakra
+•	Zekâsına güvenen, analitik ve tefekkür yeteneği gelişmiş; manevi ve zihinsel dengesi yerindedir.
+•	Bu kişiler huzurlu, kendine güvenli ve belirli bir alanda uzmanlaşabilirler; ertelememeyi ve sorumluluk almayı bilirler.
+ """,
+        """Çok Fazla Çalışan Taç Çakra
+•	Aşırı çalışan kişiler nadirdir; yoğun arayış, doyumsuzluk ve manevi uğraşlar ortaya çıkar. Zeka ve yetenekleri yüksek olmasına rağmen tembellik ve erteleme eğilimi gösterebilirler.
+•	Denge için: Arayışları sorgulamak, kanaat etmek, iman ve tefekkürle zihinsel enerjiyi yönlendirmek.
+ """
+    ],
+    [#8
+        """Tıkanık 8. Çakra
+•	Parası ve ömrü bereketsiz, sürekli negatif enerji ve nazara açık, ilişkilerde ve sosyalleşmede zorluk çeker.
+•	Aurada delikler oluşur, frekans düşer ve psikolojik sorunlar artar.
+•	Gösterişe düşkün, açgözlü, israf eğilimli olabilir; sağlık ve yaşam kalitesi etkilenir.
+•	Açma yöntemleri: Allah’a güven, helal-haram dengesine dikkat, evde sirke ve defne tütsüsü, Ayet’el Kursi ve Felak/Nas surelerini okumak, nefes farkındalığı.
+ """,
+        """Az Çalışan / Geliştirilmeli 8. Çakra
+•	Kısmen açık, parası ve hayatı avantajlı ancak tam bereket yok; nazar ve negatif etkilerden korunmaya ihtiyaç duyar.
+•	Koruma çalışmaları ile bereket ve enerji akışı artırılabilir.
+ """,
+        """İyi Çalışan 8. Çakra
+•	Güçlü, asil ve otorite sahibi; parasal ve sosyal yaşamında istikrarlı ve bereketli.
+•	Ticaret ve girişimlerde yetenekli, nazara karşı dirençli; aura dengeli ve sağlam.
+ """,
+        """Çok Fazla Çalışan 8. Çakra
+•	Aşırı çalışanlarda güç, hırs ve bereket yoğun yaşanır; para ve prestij fazlasıyla elde edilir.
+•	Yoğun enerji bazen ilişkilerde aşırı kontrol veya egoya dönüşebilir; denge için manevi ve ruhsal farkındalık önerilir.
+ """
+    ],
+    [#9
+        """Tıkanık 9. Çakra
+•	Önünü göremez, ilhamı ve sezgisi zayıftır; saf, kolay aldanan, fanatik ya da kırılgan olabilir.
+•	İlişkilerde sınır koyamaz, hayır diyemez; alma-verme dengesi bozulur.
+•	Ticaret ve karar süreçlerinde yanlış seçimlere yatkın olabilir.
+•	Şifacılık yönü kapalıdır; önce kendi iç dengesini ve sınırlarını iyileştirmesi gerekir.
+ """,
+        """Az Çalışan / Geliştirilmeli 9. Çakra
+•	Sezgileri açıktır, insanlara yardım etmeyi ve bildiğini paylaşmayı sever.
+•	İkili ilişkilerde sınır koymakta zorlanır; fedakârlık dengesini korumalıdır.
+•	İlahi ilhamlara açıktır ancak kolay yönlendirilebilir, hayır demeyi öğrenmelidir.
+•	Şifacılık potansiyeli vardır, gelişim için kendini iyileştirmesi önemlidir.
+ """,
+        """İyi Çalışan 9. Çakra
+•	Sezgileri kuvvetli, ilahi ilhamı açık, empati ve merhameti güçlüdür.
+•	İnsanlara yardım eder, şifacılık yeteneği vardır; iyileştirici etki bırakır.
+•	Hizmet etmekten, bilgisini paylaşmaktan mutluluk duyar.
+•	Alma-verme dengesini koruduğu sürece ilişkilerinde ve ruhsal yolculuğunda dengeyi sürdürür.
+ """,
+        """Çok Fazla Çalışan 9. Çakra
+•	Şifacılığı güçlüdür, insanlara yardım etmeyi yoğun bir şekilde ister.
+•	Aşırı verici olabilir, aldığında kendini değersiz hissedebilir; sınır koyamaz.
+•	Fedakârlık nedeniyle alma-verme dengesi bozulur, bu durum 8. çakrayı da olumsuz etkileyebilir.
+•	İlahi ilham açıktır fakat dengesiz çalıştığından hem güç hem de zayıflık aynı anda yaşanır.
+ """
+    ]
+]
 
 
 def ebced_toplama(*args):
@@ -389,12 +596,15 @@ def pin_kodu_hesaplama(dogum_tarihi):
         # Özel * durumları: 2* -> 10., 1* -> 11., 4* -> 12. eleman (varsa)
         if k[i].endswith('*') and (i != 5 and i != 8):
             uzunluk = len(pin_kodu_yorumu[i])
-            if k[i] == '2*' and uzunluk > 9:
+            if k[i] == '2*':
                 yorum += f"11/2. ile açılmış: {pin_kodu_yorumu[i][9]}"
-            elif k[i] == '1*' and uzunluk > 10:
+            elif k[i] == '1*':
                 yorum += f"19/1. ile açılmış: {pin_kodu_yorumu[i][10]}"
-            elif k[i] == '4*' and uzunluk > 11:
+            elif k[i] == '4*':
                 yorum += f"22/4. ile açılmış: {pin_kodu_yorumu[i][11]}"
+            elif k[i] == '6*':
+                yorum += f"33/6. ile açılmış: {pin_kodu_yorumu[i][12]}"
+            
         # İndeks kontrolü ekle
         elif 0 <= index < len(pin_kodu_yorumu[i]):
             yorum += f"{index+1}. ile açılmış: {pin_kodu_yorumu[i][index]}"
@@ -436,6 +646,24 @@ def bereket_rakami_bulma(birthdate):
 
     return ebced_toplama_asamali(total_sum)
 
+def cakra_yorumlari(arti_sistemi):
+    cakra_yorumlari = []
+    for i in range(9):
+        # Tüm sistemlerden (pin kodu + isim + ek isim) toplam artı sayısını hesapla
+        toplam_arti = sum(arti_sistemi[j][i] for j in range(len(arti_sistemi)))
+        
+        if toplam_arti == 0:
+            cakra_yorumlari.append(cakra_yorumlari_text[i][0])
+        elif toplam_arti == 1:
+            cakra_yorumlari.append(cakra_yorumlari_text[i][1])
+        elif toplam_arti < 4:
+            cakra_yorumlari.append(cakra_yorumlari_text[i][2])
+        elif toplam_arti >= 4:
+            cakra_yorumlari.append(cakra_yorumlari_text[i][3])
+
+    return cakra_yorumlari
+
+       
 def donusum_yillari_bulma(dogum_tarihi):
     gun, ay, yil = dogum_tarihi.split(' ')
 

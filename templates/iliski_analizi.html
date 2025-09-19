@@ -7,16 +7,20 @@
         padding: 15px;
         margin: 15px 0;
         border-radius: 5px;
+        overflow-x: auto;
     }
 
     .pin-kodu-tablosu {
         margin: 10px 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .pin-kodu-tablosu table {
         border-collapse: separate;
         border-spacing: 10px;
         margin: 0;
+        min-width: 400px;
     }
 
     .pin-kodu-tablosu td {
@@ -58,12 +62,16 @@
 
     .chakra-table {
         margin: 10px 0;
+        overflow-x: auto;
+        max-width: 100%;
+        -webkit-overflow-scrolling: touch;
     }
 
     .chakra-table table {
         border-collapse: separate;
         border-spacing: 10px;
         margin: 0;
+        min-width: 600px;
     }
 
     .chakra-table td {
@@ -103,6 +111,7 @@
         color: #080808;
         min-width: 110px;
         text-align: left;
+        white-space: nowrap;
     }
 
     .chakra-table .pin-code-cell {
@@ -120,10 +129,14 @@
 
     .pin-kodu-container {
         flex: 1;
+        width: 100%;
+        overflow-x: auto;
     }
 
     .chakra-container {
         flex: 1;
+        width: 100%;
+        overflow-x: auto;
     }
 
    
@@ -153,6 +166,69 @@
         .form-column {
             padding: 15px;
         }
+        
+        .person-content {
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .chakra-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        .chakra-table {
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .chakra-table table {
+            min-width: 500px;
+            border-spacing: 5px;
+        }
+        
+        .chakra-table td {
+            padding: 3px 5px;
+            font-size: 1em;
+        }
+        
+        .chakra-table .plus-cell {
+            min-width: 70px;
+        }
+        
+        .chakra-table .ek-plus-cell {
+            min-width: 70px;
+        }
+        
+        .chakra-table .pin-code-cell {
+            padding-left: 15px;
+            min-width: 40px;
+        }
+        
+        .pin-kodu-container {
+            width: 100%;
+            overflow-x: auto;
+        }
+        
+        .pin-kodu-tablosu {
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .pin-kodu-tablosu table {
+            min-width: 300px;
+            border-spacing: 5px;
+        }
+        
+        .pin-kodu-tablosu td {
+            padding: 3px 5px;
+            font-size: 1em;
+            min-width: 30px;
+        }
+        
+        .result-section {
+            padding: 10px;
+        }
     }
 </style>
 
@@ -174,6 +250,10 @@
                 <div class="form-column">
                     <h4>Kişi 1</h4>
                     <div class="form-group">
+                        <label for="dogum_gunu1">Doğum Günü</label>
+                        <input type="text" id="dogum_gunu1" name="dogum_gunu1" placeholder="GG AA YYYY" required>
+                    </div>
+                    <div class="form-group">
                         <label for="isim_soyisim1">İsim Soyisim</label>
                         <input type="text" id="isim_soyisim1" name="isim_soyisim1" placeholder="Ad Soyad" required>
                     </div>
@@ -181,14 +261,14 @@
                         <label for="eklenen_isim1">Ek İsim (varsa)</label>
                         <input type="text" id="eklenen_isim1" name="eklenen_isim1" placeholder="Ek İsim">
                     </div>
-                    <div class="form-group">
-                        <label for="dogum_gunu1">Doğum Günü</label>
-                        <input type="text" id="dogum_gunu1" name="dogum_gunu1" placeholder="GG AA YYYY" required>
-                    </div>
                 </div>
                 
                 <div class="form-column">
                     <h4>Kişi 2</h4>
+                    <div class="form-group">
+                        <label for="dogum_gunu2">Doğum Günü</label>
+                        <input type="text" id="dogum_gunu2" name="dogum_gunu2" placeholder="GG AA YYYY" required>
+                    </div>
                     <div class="form-group">
                         <label for="isim_soyisim2">İsim Soyisim</label>
                         <input type="text" id="isim_soyisim2" name="isim_soyisim2" placeholder="Ad Soyad" required>
@@ -196,10 +276,6 @@
                     <div class="form-group">
                         <label for="eklenen_isim2">Ek İsim (varsa)</label>
                         <input type="text" id="eklenen_isim2" name="eklenen_isim2" placeholder="Ek İsim">
-                    </div>
-                    <div class="form-group">
-                        <label for="dogum_gunu2">Doğum Günü</label>
-                        <input type="text" id="dogum_gunu2" name="dogum_gunu2" placeholder="GG AA YYYY" required>
                     </div>
                 </div>
             </div>
@@ -211,58 +287,7 @@
     {% if results %}
     <div class="results">
         <h3>Sonuçlar:</h3>
-        <div class="result-section">
-            <h4>İlişki pin kodu:</h4>
-            <div class="pin-kodu-tablosu">
-                <table>
-                    <tr>
-                        <td>{{ results.k[0] }}</td>
-                        <td>{{ results.k[1] }}</td>
-                        <td>{{ results.k[2] }}</td>
-                        <td>{{ results.k[3] }}</td>
-                        <td>{{ results.k[4] }}</td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>{{ results.k[5] }}</td>
-                        <td>{{ results.k[6] }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>{{ results.k[7] }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td>{{ results.k[8] }}</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-
-        {% if results.pin_kodu_yorumlari %}
-        <div class="result-section" style="background-color: #ffffff;">
-            <h4>Pin Kodu Yorumları:</h4>
-            {% for yorum in results.pin_kodu_yorumlari %}
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    {{ loop.index }}. Hane Yorumu
-                    <span class="accordion-icon">▼</span>
-                </button>
-                <div class="accordion-content">
-                    {{ yorum | safe }}
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
+        
         {% if results.pin_kodu_dizilimi_1 or results.pin_kodu_dizilimi_2 %}
         <div class="flex-row">
             {% if results.pin_kodu_dizilimi_1 %}
@@ -434,9 +459,140 @@
             {% endif %}
         </div>
         {% endif %}
+        <div class="result-section">
+            <h4>İlişki pin kodu:</h4>
+            <div class="pin-kodu-tablosu">
+                <table>
+                    <tr>
+                        <td>{{ results.k[0] }}</td>
+                        <td>{{ results.k[1] }}</td>
+                        <td>{{ results.k[2] }}</td>
+                        <td>{{ results.k[3] }}</td>
+                        <td>{{ results.k[4] }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>{{ results.k[5] }}</td>
+                        <td>{{ results.k[6] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.k[7] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>{{ results.k[8] }}</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
+        {% if results.pin_kodu_yorumlari %}
+        <div class="result-section" style="background-color: #ffffff;">
+            <h4>Pin Kodu Yorumları:</h4>
+            {% for yorum in results.pin_kodu_yorumlari %}
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    {{ loop.index }}. Hane Yorumu
+                    <span class="accordion-icon">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <pre>{{ yorum | safe }}</pre>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
         
     </div>
     {% endif %}
 </div>
+
+<script>
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const isActive = item.classList.contains('active');
+    
+    // Tüm açık accordion'ları kapat
+    document.querySelectorAll('.accordion-item').forEach(accordionItem => {
+        accordionItem.classList.remove('active');
+    });
+    
+    // Eğer tıklanan kapalıysa, onu aç
+    if (!isActive) {
+        item.classList.add('active');
+    }
+}
+</script>
+
+<style>
+.accordion-item {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1em;
+    color: #333;
+    transition: background-color 0.3s;
+}
+
+.accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+.accordion-icon {
+    font-size: 0.8em;
+    transition: transform 0.3s;
+}
+
+.accordion-content {
+    padding: 0 15px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: white;
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 15px;
+    max-height: none;
+    height: auto;
+}
+
+.accordion-item.active .accordion-icon {
+    transform: rotate(180deg);
+}
+
+.accordion-content pre {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+</style>
 {% endblock %} 

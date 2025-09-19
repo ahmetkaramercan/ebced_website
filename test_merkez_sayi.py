@@ -5,7 +5,7 @@ import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
-from islami_numeroloji.hesaplama_merkez_sayi import merkez_sayi_bulma
+from hesaplama_merkez_sayi import merkez_sayi_bulma
 
 def test_merkez_sayi():
     """Merkez sayı fonksiyonunu test eder"""

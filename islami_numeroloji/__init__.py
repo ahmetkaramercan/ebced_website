@@ -1,1 +1,0 @@
-# İslami Numeroloji paketi 

@@ -54,6 +54,10 @@
             letter-spacing: 0.5px;
         }
 
+        .logo h1 .mobile-title {
+            display: none;
+        }
+
         .logo span {
             color: #ff8c00;
         }
@@ -239,6 +243,14 @@
             .logo h1 {
                 font-size: 1.4rem;
             }
+
+            .logo h1 .desktop-title {
+                display: none;
+            }
+
+            .logo h1 .mobile-title {
+                display: inline;
+            }
         }
     </style>
 </head>
@@ -246,7 +258,10 @@
     <header>
         <div class="header-content">
             <div class="logo">
-                <h1>Numeroloji-Ebced<span>Hesaplama</span></h1>
+                <h1>
+                    <span class="desktop-title">Numeroloji-Ebced<span>Hesaplama</span></span>
+                    <span class="mobile-title">Numeroloji<span>Hesaplama</span></span>
+                </h1>
             </div>
             <button class="menu-toggle" aria-label="Toggle menu">☰</button>
             <div class="nav-container">
@@ -268,11 +283,12 @@
     </header>
 
     <main>
+        <br>
         {% block content %}{% endblock %}
     </main>
 
     <footer>
-        <p>&copy; 2025 Numeroloji-Ebced Hesaplama. All rights reserved.</p>
+        <p>&copy; 2025 Numeroloji Hesaplama. All rights reserved.</p>
     </footer>
 
     <script>

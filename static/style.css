@@ -275,6 +275,7 @@ input[type="password"] {
         margin: 0;
         padding: 0;
         max-width: 100%;
+        overflow-x: hidden;
     }
 
     .form-container {
@@ -286,6 +287,7 @@ input[type="password"] {
     .results {
         padding: 1.5rem;
         border-radius: 0;
+        overflow-x: hidden;
     }
 
     .tabs {
@@ -310,6 +312,14 @@ input[type="password"] {
     .submit-btn {
         width: 100%;
         min-width: unset;
+    }
+    
+    /* Add scrollable container for tables */
+    .table-container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: 10px -1.5rem;
+        padding: 0 1.5rem;
     }
 } 
 

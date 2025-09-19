@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, f
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user
 from ebced import (pin_kodu_hesaplama, chakra_hesapla, yasam_yolu_hesapla,
                   bereket_rakami_bulma, tam_kulvar_bulma,
-                  donusum_yillari_bulma, ozellik_hesaplama)
+                  donusum_yillari_bulma, ozellik_hesaplama, cakra_yorumlari)
 from hesaplama_merkez_sayi import merkez_sayi_bulma
 from iliski_analizi import iliski_pin_kodu_hesaplama
 from sureEsma import get_ebced_and_arabic, akil_fikir_sayisi_hesaplama, dogumGunuToplama, en_yakin_esma_bul, en_yakin_sure_bul
@@ -13,14 +13,8 @@ from bidi.algorithm import get_display
 from models import User
 from datetime import timedelta
 
-# İslami numeroloji blueprint'ini import et
-from islami_numeroloji.routes import islami_numeroloji_bp
-
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', os.urandom(24))
-
-# Blueprint'i register et
-app.register_blueprint(islami_numeroloji_bp)
 
 # Oturum ayarları
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)  # 31 günlük oturum süresi
@@ -155,6 +149,7 @@ def bireysel_analiz():
 
         pin_kodu, pin_kodu_yorumlari  = pin_kodu_hesaplama(dogum_gunu)
         arti_sistemi, chakra_result = chakra_hesapla(pin_kodu, isim_soyisim, eklenen_isim)
+        chakra_yorumlari = cakra_yorumlari(arti_sistemi)
 
         yasam_yolu = yasam_yolu_hesapla(dogum_gunu)
         yasam_yolu_aciklama = yasam_yollari.get(yasam_yolu, "Bu yaşam yolu için açıklama bulunamadı.")
@@ -169,6 +164,7 @@ def bireysel_analiz():
             'pin_kodu_dizilimi': pin_kodu,
             'pin_kodu_yorumlari': pin_kodu_yorumlari,
             'chakra': chakra_result,
+            'chakra_yorumlari': chakra_yorumlari,
             'yasam_yolu': yasam_yolu,
             'yasam_yolu_aciklama': yasam_yolu_aciklama,
             'bereket_sayisi': bereket_sayisi,
