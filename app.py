@@ -160,6 +160,9 @@ def bireysel_analiz():
         pin_kodu_ozellikleri = ozellik_hesaplama(pin_kodu)
         
         results = {
+            'input_dogum_gunu': input_dogum_gunu,
+            'isim_soyisim': isim_soyisim,
+            'eklenen_isim': eklenen_isim,
             'dogum_gunu': dogum_gunu,  # Orijinal formatı template'e gönder
             'pin_kodu_dizilimi': pin_kodu,
             'pin_kodu_yorumlari': pin_kodu_yorumlari,

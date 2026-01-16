@@ -37,6 +37,15 @@
 
     {% if results %}
     <div class="results">
+        <h3>Girdiler:</h3>
+        <div class="result-section">
+            <p><strong>Doğum Tarihi:</strong> {{ results.input_dogum_gunu }}</p>
+            <p><strong>İsim Soyisim:</strong> {{ results.isim_soyisim }}</p>
+            {% if results.eklenen_isim %}
+            <p><strong>Ek İsim:</strong> {{ results.eklenen_isim }}</p>
+            {% endif %}
+        </div>
+        
         <h3>Sonuçlar:</h3>
         
         <div class="result-section">
