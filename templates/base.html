@@ -272,6 +272,9 @@
                 </nav>
                 <div class="user-nav">
                     {% if current_user.is_authenticated %}
+                        {% if current_user.username == 'ahmet' %}
+                            <a href="{{ url_for('admin') }}" class="profile-link" {% if request.endpoint == 'admin' %}class="active"{% endif %}>Admin</a>
+                        {% endif %}
                         <a href="{{ url_for('profile') }}" class="profile-link" {% if request.endpoint == 'profile' %}class="active"{% endif %}>Profilim</a>
                         <a href="{{ url_for('logout') }}" class="auth-btn">Çıkış Yap</a>
                     {% else %}

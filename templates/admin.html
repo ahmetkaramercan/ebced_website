@@ -1,0 +1,476 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="admin-container">
+    <h1>Kullanıcı Yönetim Paneli</h1>
+    
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if 'error' in message.lower() %}alert-error{% else %}alert-success{% endif %}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <div class="admin-sections">
+        <!-- Kullanıcı Ekleme Bölümü -->
+        <div class="admin-section">
+            <h2>Yeni Kullanıcı Ekle</h2>
+            <form id="kullaniciEkleForm" class="admin-form">
+                <div class="form-group">
+                    <label for="kullanici_adi">Kullanıcı Adı:</label>
+                    <input type="text" id="kullanici_adi" name="kullanici_adi" required>
+                </div>
+                <div class="form-group">
+                    <label for="sifre">Şifre:</label>
+                    <input type="password" id="sifre" name="sifre" required>
+                </div>
+                <div class="form-group">
+                    <label for="ay_sayisi">Üyelik Süresi (Ay):</label>
+                    <select id="ay_sayisi" name="ay_sayisi" required>
+                        <option value="1">1 Ay</option>
+                        <option value="2">2 Ay</option>
+                        <option value="3">3 Ay</option>
+                        <option value="4">4 Ay</option>
+                        <option value="5">5 Ay</option>
+                        <option value="6">6 Ay</option>
+                        <option value="7">7 Ay</option>
+                        <option value="8">8 Ay</option>
+                        <option value="9">9 Ay</option>
+                        <option value="10">10 Ay</option>
+                        <option value="11">11 Ay</option>
+                        <option value="12" selected>12 Ay</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+            </form>
+        </div>
+        
+        <!-- Kullanıcı İşlemleri Bölümü -->
+        <div class="admin-section">
+            <h2>Kullanıcı İşlemleri</h2>
+            <div class="admin-form">
+                <div class="form-group">
+                    <label for="islem_kullanici_adi">Kullanıcı Adı:</label>
+                    <input type="text" id="islem_kullanici_adi" name="islem_kullanici_adi" placeholder="İşlem yapılacak kullanıcı adı">
+                </div>
+                <div class="form-group">
+                    <label for="uzat_ay_sayisi">Uzatılacak Ay Sayısı:</label>
+                    <select id="uzat_ay_sayisi" name="uzat_ay_sayisi">
+                        <option value="1">1 Ay</option>
+                        <option value="2">2 Ay</option>
+                        <option value="3">3 Ay</option>
+                        <option value="4">4 Ay</option>
+                        <option value="5">5 Ay</option>
+                        <option value="6">6 Ay</option>
+                        <option value="7">7 Ay</option>
+                        <option value="8">8 Ay</option>
+                        <option value="9">9 Ay</option>
+                        <option value="10">10 Ay</option>
+                        <option value="11">11 Ay</option>
+                        <option value="12">12 Ay</option>
+                    </select>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="btn btn-success" onclick="sureUzat()">Süre Uzat</button>
+                    <button type="button" class="btn btn-warning" onclick="kullaniciDeaktive()">Deaktive Et</button>
+                    <button type="button" class="btn btn-danger" onclick="kullaniciSil()">Kullanıcı Sil</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Kullanıcı Listesi -->
+    <div class="admin-section">
+        <h2>Tüm Kullanıcılar</h2>
+        <button type="button" class="btn btn-secondary" onclick="kullanicilariYenile()">Listeyi Yenile</button>
+        <div id="kullaniciListesi" class="kullanici-listesi">
+            <p>Yükleniyor...</p>
+        </div>
+    </div>
+</div>
+
+<style>
+.admin-container {
+    max-width: 1200px;
+    margin: 100px auto 40px;
+    padding: 0 20px;
+}
+
+.admin-container h1 {
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.admin-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.admin-section {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.admin-section h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #ff8c00;
+    padding-bottom: 10px;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: #ff8c00;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #e67e00;
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-warning {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.kullanici-listesi {
+    margin-top: 20px;
+}
+
+.kullanici-tablosu {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size: 0.9rem;
+}
+
+.kullanici-tablosu th {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.kullanici-tablosu td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.kullanici-tablosu tr:hover {
+    background-color: #f5f5f5;
+}
+
+.kullanici-tablosu tr:last-child td {
+    border-bottom: none;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+@media (max-width: 768px) {
+    .admin-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .kullanici-tablosu {
+        font-size: 0.9rem;
+    }
+    
+    .kullanici-tablosu th,
+    .kullanici-tablosu td {
+        padding: 8px;
+    }
+}
+</style>
+
+<script>
+// Kullanıcı ekleme
+document.getElementById('kullaniciEkleForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const formData = {
+        kullanici_adi: document.getElementById('kullanici_adi').value.trim(),
+        sifre: document.getElementById('sifre').value.trim(),
+        ay_sayisi: parseInt(document.getElementById('ay_sayisi').value)
+    };
+    
+    try {
+        const response = await fetch('/admin/kullanici_ekle', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('Başarılı: ' + data.message);
+            document.getElementById('kullaniciEkleForm').reset();
+            kullanicilariYenile();
+        } else {
+            alert('Hata: ' + data.message);
+        }
+    } catch (error) {
+        alert('Bir hata oluştu: ' + error.message);
+    }
+});
+
+// Süre uzatma
+async function sureUzat() {
+    const kullanici_adi = document.getElementById('islem_kullanici_adi').value.trim();
+    const ay_sayisi = parseInt(document.getElementById('uzat_ay_sayisi').value);
+    
+    if (!kullanici_adi) {
+        alert('Lütfen kullanıcı adı giriniz');
+        return;
+    }
+    
+    if (!confirm(`${kullanici_adi} kullanıcısının süresini ${ay_sayisi} ay uzatmak istediğinize emin misiniz?`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/admin/kullanici_sure_uzat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ kullanici_adi, ay_sayisi })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('Başarılı: ' + data.message);
+            kullanicilariYenile();
+        } else {
+            alert('Hata: ' + data.message);
+        }
+    } catch (error) {
+        alert('Bir hata oluştu: ' + error.message);
+    }
+}
+
+// Kullanıcı deaktive etme
+async function kullaniciDeaktive() {
+    const kullanici_adi = document.getElementById('islem_kullanici_adi').value.trim();
+    
+    if (!kullanici_adi) {
+        alert('Lütfen kullanıcı adı giriniz');
+        return;
+    }
+    
+    if (!confirm(`${kullanici_adi} kullanıcısını deaktive etmek istediğinize emin misiniz?`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/admin/kullanici_deaktive', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ kullanici_adi })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('Başarılı: ' + data.message);
+            kullanicilariYenile();
+        } else {
+            alert('Hata: ' + data.message);
+        }
+    } catch (error) {
+        alert('Bir hata oluştu: ' + error.message);
+    }
+}
+
+// Kullanıcı silme
+async function kullaniciSil() {
+    const kullanici_adi = document.getElementById('islem_kullanici_adi').value.trim();
+    
+    if (!kullanici_adi) {
+        alert('Lütfen kullanıcı adı giriniz');
+        return;
+    }
+    
+    if (!confirm(`${kullanici_adi} kullanıcısını silmek istediğinize emin misiniz? Bu işlem geri alınamaz!`)) {
+        return;
+    }
+    
+    try {
+        const response = await fetch('/admin/kullanici_sil', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ kullanici_adi })
+        });
+        
+        const data = await response.json();
+        
+        if (data.success) {
+            alert('Başarılı: ' + data.message);
+            document.getElementById('islem_kullanici_adi').value = '';
+            kullanicilariYenile();
+        } else {
+            alert('Hata: ' + data.message);
+        }
+    } catch (error) {
+        alert('Bir hata oluştu: ' + error.message);
+    }
+}
+
+// Kullanıcıları listeleme
+async function kullanicilariYenile() {
+    const listeDiv = document.getElementById('kullaniciListesi');
+    listeDiv.innerHTML = '<p>Yükleniyor...</p>';
+    
+    try {
+        const response = await fetch('/admin/kullanicilar');
+        const data = await response.json();
+        
+        if (data.kullanicilar && data.kullanicilar.length > 0) {
+            let html = '<table class="kullanici-tablosu"><thead><tr><th>Kullanıcı Adı</th><th>Şifre</th><th>Durum</th><th>Başlangıç Tarihi</th><th>Bitiş Tarihi</th><th>Sorgu Sayısı</th><th>Son Sorgu Tarihi</th></tr></thead><tbody>';
+            
+            data.kullanicilar.forEach(kullanici => {
+                html += `<tr>
+                    <td>${kullanici.kullanici_adi}</td>
+                    <td>${kullanici.sifre}</td>
+                    <td>${kullanici.aktiflik}</td>
+                    <td>${kullanici.baslangic_tarihi}</td>
+                    <td>${kullanici.bitis_tarihi}</td>
+                    <td>${kullanici.sorgu_sayisi}</td>
+                    <td>${kullanici.son_sorgu_tarihi}</td>
+                </tr>`;
+            });
+            
+            html += '</tbody></table>';
+            listeDiv.innerHTML = html;
+        } else {
+            listeDiv.innerHTML = '<p>Henüz kullanıcı bulunmamaktadır.</p>';
+        }
+    } catch (error) {
+        listeDiv.innerHTML = '<p style="color: red;">Kullanıcılar yüklenirken bir hata oluştu: ' + error.message + '</p>';
+    }
+}
+
+// Sayfa yüklendiğinde kullanıcıları yükle
+document.addEventListener('DOMContentLoaded', function() {
+    kullanicilariYenile();
+});
+</script>
+{% endblock %}
+

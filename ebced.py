@@ -479,16 +479,27 @@ def chakra_hesapla(pin_kodu, isim_soyisim, ek_isim):
                 index = chakra_values[letter] - 1
                 arti_sistemi[2][index] += 1
 
+    # Her çakra numarası için hangi harflerin olduğunu hesapla
+    chakra_harfleri = {}
+    for harf, cakra_no in chakra_values.items():
+        if cakra_no not in chakra_harfleri:
+            chakra_harfleri[cakra_no] = []
+        chakra_harfleri[cakra_no].append(harf)
+    
     # Her çakra için bir sözlük oluştur
     chakra_data = []
     for i in range(9, 0, -1):
         number = str(i)
+        # Bu çakraya ait harfleri al ve virgülle ayır
+        harfler = ', '.join(sorted(chakra_harfleri.get(i, [])))
+        
         # Sözlük oluştur
         chakra_item = {
             'left_plus': ' +' * arti_sistemi[0][i-1],  # Pin kodundan gelen artılar
             'number': number,                           # Çakra numarası
             'right_plus': '+ ' * arti_sistemi[1][i-1], # İsim soyisimden gelen artılar
-            'has_ek_isim': has_ek_isim                  # Ek isim var mı?
+            'has_ek_isim': has_ek_isim,                # Ek isim var mı?
+            'harfler': harfler                         # Bu çakraya ait harfler
         }
         
         # Ek isim varsa, ek artıları da ekle

@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
+<!-- Error Modal -->
+<div id="errorModal" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h3>Hatalı Giriş</h3>
+        <p id="errorMessage"></p>
+        <button onclick="closeErrorModal()" class="modal-btn">Tamam</button>
+    </div>
+</div>
+
 <div class="container">
     <h2>NUMEROLOJİ-EBCED HESAPLAMA</h2>
     
@@ -36,6 +46,17 @@
     </div>
 
     {% if results %}
+    <div class="pdf-download-container">
+        <button onclick="generatePDF()" class="pdf-download-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            PDF İndir
+        </button>
+    </div>
+    
     <div class="results">
         <h3>Girdiler:</h3>
         <div class="result-section">
@@ -142,6 +163,7 @@
                         <td class="ek-plus-cell">{{ chakra.ek_plus }}</td>
                         {% endif %}
                         <td class="pin-code-cell">{{ results.pin_kodu_dizilimi[9 - loop.index] }}</td>
+                        <td class="chakra-letters-cell">{{ chakra.harfler }}</td>
                     </tr>
                     {% endfor %}
                 </table>
@@ -270,7 +292,18 @@
 </div>
 
 <script>
+// Flash mesajlarını kontrol et ve pop-up göster
 document.addEventListener('DOMContentLoaded', function() {
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'error' %}
+                    showErrorModal('{{ message }}');
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
     const dateInput = document.getElementById('dogum_gunu');
     const datePicker = document.getElementById('date_picker');
 
@@ -304,7 +337,34 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    
+    // Modal kapatma
+    const closeBtn = document.querySelector('.close-modal');
+    if (closeBtn) {
+        closeBtn.onclick = function() {
+            closeErrorModal();
+        }
+    }
+    
+    window.onclick = function(event) {
+        const modal = document.getElementById('errorModal');
+        if (event.target == modal) {
+            closeErrorModal();
+        }
+    }
 });
+
+function showErrorModal(message) {
+    const modal = document.getElementById('errorModal');
+    const errorMessage = document.getElementById('errorMessage');
+    errorMessage.textContent = message;
+    modal.style.display = 'block';
+}
+
+function closeErrorModal() {
+    const modal = document.getElementById('errorModal');
+    modal.style.display = 'none';
+}
 
 function toggleAccordion(button) {
     const item = button.parentElement;
@@ -323,6 +383,76 @@ function toggleAccordion(button) {
 </script>
 
 <style>
+/* Error Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 30px;
+    border: 2px solid #ff8c00;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.modal-content h3 {
+    color: #d32f2f;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.modal-content p {
+    color: #333;
+    font-size: 1.1em;
+    margin: 20px 0;
+    line-height: 1.6;
+}
+
+.close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+    color: #000;
+}
+
+.modal-btn {
+    background-color: #ff8c00;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.modal-btn:hover {
+    background-color: #e67e00;
+}
+
 .pin-kodu-tablosu {
     margin: 10px 0;
 }
@@ -427,6 +557,15 @@ function toggleAccordion(button) {
     min-width: 100px;
     text-align: left;
     padding-left: 0;
+    white-space: nowrap;
+}
+
+.chakra-table .chakra-letters-cell {
+    text-align: right;
+    padding-right: 0;
+    min-width: 150px;
+    color: #080808;
+    font-size: 0.95em;
     white-space: nowrap;
 }
 
@@ -574,12 +713,680 @@ function toggleAccordion(button) {
     background-color: transparent;
 }
 
-.mizac-tablosu th {
+    .mizac-tablosu th {
     padding: 3px 6px;
     text-align: center;
     font-size: 0.8em;
     font-weight: bold;
     min-width: 30px;
 }
+
+/* PDF Download Button */
+.pdf-download-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 15px;
+}
+
+.pdf-download-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #ff8c00, #ff6b00);
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3);
+}
+
+.pdf-download-btn:hover {
+    background: linear-gradient(135deg, #ff6b00, #ff5500);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+}
+
+.pdf-download-btn:active {
+    transform: translateY(0);
+}
+
+.pdf-download-btn svg {
+    flex-shrink: 0;
+}
+
+/* PDF Loading State */
+.pdf-download-btn.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.pdf-download-btn.loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
 </style>
-{% endblock %} 
+
+{% if results %}
+<!-- jsPDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+<script>
+// Turkish character conversion function
+function convertTurkish(text) {
+    if (!text) return '';
+    var turkishMap = {
+        'ğ': 'g', 'Ğ': 'G',
+        'ü': 'u', 'Ü': 'U',
+        'ş': 's', 'Ş': 'S',
+        'ı': 'i', 'İ': 'I',
+        'ö': 'o', 'Ö': 'O',
+        'ç': 'c', 'Ç': 'C'
+    };
+    return text.replace(/[ğĞüÜşŞıİöÖçÇ]/g, function(char) { return turkishMap[char] || char; });
+}
+
+// Clean HTML tags from text
+function cleanHtmlTags(text) {
+    if (!text) return '';
+    // Replace <br>, <br/>, <br /> with newline
+    text = text.replace(/<br\s*\/?>/gi, '\n');
+    // Replace multiple newlines with double newline
+    text = text.replace(/\n{3,}/g, '\n\n');
+    // Remove other HTML tags
+    text = text.replace(/<[^>]*>/g, '');
+    // Clean up extra whitespace
+    text = text.replace(/[ \t]+/g, ' ');
+    return text.trim();
+}
+
+// Replace emojis with text symbols for PDF
+function replaceEmojis(text) {
+    if (!text) return '';
+    var emojiMap = {
+        '🔹': '>>',
+        '🌿': '[+]',
+        '🌑': '[-]',
+        '🧭': '[*]',
+        '💡': '[!]',
+        '🔑': '[#]',
+        '🌟': '[*]',
+        '✅': '[v]',
+        '⚠️': '[!]',
+        '📌': '[>]',
+        '•': '-',
+        '→': '->',
+        '←': '<-',
+        '★': '*',
+        '☆': '*',
+        '●': '-',
+        '○': '-',
+        '◆': '-',
+        '◇': '-',
+        '▶': '>',
+        '◀': '<',
+        '▲': '^',
+        '▼': 'v',
+        '■': '-',
+        '□': '-',
+        '🎯': '[>]',
+        '📊': '[=]',
+        '📈': '[^]',
+        '❌': '[x]',
+        '❓': '[?]',
+        '❗': '[!]',
+        '✨': '*',
+        '🔥': '*',
+        '💪': '[+]',
+        '🙏': '[+]',
+        '❤️': '<3',
+        '💖': '<3',
+        '🌈': '~',
+        '☀️': '*',
+        '🌙': '*',
+        '⭐': '*',
+        '🔔': '[!]',
+        '📍': '[>]',
+        '🎉': '*',
+        '👉': '->',
+        '👈': '<-',
+        '👆': '^',
+        '👇': 'v'
+    };
+    
+    // Replace known emojis
+    for (var emoji in emojiMap) {
+        if (emojiMap.hasOwnProperty(emoji)) {
+            text = text.split(emoji).join(emojiMap[emoji]);
+        }
+    }
+    
+    // Remove any remaining emojis (Unicode ranges for emojis)
+    text = text.replace(/[\u{1F300}-\u{1F9FF}]/gu, '');
+    text = text.replace(/[\u{2600}-\u{26FF}]/gu, '');
+    text = text.replace(/[\u{2700}-\u{27BF}]/gu, '');
+    text = text.replace(/[\u{FE00}-\u{FE0F}]/gu, '');
+    text = text.replace(/[\u{1F000}-\u{1F02F}]/gu, '');
+    
+    return text;
+}
+
+// PDF Generation Function
+function generatePDF() {
+    var btn = document.querySelector('.pdf-download-btn');
+    btn.classList.add('loading');
+    btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> Olusturuluyor...';
+    
+    setTimeout(function() {
+    try {
+        var jsPDF = window.jspdf.jsPDF;
+        var doc = new jsPDF('p', 'mm', 'a4');
+        
+        var pageWidth = doc.internal.pageSize.getWidth();
+        var pageHeight = doc.internal.pageSize.getHeight();
+        var margin = 20;
+        var contentWidth = pageWidth - margin * 2;
+        var yPos = 0;
+        
+        // Helper function for text wrapping with page break
+        function addWrappedText(text, x, startY, maxWidth, lineHeight, fontStyle, fontSize, textColor) {
+            fontStyle = fontStyle || 'normal';
+            fontSize = fontSize || 10;
+            textColor = textColor || [60, 60, 60];
+            
+            doc.setFont('helvetica', fontStyle);
+            doc.setFontSize(fontSize);
+            doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+            
+            // Clean HTML tags, replace emojis, and convert Turkish characters
+            var cleanedText = cleanHtmlTags(text);
+            var noEmojiText = replaceEmojis(cleanedText);
+            var convertedText = convertTurkish(noEmojiText);
+            var lines = doc.splitTextToSize(convertedText, maxWidth);
+            var currentY = startY;
+            
+            for (var i = 0; i < lines.length; i++) {
+                if (currentY > pageHeight - 25) {
+                    doc.addPage();
+                    doc.setFillColor(255, 140, 0);
+                    doc.rect(0, 0, pageWidth, 12, 'F');
+                    currentY = 25;
+                }
+                doc.text(lines[i], x, currentY);
+                currentY += lineHeight;
+            }
+            return currentY;
+        }
+        
+        // Colors
+        var primaryColor = [255, 140, 0];
+        var darkColor = [26, 26, 26];
+        var grayColor = [100, 100, 100];
+        var lightGray = [248, 249, 250];
+        
+        // Data from page
+        var isimSoyisim = "{{ results.isim_soyisim }}";
+        var dogumTarihi = "{{ results.input_dogum_gunu }}";
+        var eklenenIsim = "{{ results.eklenen_isim | default('', true) }}";
+        var dogumGunuParts = "{{ results.dogum_gunu }}".split(' ');
+        var pinKodu = [
+            "{{ results.pin_kodu_dizilimi[0] }}",
+            "{{ results.pin_kodu_dizilimi[1] }}",
+            "{{ results.pin_kodu_dizilimi[2] }}",
+            "{{ results.pin_kodu_dizilimi[3] }}",
+            "{{ results.pin_kodu_dizilimi[4] }}",
+            "{{ results.pin_kodu_dizilimi[5] }}",
+            "{{ results.pin_kodu_dizilimi[6] }}",
+            "{{ results.pin_kodu_dizilimi[7] }}",
+            "{{ results.pin_kodu_dizilimi[8] }}"
+        ];
+        var yasam_yolu = "{{ results.yasam_yolu }}";
+        var merkez_sayi = "{{ results.merkez_sayi }}";
+        var bereket_sayisi = "{{ results.bereket_sayisi }}";
+        var tam_kulvar = "{{ results.tam_kulvar }}";
+            
+            // ============ COVER PAGE ============
+            // Background gradient effect (simulated with rectangles)
+            doc.setFillColor(26, 26, 26);
+            doc.rect(0, 0, pageWidth, pageHeight, 'F');
+            
+            // Decorative elements
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 8, 'F');
+            doc.rect(0, pageHeight - 8, pageWidth, 8, 'F');
+            
+            // Side accent lines
+            doc.setDrawColor(255, 140, 0);
+            doc.setLineWidth(0.5);
+            doc.line(margin, 30, margin, pageHeight - 30);
+            doc.line(pageWidth - margin, 30, pageWidth - margin, pageHeight - 30);
+            
+            // Title
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(36);
+            doc.setTextColor(255, 255, 255);
+            doc.text('NUMEROLOJI', pageWidth / 2, 70, { align: 'center' });
+            
+            doc.setFontSize(28);
+            doc.setTextColor(255, 140, 0);
+            doc.text('ANALIZ RAPORU', pageWidth / 2, 85, { align: 'center' });
+            
+            // Decorative line under title
+            doc.setDrawColor(255, 140, 0);
+            doc.setLineWidth(1);
+            doc.line(pageWidth / 2 - 40, 95, pageWidth / 2 + 40, 95);
+            
+            // Person info box
+            doc.setFillColor(40, 40, 40);
+            doc.roundedRect(margin + 10, 115, pageWidth - margin * 2 - 20, eklenenIsim ? 70 : 55, 5, 5, 'F');
+            
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(14);
+            doc.setTextColor(150, 150, 150);
+            doc.text('KISI BILGILERI', pageWidth / 2, 130, { align: 'center' });
+            
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(20);
+            doc.setTextColor(255, 255, 255);
+            doc.text(convertTurkish(isimSoyisim.toUpperCase()), pageWidth / 2, 148, { align: 'center' });
+            
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(14);
+            doc.setTextColor(255, 140, 0);
+            doc.text('Dogum Tarihi: ' + dogumTarihi, pageWidth / 2, 165, { align: 'center' });
+            
+            if (eklenenIsim) {
+                doc.setTextColor(200, 200, 200);
+                doc.text('Ek Isim: ' + convertTurkish(eklenenIsim), pageWidth / 2, 180, { align: 'center' });
+            }
+            
+            // Pin Kodu Chart on cover
+            yPos = eklenenIsim ? 210 : 195;
+            doc.setFontSize(12);
+            doc.setTextColor(150, 150, 150);
+            doc.text('PIN KODU HARITASI', pageWidth / 2, yPos, { align: 'center' });
+            
+            // Pin kodu table
+            yPos += 10;
+            var cellSize = 12;
+            var startX = pageWidth / 2 - (cellSize * 2.5);
+            
+            doc.setFontSize(10);
+            doc.setTextColor(255, 140, 0);
+            // Row 1 - Birth date parts
+            doc.text(dogumGunuParts[0] || '', startX + cellSize * 0.5, yPos + 8, { align: 'center' });
+            doc.text(dogumGunuParts[1] || '', startX + cellSize * 1.5, yPos + 8, { align: 'center' });
+            doc.text(dogumGunuParts[2] || '', startX + cellSize * 2.5, yPos + 8, { align: 'center' });
+            
+            yPos += cellSize;
+            doc.setFontSize(11);
+            doc.setTextColor(255, 255, 255);
+            // Row 2 - Pin codes 0-4
+            for (var i = 0; i < 5; i++) {
+                doc.text(pinKodu[i] || '', startX + cellSize * (i + 0.5), yPos + 8, { align: 'center' });
+            }
+            
+            yPos += cellSize;
+            // Row 3 - Pin codes 5-6
+            doc.text(pinKodu[5] || '', startX + cellSize * 1.5, yPos + 8, { align: 'center' });
+            doc.text(pinKodu[6] || '', startX + cellSize * 2.5, yPos + 8, { align: 'center' });
+            
+            yPos += cellSize;
+            // Row 4 - Pin code 7
+            doc.text(pinKodu[7] || '', startX + cellSize * 2.5, yPos + 8, { align: 'center' });
+            
+            yPos += cellSize;
+            // Row 5 - Pin code 8
+            doc.setTextColor(255, 140, 0);
+            doc.setFontSize(12);
+            doc.text(pinKodu[8] || '', startX + cellSize * 2.5, yPos + 8, { align: 'center' });
+            
+            // Footer text
+            doc.setFontSize(10);
+            doc.setTextColor(100, 100, 100);
+            doc.text('Numeroloji-Ebced Hesaplama', pageWidth / 2, pageHeight - 25, { align: 'center' });
+            
+            // ============ PAGE 2 - YASAM YOLU ============
+            doc.addPage();
+            yPos = margin;
+            
+            // Header bar
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 12, 'F');
+            
+            // Section Title
+            yPos = 25;
+            doc.setFillColor(26, 26, 26);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 14, 2, 2, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.setTextColor(255, 255, 255);
+            doc.text('YASAM YOLU', pageWidth / 2, yPos + 9, { align: 'center' });
+            
+            yPos += 22;
+            
+            // Yaşam Yolu Number
+            doc.setFillColor(255, 140, 0);
+            doc.circle(pageWidth / 2, yPos + 10, 15, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(20);
+            doc.setTextColor(255, 255, 255);
+            doc.text(yasam_yolu, pageWidth / 2, yPos + 15, { align: 'center' });
+            
+            yPos += 35;
+            
+            // Yaşam Yolu Yorumu
+            var yasam_yolu_aciklama = `{{ results.yasam_yolu_aciklama | replace('\n', '\\n') | replace('\r', '') | replace("'", "\\'") | safe }}`;
+            yPos = addWrappedText(yasam_yolu_aciklama, margin + 5, yPos, contentWidth - 10, 5, 'normal', 10, [60, 60, 60]);
+            
+            // ============ PAGE - PIN KODU ============
+            doc.addPage();
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 12, 'F');
+            
+            yPos = 25;
+            doc.setFillColor(26, 26, 26);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 14, 2, 2, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.setTextColor(255, 255, 255);
+            doc.text('PIN KODU VE YORUMLARI', pageWidth / 2, yPos + 9, { align: 'center' });
+            
+            yPos += 27;
+            
+            // Pin Kodu Table (larger)
+            var chartStartX = pageWidth / 2 - 30;
+            var chartCellSize = 18;
+            
+            doc.setFillColor(248, 249, 250);
+            doc.roundedRect(chartStartX - 15, yPos - 5, 90, 95, 3, 3, 'F');
+            
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(11);
+            doc.setTextColor(255, 140, 0);
+            // Row 1 - Birth date parts
+            doc.text(dogumGunuParts[0] || '', chartStartX + chartCellSize * 0.5, yPos + 10, { align: 'center' });
+            doc.text(dogumGunuParts[1] || '', chartStartX + chartCellSize * 1.5, yPos + 10, { align: 'center' });
+            doc.text(dogumGunuParts[2] || '', chartStartX + chartCellSize * 2.5, yPos + 10, { align: 'center' });
+            
+            yPos += chartCellSize;
+            doc.setFontSize(14);
+            doc.setTextColor(26, 26, 26);
+            // Row 2 - Pin codes 0-4
+            for (var i = 0; i < 5; i++) {
+                doc.text(pinKodu[i] || '', chartStartX + chartCellSize * (i + 0.5), yPos + 10, { align: 'center' });
+            }
+            
+            yPos += chartCellSize;
+            // Row 3 - Pin codes 5-6
+            doc.text(pinKodu[5] || '', chartStartX + chartCellSize * 1.5, yPos + 10, { align: 'center' });
+            doc.text(pinKodu[6] || '', chartStartX + chartCellSize * 2.5, yPos + 10, { align: 'center' });
+            
+            yPos += chartCellSize;
+            // Row 4 - Pin code 7
+            doc.text(pinKodu[7] || '', chartStartX + chartCellSize * 2.5, yPos + 10, { align: 'center' });
+            
+            yPos += chartCellSize;
+            // Row 5 - Pin code 8
+            doc.setTextColor(255, 140, 0);
+            doc.setFontSize(16);
+            doc.text(pinKodu[8] || '', chartStartX + chartCellSize * 2.5, yPos + 10, { align: 'center' });
+            
+            yPos += 30;
+            
+            // Pin Kodu Yorumları
+            {% for yorum in results.pin_kodu_yorumlari %}
+            if (yPos > pageHeight - 50) {
+                doc.addPage();
+                doc.setFillColor(255, 140, 0);
+                doc.rect(0, 0, pageWidth, 12, 'F');
+                yPos = 25;
+            }
+            
+            doc.setFillColor(255, 140, 0);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 8, 1, 1, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(255, 255, 255);
+            doc.text('{{ loop.index }}. Hane Yorumu', margin + 5, yPos + 5.5);
+            yPos += 12;
+            
+            var pinYorum{{ loop.index }} = `{{ yorum | replace('\n', '\\n') | replace('\r', '') | replace("'", "\\'") | safe }}`;
+            yPos = addWrappedText(pinYorum{{ loop.index }}, margin + 5, yPos, contentWidth - 10, 4.5, 'normal', 9, [60, 60, 60]);
+            yPos += 8;
+            {% endfor %}
+            
+            // ============ PAGE - CAKRALAR ============
+            doc.addPage();
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 12, 'F');
+            
+            yPos = 25;
+            doc.setFillColor(26, 26, 26);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 14, 2, 2, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.setTextColor(255, 255, 255);
+            doc.text('CAKRA DAGILIMI VE YORUMLARI', pageWidth / 2, yPos + 9, { align: 'center' });
+            
+            yPos += 27;
+            
+            // Çakra tablosu
+            var chakraData = [
+                {% for chakra in results.chakra %}
+                {
+                    left_plus: "{{ chakra.left_plus }}",
+                    number: "{{ chakra.number }}",
+                    right_plus: "{{ chakra.right_plus }}",
+                    {% if chakra.has_ek_isim %}
+                    ek_plus: "{{ chakra.ek_plus }}",
+                    {% endif %}
+                    pin_code: pinKodu[{{ 9 - loop.index }}]
+                },
+                {% endfor %}
+            ];
+            
+            doc.setFillColor(248, 249, 250);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, chakraData.length * 10 + 10, 3, 3, 'F');
+            
+            yPos += 8;
+            chakraData.forEach((chakra, idx) => {
+                doc.setFont('helvetica', 'normal');
+                doc.setFontSize(10);
+                doc.setTextColor(100, 100, 100);
+                doc.text(chakra.left_plus, pageWidth / 2 - 30, yPos, { align: 'right' });
+                
+                doc.setTextColor(26, 26, 26);
+                doc.setFont('helvetica', 'bold');
+                doc.text(chakra.number, pageWidth / 2, yPos, { align: 'center' });
+                
+                doc.setFont('helvetica', 'normal');
+                doc.setTextColor(100, 100, 100);
+                doc.text(chakra.right_plus, pageWidth / 2 + 30, yPos, { align: 'left' });
+                
+                if (chakra.ek_plus) {
+                    doc.text('|  ' + chakra.ek_plus, pageWidth / 2 + 60, yPos, { align: 'left' });
+                }
+                
+                doc.setTextColor(255, 140, 0);
+                doc.setFont('helvetica', 'bold');
+                doc.text(chakra.pin_code, pageWidth - margin - 20, yPos, { align: 'center' });
+                
+                yPos += 10;
+            });
+            
+            yPos += 15;
+            
+            // Çakra Yorumları
+            {% if results.chakra_yorumlari %}
+            {% for yorum in results.chakra_yorumlari %}
+            if (yPos > pageHeight - 50) {
+                doc.addPage();
+                doc.setFillColor(255, 140, 0);
+                doc.rect(0, 0, pageWidth, 12, 'F');
+                yPos = 25;
+            }
+            
+            doc.setFillColor(255, 140, 0);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 8, 1, 1, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(10);
+            doc.setTextColor(255, 255, 255);
+            doc.text('{{ loop.index }}. Cakra Yorumu', margin + 5, yPos + 5.5);
+            yPos += 12;
+            
+            var chakraYorum{{ loop.index }} = `{{ yorum | replace('\n', '\\n') | replace('\r', '') | replace("'", "\\'") | safe }}`;
+            yPos = addWrappedText(chakraYorum{{ loop.index }}, margin + 5, yPos, contentWidth - 10, 4.5, 'normal', 9, [60, 60, 60]);
+            yPos += 8;
+            {% endfor %}
+            {% endif %}
+            
+            // ============ PAGE - MERKEZ SAYI ============
+            doc.addPage();
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 12, 'F');
+            
+            yPos = 25;
+            doc.setFillColor(26, 26, 26);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 14, 2, 2, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.setTextColor(255, 255, 255);
+            doc.text('MERKEZ SAYI / ANA KULVAR', pageWidth / 2, yPos + 9, { align: 'center' });
+            
+            yPos += 27;
+            
+            // Merkez Sayı Number
+            doc.setFillColor(255, 140, 0);
+            doc.circle(pageWidth / 2, yPos + 10, 15, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(20);
+            doc.setTextColor(255, 255, 255);
+            doc.text(merkez_sayi, pageWidth / 2, yPos + 15, { align: 'center' });
+            
+            yPos += 35;
+            
+            // Merkez Sayı Yorumu
+            var merkez_sayi_sonuc = `{{ results.merkez_sayi_sonuc | replace('\n', '\\n') | replace('\r', '') | replace("'", "\\'") | safe }}`;
+            yPos = addWrappedText(merkez_sayi_sonuc, margin + 5, yPos, contentWidth - 10, 5, 'normal', 10, [60, 60, 60]);
+            
+            yPos += 15;
+            
+            // Tam Kulvar
+            if (yPos > pageHeight - 60) {
+                doc.addPage();
+                doc.setFillColor(255, 140, 0);
+                doc.rect(0, 0, pageWidth, 12, 'F');
+                yPos = 25;
+            }
+            
+            doc.setFillColor(248, 249, 250);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 25, 3, 3, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(11);
+            doc.setTextColor(26, 26, 26);
+            doc.text('Tam Kulvar (Butun harflerin toplami):', margin + 10, yPos + 10);
+            doc.setFontSize(16);
+            doc.setTextColor(255, 140, 0);
+            doc.text(tam_kulvar, margin + 10, yPos + 20);
+            
+            // ============ PAGE - DONUSUM YILLARI ============
+            doc.addPage();
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 12, 'F');
+            
+            yPos = 25;
+            doc.setFillColor(26, 26, 26);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 14, 2, 2, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.setTextColor(255, 255, 255);
+            doc.text('DONUSUM YILLARI', pageWidth / 2, yPos + 9, { align: 'center' });
+            
+            yPos += 27;
+            
+            var donusum_yillari = `{{ results.donusum_yillari | replace('\n', '\\n') | replace('\r', '') | replace("'", "\\'") | safe }}`;
+            yPos = addWrappedText(donusum_yillari, margin + 5, yPos, contentWidth - 10, 5, 'normal', 10, [60, 60, 60]);
+            
+            // ============ PAGE - MIZAC TABLOSU ============
+            doc.addPage();
+            doc.setFillColor(255, 140, 0);
+            doc.rect(0, 0, pageWidth, 12, 'F');
+            
+            yPos = 25;
+            doc.setFillColor(26, 26, 26);
+            doc.roundedRect(margin, yPos, pageWidth - margin * 2, 14, 2, 2, 'F');
+            doc.setFont('helvetica', 'bold');
+            doc.setFontSize(12);
+            doc.setTextColor(255, 255, 255);
+            doc.text('MIZAC OZELLIKLERI', pageWidth / 2, yPos + 9, { align: 'center' });
+            
+            yPos += 30;
+            
+            // Mizaç tablosu using autoTable
+            doc.autoTable({
+                startY: yPos,
+                head: [['', 'Esnek', 'Kati', 'Baskin', 'Edilgen']],
+                body: [
+                    ['Hava', '{{ results.pin_kodu_ozellikleri.hava.esnek }}', '{{ results.pin_kodu_ozellikleri.hava.katı }}', '{{ results.pin_kodu_ozellikleri.hava.baskın }}', '{{ results.pin_kodu_ozellikleri.hava.edilgen }}'],
+                    ['Su', '{{ results.pin_kodu_ozellikleri.su.esnek }}', '{{ results.pin_kodu_ozellikleri.su.katı }}', '{{ results.pin_kodu_ozellikleri.su.baskın }}', '{{ results.pin_kodu_ozellikleri.su.edilgen }}'],
+                    ['Toprak', '{{ results.pin_kodu_ozellikleri.toprak.esnek }}', '{{ results.pin_kodu_ozellikleri.toprak.katı }}', '{{ results.pin_kodu_ozellikleri.toprak.baskın }}', '{{ results.pin_kodu_ozellikleri.toprak.edilgen }}'],
+                    ['Ates', '{{ results.pin_kodu_ozellikleri.ates.esnek }}', '{{ results.pin_kodu_ozellikleri.ates.katı }}', '{{ results.pin_kodu_ozellikleri.ates.baskın }}', '{{ results.pin_kodu_ozellikleri.ates.edilgen }}']
+                ],
+                theme: 'grid',
+                headStyles: {
+                    fillColor: [26, 26, 26],
+                    textColor: [255, 255, 255],
+                    fontSize: 11,
+                    fontStyle: 'bold',
+                    halign: 'center'
+                },
+                bodyStyles: {
+                    fontSize: 11,
+                    halign: 'center',
+                    textColor: [60, 60, 60]
+                },
+                columnStyles: {
+                    0: { fillColor: [248, 249, 250], fontStyle: 'bold', halign: 'left' }
+                },
+                margin: { left: margin, right: margin },
+                styles: {
+                    cellPadding: 5
+                }
+            });
+            
+            // Footer on last page
+            yPos = doc.autoTable.previous.finalY + 30;
+            doc.setFont('helvetica', 'normal');
+            doc.setFontSize(9);
+            doc.setTextColor(150, 150, 150);
+            doc.text('Bu rapor Numeroloji-Ebced Hesaplama sistemi tarafindan olusturulmustur.', pageWidth / 2, yPos, { align: 'center' });
+            doc.text(new Date().toLocaleDateString('tr-TR'), pageWidth / 2, yPos + 6, { align: 'center' });
+            
+            // Save PDF
+            var fileName = convertTurkish(isimSoyisim).replace(/\s+/g, '_') + '_Numeroloji_Analizi.pdf';
+            doc.save(fileName);
+            
+        } catch (error) {
+            console.error('PDF olusturma hatasi:', error);
+            alert('PDF olusturulurken bir hata olustu. Lutfen tekrar deneyin. Hata: ' + error.message);
+        }
+        
+        // Reset button
+        btn.classList.remove('loading');
+        btn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg> PDF Indir';
+    }, 100);
+}
+</script>
+{% endif %}
+{% endblock %}

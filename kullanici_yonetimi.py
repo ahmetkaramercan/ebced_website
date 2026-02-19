@@ -8,7 +8,7 @@ def main():
         print("1. Kullanıcı Ekle")
         print("2. Kullanıcı Sil")
         print("3. Kullanıcıyı Deaktive Et")
-        print("4. Kullanıcıyı Aktive Et")
+        print("4. Kullanıcı Süresini Uzat")
         print("5. Tüm Kullanıcıları Listele")
         print("6. Kullanıcı Bilgilerini Göster")
         print("7. Kullanıcı Tarihini Güncelle")
@@ -20,7 +20,14 @@ def main():
         if secim == "1":
             kullanici_adi = input("Kullanıcı adı: ")
             sifre = input("Şifre: ")
-            vt.kullanici_ekle(kullanici_adi, sifre)
+            try:
+                ay_sayisi = int(input("Kaç aylık üyelik eklenecek? (1-12): "))
+                if ay_sayisi < 1 or ay_sayisi > 12:
+                    print("Hata: Ay sayısı 1-12 arasında olmalıdır!")
+                    continue
+                vt.kullanici_ekle(kullanici_adi, sifre, ay_sayisi)
+            except ValueError:
+                print("Hata: Geçerli bir sayı giriniz!")
         
         elif secim == "2":
             kullanici_adi = input("Silinecek kullanıcı adı: ")
@@ -31,8 +38,15 @@ def main():
             vt.kullaniciyi_deaktive_et(kullanici_adi)
         
         elif secim == "4":
-            kullanici_adi = input("Aktive edilecek kullanıcı adı: ")
-            vt.kullaniciyi_aktive_et(kullanici_adi)
+            kullanici_adi = input("Süresi uzatılacak kullanıcı adı: ")
+            try:
+                ay_sayisi = int(input("Kaç ay uzatılacak? (1-12): "))
+                if ay_sayisi < 1 or ay_sayisi > 12:
+                    print("Hata: Ay sayısı 1-12 arasında olmalıdır!")
+                    continue
+                vt.kullanici_suresini_uzat(kullanici_adi, ay_sayisi)
+            except ValueError:
+                print("Hata: Geçerli bir sayı giriniz!")
         
         elif secim == "5":
             vt.butun_kullanici_bilgileri()
